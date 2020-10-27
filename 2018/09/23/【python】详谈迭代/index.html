@@ -77,7 +77,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,47 +224,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Python迭代方法for可以说是与C#的foreach惊人的相似，在这一章无疑对C#程序员更容易理解，但是这里还是小谈几点</p>
-<a id="more"></a>
-<h1 id="①应用范围："><a href="#①应用范围：" class="headerlink" title="①应用范围："></a>①应用范围：</h1><p>理论上，使用for迭代可适用于各种集合，包括但不限于我们之前学习的：</p>
-<p>1. <strong>有序集合</strong>：list，tuple，str和unicode；<br>2. <strong>无序集合</strong>：set<br>3. <strong>无序集合并且具有 key-value 对</strong>：dict</p>
-<h1 id="②List索引迭代"><a href="#②List索引迭代" class="headerlink" title="②List索引迭代"></a>②List索引迭代</h1><p>Python中，<strong>迭代永远是取出元素本身，而非元素的索引。</strong>若想提取出元素索引，可以使用<strong>enumerate() 函数</strong>：</p>
-<p>&gt;&gt;&gt; L = [‘Adam’, ‘Lisa’, ‘Bart’, ‘Paul’]</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>for index, name in enumerate(L):<br>…     print index, ‘-‘, name<br>…<br>0 - Adam<br>1 - Lisa<br>2 - Bart<br>3 - Paul</p>
-</blockquote>
-</blockquote>
-</blockquote>
+        <p>Python迭代方法for可以说是与C#的foreach惊人的相似，在这一章无疑对C#程序员更容易理解，但是这里还是小谈几点 <a id="more"></a> # ①应用范围：</p>
+<p>理论上，使用for迭代可适用于各种集合，包括但不限于我们之前学习的：</p>
+<p>1. <strong>有序集合</strong>：list，tuple，str和unicode； 2. <strong>无序集合</strong>：set 3. <strong>无序集合并且具有 key-value 对</strong>：dict</p>
+<h1 id="list索引迭代">②List索引迭代</h1>
+<p>Python中，<strong>迭代永远是取出元素本身，而非元素的索引。</strong>若想提取出元素索引，可以使用<strong>enumerate() 函数</strong>：</p>
+<p>&gt;&gt;&gt; L = ['Adam', 'Lisa', 'Bart', 'Paul'] &gt;&gt;&gt; for index, name in enumerate(L): ... print index, '-', name ... 0 - Adam 1 - Lisa 2 - Bart 3 - Paul</p>
 <p>其实，enumerate() 函数是将链表的索引与元素捆绑形成一个个Tuple链表，提取时是提取Tuple列表的值而已：</p>
-<p><strong>[‘Adam’, ‘Lisa’, ‘Bart’, ‘Paul’]</strong></p>
+<p><strong>['Adam', 'Lisa', 'Bart', 'Paul']</strong></p>
 <p>👇</p>
-<p><strong>[(0, ‘Adam’), (1, ‘Lisa’), (2, ‘Bart’), (3, ‘Paul’)]</strong></p>
+<p><strong>[(0, 'Adam'), (1, 'Lisa'), (2, 'Bart'), (3, 'Paul')]</strong></p>
 <p>因此，迭代的每一个元素实际上是一个tuple：</p>
-<p>for t in enumerate(L):<br>    index = t[0]<br>    name = t[1]<br>    print index, ‘-‘, name</p>
+<p>for t in enumerate(L): index = t[0] name = t[1] print index, '-', name</p>
 <p>如果我们知道每个tuple元素都包含两个元素，for循环又可以进一步简写为：</p>
-<p>for index, name in enumerate(L):<br>    print index, ‘-‘, name</p>
+<p>for index, name in enumerate(L): print index, '-', name</p>
 <p>这样不但代码更简单，而且还少了两条赋值语句。</p>
-<h1 id="③dict中value的迭代"><a href="#③dict中value的迭代" class="headerlink" title="③dict中value的迭代"></a>③dict中value的迭代</h1><p>我们已经了解了<strong>dict对象</strong>本身就是可<strong>迭代对象</strong>，用 for 循环直接迭代 dict，可以每次拿到dict的一个key。 如果我们希望迭代 dict 对象的value，应该怎么做？ <strong>方法一：直接迭代出key，再通过key得到value，然后打印出value</strong> <strong>方法二：</strong> dict 对象有一个 <strong>values() 方法</strong>，这个方法把dict转换成一个包含所有value的list，这样，我们迭代的就是 dict的每一个 value：</p>
-<p>d = { ‘Adam’: 95, ‘Lisa’: 85, ‘Bart’: 59 }<br>print d.values()</p>
-<h1 id="85-95-59"><a href="#85-95-59" class="headerlink" title="[85, 95, 59]"></a>[85, 95, 59]</h1><p>for v in d.values():<br>    print v</p>
-<h1 id="85"><a href="#85" class="headerlink" title="85"></a>85</h1><h1 id="95"><a href="#95" class="headerlink" title="95"></a>95</h1><h1 id="59"><a href="#59" class="headerlink" title="59"></a>59</h1><p>如果仔细阅读Python的文档，还可以发现，dict除了<strong>values()**方法外，还有一个 **itervalues()</strong> 方法，用 <strong>itervalues()</strong> 方法替代 <strong>values()</strong> 方法，迭代效果完全一样：</p>
-<p>d = { ‘Adam’: 95, ‘Lisa’: 85, ‘Bart’: 59 }<br>print d.itervalues()</p>
-<h1 id="lt-dictionary-valueiterator-object-at-0x106adbb50-gt"><a href="#lt-dictionary-valueiterator-object-at-0x106adbb50-gt" class="headerlink" title="&lt;dictionary-valueiterator object at 0x106adbb50&gt;"></a>&lt;dictionary-valueiterator object at 0x106adbb50&gt;</h1><p>for v in d.itervalues():<br>    print v</p>
-<h1 id="85-1"><a href="#85-1" class="headerlink" title="85"></a>85</h1><h1 id="95-1"><a href="#95-1" class="headerlink" title="95"></a>95</h1><h1 id="59-1"><a href="#59-1" class="headerlink" title="59"></a>59</h1><p><strong>那这两个方法有何不同之处呢？</strong> 1. <strong>values()</strong> 方法实际上把一个 dict 转换成了包含 value 的list。 2. 但是 <strong>itervalues()</strong> 方法不会转换，它会在迭代过程中依次从 dict 中取出 value，所以 itervalues() 方法比 values() 方法节省了生成 list 所需的内存。 3. 打印 itervalues() 发现它返回一个 <dictionary-valueiterator> 对象，这说明在Python中，<strong>for 循环可作用的迭代对象远不止 list，tuple，str，unicode，dict等</strong>，任何可迭代对象都可以作用于for循环，而内部如何迭代我们通常并不用关心。 <strong>如果一个对象说自己可迭代，那我们就直接用 for 循环去迭代它，可见，迭代是一种抽象的数据操作，它不对迭代对象内部的数据有任何要求。</strong></p>
-<h1 id="④dict同时迭代key和value"><a href="#④dict同时迭代key和value" class="headerlink" title="④dict同时迭代key和value"></a>④dict同时迭代key和value</h1><p><strong>方法一：直接迭代出key，再通过key得到value，然后一起打印</strong> <strong>方法二：使用items()方法</strong> 首先，我们看看 dict 对象的 <strong>items()</strong> 方法返回的值：</p>
-<p>&gt;&gt;&gt; d = { ‘Adam’: 95, ‘Lisa’: 85, ‘Bart’: 59 }</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>print d.items()<br>[(‘Lisa’, 85), (‘Adam’, 95), (‘Bart’, 59)]</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<h1 id="dict中value的迭代">③dict中value的迭代</h1>
+<p>我们已经了解了<strong>dict对象</strong>本身就是可<strong>迭代对象</strong>，用 for 循环直接迭代 dict，可以每次拿到dict的一个key。 如果我们希望迭代 dict 对象的value，应该怎么做？ <strong>方法一：直接迭代出key，再通过key得到value，然后打印出value</strong> <strong>方法二：</strong> dict 对象有一个 <strong>values() 方法</strong>，这个方法把dict转换成一个包含所有value的list，这样，我们迭代的就是 dict的每一个 value：</p>
+<p>d = { 'Adam': 95, 'Lisa': 85, 'Bart': 59 } print d.values() # [85, 95, 59] for v in d.values(): print v # 85 # 95 # 59</p>
+<p>如果仔细阅读Python的文档，还可以发现，dict除了<strong>values()</strong>方法外，还有一个 <strong>itervalues()</strong> 方法，用 <strong>itervalues()</strong> 方法替代 <strong>values()</strong> 方法，迭代效果完全一样：</p>
+<p>d = { 'Adam': 95, 'Lisa': 85, 'Bart': 59 } print d.itervalues() # &lt;dictionary-valueiterator object at 0x106adbb50&gt; for v in d.itervalues(): print v # 85 # 95 # 59</p>
+<p><strong>那这两个方法有何不同之处呢？</strong> 1. <strong>values()</strong> 方法实际上把一个 dict 转换成了包含 value 的list。 2. 但是 <strong>itervalues()</strong> 方法不会转换，它会在迭代过程中依次从 dict 中取出 value，所以 itervalues() 方法比 values() 方法节省了生成 list 所需的内存。 3. 打印 itervalues() 发现它返回一个 <dictionary-valueiterator> 对象，这说明在Python中，<strong>for 循环可作用的迭代对象远不止 list，tuple，str，unicode，dict等</strong>，任何可迭代对象都可以作用于for循环，而内部如何迭代我们通常并不用关心。 <strong>如果一个对象说自己可迭代，那我们就直接用 for 循环去迭代它，可见，迭代是一种抽象的数据操作，它不对迭代对象内部的数据有任何要求。</strong></p>
+<h1 id="dict同时迭代key和value">④dict同时迭代key和value</h1>
+<p><strong>方法一：直接迭代出key，再通过key得到value，然后一起打印</strong> <strong>方法二：使用items()方法</strong> 首先，我们看看 dict 对象的 <strong>items()</strong> 方法返回的值：</p>
+<p>&gt;&gt;&gt; d = { 'Adam': 95, 'Lisa': 85, 'Bart': 59 } &gt;&gt;&gt; print d.items() [('Lisa', 85), ('Adam', 95), ('Bart', 59)]</p>
 <p>可以看到，items() 方法把dict对象转换成了包含tuple的list，我们对这个list进行迭代，可以同时获得key和value：</p>
-<p>&gt;&gt;&gt; for key, value in d.items():<br>…     print key, ‘:’, value<br>…<br>Lisa : 85<br>Adam : 95<br>Bart : 59</p>
-<p>和 values() 有一个 itervalues() 类似， <strong>items()</strong> 也有一个对应的 **iteritems()**，iteritems() 不把dict转换成list，而是在迭代过程中不断给出 tuple，所以， iteritems() 不占用额外的内存。</p>
+<p>&gt;&gt;&gt; for key, value in d.items(): ... print key, ':', value ... Lisa : 85 Adam : 95 Bart : 59</p>
+<p>和 values() 有一个 itervalues() 类似， <strong>items()</strong> 也有一个对应的 <strong>iteritems()</strong>，iteritems() 不把dict转换成list，而是在迭代过程中不断给出 tuple，所以， iteritems() 不占用额外的内存。</p>
 
     </div>
 
@@ -344,7 +334,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A0%E5%BA%94%E7%94%A8%E8%8C%83%E5%9B%B4%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">①应用范围：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A1List%E7%B4%A2%E5%BC%95%E8%BF%AD%E4%BB%A3"><span class="nav-number">2.</span> <span class="nav-text">②List索引迭代</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A2dict%E4%B8%ADvalue%E7%9A%84%E8%BF%AD%E4%BB%A3"><span class="nav-number">3.</span> <span class="nav-text">③dict中value的迭代</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#85-95-59"><span class="nav-number">4.</span> <span class="nav-text">[85, 95, 59]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#85"><span class="nav-number">5.</span> <span class="nav-text">85</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#95"><span class="nav-number">6.</span> <span class="nav-text">95</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#59"><span class="nav-number">7.</span> <span class="nav-text">59</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lt-dictionary-valueiterator-object-at-0x106adbb50-gt"><span class="nav-number">8.</span> <span class="nav-text">&lt;dictionary-valueiterator object at 0x106adbb50&gt;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#85-1"><span class="nav-number">9.</span> <span class="nav-text">85</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#95-1"><span class="nav-number">10.</span> <span class="nav-text">95</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#59-1"><span class="nav-number">11.</span> <span class="nav-text">59</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A3dict%E5%90%8C%E6%97%B6%E8%BF%AD%E4%BB%A3key%E5%92%8Cvalue"><span class="nav-number">12.</span> <span class="nav-text">④dict同时迭代key和value</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#list%E7%B4%A2%E5%BC%95%E8%BF%AD%E4%BB%A3"><span class="nav-number">1.</span> <span class="nav-text">②List索引迭代</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dict%E4%B8%ADvalue%E7%9A%84%E8%BF%AD%E4%BB%A3"><span class="nav-number">2.</span> <span class="nav-text">③dict中value的迭代</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dict%E5%90%8C%E6%97%B6%E8%BF%AD%E4%BB%A3key%E5%92%8Cvalue"><span class="nav-number">3.</span> <span class="nav-text">④dict同时迭代key和value</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -358,7 +348,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -367,7 +357,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -449,6 +439,8 @@
 
 
 
+
+  
 
   
 

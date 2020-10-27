@@ -85,7 +85,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,10 +224,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这几天刚刚上手CLion，准备从github导入自己的C++库，虽然导入成功，但是运行按钮是灰色的，而且显示需要手动指定CMakelists.txt，到网上搜索无果，最后自己摸索出来了，希望能帮到有同样问题的朋友。</p>
-<a id="more"></a>
-<p>刚刚导入的时候是这样的： <img src="https://www.z4a.net/images/2020/07/08/_2020-07-08_08-51-03.png"> <strong>先说结论： 这是由于VS默认是不在项目中创建CMake结构的，但是CLion必须要这个才能编译运行项目。</strong> 解决方法也很简单，为项目创建CMake结构即可：</p>
-<h2 id="创建CMake结构"><a href="#创建CMake结构" class="headerlink" title="创建CMake结构"></a>创建CMake结构</h2><p>①在导航栏的**”File”<strong>中有个</strong>“New CMake project from Sources…”**，点击即可开始创建CMake结构。 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-51-39.png"> ②在弹出的窗口中选择当前项目，即为当前项目添加结构 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-52-13.png"> ③点击OK后，在之后的窗口选择要导入CMake的文件 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-52-58.png"> ④再次点击OK后，CMake结构已经添加，需要重载项目，等待CMake加载完成即可 <img src="https://www.z4a.net/images/2020/07/08/2020-07-08_08-53-26.png"> ⑤加载完成后，运行面板就可以使用了，此时直接编译运行项目即可。 <img src="https://www.z4a.net/images/2020/07/08/_2020-07-08_08-54-06.png"></p>
+        <p>这几天刚刚上手CLion，准备从github导入自己的C++库，虽然导入成功，但是运行按钮是灰色的，而且显示需要手动指定CMakelists.txt，到网上搜索无果，最后自己摸索出来了，希望能帮到有同样问题的朋友。 <a id="more"></a> 刚刚导入的时候是这样的： <img src="https://www.z4a.net/images/2020/07/08/_2020-07-08_08-51-03.png" /> <strong>先说结论： 这是由于VS默认是不在项目中创建CMake结构的，但是CLion必须要这个才能编译运行项目。</strong> 解决方法也很简单，为项目创建CMake结构即可：</p>
+<h2 id="创建cmake结构">创建CMake结构</h2>
+<p>①在导航栏的<strong>"File"</strong>中有个<strong>"New CMake project from Sources..."</strong>，点击即可开始创建CMake结构。 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-51-39.png" /> ②在弹出的窗口中选择当前项目，即为当前项目添加结构 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-52-13.png" /> ③点击OK后，在之后的窗口选择要导入CMake的文件 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-52-58.png" /> ④再次点击OK后，CMake结构已经添加，需要重载项目，等待CMake加载完成即可 <img src="https://www.z4a.net/images/2020/07/08/2020-07-08_08-53-26.png" /> ⑤加载完成后，运行面板就可以使用了，此时直接编译运行项目即可。 <img src="https://www.z4a.net/images/2020/07/08/_2020-07-08_08-54-06.png" /></p>
 
     </div>
 
@@ -247,8 +250,8 @@
       <i class="fa fa-chevron-left"></i> 【C#】定义多泛型、泛型约束与接口并用
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/10/27/hello-world/" rel="next" title="Hello World">
-      Hello World <i class="fa fa-chevron-right"></i>
+    <a href="/2020/10/27/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E6%9C%AC%E8%B4%A8/" rel="next" title="线性代数的本质">
+      线性代数的本质 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -308,7 +311,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BACMake%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">创建CMake结构</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAcmake%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">创建CMake结构</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -322,7 +325,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -331,7 +334,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -413,6 +416,8 @@
 
 
 
+
+  
 
   
 

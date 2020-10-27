@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="正则表达式： 数组类型[ ]  数组名&#x3D;new  数组类型[长度]">
+  <meta name="description" content="正则表达式： 数组类型[ ]  数组名&#x3D;new  数组类型[长度]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【C#】数组基础">
 <meta property="og:url" content="http://example.com/2018/08/08/%E3%80%90c%E3%80%91%E6%95%B0%E7%BB%84%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="正则表达式： 数组类型[ ]  数组名&#x3D;new  数组类型[长度]">
+<meta property="og:description" content="正则表达式： 数组类型[ ]  数组名&#x3D;new  数组类型[长度]">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://img.mukewang.com/55a70bfa0001cad606270324.jpg">
 <meta property="article:published_time" content="2018-08-08T14:41:10.000Z">
@@ -79,7 +79,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -223,9 +227,11 @@
 
       
         <p>正则表达式：</p>
-<h4 id="数组类型-数组名-new-数组类型-长度"><a href="#数组类型-数组名-new-数组类型-长度" class="headerlink" title="数组类型[ ]  数组名=new  数组类型[长度]"></a>数组类型[ ]  数组名=new  数组类型[长度]</h4><a id="more"></a>
-<p>①数组索引从<strong>零</strong>开始递增 ②<strong>数组经过初始化以后，数组元素有默认的初始值</strong>， <strong>double</strong> 类型为 0.0 ， <strong>int</strong> 类型为 0 ， <strong>char</strong> 类型为 ‘a’ ， <strong>bool</strong> 类型为 <strong>false</strong> ， <strong>string</strong> 类型为 <strong>null ** ③ **数组名.Length</strong> 属性会返回数组的长度 ④实例化数组且赋值：int [ ] a=new int [ 3 ]<strong>{1,2,3}</strong>         <img src="http://img.mukewang.com/55a70bfa0001cad606270324.jpg">   二维数组：</p>
-<h4 id="数组类型-，-数组名-new-数组类型-x长度，y长度"><a href="#数组类型-，-数组名-new-数组类型-x长度，y长度" class="headerlink" title="数组类型[ ，]  数组名=new  数组类型[x长度，y长度]"></a>数组类型[ <strong>，</strong>]  数组名=new  数组类型[x长度，y长度]</h4><p>  ①int[,] a = new int [3,3]**{ { 1, 2, 3 }, { 4, 5, 6 },{ 7, 8, 9 } };** ②返回数组中一维数组的个数：<strong>数组名.GetLongLength(0)</strong></p>
+<h4 id="数组类型-数组名new-数组类型长度">数组类型[ ]  数组名=new  数组类型[长度]</h4>
+<a id="more"></a>
+<p>①数组索引从<strong>零</strong>开始递增 ②<strong>数组经过初始化以后，数组元素有默认的初始值</strong>， <strong>double</strong> 类型为 0.0 ， <strong>int</strong> 类型为 0 ， <strong>char</strong> 类型为 'a' ， <strong>bool</strong> 类型为 <strong>false</strong> ， <strong>string</strong> 类型为 <strong>null </strong> ③ <strong>数组名.Length</strong> 属性会返回数组的长度 ④实例化数组且赋值：int [ ] a=new int [ 3 ]<strong>{1,2,3}</strong>         <img src="http://img.mukewang.com/55a70bfa0001cad606270324.jpg" />   二维数组：</p>
+<h4 id="数组类型-数组名new-数组类型x长度y长度">数组类型[ <strong>，</strong>]  数组名=new  数组类型[x长度，y长度]</h4>
+<p>  ①int[,] a = new int [3,3]<strong>{ { 1, 2, 3 }, { 4, 5, 6 },{ 7, 8, 9 } };</strong> ②返回数组中一维数组的个数：<strong>数组名.GetLongLength(0)</strong></p>
 
     </div>
 
@@ -309,7 +315,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B-%E6%95%B0%E7%BB%84%E5%90%8D-new-%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B-%E9%95%BF%E5%BA%A6"><span class="nav-number">1.</span> <span class="nav-text">数组类型[ ]  数组名&#x3D;new  数组类型[长度]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B-%EF%BC%8C-%E6%95%B0%E7%BB%84%E5%90%8D-new-%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B-x%E9%95%BF%E5%BA%A6%EF%BC%8Cy%E9%95%BF%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text">数组类型[ ，]  数组名&#x3D;new  数组类型[x长度，y长度]</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B-%E6%95%B0%E7%BB%84%E5%90%8Dnew-%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B%E9%95%BF%E5%BA%A6"><span class="nav-number">1.</span> <span class="nav-text">数组类型[ ]  数组名&#x3D;new  数组类型[长度]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B-%E6%95%B0%E7%BB%84%E5%90%8Dnew-%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8Bx%E9%95%BF%E5%BA%A6y%E9%95%BF%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text">数组类型[ ，]  数组名&#x3D;new  数组类型[x长度，y长度]</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -323,7 +329,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -332,7 +338,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -414,6 +420,8 @@
 
 
 
+
+  
 
   
 

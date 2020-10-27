@@ -85,7 +85,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -228,106 +232,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Python内置的一种数据类型是列表：<strong>list</strong>。list是一种有序的集合，可以随时添加和删除其中的元素。</p>
-<a id="more"></a>
-<h1 id="①创建List列表"><a href="#①创建List列表" class="headerlink" title="①创建List列表"></a>①创建List列表</h1><p>就我而言更喜欢将其与数组相类比 比如Python的</p>
+        <p>Python内置的一种数据类型是列表：<strong>list</strong>。list是一种有序的集合，可以随时添加和删除其中的元素。 <a id="more"></a> # ①创建List列表</p>
+<p>就我而言更喜欢将其与数组相类比 比如Python的</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">L=[<span class="string">&#x27;Michael&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>, <span class="string">&#x27;Tracy&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span> L</span><br></pre></td></tr></table></figure>
-
-<p>（结果为[‘Michael’, ‘Bob’, ‘Tracy’]） 就相当于C#中的</p>
+<p>（结果为['Michael', 'Bob', 'Tracy']） 就相当于C#中的</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>[] L=<span class="keyword">new</span> <span class="built_in">string</span>[<span class="number">3</span>]&#123;<span class="string">&quot;Michael&quot;</span>,<span class="string">&quot;Bob&quot;</span>,<span class="string">&quot;Tracy&quot;</span>&#125;;</span><br><span class="line">Console.WriteLine(<span class="string">&quot;&#123;/&quot;</span>&#123;<span class="number">0</span>&#125;/<span class="string">&quot;,/&quot;</span>&#123;<span class="number">1</span>&#125;/<span class="string">&quot;,/&quot;</span>&#123;<span class="number">2</span>&#125;/<span class="string">&quot;&quot;</span>,L[<span class="number">0</span>],L[<span class="number">1</span>],L[<span class="number">2</span>]&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>（结果为{“Michael”,”Bob”,”Tracy”}） 但是不同之处在于，Python的List列表不限于一种类型，如</p>
+<p>（结果为{"Michael","Bob","Tracy"}） 但是不同之处在于，Python的List列表不限于一种类型，如</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">L=[<span class="string">&#x27;Michael&#x27;</span>, <span class="number">12</span>, <span class="literal">True</span>]</span><br><span class="line"><span class="built_in">print</span> L</span><br></pre></td></tr></table></figure>
-
-<p>也可以编译通过<img src="http://47.94.231.166/wp-content/uploads/2018/04/88.png"> （结果为[‘Michael’, 12, True]） 另外空表也是允许的。</p>
-<h1 id="②打印列表数据"><a href="#②打印列表数据" class="headerlink" title="②打印列表数据"></a>②打印列表数据</h1><p>调用单个元素时，也可以像数组那样使用索引，并且索引也是从零开始。如上面的例子中L[0]的值为Michael。 你以为这么简单就完了？那肯定不成！<img src="http://47.94.231.166/wp-content/uploads/2018/04/23.png"> 在Python中，也可以使用负数索引表示倒序！ 如上例中，L[-1]=Tracy=L[2],L[-2]=Bob=L[1],L[-3]=Micheal=L[0]<img src="http://47.94.231.166/wp-content/uploads/2018/04/28.png"></p>
-<h1 id="③List列表的扩展与缩减"><a href="#③List列表的扩展与缩减" class="headerlink" title="③List列表的扩展与缩减"></a>③List列表的扩展与缩减</h1><p>在C语言中，已经声明的数组还可以用relloc扩充，但是C#的数组一旦被实例化就固定不动了，Python可否更改已经声明了的List呢？ 当然可以！<img src="http://47.94.231.166/wp-content/uploads/2018/04/43.png"> 第一个办法是用 list 的<strong>append()**方法，把新数据追加到 list 的</strong>末尾**：</p>
-<p>&gt;&gt;&gt; L = [‘Adam’, ‘Lisa’, ‘Bart’]</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>L.append(‘Paul’)<br>print L<br>[‘Adam’, ‘Lisa’, ‘Bart’, ‘Paul’</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>第二个方法是用list的**insert()**方法，它接受两个参数，第一个参数是索引号，第二个参数是待添加的新元素：</p>
-<p>&gt;&gt;&gt; L = [‘Adam’, ‘Lisa’, ‘Bart’]</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>L.insert(0, ‘Paul’)<br>print L<br>[‘Paul’, ‘Adam’, ‘Lisa’, ‘Bart’]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p><strong>L.insert(0, ‘Paul’)</strong> 的意思是，’Paul’将被添加到索引为 0 的位置上（也就是第一个），而原来索引为 0 的Adam，以及后面的所有数据，都自动向后移动一位。 那么如何删除数据呢？ 我们可以用list的**pop()**方法删除：</p>
-<p>&gt;&gt;&gt; L = [‘Adam’, ‘Lisa’, ‘Bart’, ‘Paul’]</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>L.pop()<br>‘Paul’<br>print L<br>[‘Adam’, ‘Lisa’, ‘Bart’]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>**pop()**方法总是删掉list的最后一个元素，并且它还返回这个元素，所以我们执行 L.pop() 后，会打印出 ‘Paul’。 然而如果对于这种情况</p>
-<p>&gt;&gt;&gt; L = [‘Adam’, ‘Lisa’, ‘Paul’, ‘Bart’]</p>
-<p>要把Paul踢出list，我们就必须先定位Paul的位置。由于Paul的索引是2，因此，用**pop(2)**把Paul删掉：</p>
-<p>&gt;&gt;&gt; L.pop(2)<br>‘Paul’</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>print L<br>[‘Adam’, ‘Lisa’, ‘Bart’]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h1 id="④替换元素"><a href="#④替换元素" class="headerlink" title="④替换元素"></a>④替换元素</h1><p>比如在以下列表</p>
-<p>&gt;&gt;&gt; L = [‘Adam’, ‘Lisa’, ‘Bart’]</p>
+<p>也可以编译通过<img src="http://47.94.231.166/wp-content/uploads/2018/04/88.png" /> （结果为['Michael', 12, True]） 另外空表也是允许的。</p>
+<h1 id="打印列表数据">②打印列表数据</h1>
+<p>调用单个元素时，也可以像数组那样使用索引，并且索引也是从零开始。如上面的例子中L[0]的值为Michael。 你以为这么简单就完了？那肯定不成！<img src="http://47.94.231.166/wp-content/uploads/2018/04/23.png" /> 在Python中，也可以使用负数索引表示倒序！ 如上例中，L[-1]=Tracy=L[2],L[-2]=Bob=L[1],L[-3]=Micheal=L[0]<img src="http://47.94.231.166/wp-content/uploads/2018/04/28.png" /></p>
+<h1 id="list列表的扩展与缩减">③List列表的扩展与缩减</h1>
+<p>在C语言中，已经声明的数组还可以用relloc扩充，但是C#的数组一旦被实例化就固定不动了，Python可否更改已经声明了的List呢？ 当然可以！<img src="http://47.94.231.166/wp-content/uploads/2018/04/43.png" /> 第一个办法是用 list 的<strong>append()</strong>方法，把新数据追加到 list 的<strong>末尾</strong>：</p>
+<p>&gt;&gt;&gt; L = ['Adam', 'Lisa', 'Bart'] &gt;&gt;&gt; L.append('Paul') &gt;&gt;&gt; print L ['Adam', 'Lisa', 'Bart', 'Paul'</p>
+<p>第二个方法是用list的<strong>insert()</strong>方法，它接受两个参数，第一个参数是索引号，第二个参数是待添加的新元素：</p>
+<p>&gt;&gt;&gt; L = ['Adam', 'Lisa', 'Bart'] &gt;&gt;&gt; L.insert(0, 'Paul') &gt;&gt;&gt; print L ['Paul', 'Adam', 'Lisa', 'Bart']</p>
+<p><strong>L.insert(0, 'Paul')</strong> 的意思是，'Paul'将被添加到索引为 0 的位置上（也就是第一个），而原来索引为 0 的Adam，以及后面的所有数据，都自动向后移动一位。 那么如何删除数据呢？ 我们可以用list的<strong>pop()</strong>方法删除：</p>
+<p>&gt;&gt;&gt; L = ['Adam', 'Lisa', 'Bart', 'Paul'] &gt;&gt;&gt; L.pop() 'Paul' &gt;&gt;&gt; print L ['Adam', 'Lisa', 'Bart']</p>
+<p><strong>pop()</strong>方法总是删掉list的最后一个元素，并且它还返回这个元素，所以我们执行 L.pop() 后，会打印出 'Paul'。 然而如果对于这种情况</p>
+<p>&gt;&gt;&gt; L = ['Adam', 'Lisa', 'Paul', 'Bart']</p>
+<p>要把Paul踢出list，我们就必须先定位Paul的位置。由于Paul的索引是2，因此，用<strong>pop(2)</strong>把Paul删掉：</p>
+<p>&gt;&gt;&gt; L.pop(2) 'Paul' &gt;&gt;&gt; print L ['Adam', 'Lisa', 'Bart']</p>
+<h1 id="替换元素">④替换元素</h1>
+<p>比如在以下列表</p>
+<p>&gt;&gt;&gt; L = ['Adam', 'Lisa', 'Bart']</p>
 <p>中，使用Paul替换掉Bart，可以<strong>直接赋值替换</strong></p>
-<p>&gt;&gt;&gt; L[2] = ‘Paul’</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>print L<br>L = [‘Adam’, ‘Lisa’, ‘Paul’]</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<p>&gt;&gt;&gt; L[2] = 'Paul' &gt;&gt;&gt; print L L = ['Adam', 'Lisa', 'Paul']</p>
 <p>当然你也可以这样秀操作：</p>
-<p>&gt;&gt;&gt; L[-1] = ‘Paul’</p>
-<h1 id="⑤创建tuple列表"><a href="#⑤创建tuple列表" class="headerlink" title="⑤创建tuple列表"></a>⑤创建tuple列表</h1><p>那么如果想创建不能被修改的列表该怎么办呢？ 很简单之前不是用[]声明的吗？这次用（）声明即可，用()声明的列表就是tuple列表 如</p>
-<p>&gt;&gt;&gt; t = (‘Adam’, ‘Lisa’, ‘Bart’)</p>
+<p>&gt;&gt;&gt; L[-1] = 'Paul'</p>
+<h1 id="创建tuple列表">⑤创建tuple列表</h1>
+<p>那么如果想创建不能被修改的列表该怎么办呢？ 很简单之前不是用[]声明的吗？这次用（）声明即可，用()声明的列表就是tuple列表 如</p>
+<p>&gt;&gt;&gt; t = ('Adam', 'Lisa', 'Bart')</p>
 <p>这样，这个列表t就既不能增减，也不能改变。 那么，这里就有了一个问题，即</p>
 <p>t = (1)</p>
-<p>这到底是个什么东西<img src="http://47.94.231.166/wp-content/uploads/2018/04/82.png"> 是tuple列表，还是1加了括号？ 答案是<strong>1加了括号</strong></p>
-<p>&gt;&gt;&gt; t = (1)</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>print t<br>1</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<p>这到底是个什么东西<img src="http://47.94.231.166/wp-content/uploads/2018/04/82.png" /> 是tuple列表，还是1加了括号？ 答案是<strong>1加了括号</strong></p>
+<p>&gt;&gt;&gt; t = (1) &gt;&gt;&gt; print t 1</p>
 <p>那要是想表示tuple列表里只有一个元素该怎么办？ 好说，<strong>加个逗号</strong>即可</p>
-<p>&gt;&gt;&gt; t = (1,)</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>print t<br>(1,)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h1 id="⑥“二维列表”嵌套列表"><a href="#⑥“二维列表”嵌套列表" class="headerlink" title="⑥“二维列表”嵌套列表"></a>⑥“二维列表”嵌套列表</h1><p>注意看这个东西：</p>
-<p>&gt;&gt;&gt; t = (‘a’, ‘b’, [‘A’, ‘B’])</p>
-<p><img src="http://47.94.231.166/wp-content/uploads/2018/04/78.png"> 其实，这只是一个列表嵌套了一个列表而已，如果我想改变里面那个列表该怎么办呢？ 把它“<strong>拽</strong>”出来</p>
-<p>&gt;&gt;&gt; t = (‘a’, ‘b’, [‘A’, ‘B’])</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>L = t[2]<br>L[0] = ‘X’<br>L[1] = ‘Y’<br>print t<br>(‘a’, ‘b’, [‘X’, ‘Y’])</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<p>&gt;&gt;&gt; t = (1,) &gt;&gt;&gt; print t (1,)</p>
+<h1 id="二维列表嵌套列表">⑥“二维列表”嵌套列表</h1>
+<p>注意看这个东西：</p>
+<p>&gt;&gt;&gt; t = ('a', 'b', ['A', 'B'])</p>
+<p><img src="http://47.94.231.166/wp-content/uploads/2018/04/78.png" /> 其实，这只是一个列表嵌套了一个列表而已，如果我想改变里面那个列表该怎么办呢？ 把它“<strong>拽</strong>”出来</p>
+<p>&gt;&gt;&gt; t = ('a', 'b', ['A', 'B']) &gt;&gt;&gt; L = t[2] &gt;&gt;&gt; L[0] = 'X' &gt;&gt;&gt; L[1] = 'Y' &gt;&gt;&gt; print t ('a', 'b', ['X', 'Y'])</p>
 <p>“<strong>拽</strong>”出来后只要是List列表，要增加减少还是替换就看我们怎样操作了。 <strong>将列表转换为字符串：join()方法</strong> 使用方法：<strong>分割字符.join(链表)</strong>,如</p>
-<p>L = [‘Adam’, ‘Lisa’, ‘Bart’]<br>print ‘\n’.join(L)<br>Adam<br>Lisa<br>Bart</p>
-<p>有些同学会问了，后面这几个案例怎么都没有C#对照呢？因为C#的数组它都不能这么玩啊<img src="http://47.94.231.166/wp-content/uploads/2018/04/36.png"></p>
+<p>L = ['Adam', 'Lisa', 'Bart'] print '\n'.join(L) Adam Lisa Bart</p>
+<p>有些同学会问了，后面这几个案例怎么都没有C#对照呢？因为C#的数组它都不能这么玩啊<img src="http://47.94.231.166/wp-content/uploads/2018/04/36.png" /></p>
 
     </div>
 
@@ -346,8 +295,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2018/09/20/595/" rel="prev" title="Untitled Post - 22">
-      <i class="fa fa-chevron-left"></i> Untitled Post - 22
+    <a href="/2018/09/20/%E3%80%90%E6%95%99%E7%A8%8B%E3%80%91vs%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%93%8D%E4%BD%9C/" rel="prev" title="【教程】VS中的快速操作">
+      <i class="fa fa-chevron-left"></i> 【教程】VS中的快速操作
     </a></div>
       <div class="post-nav-item">
     <a href="/2018/09/22/%E3%80%90python%E3%80%91%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/" rel="next" title="【Python】逻辑语句">
@@ -411,7 +360,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A0%E5%88%9B%E5%BB%BAList%E5%88%97%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">①创建List列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A1%E6%89%93%E5%8D%B0%E5%88%97%E8%A1%A8%E6%95%B0%E6%8D%AE"><span class="nav-number">2.</span> <span class="nav-text">②打印列表数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A2List%E5%88%97%E8%A1%A8%E7%9A%84%E6%89%A9%E5%B1%95%E4%B8%8E%E7%BC%A9%E5%87%8F"><span class="nav-number">3.</span> <span class="nav-text">③List列表的扩展与缩减</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A3%E6%9B%BF%E6%8D%A2%E5%85%83%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">④替换元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A4%E5%88%9B%E5%BB%BAtuple%E5%88%97%E8%A1%A8"><span class="nav-number">5.</span> <span class="nav-text">⑤创建tuple列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A5%E2%80%9C%E4%BA%8C%E7%BB%B4%E5%88%97%E8%A1%A8%E2%80%9D%E5%B5%8C%E5%A5%97%E5%88%97%E8%A1%A8"><span class="nav-number">6.</span> <span class="nav-text">⑥“二维列表”嵌套列表</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%93%E5%8D%B0%E5%88%97%E8%A1%A8%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">②打印列表数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#list%E5%88%97%E8%A1%A8%E7%9A%84%E6%89%A9%E5%B1%95%E4%B8%8E%E7%BC%A9%E5%87%8F"><span class="nav-number">2.</span> <span class="nav-text">③List列表的扩展与缩减</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2%E5%85%83%E7%B4%A0"><span class="nav-number">3.</span> <span class="nav-text">④替换元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAtuple%E5%88%97%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">⑤创建tuple列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E5%88%97%E8%A1%A8%E5%B5%8C%E5%A5%97%E5%88%97%E8%A1%A8"><span class="nav-number">5.</span> <span class="nav-text">⑥“二维列表”嵌套列表</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -425,7 +374,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -434,7 +383,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -516,6 +465,8 @@
 
 
 
+
+  
 
   
 

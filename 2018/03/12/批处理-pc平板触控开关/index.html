@@ -78,7 +78,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -210,12 +214,9 @@
 
       
         <blockquote>
-<p>不知道各位有没有感觉同时打开触摸屏与触控笔会干扰触控笔操作（我的电脑是N-Trig笔，理论上Wacom也可用）所以做了一个可以控制触控屏的开关脚本，这样绘制之前一按后面的笔帽就可以关闭触控屏仅使用触控笔，需要触控屏时再按一下后面的笔帽又可以打开。</p>
+<p>不知道各位有没有感觉同时打开触摸屏与触控笔会干扰触控笔操作（我的电脑是N-Trig笔，理论上Wacom也可用）所以做了一个可以控制触控屏的开关脚本，这样绘制之前一按后面的笔帽就可以关闭触控屏仅使用触控笔，需要触控屏时再按一下后面的笔帽又可以打开。 <a id="more"></a> 说一下原理吧， 利用devcon命令禁用/启用（disable/enable）触控屏，但是这里如果需要实时显示屏幕开启状态（通过改自己的文件名）自动提权的代码就无法被执行，因为名称改变了。所以另设置一个脚本专门显示状态，双击后再引向真正起作用的（也就是调用devcon命令）的脚本。但是这里又有一个问题，就是if exist语句不能加else（也许可以，但是我试过后怎么也不行），所以无法直接调用别的文件名。所以利用devcon显示状态的命令（statue）代替，这样就麻烦了，又是裁剪又是临时文件的，但是马马虎虎做出来了，试了下，能用。 然后把显示状态的脚本挂在桌面上，把控制脚本藏起来，创建一个快捷方式（因为windows里设置触控笔按键要么打开可执行应用要么打开快捷方式，但是脚本不是可执行文件，只好又绕远路创建快捷方式），然后在触控笔设置里把按键按一下定位到那个快捷方式就可以了。</p>
 </blockquote>
-<a id="more"></a>
-<p>说一下原理吧， 利用devcon命令禁用/启用（disable/enable）触控屏，但是这里如果需要实时显示屏幕开启状态（通过改自己的文件名）自动提权的代码就无法被执行，因为名称改变了。所以另设置一个脚本专门显示状态，双击后再引向真正起作用的（也就是调用devcon命令）的脚本。但是这里又有一个问题，就是if exist语句不能加else（也许可以，但是我试过后怎么也不行），所以无法直接调用别的文件名。所以利用devcon显示状态的命令（statue）代替，这样就麻烦了，又是裁剪又是临时文件的，但是马马虎虎做出来了，试了下，能用。 然后把显示状态的脚本挂在桌面上，把控制脚本藏起来，创建一个快捷方式（因为windows里设置触控笔按键要么打开可执行应用要么打开快捷方式，但是脚本不是可执行文件，只好又绕远路创建快捷方式），然后在触控笔设置里把按键按一下定位到那个快捷方式就可以了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line"></span><br><span class="line">net session &gt;nul 2&gt;&amp;1</span><br><span class="line">if not &quot;%errorLevel%&quot; &#x3D;&#x3D; &quot;0&quot; (</span><br><span class="line">echo Set UAC &#x3D; CreateObject^(&quot;Shell.Application&quot;^) &gt; &quot;%temp%\getadmin.vbs&quot;</span><br><span class="line">echo UAC.ShellExecute &quot;%~s0&quot;, &quot;%*&quot;, &quot;&quot;, &quot;runas&quot;, 1 &gt;&gt; &quot;%temp%\getadmin.vbs&quot;</span><br><span class="line">&quot;%temp%\getadmin.vbs&quot;</span><br><span class="line">exit &#x2F;b 2</span><br><span class="line">)</span><br><span class="line">cd C:\Users\z8442\</span><br><span class="line">devcon status &quot;HID_DEVICE_UP:000D_U:0004*&quot;&gt;C:\data.txt</span><br><span class="line">setlocal enabledelayedexpansion</span><br><span class="line">for &#x2F;f &quot;delims&#x3D;&quot; %%a in (C:\data.txt) do set &#x2F;a m+&#x3D;1&amp;set &quot;_!m!&#x3D;%%a&quot;</span><br><span class="line">set &#x2F;a m&#x3D;2</span><br><span class="line">set data&#x3D;!_%m%:~24,25!</span><br><span class="line">if &quot;%data%&quot;&#x3D;&#x3D;&quot;running.&quot; (</span><br><span class="line">cd C:\Users\z8442\</span><br><span class="line">devcon disable &quot;HID_DEVICE_UP:000D_U:0004*&quot;&gt;nul</span><br><span class="line">cd C:\Users\z8442\Desktop\</span><br><span class="line">rename &quot;Touch ON.bat&quot; &quot;Touch OFF.bat&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">if &quot;%data%&quot;&#x3D;&#x3D;&quot;disabled.&quot; (</span><br><span class="line">cd C:\Users\z8442\</span><br><span class="line">devcon enable &quot;HID_DEVICE_UP:000D_U:0004*&quot;&gt;nul</span><br><span class="line">cd C:\Users\z8442\Desktop\</span><br><span class="line">rename &quot;Touch OFF.bat&quot; &quot;Touch ON.bat&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">del C:\data.txt</span><br></pre></td></tr></table></figure>
-
 <p>注释： 以上 ”C:\Users\z8442\Desktop\“是我的桌面地址，显示状态的脚本在我的桌面上。 “C:\Users\z8442\“是存放devcon.exe的地方，当然推荐存放在C:\Windows\System32，这样这一句就可以省去。这里唠叨一下，这个devcon可以通过命令提示符直接控制硬件驱动状态，应该每个windows 10都有，在C:\Program Files (x86)\Intel\Bluetooth\utilities\Devcon.exe，如果没有也可以在<a target="_blank" rel="noopener" href="http://47.94.231.166/archives/90/devcon">这里</a>下载 从第一个cd C:\Users\z8442\语句前的那一大段是来自网络的提权命令。 <code>HID_DEVICE_UP:000D_U:0004</code>是我的触控屏硬件id，不同电脑中触控屏的硬件id不一定相同，可以在Windows自带的设备管理器中的”人体工程学设备“中找到触控屏进而找到该id。   显示状态的脚本内容上只要能打开该脚本就可以，但对名字有特殊要求，只能是Touch ON或者Touch OFF。 下面附上不需桌面显示状态的脚本直接就能使用的脚本（但是可能需要更改硬件id）&gt;<a target="_blank" rel="noopener" href="http://47.94.231.166/archives/90/touch">Touch</a></p>
 
     </div>
@@ -314,7 +315,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -323,7 +324,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -405,6 +406,8 @@
 
 
 
+
+  
 
   
 

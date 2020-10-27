@@ -79,7 +79,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -222,28 +226,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Python中提供强大的数据处理功能，其中常用的就有切片。它可以对List、字符串进行切割来得到希望获取的结果。</p>
-<a id="more"></a>
-<h1 id="方法1："><a href="#方法1：" class="headerlink" title="方法1："></a>方法1：</h1><p><strong>list[起始索引:结束索引]</strong> 该操作将会返回<strong>包括起始索引</strong>但<strong>不包括结束索引</strong>的结果 如</p>
+        <p>Python中提供强大的数据处理功能，其中常用的就有切片。它可以对List、字符串进行切割来得到希望获取的结果。 <a id="more"></a> # 方法1：</p>
+<p><strong>list[起始索引:结束索引]</strong> 该操作将会返回<strong>包括起始索引</strong>但<strong>不包括结束索引</strong>的结果 如</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L = [<span class="string">&#x27;Adam&#x27;</span>, <span class="string">&#x27;Lisa&#x27;</span>, <span class="string">&#x27;Bart&#x27;</span>, <span class="string">&#x27;Paul&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[<span class="number">0</span>:<span class="number">3</span>]</span><br><span class="line">[<span class="string">&#x27;Adam&#x27;</span>, <span class="string">&#x27;Lisa&#x27;</span>, <span class="string">&#x27;Bart&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
 <p>如果第一个索引是0，还可以省略：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[:<span class="number">3</span>]</span><br><span class="line">[<span class="string">&#x27;Adam&#x27;</span>, <span class="string">&#x27;Lisa&#x27;</span>, <span class="string">&#x27;Bart&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
 <p>只用一个 <strong>:</strong> ，表示从头到尾：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[:]</span><br><span class="line">[<span class="string">&#x27;Adam&#x27;</span>, <span class="string">&#x27;Lisa&#x27;</span>, <span class="string">&#x27;Bart&#x27;</span>, <span class="string">&#x27;Paul&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-<h1 id="方法2："><a href="#方法2：" class="headerlink" title="方法2："></a>方法2：</h1><p><strong>list[起始索引:结束索引:跳选个数]</strong> 跳选个数表示每隔这个数就选一个比如1…..10，跳选个数为3，那么输出结果为1,4,7,10 <img src="http://47.94.231.166/wp-content/uploads/2018/09/WINWORD_2018-09-23_16-16-43.jpg"> 代码表示则为：</p>
+<h1 id="方法2">方法2：</h1>
+<p><strong>list[起始索引:结束索引:跳选个数]</strong> 跳选个数表示每隔这个数就选一个比如1.....10，跳选个数为3，那么输出结果为1,4,7,10 <img src="http://47.94.231.166/wp-content/uploads/2018/09/WINWORD_2018-09-23_16-16-43.jpg" /> 代码表示则为：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L=<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[::<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
-
 <p><strong>range(x,y) 返回从x（包括）到y（不包括）的List链表</strong></p>
-<h1 id="倒序切片"><a href="#倒序切片" class="headerlink" title="倒序切片"></a>倒序切片</h1><p>对于list，既然Python支持L[-1]取倒数第一个元素，那么它同样支持倒数切片，试试：</p>
+<h1 id="倒序切片">倒序切片</h1>
+<p>对于list，既然Python支持L[-1]取倒数第一个元素，那么它同样支持倒数切片，试试：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L = [<span class="string">&#x27;Adam&#x27;</span>, <span class="string">&#x27;Lisa&#x27;</span>, <span class="string">&#x27;Bart&#x27;</span>, <span class="string">&#x27;Paul&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[<span class="number">-2</span>:]</span><br><span class="line">[<span class="string">&#x27;Bart&#x27;</span>, <span class="string">&#x27;Paul&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[:<span class="number">-2</span>]</span><br><span class="line">[<span class="string">&#x27;Adam&#x27;</span>, <span class="string">&#x27;Lisa&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[<span class="number">-3</span>:<span class="number">-1</span>]</span><br><span class="line">[<span class="string">&#x27;Lisa&#x27;</span>, <span class="string">&#x27;Bart&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[<span class="number">-4</span>:<span class="number">-1</span>:<span class="number">2</span>]</span><br><span class="line">[<span class="string">&#x27;Adam&#x27;</span>, <span class="string">&#x27;Bart&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
 <p>记住倒数第一个元素的索引是-1。倒序切片包含起始索引，不包含结束索引。</p>
-<h1 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h1><p>字符串 ‘xxx’和 Unicode字符串 u’xxx’也可以看成是一种list，每个元素就是一个字符。因此，字符串也可以用切片操作，只是操作结果仍是字符串：</p>
+<h1 id="字符串操作">字符串操作</h1>
+<p>字符串 'xxx'和 Unicode字符串 u'xxx'也可以看成是一种list，每个元素就是一个字符。因此，字符串也可以用切片操作，只是操作结果仍是字符串：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;ABCDEFG&#x27;</span>[:<span class="number">3</span>]</span><br><span class="line"><span class="string">&#x27;ABC&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;ABCDEFG&#x27;</span>[<span class="number">-3</span>:]</span><br><span class="line"><span class="string">&#x27;EFG&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;ABCDEFG&#x27;</span>[::<span class="number">2</span>]</span><br><span class="line"><span class="string">&#x27;ACEG&#x27;</span></span><br></pre></td></tr></table></figure>
-
 <p>x.upper() 将字符串/字符链表x中的所有小写字母转换为大写字母</p>
 
     </div>
@@ -328,7 +328,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%951%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">方法1：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%952%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">方法2：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%80%92%E5%BA%8F%E5%88%87%E7%89%87"><span class="nav-number">3.</span> <span class="nav-text">倒序切片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">字符串操作</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%952"><span class="nav-number">1.</span> <span class="nav-text">方法2：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%80%92%E5%BA%8F%E5%88%87%E7%89%87"><span class="nav-number">2.</span> <span class="nav-text">倒序切片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">字符串操作</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -342,7 +342,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -351,7 +351,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -433,6 +433,8 @@
 
 
 
+
+  
 
   
 

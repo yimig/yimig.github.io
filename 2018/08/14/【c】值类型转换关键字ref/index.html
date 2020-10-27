@@ -77,7 +77,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -220,11 +224,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>由于值类型实参传入方法后无法被保存，所以可以用关键字“ref”将其临时“转换”为引用类型。</p>
-<a id="more"></a>
-<p>例：</p>
+        <p>由于值类型实参传入方法后无法被保存，所以可以用关键字“ref”将其临时“转换”为引用类型。 <a id="more"></a> 例：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> age=<span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">Growth</span>(<span class="params"><span class="keyword">ref</span> <span class="built_in">int</span> _age</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    _age++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Growth(<span class="keyword">ref</span> age);</span><br><span class="line"></span><br><span class="line">Console.WriteLine(age);```</span><br><span class="line"></span><br><span class="line">输出结果为<span class="number">4</span>。</span><br><span class="line"></span><br><span class="line">&lt;strong&gt;需要注意的是，定义形参、传入实参时都要使用关键字“<span class="keyword">ref</span>”，且不可传入对象的字段，只能传入定义的变量。&lt;/strong&gt;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">如果我们想输出一个传入值类型方法的结果，可以使用<span class="keyword">return</span>来传出。但是如果要传出多个值，就可以使用关键字“<span class="keyword">out</span>”了</span><br><span class="line">例：</span><br><span class="line"></span><br><span class="line">```csharp</span><br><span class="line"><span class="built_in">int</span> age=<span class="number">3</span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="built_in">int</span> <span class="title">Growth</span>(<span class="params"><span class="built_in">int</span> _age,<span class="keyword">out</span> <span class="built_in">int</span> lastYear,<span class="keyword">out</span> <span class="built_in">int</span> nextYear</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    lastYear=_age--;</span><br><span class="line">    nextYear=_age++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">int</span> ly,ny;<span class="comment">//设置变量来接收Growth输出的lastYear和nextYear</span></span><br><span class="line">Growth(age,<span class="keyword">out</span> ly,<span class="keyword">out</span> ny);</span><br><span class="line">Console.WriteLine(ly+<span class="string">&quot;,&quot;</span>+ny);</span><br></pre></td></tr></table></figure>
-
 <p>输出结果为2,4。 <strong>对比关键字“ref”可知，使用关键字“out”时也需要定义形参、传入实参时都使用，且传出的值需要定义变量接收。</strong></p>
 
     </div>
@@ -322,7 +323,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -331,7 +332,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -413,6 +414,8 @@
 
 
 
+
+  
 
   
 

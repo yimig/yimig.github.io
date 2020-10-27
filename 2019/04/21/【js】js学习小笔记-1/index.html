@@ -78,7 +78,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -221,54 +225,57 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>你捡起了道具：<strong>遗失的纸片1#</strong> 一张普通的纸片，隐隐约约能够看到目录：“<strong>js的输出形式、基本语法、字面量和变量、标识符、js中的数据类型</strong>”。边角还有被撕扯的痕迹，它们应该属于一个笔记本，但不知为什么被主人撕下来丢掉了。 提示：集齐所有纸片应该可以得到一本技能书。 👇点击下方按钮调查</p>
-<a id="more"></a>
-<h2 id="1-js的输出形式"><a href="#1-js的输出形式" class="headerlink" title="1.js的输出形式"></a>1.js的输出形式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="string">&quot;Hello World&quot;</span>);<span class="comment">//弹出警告框</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&quot;Hello World&quot;</span>);<span class="comment">//向body中输出一个内容</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;Hello World&quot;</span>)<span class="comment">//像控制台中输出内容</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-js编写的位置"><a href="#2-js编写的位置" class="headerlink" title="2.js编写的位置"></a>2.js编写的位置</h2><ol>
-<li> 可将js代码编写到标签的<code>onclick</code>标签中</li>
-<li> 可将js代码编写在超链接的<code>href</code>属性中，点击时执行 例：<code>href=&quot;javascript:alert(&#39;Say somthing&#39;);&quot;</code></li>
-<li> 写在<code>script</code>标签中</li>
-<li> 外部文件通过<code>script</code>标签引入<code>src=&quot;外部文件地址&quot;</code>（可在不同页面同时引用，也可利用到浏览器的缓存机制，<strong>推荐使用</strong>），<code>script</code>标签一旦引入外部文件则无法编写代码，但可以再写一个标签。</li>
+        <p>你捡起了道具：<strong>遗失的纸片1#</strong> 一张普通的纸片，隐隐约约能够看到目录：“<strong>js的输出形式、基本语法、字面量和变量、标识符、js中的数据类型</strong>”。边角还有被撕扯的痕迹，它们应该属于一个笔记本，但不知为什么被主人撕下来丢掉了。 提示：集齐所有纸片应该可以得到一本技能书。 👇点击下方按钮调查 <a id="more"></a> ## 1.js的输出形式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="string">&quot;Hello World&quot;</span>);<span class="comment">//弹出警告框</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">&quot;Hello World&quot;</span>);<span class="comment">//向body中输出一个内容</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;Hello World&quot;</span>)<span class="comment">//像控制台中输出内容</span></span><br></pre></td></tr></table></figure>
+<h2 id="js编写的位置">2.js编写的位置</h2>
+<ol type="1">
+<li>可将js代码编写到标签的<code>onclick</code>标签中</li>
+<li>可将js代码编写在超链接的<code>href</code>属性中，点击时执行 例：<code>href="javascript:alert('Say somthing');"</code></li>
+<li>写在<code>script</code>标签中</li>
+<li>外部文件通过<code>script</code>标签引入<code>src="外部文件地址"</code>（可在不同页面同时引用，也可利用到浏览器的缓存机制，<strong>推荐使用</strong>），<code>script</code>标签一旦引入外部文件则无法编写代码，但可以再写一个标签。</li>
 </ol>
-<h2 id="3-基本语法"><a href="#3-基本语法" class="headerlink" title="3.基本语法"></a>3.基本语法</h2><ol>
-<li> 注释：与C#相同，没有三斜杠</li>
-<li> <strong>js严格区分大小写</strong></li>
-<li> <strong>js中每一条语句以分号结尾</strong>，如不写分号浏览器会自动添加，但会影响性能有时还可能加错分号</li>
-<li> js中会忽略多个空格和换行</li>
+<h2 id="基本语法">3.基本语法</h2>
+<ol type="1">
+<li>注释：与C#相同，没有三斜杠</li>
+<li><strong>js严格区分大小写</strong></li>
+<li><strong>js中每一条语句以分号结尾</strong>，如不写分号浏览器会自动添加，但会影响性能有时还可能加错分号</li>
+<li>js中会忽略多个空格和换行</li>
 </ol>
-<h2 id="4-字面量和变量"><a href="#4-字面量和变量" class="headerlink" title="4.字面量和变量"></a>4.字面量和变量</h2><ol>
-<li> <strong>字面量→值（“a”、“你好”、1535……）</strong></li>
-<li> 字面量都是可直接使用的，但一般不直接使用</li>
-<li> 变量可保存字面量，且值可变</li>
-<li> 声明变量：</li>
+<h2 id="字面量和变量">4.字面量和变量</h2>
+<ol type="1">
+<li><strong>字面量→值（“a”、“你好”、1535......）</strong></li>
+<li>字面量都是可直接使用的，但一般不直接使用</li>
+<li>变量可保存字面量，且值可变</li>
+<li>声明变量：</li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-标识符"><a href="#4-标识符" class="headerlink" title="4.标识符"></a>4.标识符</h2><p><strong>在js中，所有可以由我们自主命名的都可以成为标识符</strong>，例：变量名、函数名、属性名……</p>
-<h3 id="规则（与C-类似）："><a href="#规则（与C-类似）：" class="headerlink" title="规则（与C#类似）："></a>规则（与C#类似）：</h3><ol>
-<li> 可含字母、数字、_、$</li>
-<li> 标识符不能以数字开头</li>
-<li> 标识符不能是ES中的关键字或保留字</li>
-<li> <strong>标识符一般采用camel命名法</strong></li>
+<h2 id="标识符">4.标识符</h2>
+<p><strong>在js中，所有可以由我们自主命名的都可以成为标识符</strong>，例：变量名、函数名、属性名......</p>
+<h3 id="规则与c类似">规则（与C#类似）：</h3>
+<ol type="1">
+<li>可含字母、数字、_、$</li>
+<li>标识符不能以数字开头</li>
+<li>标识符不能是ES中的关键字或保留字</li>
+<li><strong>标识符一般采用camel命名法</strong></li>
 </ol>
 <p><strong>js底层保存标识符时实际上是采用unicode编码，故理论上所有utf-8字符均可作为标识符</strong></p>
-<h2 id="6-js中的数据类型"><a href="#6-js中的数据类型" class="headerlink" title="6.js中的数据类型"></a>6.js中的数据类型</h2><ol>
-<li> string 字符串</li>
-<li> number 数值</li>
-<li> boolean 布尔值</li>
-<li> null 空值</li>
-<li> undiefined 未定义</li>
-<li> object 对象</li>
+<h2 id="js中的数据类型">6.js中的数据类型</h2>
+<ol type="1">
+<li>string 字符串</li>
+<li>number 数值</li>
+<li>boolean 布尔值</li>
+<li>null 空值</li>
+<li>undiefined 未定义</li>
+<li>object 对象</li>
 </ol>
 <p>除6.object为<strong>引用数据类型</strong>外，其他均为<strong>基本数据类型</strong>。</p>
-<ol>
-<li> 字符串<code>var str=&quot;hello&quot;;</code><strong>单/双引号均可</strong></li>
-<li> js也使用“/”转义</li>
-<li> 如果number表示的数字超过了最大值，则返回**<code>infinity</code>/<code>-infinity</code>**</li>
-<li> <code>NaN</code>也是一个数字，代表<strong>“Not a Number”——非数字</strong></li>
-<li> 若用js进行浮点运算，可能得到一个不精确的结果</li>
-<li> <code>null</code>表示为<strong>空对象</strong> <code>undefined</code>表示<strong>一个声明但未定义的变量</strong></li>
+<ol type="1">
+<li>字符串<code>var str="hello";</code><strong>单/双引号均可</strong></li>
+<li>js也使用“/”转义</li>
+<li>如果number表示的数字超过了最大值，则返回<strong><code>infinity</code>/<code>-infinity</code></strong></li>
+<li><code>NaN</code>也是一个数字，代表<strong>“Not a Number”——非数字</strong></li>
+<li>若用js进行浮点运算，可能得到一个不精确的结果</li>
+<li><code>null</code>表示为<strong>空对象</strong> <code>undefined</code>表示<strong>一个声明但未定义的变量</strong></li>
 </ol>
 
     </div>
@@ -354,7 +361,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-js%E7%9A%84%E8%BE%93%E5%87%BA%E5%BD%A2%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">1.js的输出形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-js%E7%BC%96%E5%86%99%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">2.js编写的位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">3.基本语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%AD%97%E9%9D%A2%E9%87%8F%E5%92%8C%E5%8F%98%E9%87%8F"><span class="nav-number">4.</span> <span class="nav-text">4.字面量和变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-number">5.</span> <span class="nav-text">4.标识符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E5%88%99%EF%BC%88%E4%B8%8EC-%E7%B1%BB%E4%BC%BC%EF%BC%89%EF%BC%9A"><span class="nav-number">5.1.</span> <span class="nav-text">规则（与C#类似）：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-js%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.</span> <span class="nav-text">6.js中的数据类型</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js%E7%BC%96%E5%86%99%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">2.js编写的位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">3.基本语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E9%9D%A2%E9%87%8F%E5%92%8C%E5%8F%98%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text">4.字面量和变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-number">4.</span> <span class="nav-text">4.标识符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E4%B8%8Ec%E7%B1%BB%E4%BC%BC"><span class="nav-number">4.1.</span> <span class="nav-text">规则（与C#类似）：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">6.js中的数据类型</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,7 +375,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -377,7 +384,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -459,6 +466,8 @@
 
 
 
+
+  
 
   
 

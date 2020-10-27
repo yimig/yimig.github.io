@@ -72,7 +72,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -145,7 +149,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/23/%E3%80%90python%E3%80%91%E5%87%BD%E6%95%B0%E5%85%A5%E9%97%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/10/%E3%80%90c%E3%80%91walkman-playlist-tools/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -159,7 +163,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/09/23/%E3%80%90python%E3%80%91%E5%87%BD%E6%95%B0%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">【Python】函数入门</a>
+            <a href="/2018/09/10/%E3%80%90c%E3%80%91walkman-playlist-tools/" class="post-title-link" itemprop="url">【C#】Walkman Playlist Tools</a>
         </h2>
 
         <div class="post-meta">
@@ -169,7 +173,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2018-09-23 11:57:00" itemprop="dateCreated datePublished" datetime="2018-09-23T11:57:00+08:00">2018-09-23</time>
+              <time title="Created: 2018-09-10 17:09:41" itemprop="dateCreated datePublished" datetime="2018-09-10T17:09:41+08:00">2018-09-10</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -184,23 +188,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                  <a href="/categories/Project-IDEA/" itemprop="url" rel="index"><span itemprop="name">Project.IDEA</span></a>
                 </span>
             </span>
 
@@ -215,10 +203,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>函数，对应C#中的方法，是在日常编程工作中最广泛使用的工具，如何巧妙地分割问题形成函数是一个程序员必不可少的素质，今天来学习Python的函数构成，了解其与C#等语言的差异，可为日后编程工作带来极大方便。</p>
+          <p><img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_15-40-56.png" /> Walkman Playlist Tools是一款<strong>专为Walkman创建播放列表</strong>设计的小程序。鉴于索尼先前开发的两款软件均对播放列表的功能支持不佳，决定开发一个程序解决此问题。若想了解更多请阅览下文。
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/09/23/%E3%80%90python%E3%80%91%E5%87%BD%E6%95%B0%E5%85%A5%E9%97%A8/#more" rel="contents">
+              <a class="btn" href="/2018/09/10/%E3%80%90c%E3%80%91walkman-playlist-tools/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -242,7 +230,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/22/%E3%80%90python%E3%80%91dict%E4%B8%8Eset/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/08/28/%E3%80%90c%E3%80%91%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -256,7 +244,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/09/22/%E3%80%90python%E3%80%91dict%E4%B8%8Eset/" class="post-title-link" itemprop="url">【Python】Dict与Set</a>
+            <a href="/2018/08/28/%E3%80%90c%E3%80%91%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/" class="post-title-link" itemprop="url">【C#】类的继承</a>
         </h2>
 
         <div class="post-meta">
@@ -266,104 +254,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2018-09-22 22:47:34" itemprop="dateCreated datePublished" datetime="2018-09-22T22:47:34+08:00">2018-09-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Dict、Set、List都可以分组存放数据，但是Dict、Set与List不同的是，它们的数据是<strong>无序存放</strong>的，也就是说，对他们遍历打印，每次将得到顺序不同的结果。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/09/22/%E3%80%90python%E3%80%91dict%E4%B8%8Eset/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/22/%E3%80%90c%E3%80%91list%E3%80%81dictionary%E4%BB%A5%E5%8F%8A%E4%B8%A4%E7%A7%8D%E7%AD%9B%E9%80%89%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/09/22/%E3%80%90c%E3%80%91list%E3%80%81dictionary%E4%BB%A5%E5%8F%8A%E4%B8%A4%E7%A7%8D%E7%AD%9B%E9%80%89%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">【C#】List、Dictionary以及两种筛选算法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-09-22 16:12:05" itemprop="dateCreated datePublished" datetime="2018-09-22T16:12:05+08:00">2018-09-22</time>
+              <time title="Created: 2018-08-28 17:47:28" itemprop="dateCreated datePublished" datetime="2018-08-28T17:47:28+08:00">2018-08-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -410,151 +301,54 @@
 
       
           <a id="more"></a>
-<p>List与Dictionary都在<strong>System.Collections.Generic</strong>中</p>
-<h1 id="①List"><a href="#①List" class="headerlink" title="①List"></a>①List</h1><p>List是C#中的一种链表，<strong>它与数组类型相似性极高</strong>，比如使用时都需要先实例化、调用时都是根据索引、能够包含所有类等等。与数组类型不同的是，如果对<a target="_blank" rel="noopener" href="http://msdn.microsoft.com/zh-cn/library/5y536ey6.aspx">IList</a> 类的类型 T 使用<strong>引用类型</strong>，则两个类的行为是<strong>完全相同</strong>的。但是，如果对类型 T 使用值类型，则需要考虑实现和装箱问题。而添加到数组中的<strong>任何引用或值类型都将隐式地向上强制转换为 Object</strong>。如果项是值类型，则必须在将其添加到列表中时进行装箱操作，在检索时进行取消装箱操作。强制转换以及装箱和取消装箱操作都会降低性能；在必须对大型集合进行循环访问的情况下，装箱和取消装箱的影响非常明显。<strong>而且List在后期也可以增减元素</strong>，而不是像数组那样一旦实例化便不可增减。于是，为了性能与后期编程考虑，<strong>存储引用类型应偏向于使用List而不是数组。</strong></p>
-<h2 id="创建一个List："><a href="#创建一个List：" class="headerlink" title="创建一个List："></a>创建一个List：</h2><h6 id="1-List-lt-数据类型-gt-链表名-new-List-lt-数据类型-gt-；"><a href="#1-List-lt-数据类型-gt-链表名-new-List-lt-数据类型-gt-；" class="headerlink" title="1.List&lt;数据类型&gt; 链表名=new List&lt;数据类型&gt;；"></a>1.List&lt;数据类型&gt; 链表名=new List&lt;数据类型&gt;；</h6><p>也可以在实例化的时候赋初始值，如</p>
-<h6 id="2-List-lt-数据类型-gt-链表名-new-List-lt-数据类型-gt-数据1，数据2，……-；"><a href="#2-List-lt-数据类型-gt-链表名-new-List-lt-数据类型-gt-数据1，数据2，……-；" class="headerlink" title="2.List&lt;数据类型&gt; 链表名=new List&lt;数据类型&gt;{数据1，数据2，……}；"></a>2.List&lt;数据类型&gt; 链表名=new List&lt;数据类型&gt;{数据1，数据2，……}；</h6><h6 id="或"><a href="#或" class="headerlink" title="或"></a>或</h6><h6 id="3-List-lt-数据类型-gt-链表名-new-List-lt-数据类型-gt-声明数据量类型的数组-；"><a href="#3-List-lt-数据类型-gt-链表名-new-List-lt-数据类型-gt-声明数据量类型的数组-；" class="headerlink" title="3.List&lt;数据类型&gt; 链表名=new List&lt;数据类型&gt;(声明数据量类型的数组)；"></a>3.List&lt;数据类型&gt; 链表名=new List&lt;数据类型&gt;(声明数据量类型的数组)；</h6><p>如：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>[] temArr = &#123; <span class="string">&quot;Ha&quot;</span>, <span class="string">&quot;Hunter&quot;</span>, <span class="string">&quot;Tom&quot;</span>, <span class="string">&quot;Lily&quot;</span>, <span class="string">&quot;Jay&quot;</span>, <span class="string">&quot;Jim&quot;</span>, <span class="string">&quot;Kuku&quot;</span>, <span class="string">&quot;Locu&quot;</span> &#125;;</span><br><span class="line">List testList = <span class="keyword">new</span> List(temArr);</span><br></pre></td></tr></table></figure>
-
-<h2 id="为List添加值"><a href="#为List添加值" class="headerlink" title="为List添加值"></a>为List添加值</h2><h4 id="1-list-Add-值）"><a href="#1-list-Add-值）" class="headerlink" title="1.list.Add(值）"></a>1.list.Add(值）</h4><p><strong>2.创建List的2、3方法</strong> 如：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">List list=<span class="keyword">new</span> list();</span><br><span class="line">list.Add(<span class="number">1</span>);</span><br><span class="line">list.Add(<span class="number">2</span>);```</span><br><span class="line">&lt;h2&gt;显示List的值&lt;/h2&gt;</span><br><span class="line">&lt;h6&gt;<span class="number">1.</span>显示特定值：&lt;/h6&gt;</span><br><span class="line"></span><br><span class="line">```csharp</span><br><span class="line">ist list=<span class="keyword">new</span> list();</span><br><span class="line">list.Add(<span class="number">1</span>);</span><br><span class="line">list.Add(<span class="number">2</span>);</span><br><span class="line">Console.WriteLine(list[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
-
-<h6 id="2-遍历List："><a href="#2-遍历List：" class="headerlink" title="2.遍历List："></a>2.遍历List：</h6><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ist list=<span class="keyword">new</span> list();</span><br><span class="line">list.Add(<span class="number">1</span>);</span><br><span class="line">list.Add(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">foreach</span>(<span class="built_in">int</span> x <span class="keyword">in</span> list)Console.WriteLine(x);</span><br></pre></td></tr></table></figure>
-
-<h2 id="删除List中的值"><a href="#删除List中的值" class="headerlink" title="删除List中的值"></a>删除List中的值</h2><p> 1.List. Remove(T item)       删除一个值</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mList.Remove(<span class="string">&quot;Hunter&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>2. List. RemoveAt(int index);   删除下标为index的元素</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mList.RemoveAt(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-
-<p>3. List. RemoveRange(int index, int count); 从下标index开始，删除count个元素</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mList.RemoveRange(<span class="number">3</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
-
-<p>4.List.Clear() 清空所有元素</p>
-<h1 id="②Dictionary"><a href="#②Dictionary" class="headerlink" title="②Dictionary"></a>②Dictionary</h1><p>Dictionary与List功能相似，但是Dictionary可以同时对应<strong>任意两种变量</strong>，而不是List中的索引对变量。可以体现为从一组<strong>键（Key）</strong>到一组<strong>值（Value）</strong>的映射。 创建一个Dictionary：</p>
-<h6 id="Dictionary-lt-键类型-值类型-gt-字典名-new-Dictionary-lt-键类型-值类型-gt"><a href="#Dictionary-lt-键类型-值类型-gt-字典名-new-Dictionary-lt-键类型-值类型-gt" class="headerlink" title="Dictionary&lt;键类型,值类型&gt; 字典名=new Dictionary&lt;键类型,值类型&gt;;"></a>Dictionary&lt;键类型,值类型&gt; 字典名=new Dictionary&lt;键类型,值类型&gt;;</h6><p>具体添加、删除可以类比List。  </p>
-<h1 id="③两种筛选算法"><a href="#③两种筛选算法" class="headerlink" title="③两种筛选算法"></a>③两种筛选算法</h1><h3 id="1-分类筛选："><a href="#1-分类筛选：" class="headerlink" title="1.分类筛选："></a>1.分类筛选：</h3><p>对于这样一组数：1,2,3,4,5,6,2,3,4,5,6,7,8,9,3,4,5,6,7,8,9,9,9,9 以每个数作为分类标准，查找<strong>有几个数</strong>，以及<strong>每个数重复了几次：</strong></p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> protect = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">string</span>[] a = <span class="keyword">new</span> <span class="built_in">string</span>[] &#123; <span class="string">&quot;1&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;3&quot;</span>, <span class="string">&quot;4&quot;</span>, <span class="string">&quot;5&quot;</span>, <span class="string">&quot;6&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;3&quot;</span>, <span class="string">&quot;4&quot;</span>, <span class="string">&quot;5&quot;</span>, <span class="string">&quot;6&quot;</span>, <span class="string">&quot;7&quot;</span>, <span class="string">&quot;8&quot;</span>, <span class="string">&quot;9&quot;</span>, <span class="string">&quot;3&quot;</span>, <span class="string">&quot;4&quot;</span>, <span class="string">&quot;5&quot;</span>, <span class="string">&quot;6&quot;</span>, <span class="string">&quot;7&quot;</span>, <span class="string">&quot;8&quot;</span>, <span class="string">&quot;9&quot;</span>, <span class="string">&quot;9&quot;</span>, <span class="string">&quot;9&quot;</span>, <span class="string">&quot;9&quot;</span> &#125;;</span><br><span class="line">Dictionary&lt;<span class="built_in">int</span>, <span class="built_in">string</span>&gt; dic = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">int</span>, <span class="built_in">string</span>&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; a.Length; i++)</span><br><span class="line">&#123;</span><br><span class="line">    dic.Add(i, a[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> x = <span class="number">0</span>; x &lt; a.Length; x++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (dic.ContainsKey(x))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> y = x; y &lt; a.Length; y++) </span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">if</span> (dic.ContainsKey(y)) </span><br><span class="line">            &#123; </span><br><span class="line">                <span class="keyword">if</span> (dic[x] == dic[y]) </span><br><span class="line">                &#123; </span><br><span class="line">                    num++; </span><br><span class="line">                    <span class="keyword">if</span> (x != y) dic.Remove(y); </span><br><span class="line">                &#125; </span><br><span class="line">            &#125; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span> (num &gt; protect)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.Write(dic[x] + <span class="string">&quot;:&quot;</span>);</span><br><span class="line">        Console.WriteLine(num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当数字的个数多于protect规定的值时，才显示这个数，可以作为一种可选筛选标准。 运行结果如图：<img src="http://47.94.231.166/wp-content/uploads/2018/09/cmd_2018-09-23_11-59-28-300x168.png"></p>
-<h3 id="2-随机数筛选"><a href="#2-随机数筛选" class="headerlink" title="2.随机数筛选"></a>2.随机数筛选</h3><p>一次产生多个随机数</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List <span class="title">Generate</span>(<span class="params"><span class="built_in">int</span> max,<span class="built_in">int</span> min</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List result = <span class="keyword">new</span> List();</span><br><span class="line">    <span class="built_in">int</span> temp;</span><br><span class="line">    <span class="keyword">while</span> (result.Count &lt;Settingdata.Default.num)</span><br><span class="line">    &#123;</span><br><span class="line">        temp = GetRandom(min, max);</span><br><span class="line">        <span class="keyword">if</span> (!result.Contains(temp))</span><br><span class="line">        &#123;</span><br><span class="line">            result.Add(temp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>参数min为最小值（包括），max为最大值（包括） 这里的GetRandom(min, max)是一种得到随机数的方法，可以是普通的以时间为seed的方法，也可以是RNG等多种方法 下面示例较为随机的使用RNG得到随机数的方法</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span> <span class="title">GetRandom</span>(<span class="params"><span class="built_in">int</span> minVal, <span class="built_in">int</span> maxVal</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//这样产生0 ~ 100的强随机数（不含100）</span></span><br><span class="line"><span class="built_in">int</span> m = maxVal - minVal;</span><br><span class="line"><span class="built_in">int</span> rnd = <span class="built_in">int</span>.MinValue;</span><br><span class="line"><span class="built_in">decimal</span> _base = (<span class="built_in">decimal</span>)<span class="built_in">long</span>.MaxValue;</span><br><span class="line"><span class="built_in">byte</span>[] rndSeries = <span class="keyword">new</span> <span class="built_in">byte</span>[<span class="number">8</span>];</span><br><span class="line">System.Security.Cryptography.RNGCryptoServiceProvider rng= <span class="keyword">new</span> System.Security.Cryptography.RNGCryptoServiceProvider();</span><br><span class="line">rng.GetBytes(rndSeries);</span><br><span class="line"><span class="built_in">long</span> l = BitConverter.ToInt64(rndSeries, <span class="number">0</span>);</span><br><span class="line">rnd = (<span class="built_in">int</span>)(Math.Abs(l) / _base * m);</span><br><span class="line"><span class="keyword">return</span> minVal + rnd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>参数minVal为最小值（包括），maxVal为最大值（包括）</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/22/%E3%80%90python%E3%80%91%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/09/22/%E3%80%90python%E3%80%91%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/" class="post-title-link" itemprop="url">【Python】逻辑语句</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-09-22 11:41:46" itemprop="dateCreated datePublished" datetime="2018-09-22T11:41:46+08:00">2018-09-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <a id="more"></a>
-<h1 id="①if选择语句"><a href="#①if选择语句" class="headerlink" title="①if选择语句"></a>①if选择语句</h1><p>选择语句在C#使用以下格式：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> age=<span class="number">20</span>;</span><br><span class="line"><span class="keyword">if</span>(age&gt;=<span class="number">18</span>)</span><br><span class="line">&#123;</span><br><span class="line">Console.WriteLine(<span class="string">&quot;Your age is &quot;</span>+age);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;adult&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">Console.WriteLine(<span class="string">&quot;child&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">Console.WriteLine(<span class="string">&quot;End&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>而在Python中，if语句如此实现：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">20</span></span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;your age is&#x27;</span>, age</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;adult&#x27;</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;child&#x27;</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;END&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>通过以上对比可以看出， 1.相比C#的大括号{}，Python<strong>使用缩进来分辨代码块</strong>。 2.相比C#的括号()，Python<strong>使用：区分辨条件与代码块</strong>。 另外需要注意的是，Python使用<strong>4个空格</strong>来缩进代码块。 如果在Python交互环境下敲代码，还要特别留意缩进，并且退出缩进需要多敲一行回车：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>age = <span class="number">20</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span> <span class="string">&#x27;your age is&#x27;</span>, age</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span> <span class="string">&#x27;adult&#x27;</span></span><br><span class="line">...</span><br><span class="line">your age <span class="keyword">is</span> <span class="number">20</span></span><br><span class="line">adult</span><br></pre></td></tr></table></figure>
-
-<p>那么现在又有了一个问题，就是如果出现嵌套选择语句，即else if语句，靠缩进区分代码块的Python的代码就会看起来很冗余，但是Python就是为了简单而特化的语言，肯定不会允许这种事情发生，所以else if可以并起来写成<strong>elif</strong>，如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;adult&#x27;</span></span><br><span class="line"><span class="keyword">elif</span> age &gt;= <span class="number">6</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;teenager&#x27;</span></span><br><span class="line"><span class="keyword">elif</span> age &gt;= <span class="number">3</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;kid&#x27;</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;baby&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>switch呢？没了！<img src="http://47.94.231.166/wp-content/uploads/2018/04/36.png"></p>
-<h1 id="②循环语句"><a href="#②循环语句" class="headerlink" title="②循环语句"></a>②循环语句</h1><p>C#中的for、while、do…while三大循环语句在Python中会以怎样的形式出现呢？</p>
-<h2 id="1-for"><a href="#1-for" class="headerlink" title="1.for"></a>1.for</h2><p>for语句在Python中<strong>相当于C#的foreach</strong>而不是for，如</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">L = [<span class="string">&#x27;Adam&#x27;</span>, <span class="string">&#x27;Lisa&#x27;</span>, <span class="string">&#x27;Bart&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> L:</span><br><span class="line">    <span class="built_in">print</span> name</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-while"><a href="#2-while" class="headerlink" title="2.while"></a>2.while</h2><p>while语句倒还是老样子，当条件式<strong>满足</strong>时就进行循环：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">10</span></span><br><span class="line">x = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> x &lt; N:</span><br><span class="line">    <span class="built_in">print</span> x</span><br><span class="line">    x = x + <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>do…while呢？没了！<img src="http://47.94.231.166/wp-content/uploads/2018/04/36.png"> break、continue还是老样子，这个就不多讲了，循环语句多重嵌套注意缩进。</p>
+<h1 id="共同">①共同</h1>
+<p>使用继承可以使一个类在创建时就具有另一个已知类的所有内容，大大节省了工作时间。 使用方法：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Child ：Parent</span><br><span class="line">&#123;</span><br><span class="line">......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如上，可写为“Child继承自Parent”，或“Parent派生出Child”。 注意，Object是任何类的基类，可多辈派生，但子类只能有一个父类。</p>
+<h4 id="关键字base">关键字base：</h4>
+<p>1.在派生类中使用<strong>“base.基类方法()”</strong>即可调用基类方法。 2.构造方法派生：在派生类的构造方法声明后接<strong>":base()"</strong>即可调用基类的构造方法重写该构造方法。</p>
+<h4 id="继承构造函数">继承构造函数</h4>
+<p>在实例化派生的对象时的顺序是：</p>
+<blockquote>
+<p><strong>实例成员初始化→基类构造函数→派生类构造函数</strong></p>
+</blockquote>
+<p>所以无论是否在初始化时调用基类构造函数，其都会被调用，这是一种隐式调用，当然也可以写成显式形式，如：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Pet</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Pet</span>(<span class="params"></span>)</span>&#123;...&#125;<span class="comment">//基类构造函数</span></span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Cat</span>:<span class="title">Pet</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">Public <span class="title">Cat</span>(<span class="params"></span>):<span class="title">Pet</span>(<span class="params"></span>)</span>&#123;...&#125;<span class="comment">//使用冒号显式调用基类构造函数</span></span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，这里面构造方法Cat()与Pet()都会被执行一遍。 当然，这种冒号调用构造函数的方法更多的是用在<strong>类自身的构造函数之间互相调用</strong>。</p>
+<h1 id="相异">②相异</h1>
+<p>那么，若想在子类中添加相异于父类的内容该怎么办呢？</p>
+<h4 id="隐藏方法">1.隐藏方法</h4>
+<p>该方法可以在子类中屏蔽父类的方法/字段，即，如果父类中存在一个方法，开发者却想在子类中添加一个与父类方法相异的重名方法，就可在子类中创建隐藏方法。 需要注意的是，隐藏方法需要与方法的重载区别，因此在隐藏“方法”时使用与原方法相同的方法名、类型、变量个数。 使用方法： 在子类型中创建类型、名字与原方法/字段相同的方法/字段，并且前面加关键字 new。  </p>
+<h4 id="虚方法和多态">2.虚方法和多态</h4>
+<p>在实际编程工作时，我们倾向于使用更基本的类作为容器，比如笔类型可能派生出各种类型的笔：中性笔、铅笔等，每只笔有与其他笔相同的地方也有不同的地方，但我们在对每只笔进行操作时，倾向于以更大的单位即笔进行操作，将每种笔实例化为数组的值，这样就可以批量对笔进行集中处理。 因为各种笔的类型不同，但是都继承自大类型笔，这时，我们就可以利用形如 Pen Pen1=new Pencil(); 或 Pen[] Pens =new Pen[]{ new Pencil(), new markPen()}; 即，声明为父类型，但使用子类型的构造方法，来构造同样使用父类型作为容器的类型使用。但是需要注意的是该方法实例化的对象不可使用子类中新增的方法和字段。但是对于父类型和子类型都有的方法，就可以使用<strong>虚方法</strong>来进行区分。 比如，父类型Pen有方法</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">public</span> <span class="title">penWrite</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Pen is Writing&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>子类型Pencil有方法</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">override</span> <span class="keyword">public</span> <span class="title">PenWrite</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Pencil is Writing&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在Main方法中执行以下代码：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Pen Pen1=<span class="keyword">new</span> Pencil();</span><br><span class="line">Pen1.PenWrite();</span><br></pre></td></tr></table></figure>
+<p>可输出“Pencil is Writing”，由此看来，程序执行了子类型中的函数，而非父类型中的函数，所以可用此方法使用数组分别调用每个子类型的特征。 注意： Ⅰ.重写虚方法必须具有相同的可访问性，且基类方法不能是private Ⅱ.不能重写static方法或者非虚方法 Ⅲ.方法、属性、索引器、事件，都可以声明为virtual或override。 例子：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Pet</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Name;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PrintName</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(Name + <span class="string">&quot;is speaking&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Speak</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(Name + <span class="string">&quot;Pet&#x27;s Name is &quot;</span> + Name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Dog</span> : <span class="title">Pet</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span>(<span class="params"><span class="built_in">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">new</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PrintName</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;宠物的名字是&quot;</span> + Name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">override</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Speak</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(Name + <span class="string">&quot; is speaking:&quot;</span> + <span class="string">&quot;wow&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Cat</span> : <span class="title">Pet</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span>(<span class="params"><span class="built_in">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">override</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Speak</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(Name + <span class="string">&quot; is speaking:&quot;</span> + <span class="string">&quot;meow&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Pet[] pets = <span class="keyword">new</span> Pet[] &#123; <span class="keyword">new</span> Dog(<span class="string">&quot;Jack&quot;</span>), <span class="keyword">new</span> Cat(<span class="string">&quot;Tom&quot;</span>) &#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i&lt;pets.Length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            pets[i].Speak();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p>Jack is speaking:wow Tom is speaking:meow</p>
+<h1 id="抽象成员">③抽象成员</h1>
+<h2 id="抽象方法">抽象方法</h2>
+<p>抽象方法(abstract)比虚方法(virtual)更“虚”，<strong>它在基类中直接不写函数体，只能在派生类中重写该方法，否则无法被调用。</strong> 如</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Pet</span></span><br><span class="line">&#123;</span><br><span class="line">....</span><br><span class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Speak</span>(<span class="params"></span>)</span>;<span class="comment">//基类中不能写函数体</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Cat</span>:<span class="title">Pet</span></span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">    <span class="function"><span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Speak</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Meow&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="comment">//派生类中使用override重写抽象方法，并添加函数体</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Cat cat=<span class="keyword">new</span> Cat();</span><br><span class="line">        cat.Speak();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，<strong>不止可以抽象方法，还可以抽象属性、事件、索引。</strong></p>
+<h2 id="抽象类">抽象类</h2>
+<p><strong>抽象类只有一个存在目的，就是被继承！</strong> 抽象类不能实例化，用abstract修饰。 抽象类可以包含抽象成员与普通成员，以及他们的任意组合。 抽象类的抽象成员在派生类中也需要用override关键字实现。 实际上，抽象类指的就是<strong>没有普遍性的基类</strong>，比如全世界有很多种语言，没有一个统一的语言可以被世界上所有人所共用。此时用基类声明语言，我们明知不会有一个统一的语言，就使用抽象类限制之。</p>
+<h1 id="密闭类和密闭方法">④密闭类和密闭方法</h1>
+<p>密闭类可以防止其他人通过<strong>继承</strong>来修改该类，密闭方法可以防止其他人<strong>重写</strong>该方法。 有同学问，不将基类方法声明为virtual不就不能被重写了？ 话是这样没错。但是，在派生类的派生类中的被重写（override）的方法<strong>默认还是可以被重写的</strong>，为了破除这个限制，我们才引用了密闭方法（sealed）。 密闭方法与密闭类的使用方法是一样的，都是在声明该方法/类之前使用<strong>sealed修饰符</strong>对其进行限制。</p>
+<h1 id="接口">⑤接口</h1>
+<h2 id="定义接口">1.定义接口：</h2>
+<p>接口是<strong>声明</strong>一组函数成员，但不具体写出的一种引用类型。可以将其看作是一种类（class)。 接口有什么作用呢？接口可以作为许多类的某种<strong>共同方法</strong>普遍存在，比如猫、狗和蛇都会抓老鼠，我们就可以把抓老鼠设置为一个接口，在声明接口时声明一个数组。这样就可以在“让会抓老鼠的动物抓老鼠”时直接遍历调用接口即可。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">CatchAnimal</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">CatchMice</span>(<span class="params"></span>)</span>;<span class="comment">//默认为public，且不能添加访问修饰符</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">CatchBrid</span>(<span class="params"></span>)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">CatchFish</span>(<span class="params"></span>)</span>;</span><br><span class="line">......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接口只能被类<strong>实现</strong>，实现时，使用":"，与派生相像，但不是派生。 一个类可以实现多个接口，但只能派生自一个基类。 类在实现接口时，必须实现接口的所有函数成员，且所有函数成员必须添加public访问修饰符。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Cat</span>:<span class="title">Pet</span>,<span class="title">CatchAnimal</span> <span class="comment">//“猫”类继承自“宠物”类，且实现了“CatchAnimal”接口</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CatchMice</span>(<span class="params"></span>)</span>&#123;...&#125;;<span class="comment">//必须添加public</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CatchBrid</span>(<span class="params"></span>)</span>&#123;...&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CatchFish</span>(<span class="params"></span>)</span>&#123;...&#125;;</span><br><span class="line">......<span class="comment">//“猫”类的内容</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="调用接口">2.调用接口</h2>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Cat cat =<span class="keyword">new</span> Cat();</span><br><span class="line">CatchAnimal catchs= cat;<span class="comment">//声明与接口相关联的对象</span></span><br><span class="line">c.CatchMice()<span class="comment">//通过对象调用</span></span><br><span class="line">catchs.CatchMisce()<span class="comment">//通过接口调用</span></span><br></pre></td></tr></table></figure>
+<p>特殊情况：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Pet cat =<span class="keyword">new</span> Cat();</span><br><span class="line">CatchAnimal catchs=(CatchAnimal) cat;<span class="comment">//声明与接口相关联的对象，声明时注意强制转换</span></span><br><span class="line"><span class="comment">//c.CatchMice() //此时不可通过对象调用</span></span><br><span class="line">catchs.CatchMisce()<span class="comment">//只能通过接口调用</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -574,7 +368,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/20/%E3%80%90python%E3%80%91list%E5%88%97%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/08/27/%E3%80%90c%E3%80%91post-in-notes%E4%BE%BF%E5%88%A9%E8%B4%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -588,7 +382,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/09/20/%E3%80%90python%E3%80%91list%E5%88%97%E8%A1%A8/" class="post-title-link" itemprop="url">【Python】List列表</a>
+            <a href="/2018/08/27/%E3%80%90c%E3%80%91post-in-notes%E4%BE%BF%E5%88%A9%E8%B4%B4/" class="post-title-link" itemprop="url">【C#】Post-in Notes便利贴</a>
         </h2>
 
         <div class="post-meta">
@@ -598,7 +392,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2018-09-20 22:40:34" itemprop="dateCreated datePublished" datetime="2018-09-20T22:40:34+08:00">2018-09-20</time>
+              <time title="Created: 2018-08-27 13:02:09" itemprop="dateCreated datePublished" datetime="2018-08-27T13:02:09+08:00">2018-08-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -613,23 +407,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                  <a href="/categories/Project-IDEA/" itemprop="url" rel="index"><span itemprop="name">Project.IDEA</span></a>
                 </span>
             </span>
 
@@ -644,10 +422,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Python内置的一种数据类型是列表：<strong>list</strong>。list是一种有序的集合，可以随时添加和删除其中的元素。</p>
+          <p>作为AnyPin的第三个组件，便利贴（Post-in Notes）即日起也到了验收测试时期，这款应用可以把复制的文本“pin”到屏幕上，并且保存最多20条历史纪录。你可以将它用作复制文本的“中间编辑器”也可以用作剪切板记录器，当然也可以直接当作便利贴使用。使用过程中如果出现任何问题可以在下方留言，我会及时处理。
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/09/20/%E3%80%90python%E3%80%91list%E5%88%97%E8%A1%A8/#more" rel="contents">
+              <a class="btn" href="/2018/08/27/%E3%80%90c%E3%80%91post-in-notes%E4%BE%BF%E5%88%A9%E8%B4%B4/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -671,7 +449,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/20/595/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/08/19/%E3%80%90c%E3%80%91pinpic%E5%9B%BE%E7%89%87%E5%89%8D%E7%BD%AE%E5%BA%94%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -685,7 +463,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/09/20/595/" class="post-title-link" itemprop="url">Untitled Post - 22</a>
+            <a href="/2018/08/19/%E3%80%90c%E3%80%91pinpic%E5%9B%BE%E7%89%87%E5%89%8D%E7%BD%AE%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">【C#】PinPic图片前置应用</a>
         </h2>
 
         <div class="post-meta">
@@ -695,7 +473,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2018-09-20 22:01:02" itemprop="dateCreated datePublished" datetime="2018-09-20T22:01:02+08:00">2018-09-20</time>
+              <time title="Created: 2018-08-19 19:52:38" itemprop="dateCreated datePublished" datetime="2018-08-19T19:52:38+08:00">2018-08-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -710,7 +488,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
+                  <a href="/categories/Project-IDEA/" itemprop="url" rel="index"><span itemprop="name">Project.IDEA</span></a>
                 </span>
             </span>
 
@@ -725,7 +503,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <p>是否经常需要将图片pin到最前？（比如临摹、复写），那么你可以试一下这款小应用。 PinPic是一个可以把任意图片置顶到窗口最前的应用，该应用将作为AnyPin的一个组件使用，各个组件将分步完成，全部度过测试期后完成集合应用AnyPin。目测将有较长的开发周期。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/08/19/%E3%80%90c%E3%80%91pinpic%E5%9B%BE%E7%89%87%E5%89%8D%E7%BD%AE%E5%BA%94%E7%94%A8/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -744,7 +530,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/20/%E3%80%90%E6%95%99%E7%A8%8B%E3%80%91vs%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/08/19/anypin%E5%BC%80%E5%8F%91%E8%AE%A1%E5%88%92/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -758,7 +544,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/09/20/%E3%80%90%E6%95%99%E7%A8%8B%E3%80%91vs%E4%B8%AD%E7%9A%84%E5%BF%AB%E9%80%9F%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">【教程】VS中的快速操作</a>
+            <a href="/2018/08/19/anypin%E5%BC%80%E5%8F%91%E8%AE%A1%E5%88%92/" class="post-title-link" itemprop="url">AnyPin开发计划</a>
         </h2>
 
         <div class="post-meta">
@@ -768,7 +554,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2018-09-20 21:54:51" itemprop="dateCreated datePublished" datetime="2018-09-20T21:54:51+08:00">2018-09-20</time>
+              <time title="Created: 2018-08-19 19:41:14" itemprop="dateCreated datePublished" datetime="2018-08-19T19:41:14+08:00">2018-08-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -783,15 +569,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%90%8E%E9%99%A2/" itemprop="url" rel="index"><span itemprop="name">后院</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-90-8e-e9-99-a2/" itemprop="url" rel="index"><span itemprop="name">%e5%90%8e%e9%99%a2</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-90-8e-e9-99-a2/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                  <a href="/categories/Project-IDEA/" itemprop="url" rel="index"><span itemprop="name">Project.IDEA</span></a>
                 </span>
             </span>
 
@@ -806,9 +584,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="①快捷键篇："><a href="#①快捷键篇：" class="headerlink" title="①快捷键篇："></a>①快捷键篇：</h1><p>预格式化：<strong>按住Ctrl，再依次按K和F</strong> 收起所有方法：<strong>Ctrl+M+O</strong> 分步运行：<strong>F11</strong> 快速查找/替换窗口：<strong>Ctrl+F</strong>    </p>
-<h1 id="②功能篇"><a href="#②功能篇" class="headerlink" title="②功能篇"></a>②功能篇</h1><p>重构：<strong>对变量名/方法名/对象名/类名右键&gt;重命名</strong>   [不断更新]</p>
-
+          <p>目标中的第一个完整的应用程序。 将分别开发各个组件，全部组件开发完成后合并在一个应用中发布。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/08/19/anypin%E5%BC%80%E5%8F%91%E8%AE%A1%E5%88%92/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -827,7 +611,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/20/%E3%80%90c%E3%80%91%E6%8E%A7%E4%BB%B6%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88listview%E3%80%81tabcontrol%E3%80%81textbox%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/08/18/%E3%80%90c%E3%80%91%E5%B0%8F%E6%97%B6%E9%92%9F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -841,7 +625,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/09/20/%E3%80%90c%E3%80%91%E6%8E%A7%E4%BB%B6%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88listview%E3%80%81tabcontrol%E3%80%81textbox%EF%BC%89/" class="post-title-link" itemprop="url">【C#】控件知识点总结（ListView、TabControl、RichTextBox）</a>
+            <a href="/2018/08/18/%E3%80%90c%E3%80%91%E5%B0%8F%E6%97%B6%E9%92%9F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">【C#】“小时钟”知识点总结</a>
         </h2>
 
         <div class="post-meta">
@@ -851,7 +635,266 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2018-09-20 18:24:04" itemprop="dateCreated datePublished" datetime="2018-09-20T18:24:04+08:00">2018-09-20</time>
+              <time title="Created: 2018-08-18 09:43:17" itemprop="dateCreated datePublished" datetime="2018-08-18T09:43:17+08:00">2018-08-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>一个小时钟看似功能简单，但却使用了多窗口、侧边栏停靠、timer触发等等重要的图形化应用知识。下面将对每一个知识进行单独总结，方便日后学习。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/08/18/%E3%80%90c%E3%80%91%E5%B0%8F%E6%97%B6%E9%92%9F%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/08/17/%E3%80%90c%E3%80%91mini-clock%E5%B0%8F%E6%97%B6%E9%92%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/08/17/%E3%80%90c%E3%80%91mini-clock%E5%B0%8F%E6%97%B6%E9%92%9F/" class="post-title-link" itemprop="url">【C#】Mini clock小时钟</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-08-17 23:22:33" itemprop="dateCreated datePublished" datetime="2018-08-17T23:22:33+08:00">2018-08-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project-IDEA/" itemprop="url" rel="index"><span itemprop="name">Project.IDEA</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>该程序可以创建一个小时钟窗口，可以使您实时关注时间，支持调整字体颜色、大小、位置等设置，特别适合将状态栏隐藏的用户使用。   程序名：小时钟（Mini Clock） 体积：96KB（不包含后期生成的数据文件） 兼容性：Microsoft .NET Framework 4.5 以上（Windows 7，Windows Server 2008，Windows Server 2008 R2，Windows Vista，Windows 8/8.1/10) 支持的系统中可能需要手动安装Microsoft .NET Framework 4.5，请参阅<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/download/details.aspx?id=36359">官方声明</a>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/08/17/%E3%80%90c%E3%80%91mini-clock%E5%B0%8F%E6%97%B6%E9%92%9F/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/08/14/%E3%80%90c%E3%80%91%E9%97%B0%E5%B9%B4%E5%88%A4%E6%96%AD%E5%99%A8plus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/08/14/%E3%80%90c%E3%80%91%E9%97%B0%E5%B9%B4%E5%88%A4%E6%96%AD%E5%99%A8plus/" class="post-title-link" itemprop="url">【C#】闰年判断器Plus</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-08-14 18:03:37" itemprop="dateCreated datePublished" datetime="2018-08-14T18:03:37+08:00">2018-08-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="http://47.94.231.166/wp-content/uploads/2018/04/78.png" />丢。。。。。丢人
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/08/14/%E3%80%90c%E3%80%91%E9%97%B0%E5%B9%B4%E5%88%A4%E6%96%AD%E5%99%A8plus/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/08/14/%E3%80%90c%E3%80%91%E5%80%BC%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%85%B3%E9%94%AE%E5%AD%97ref/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/08/14/%E3%80%90c%E3%80%91%E5%80%BC%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%85%B3%E9%94%AE%E5%AD%97ref/" class="post-title-link" itemprop="url">【C#】值类型转换关键字“ref”&\"out\"</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-08-14 16:38:31" itemprop="dateCreated datePublished" datetime="2018-08-14T16:38:31+08:00">2018-08-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -897,124 +940,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a>
-<h1 id="①ListView："><a href="#①ListView：" class="headerlink" title="①ListView："></a>①ListView：</h1><p>ListView是一种数据归类的控件，可以将数据以不同形式呈现给用户，下面将以Detail视图为例介绍ListView的使用方法。 首先需要判断数据呈现方式是否方便以Detail呈现。标准的Detail视图是这样的： <img src="http://47.94.231.166/wp-content/uploads/2018/09/Walkman-Playlist-Tools_2018-09-20_18-21-28-300x263.png"> 即一行有多个数据，或者说一个数据有多种属性，这样最适合使用Detail视图，但是对于这种： <img src="http://47.94.231.166/wp-content/uploads/2018/09/%E8%88%8D%E9%95%BF%E7%A5%9E%E5%99%A8_2018-09-20_18-23-30-171x300.png"> 即一行只有一个数据，或者数据不具有其他属性，就完全没必要使用，改为使用List视图。使用Detail视图未免有些小题大做，且影响美观。 使用Detail视图的代码：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">listView.View = System.Windows.Forms.View.Details;</span><br></pre></td></tr></table></figure>
-
-<p>确定使用Detail视图后，我们就可以准备在其中添加列名了。添加方法如下：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">listView.Columns.Add(<span class="string">&quot;姓名&quot;</span>, <span class="number">260</span>, HorizontalAlignment.Center);</span><br><span class="line"><span class="comment">//listView.Columns.Add(&quot;列名&quot;, 列视图长度, 文字呈现方式（居中等）);</span></span><br></pre></td></tr></table></figure>
-
-<p>如此，可以连续定义多个列名，注意，使用列表前一定要先定义好列名，否则无法插入数据。 然后，又有以下常用可选项：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">listView.FullRowSelect = <span class="literal">true</span>;<span class="comment">//设置一选选一行，而不是选具体某一行的某一项</span></span><br><span class="line">listView.CheckBoxes = <span class="literal">true</span>;<span class="comment">//为每项添加一个勾选框</span></span><br><span class="line">listView.MultiSelect = <span class="literal">true</span>;<span class="comment">//可多选</span></span><br><span class="line">listView.GridLines = <span class="literal">true</span>;<span class="comment">//为每一行添加行线</span></span><br><span class="line">listView.AllowColumnReorder = <span class="literal">true</span>;<span class="comment">//设置用户是否可以拖动列名来更改默认的列位置</span></span><br></pre></td></tr></table></figure>
-
-<p>至此，一个Detail视图的Listview就定义好了，我们定义它肯定是为了让它显示数据，那么如何给它添加数据呢？</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ListViewItem lv = <span class="keyword">new</span> ListViewItem();<span class="comment">//实例化一个ListViewItem，这就像当时列表的一行</span></span><br><span class="line">lv.Text = <span class="string">&quot;1&quot;</span>;<span class="comment">//为ListViewItem添加首项，就是第一列</span></span><br><span class="line">lv.SubItems.Add(<span class="string">&quot;2&quot;</span>);<span class="comment">//为ListViewItem添加第二项，就是第二列</span></span><br><span class="line"><span class="keyword">this</span>.listView1.Items.Add(lv);<span class="comment">//将lv这一项添加到列表Listview1中</span></span><br></pre></td></tr></table></figure>
-
-<p>以此类推，我们可以在一行中依次添加数据直到达到定义列数，如此再添加任意行。注意，添加首项，也就是第一列，与第二项，也就是第二列的方式不同。   到这里写入数据也完成了，如果要输出数据呢？</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> (ListViewItem item <span class="keyword">in</span> listView.Items)<span class="comment">//遍历行</span></span><br><span class="line">&#123;</span><br><span class="line">    Label1.Text+=item.SubItems[<span class="number">0</span>].Text + <span class="string">&quot;&quot;</span> + item.SubItems[<span class="number">1</span>].Text;</span><br><span class="line">&#125;<span class="comment">//读取列，这里一共两列，以“”分隔数据打印出来</span></span><br></pre></td></tr></table></figure>
-
-<p>这里可以看出，item.Text=”1”（写）对应item.SubItems[0].Text（读） item.SubItems.Add(“2”)（写）对应item.SubItems[1].Text（读） 以此类推。 特殊项：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//↓删除框选的行</span></span><br><span class="line"><span class="keyword">foreach</span> (ListViewItem lvi <span class="keyword">in</span> listView.CheckedItems) <span class="comment">//选中项遍历</span></span><br><span class="line">&#123;</span><br><span class="line">    listView.Items.RemoveAt(lvi.Index); <span class="comment">// 按索引移除</span></span><br><span class="line">    <span class="comment">//listView1.Items.Remove(lvi); //按项移除</span></span><br><span class="line">    <span class="comment">//↓清空列表</span></span><br><span class="line">    listView.Items.Clear();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> </p>
-<h1 id="②TabControl"><a href="#②TabControl" class="headerlink" title="②TabControl"></a>②TabControl</h1><p>TabControl是一种可以存放其他控件的控件，准确地说并不是TabControl可以存放其他控件，而是TabControl所控制的TabPage这种控件可以容纳其他控件。如图<img src="http://47.94.231.166/wp-content/uploads/2018/09/WindowsFormsApp2_2018-09-20_20-59-08.png"> 这一整个是一个TabControl控件，而那里面包含的两个标签页称为两个TabPage控件。 首先，我们来看TabControl控件： 它的作用是控制里面的TabPage控件，我们可以添加一个TabPage控件：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TabPage tpage = <span class="keyword">new</span> TabPage();<span class="comment">//创建一个新TabPage对象</span></span><br><span class="line">tpage.Text = <span class="string">&quot;New List &quot;</span> ;<span class="comment">//更改标签页对象名</span></span><br><span class="line">tpage.Name = <span class="string">&quot;New List &quot;</span> ;<span class="comment">//更改标签页对象现实的文字</span></span><br><span class="line">TabControl.TabPages.Add(tpage);<span class="comment">//向TabControl控件中添加这个标签页对象</span></span><br></pre></td></tr></table></figure>
-
-<p>也可以删除一个TabPage控件：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TabControl.TabPages.Remove(TabControl.TabPages[<span class="number">0</span>]);<span class="comment">//删除此TabControl控件中的第一个标签页</span></span><br></pre></td></tr></table></figure>
-
-<p>查看目前选中的标签页：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">label1.Text=TabControl.SelectedIndex.ToString();</span><br></pre></td></tr></table></figure>
-
-<p>这里可以看出，每添加一个TabPage，TabControl控件都会给它添加一个索引，并且索引从零开始。 再看里面的TabPage控件，它的主要用法是查看其中是否包含某种控件并引用之：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//↓如果目前所选标签页中包含ListView控件，那么允许其多选</span></span><br><span class="line"><span class="keyword">foreach</span> (Control control <span class="keyword">in</span> TabControl.SelectedTab.Controls)<span class="comment">//便利标签页中的所有控件</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (control <span class="keyword">is</span> ListView)<span class="comment">//如果控件为ListView类型</span></span><br><span class="line">    &#123;</span><br><span class="line">        ListView lv = (ListView)control;<span class="comment">//将其声明为lv</span></span><br><span class="line">        lv.MultiSelect = <span class="literal">true</span>;<span class="comment">//允许该控件多选</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> </p>
-<h1 id="③RichTextBox"><a href="#③RichTextBox" class="headerlink" title="③RichTextBox"></a>③RichTextBox</h1><p>该控件是可设置字体格式的文本框，但是由于微软的限制该控件无法透明化，此时需要新建一个类，并且写入以下代码：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Windows.Forms;</span><br><span class="line"><span class="keyword">using</span> System.Runtime.InteropServices;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TransTextBox</span> : <span class="title">RichTextBox</span></span><br><span class="line">&#123;</span><br><span class="line">    [<span class="meta">DllImport(<span class="meta-string">&quot;kernel32.dll&quot;</span>, CharSet = CharSet.Auto)</span>]</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> IntPtr <span class="title">LoadLibrary</span>(<span class="params"><span class="built_in">string</span> lpFileName</span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">override</span> CreateParams CreateParams</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            CreateParams prams = <span class="keyword">base</span>.CreateParams;</span><br><span class="line">            <span class="keyword">if</span> (LoadLibrary(<span class="string">&quot;msftedit.dll&quot;</span>) != IntPtr.Zero)</span><br><span class="line">            &#123;</span><br><span class="line">                prams.ExStyle = <span class="number">0x020</span>;</span><br><span class="line">                prams.ClassName = <span class="string">&quot;RICHEDIT50W&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> prams;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后找到：工具&gt;选项&gt;Windows窗体设计器&gt;常规&gt;自动填充工具箱&gt;True 这时就可以从工具箱中找到该控件了，空间名为类名，即TransTextBox。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/20/%E3%80%90%E7%9E%8E%E6%90%9E%E3%80%91%E8%88%8D%E9%95%BF%E7%A5%9E%E5%99%A8%EF%BC%88%E9%9B%BE%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/09/20/%E3%80%90%E7%9E%8E%E6%90%9E%E3%80%91%E8%88%8D%E9%95%BF%E7%A5%9E%E5%99%A8%EF%BC%88%E9%9B%BE%EF%BC%89/" class="post-title-link" itemprop="url">【瞎搞】舍长神器（雾）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-09-20 13:05:55" itemprop="dateCreated datePublished" datetime="2018-09-20T13:05:55+08:00">2018-09-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-90-8e-e9-99-a2/" itemprop="url" rel="index"><span itemprop="name">%e5%90%8e%e9%99%a2</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-90-8e-e9-99-a2/%E8%B5%84%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">资源</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>为了贯彻落实社会主义核心价值观，秉承公平民主的思想，今日特制舍长神器用于——抽签！ <img src="http://47.94.231.166/wp-content/uploads/2018/09/%E8%88%8D%E9%95%BF%E7%A5%9E%E5%99%A8_2018-09-20_12-48-41.png"></p>
+          <p>由于值类型实参传入方法后无法被保存，所以可以用关键字“ref”将其临时“转换”为引用类型。
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/09/20/%E3%80%90%E7%9E%8E%E6%90%9E%E3%80%91%E8%88%8D%E9%95%BF%E7%A5%9E%E5%99%A8%EF%BC%88%E9%9B%BE%EF%BC%89/#more" rel="contents">
+              <a class="btn" href="/2018/08/14/%E3%80%90c%E3%80%91%E5%80%BC%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%85%B3%E9%94%AE%E5%AD%97ref/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1038,7 +967,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/18/571/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/08/14/%E3%80%90c%E3%80%91%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1052,7 +981,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/09/18/571/" class="post-title-link" itemprop="url">Untitled Post - 21</a>
+            <a href="/2018/08/14/%E3%80%90c%E3%80%91%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">【C#】方法中的值类型和引用类型</a>
         </h2>
 
         <div class="post-meta">
@@ -1062,7 +991,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2018-09-18 23:29:19" itemprop="dateCreated datePublished" datetime="2018-09-18T23:29:19+08:00">2018-09-18</time>
+              <time title="Created: 2018-08-14 12:10:30" itemprop="dateCreated datePublished" datetime="2018-08-14T12:10:30+08:00">2018-08-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -1077,7 +1006,23 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
+                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
                 </span>
             </span>
 
@@ -1092,7 +1037,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <p>值类型：内存中存储的是值，如int、double等 引用类型：内存中存储的是内存地址，如string、int[]等
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/08/14/%E3%80%90c%E3%80%91%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1110,7 +1063,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1176,7 +1129,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1185,7 +1138,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -1267,6 +1220,8 @@
 
 
 
+
+  
 
   
 

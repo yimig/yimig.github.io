@@ -80,7 +80,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -223,44 +227,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/12/LinQ.html">&gt;无扰阅读模式</a></p>
-<a id="more"></a>
-<h2 id="①什么是LinQ？"><a href="#①什么是LinQ？" class="headerlink" title="①什么是LinQ？"></a>①什么是LinQ？</h2><blockquote>
+        <p><a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/12/LinQ.html">&gt;无扰阅读模式</a> <a id="more"></a> ## ①什么是LinQ？</p>
+<blockquote>
 <p>linq是一类查询数据的方法，它常用于对数据库进行检索，但是不限于数据库（可应用于任何集合类型）。利用Linq，我们可以使用简单的语句完成对数据的搜索、归类、求集等等操作。</p>
 </blockquote>
-<h2 id="②预备知识：Lambda表达式"><a href="#②预备知识：Lambda表达式" class="headerlink" title="②预备知识：Lambda表达式"></a>②预备知识：Lambda表达式</h2><h3 id="㈠Lambda表达式的作用："><a href="#㈠Lambda表达式的作用：" class="headerlink" title="㈠Lambda表达式的作用："></a>㈠Lambda表达式的作用：</h3><ol>
-<li> 匿名方法（没有类的野方法）</li>
-<li> Inline方法（随写随用，用后立刻销毁）</li>
+<h2 id="预备知识lambda表达式">②预备知识：Lambda表达式</h2>
+<h3 id="lambda表达式的作用">㈠Lambda表达式的作用：</h3>
+<ol type="1">
+<li>匿名方法（没有类的野方法）</li>
+<li>Inline方法（随写随用，用后立刻销毁）</li>
 </ol>
-<h3 id="㈡使用方法："><a href="#㈡使用方法：" class="headerlink" title="㈡使用方法："></a>㈡使用方法：</h3><ol>
-<li> <strong>Lambda表达式应用于委托中，使用时调用委托即可</strong></li>
-<li> 使用形式为 <strong>（形参）=&gt; {函数体}</strong></li>
+<h3 id="使用方法">㈡使用方法：</h3>
+<ol type="1">
+<li><strong>Lambda表达式应用于委托中，使用时调用委托即可</strong></li>
+<li>使用形式为 <strong>（形参）=&gt; {函数体}</strong></li>
 </ol>
 <p>例：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//调用系统定义好的泛型委托Func，第一、二个泛型是传入值，第三个泛型是返回值</span></span><br><span class="line">    Func&lt;<span class="built_in">int</span>,<span class="built_in">int</span>,<span class="built_in">int</span>&gt; func=<span class="keyword">new</span> Func&lt;<span class="built_in">int</span>,<span class="built_in">int</span>,<span class="built_in">int</span>&gt;((<span class="built_in">int</span> a,<span class="built_in">int</span> b)=&gt;&#123;<span class="keyword">return</span> a+b&#125;);<span class="comment">//创建包含Lambda表达式的委托成员</span></span><br><span class="line">    Console.WriteLine(func(<span class="number">100</span>,<span class="number">300</span>));<span class="comment">//调用委托显示结果。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="㈢语法糖"><a href="#㈢语法糖" class="headerlink" title="㈢语法糖"></a>㈢语法糖</h3><p>原句</p>
+<h3 id="语法糖">㈢语法糖</h3>
+<p>原句</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Func&lt;<span class="built_in">int</span>,<span class="built_in">int</span>,<span class="built_in">int</span>&gt; func=<span class="keyword">new</span> Func&lt;<span class="built_in">int</span>,<span class="built_in">int</span>,<span class="built_in">int</span>&gt;((<span class="built_in">int</span> a,<span class="built_in">int</span> b)=&gt;&#123;<span class="keyword">return</span> a+b&#125;);</span><br></pre></td></tr></table></figure>
-
 <p>因为传入值已在委托中规定，<strong>故可以不声明形式变量类型而直接调用</strong>，同时规定了函数肯定有返回值，<strong>所以省略return</strong> ↓</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Func&lt;<span class="built_in">int</span>,<span class="built_in">int</span>,<span class="built_in">int</span>&gt; func=<span class="keyword">new</span> Func&lt;<span class="built_in">int</span>,<span class="built_in">int</span>,<span class="built_in">int</span>&gt;((a,b)=&gt;&#123;a+b&#125;);</span><br></pre></td></tr></table></figure>
-
 <p>因为建立Lambda表达式的过程肯定是新建了一个委托成员，<strong>故可以省去new及调用“构造方法”的语句</strong> ↓</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Func&lt;<span class="built_in">int</span>,<span class="built_in">int</span>,<span class="built_in">int</span>&gt; func=(a,b)=&gt;&#123;a+b&#125;;</span><br></pre></td></tr></table></figure>
-
 <p>如果Lambda表达式的内容就一句，完全连大括号也没必要写，最后就成了</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Func&lt;<span class="built_in">int</span>,<span class="built_in">int</span>,<span class="built_in">int</span>&gt; func=(a,b)=&gt;a+b;</span><br></pre></td></tr></table></figure>
-
-<h2 id="③使用LinQ进行数据处理"><a href="#③使用LinQ进行数据处理" class="headerlink" title="③使用LinQ进行数据处理"></a>③使用LinQ进行数据处理</h2><blockquote>
+<h2 id="使用linq进行数据处理">③使用LinQ进行数据处理</h2>
+<blockquote>
 <p>LinQ本是模仿SQL的语法，但是那种语法在C#程序中就显得格格不入，为此微软又开发了形似C#方法的LinQ语法，为方便理解，以下所讲的语法都是这种语法。</p>
 </blockquote>
 <p>LinQ类似C#方法的语法大多就是利用以上所讲的Lambda表达式语法形式进行书写的，例如，我们有学生的数据集合<code>StudentData</code>，集合中有很多条学生信息，每条学生信息又包含学生的姓名(Name)、年级(Grade)、班级(Class)等等数据。</p>
-<h3 id="㈠现在我们想得到所有的学生姓名，可以这样写："><a href="#㈠现在我们想得到所有的学生姓名，可以这样写：" class="headerlink" title="㈠现在我们想得到所有的学生姓名，可以这样写："></a>㈠现在我们想得到所有的学生姓名，可以这样写：</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nameList=studentData.Select(p=&gt;p.Name).ToList();</span><br><span class="line"><span class="comment">//studentData是StudentData类的一个对象</span></span><br></pre></td></tr></table></figure>
-
-<p>这句话的意思就是 <strong>“选择studentData每条数据中的Name，并且将其返回为一个列表”</strong>。 值得注意的是，当我们输入<code>Select()</code>后，编译器会自动给出提示： <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/12/2018-12-22_12-02-09.png"><img src="http://upane.cn/wp-content/uploads/2018/12/2018-12-22_12-02-09.png"></a> 注意Func后面的泛型，<strong>这就是提示我们这个Select函数仅接受输入值为StudentData类型，返回TResult类型的委托成员</strong>，这也间接限制了我们的Lambda表达式书写格式。</p>
-<h3 id="㈡同理，如果我们想要搜索所有名字为“张三”的学生，可以这样写："><a href="#㈡同理，如果我们想要搜索所有名字为“张三”的学生，可以这样写：" class="headerlink" title="㈡同理，如果我们想要搜索所有名字为“张三”的学生，可以这样写："></a>㈡同理，如果我们想要搜索所有名字为“张三”的学生，可以这样写：</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> student=studentData.Where(p=&gt;p.Name==<span class="string">&quot;张三&quot;</span>).ToList();</span><br></pre></td></tr></table></figure>
-
-<p>这次当我们输入<code>Where()</code>后，编译器自动给出提示为： <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/12/2018-12-22_12-10-39.png"><img src="http://upane.cn/wp-content/uploads/2018/12/2018-12-22_12-10-39.png"></a> 可以看到这个<code>Where()</code>函数仅接受 <strong>输入值为StudentData类型，返回值为bool类型的委托成员</strong>。 这样我们就得到了所有名字叫”张三”的学生名单。（别忘了句尾的.ToList()） 关于更多LinQ函数，可以去<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable?view=netframework-4.7.2" title="微软官网">微软官网</a>查询：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable?view=netframework-4.7.2">https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable?view=netframework-4.7.2</a></p>
+<h3 id="现在我们想得到所有的学生姓名可以这样写">㈠现在我们想得到所有的学生姓名，可以这样写：</h3>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nameList=studentData.Select(p=&gt;p.Name).ToList();</span><br><span class="line"><span class="comment">//studentData是StudentData类的一个对象</span></span><br></pre></td></tr></table></figure>
+<p>这句话的意思就是 <strong>“选择studentData每条数据中的Name，并且将其返回为一个列表”</strong>。 值得注意的是，当我们输入<code>Select()</code>后，编译器会自动给出提示： <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/12/2018-12-22_12-02-09.png"><img src="http://upane.cn/wp-content/uploads/2018/12/2018-12-22_12-02-09.png" /></a> 注意Func后面的泛型，<strong>这就是提示我们这个Select函数仅接受输入值为StudentData类型，返回TResult类型的委托成员</strong>，这也间接限制了我们的Lambda表达式书写格式。</p>
+<h3 id="同理如果我们想要搜索所有名字为张三的学生可以这样写">㈡同理，如果我们想要搜索所有名字为“张三”的学生，可以这样写：</h3>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> student=studentData.Where(p=&gt;p.Name==<span class="string">&quot;张三&quot;</span>).ToList();</span><br></pre></td></tr></table></figure>
+<p>这次当我们输入<code>Where()</code>后，编译器自动给出提示为： <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/12/2018-12-22_12-10-39.png"><img src="http://upane.cn/wp-content/uploads/2018/12/2018-12-22_12-10-39.png" /></a> 可以看到这个<code>Where()</code>函数仅接受 <strong>输入值为StudentData类型，返回值为bool类型的委托成员</strong>。 这样我们就得到了所有名字叫"张三"的学生名单。（别忘了句尾的.ToList()） 关于更多LinQ函数，可以去<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable?view=netframework-4.7.2" title="微软官网">微软官网</a>查询：https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable?view=netframework-4.7.2</p>
 
     </div>
 
@@ -344,7 +347,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A0%E4%BB%80%E4%B9%88%E6%98%AFLinQ%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">①什么是LinQ？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A1%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%EF%BC%9ALambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">②预备知识：Lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%88%A0Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">㈠Lambda表达式的作用：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%88%A1%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">㈡使用方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%88%A2%E8%AF%AD%E6%B3%95%E7%B3%96"><span class="nav-number">2.3.</span> <span class="nav-text">㈢语法糖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A2%E4%BD%BF%E7%94%A8LinQ%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">③使用LinQ进行数据处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%88%A0%E7%8E%B0%E5%9C%A8%E6%88%91%E4%BB%AC%E6%83%B3%E5%BE%97%E5%88%B0%E6%89%80%E6%9C%89%E7%9A%84%E5%AD%A6%E7%94%9F%E5%A7%93%E5%90%8D%EF%BC%8C%E5%8F%AF%E4%BB%A5%E8%BF%99%E6%A0%B7%E5%86%99%EF%BC%9A"><span class="nav-number">3.1.</span> <span class="nav-text">㈠现在我们想得到所有的学生姓名，可以这样写：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%88%A1%E5%90%8C%E7%90%86%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%88%91%E4%BB%AC%E6%83%B3%E8%A6%81%E6%90%9C%E7%B4%A2%E6%89%80%E6%9C%89%E5%90%8D%E5%AD%97%E4%B8%BA%E2%80%9C%E5%BC%A0%E4%B8%89%E2%80%9D%E7%9A%84%E5%AD%A6%E7%94%9F%EF%BC%8C%E5%8F%AF%E4%BB%A5%E8%BF%99%E6%A0%B7%E5%86%99%EF%BC%9A"><span class="nav-number">3.2.</span> <span class="nav-text">㈡同理，如果我们想要搜索所有名字为“张三”的学生，可以这样写：</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">②预备知识：Lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">㈠Lambda表达式的作用：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">㈡使用方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E7%B3%96"><span class="nav-number">1.3.</span> <span class="nav-text">㈢语法糖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8linq%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">③使用LinQ进行数据处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%B0%E5%9C%A8%E6%88%91%E4%BB%AC%E6%83%B3%E5%BE%97%E5%88%B0%E6%89%80%E6%9C%89%E7%9A%84%E5%AD%A6%E7%94%9F%E5%A7%93%E5%90%8D%E5%8F%AF%E4%BB%A5%E8%BF%99%E6%A0%B7%E5%86%99"><span class="nav-number">2.1.</span> <span class="nav-text">㈠现在我们想得到所有的学生姓名，可以这样写：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E7%90%86%E5%A6%82%E6%9E%9C%E6%88%91%E4%BB%AC%E6%83%B3%E8%A6%81%E6%90%9C%E7%B4%A2%E6%89%80%E6%9C%89%E5%90%8D%E5%AD%97%E4%B8%BA%E5%BC%A0%E4%B8%89%E7%9A%84%E5%AD%A6%E7%94%9F%E5%8F%AF%E4%BB%A5%E8%BF%99%E6%A0%B7%E5%86%99"><span class="nav-number">2.2.</span> <span class="nav-text">㈡同理，如果我们想要搜索所有名字为“张三”的学生，可以这样写：</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -358,7 +361,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -367,7 +370,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -449,6 +452,8 @@
 
 
 
+
+  
 
   
 

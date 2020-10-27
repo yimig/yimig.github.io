@@ -78,7 +78,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -213,12 +217,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>正则表达式是我们处理文本最常用的手段，它有自己的语法，入门容易但是精通很难，下面就结合例子简单谈一下其语法，帮助大家轻松入门。</p>
-<a id="more"></a>
-<p><strong>语法规范：</strong></p>
-<ol>
-<li> 严格区分大小写</li>
-<li> 寻找满足表达式的字符串，找到就返回true，否则返回false</li>
+        <p>正则表达式是我们处理文本最常用的手段，它有自己的语法，入门容易但是精通很难，下面就结合例子简单谈一下其语法，帮助大家轻松入门。 <a id="more"></a> <strong>语法规范：</strong></p>
+<ol type="1">
+<li>严格区分大小写</li>
+<li>寻找满足表达式的字符串，找到就返回true，否则返回false</li>
 </ol>
 <p>示例</p>
 <p>含义</p>
@@ -230,7 +232,7 @@
 <p>存在性检查</p>
 <p>a|b</p>
 <p>a或b</p>
-<p>|</p>
+<div class="line-block"></div>
 <p>或</p>
 <p>[ab]</p>
 <p>a或b</p>
@@ -264,7 +266,9 @@
 <p>出现m到n次/出现m次以上</p>
 <p>b+</p>
 <p>至少一个b</p>
-<p>+</p>
+<ul>
+<li></li>
+</ul>
 <p>至少出现一次，相当于{1,}</p>
 <p>b*</p>
 <p>0个或多个</p>
@@ -303,7 +307,7 @@
 <p>\S</p>
 <p>除了空格</p>
 <p>\b</p>
-<p>单词边界，应用后，在”hello kids”中查找”i”将返回false，因只会匹配整个单词</p>
+<p>单词边界，应用后，在"hello kids"中查找"i"将返回false，因只会匹配整个单词</p>
 <p>\B</p>
 <p>除了单词边界</p>
 
@@ -325,8 +329,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/04/26/twentyfifteen/" rel="prev" title="twentyfifteen">
-      <i class="fa fa-chevron-left"></i> twentyfifteen
+    <a href="/2019/04/22/%E3%80%90js%E3%80%91js%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%AC%94%E8%AE%B0-2/" rel="prev" title="【JS】js学习小笔记 2#">
+      <i class="fa fa-chevron-left"></i> 【JS】js学习小笔记 2#
     </a></div>
       <div class="post-nav-item">
     <a href="/2019/04/27/js%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%AC%94%E8%AE%B0-3/" rel="next" title="【JS】js学习小笔记 3#">
@@ -403,7 +407,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -412,7 +416,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -494,6 +498,8 @@
 
 
 
+
+  
 
   
 

@@ -20,22 +20,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="概念：① 面向对象的三种技术手段：">
+  <meta name="description" content="概念： ① 面向对象的三种技术手段：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【C#】面向对象的编程">
 <meta property="og:url" content="http://example.com/2018/08/12/%E3%80%90c%E3%80%91%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BC%96%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概念：① 面向对象的三种技术手段：">
+<meta property="og:description" content="概念： ① 面向对象的三种技术手段：">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/08/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.jpg">
-<meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/08/%E7%B1%BB.jpg">
+<meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/08/面向对象.jpg">
+<meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/08/类.jpg">
 <meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/08/2018-08-12_10-00-14.png">
 <meta property="article:published_time" content="2018-08-12T02:24:43.000Z">
 <meta property="article:modified_time" content="2020-10-27T06:59:16.830Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="C#学习笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://47.94.231.166/wp-content/uploads/2018/08/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.jpg">
+<meta name="twitter:image" content="http://47.94.231.166/wp-content/uploads/2018/08/面向对象.jpg">
 
 <link rel="canonical" href="http://example.com/2018/08/12/%E3%80%90c%E3%80%91%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BC%96%E7%A8%8B/">
 
@@ -81,7 +81,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -224,15 +228,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h1><h2 id="①-面向对象的三种技术手段："><a href="#①-面向对象的三种技术手段：" class="headerlink" title="① 面向对象的三种技术手段："></a>① 面向对象的三种技术手段：</h2><p><img src="http://47.94.231.166/wp-content/uploads/2018/08/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.jpg"></p>
-<a id="more"></a>
-<h2 id="②-类与对象："><a href="#②-类与对象：" class="headerlink" title="② 类与对象："></a>② 类与对象：</h2><p><img src="http://47.94.231.166/wp-content/uploads/2018/08/%E7%B1%BB.jpg"> 静态特征：可以理解为程序所需数据存储，字段就是数据，属性则定义存储的方法（只读、只写、可写） 命名规则：变量用Camel标记法，常量用Pascal标记法，成员变量用Camel标记法，方法名和类名用Pascal标记法 Camel标记法，即“骆驼”标记法，像骆驼的驼峰一样，第一个单词首字母小写，其他单词大写，所以my button→myButton。 Pascal标记法，和Camel相似，但是首字母仍然大写。 ============================================================== 如： <img src="http://47.94.231.166/wp-content/uploads/2018/08/2018-08-12_10-00-14.png"> ① 面向对象的重点在于创建对象，所以一定不要忘记实例化对象，在以后引用的时候不能写“类.方法”或者“类.属性”，而是“对象.方法”，“对象.属性”。 实例化正则表达式： <em>类名  对象名=new 类名（）；</em> ② 修饰符public，private可对数据方法、属性进行访问限制，但是单纯的开放封闭不能解决很多问题，所以引入属性概念，即</p>
+        <h1 id="概念">概念：</h1>
+<h2 id="面向对象的三种技术手段">① 面向对象的三种技术手段：</h2>
+<p><img src="http://47.94.231.166/wp-content/uploads/2018/08/面向对象.jpg" /> <a id="more"></a> ## ② 类与对象：</p>
+<p><img src="http://47.94.231.166/wp-content/uploads/2018/08/类.jpg" /> 静态特征：可以理解为程序所需数据存储，字段就是数据，属性则定义存储的方法（只读、只写、可写） 命名规则：变量用Camel标记法，常量用Pascal标记法，成员变量用Camel标记法，方法名和类名用Pascal标记法 Camel标记法，即“骆驼”标记法，像骆驼的驼峰一样，第一个单词首字母小写，其他单词大写，所以my button→myButton。 Pascal标记法，和Camel相似，但是首字母仍然大写。 ============================================================== 如： <img src="http://47.94.231.166/wp-content/uploads/2018/08/2018-08-12_10-00-14.png" /> ① 面向对象的重点在于创建对象，所以一定不要忘记实例化对象，在以后引用的时候不能写“类.方法”或者“类.属性”，而是“对象.方法”，“对象.属性”。 实例化正则表达式： <em>类名  对象名=new 类名（）；</em> ② 修饰符public，private可对数据方法、属性进行访问限制，但是单纯的开放封闭不能解决很多问题，所以引入属性概念，即</p>
 <blockquote>
 <p>public 数据类型 属性名 { get{return 目标变量 ；}    //可读 set{目标变量=value ；}   //可写 }</p>
 </blockquote>
 <p>注意，这里的数据类型可以有int、double等，也可以是数组类型int[]、double[] 封装快捷键：Ctrl+R+E</p>
-<h6 id="③-方法的重载："><a href="#③-方法的重载：" class="headerlink" title="③ 方法的重载："></a>③ 方法的重载：</h6><p>同一个类中，方法名相同但参数或类型不同，仍可以编译通过的情况。 按照调用时输入变量的类型和数量，系统可自动选择两相同名称的方法函数。 <strong>构造方法也可重载</strong></p>
-<h6 id="④Return"><a href="#④Return" class="headerlink" title="④Return"></a>④Return</h6><p>1.通过return结束方法的调用 当方法运行至</p>
+<h6 id="方法的重载">③ 方法的重载：</h6>
+<p>同一个类中，方法名相同但参数或类型不同，仍可以编译通过的情况。 按照调用时输入变量的类型和数量，系统可自动选择两相同名称的方法函数。 <strong>构造方法也可重载</strong></p>
+<h6 id="return">④Return</h6>
+<p>1.通过return结束方法的调用 当方法运行至</p>
 <blockquote>
 <p>return；</p>
 </blockquote>
@@ -320,7 +327,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">概念：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E7%A7%8D%E6%8A%80%E6%9C%AF%E6%89%8B%E6%AE%B5%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">① 面向对象的三种技术手段：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A1-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">② 类与对象：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E2%91%A2-%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E8%BD%BD%EF%BC%9A"><span class="nav-number">1.2.0.0.0.1.</span> <span class="nav-text">③ 方法的重载：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E2%91%A3Return"><span class="nav-number">1.2.0.0.0.2.</span> <span class="nav-text">④Return</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E7%A7%8D%E6%8A%80%E6%9C%AF%E6%89%8B%E6%AE%B5"><span class="nav-number">1.1.</span> <span class="nav-text">① 面向对象的三种技术手段：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E8%BD%BD"><span class="nav-number">1.1.0.0.0.1.</span> <span class="nav-text">③ 方法的重载：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#return"><span class="nav-number">1.1.0.0.0.2.</span> <span class="nav-text">④Return</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -334,7 +341,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -343,7 +350,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -425,6 +432,8 @@
 
 
 
+
+  
 
   
 

@@ -81,7 +81,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -224,22 +228,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>你捡起了道具：<strong>遗失的纸片4#</strong> 一张普通的纸片，隐隐约约能够看到目录：“<strong>DOM、DOM练习、使用DOM操作CSS</strong>”。边角还有被撕扯的痕迹，它们应该属于一个笔记本，但不知为什么被主人撕下来丢掉了。 提示：集齐所有纸片应该可以得到一本技能书。 👇点击下方按钮调查</p>
-<a id="more"></a>
-<h2 id="26-DOM"><a href="#26-DOM" class="headerlink" title="26.DOM"></a>26.DOM</h2><ol>
-<li> Dom→Document Object Model文档对象模型</li>
-<li>Js中通过Dom来对HTML文档进行操作，只要理解了Dom就可以随心所欲的操作Web页面 <strong>名词注解：</strong><ol>
-<li> 文档：整个HTML网页文档</li>
-<li> 对象:将王爷的每个部分都转换为了一个对象</li>
-<li> 模型：使用模型表示对象间的关系，这样方便我们获取对象</li>
+        <p>你捡起了道具：<strong>遗失的纸片4#</strong> 一张普通的纸片，隐隐约约能够看到目录：“<strong>DOM、DOM练习、使用DOM操作CSS</strong>”。边角还有被撕扯的痕迹，它们应该属于一个笔记本，但不知为什么被主人撕下来丢掉了。 提示：集齐所有纸片应该可以得到一本技能书。 👇点击下方按钮调查 <a id="more"></a> ## 26.DOM</p>
+<ol type="1">
+<li>Dom→Document Object Model文档对象模型</li>
+<li>Js中通过Dom来对HTML文档进行操作，只要理解了Dom就可以随心所欲的操作Web页面 <strong>名词注解：</strong>
+<ol type="1">
+<li>文档：整个HTML网页文档</li>
+<li>对象:将王爷的每个部分都转换为了一个对象</li>
+<li>模型：使用模型表示对象间的关系，这样方便我们获取对象</li>
+</ol></li>
 </ol>
-</li>
+<h3 id="节点">①节点</h3>
+<h4 id="node">㈠Node</h4>
+<ol type="1">
+<li>构成网页的最基本组成部分，网页中的每个部分都可以成为一个节点(标题、超链接、属性、注释等)</li>
+<li>虽然都是节点，但实际上他们的具体类型是不同的，如标签称为标签节点、属性称为属性节点、文本称为文本节点、文档成为文档节点 节点的类型不同，属性和方法也不尽相同</li>
 </ol>
-<h3 id="①节点"><a href="#①节点" class="headerlink" title="①节点"></a>①节点</h3><h4 id="㈠Node"><a href="#㈠Node" class="headerlink" title="㈠Node"></a>㈠Node</h4><ol>
-<li> 构成网页的最基本组成部分，网页中的每个部分都可以成为一个节点(标题、超链接、属性、注释等)</li>
-<li> 虽然都是节点，但实际上他们的具体类型是不同的，如标签称为标签节点、属性称为属性节点、文本称为文本节点、文档成为文档节点 节点的类型不同，属性和方法也不尽相同</li>
-</ol>
-<h4 id="㈡常用节点及其属性"><a href="#㈡常用节点及其属性" class="headerlink" title="㈡常用节点及其属性"></a>㈡常用节点及其属性</h4><p>节点名称</p>
+<h4 id="常用节点及其属性">㈡常用节点及其属性</h4>
+<p>节点名称</p>
 <p>nodeName</p>
 <p>nodeType</p>
 <p>nodeValue</p>
@@ -264,98 +270,125 @@
 <p>3</p>
 <p>文本内容</p>
 <p>HTML标签中的内容</p>
-<h4 id="㈢入口"><a href="#㈢入口" class="headerlink" title="㈢入口"></a>㈢入口</h4><p>浏览器已经为我们提供文档节点对象，这个对象是window的属性，可以在页面中直接使用，文档节点代表的是整个网页→<strong>document</strong>对象</p>
-<h4 id="㈣获取任意对象"><a href="#㈣获取任意对象" class="headerlink" title="㈣获取任意对象"></a>㈣获取任意对象</h4><p>获取对象： <code>documnet.getElementById()</code>→由id获取元素 获取节点内容： <code>innerHTML</code>属性可获得/修改某节点中的HTML代码</p>
-<h3 id="②事件"><a href="#②事件" class="headerlink" title="②事件"></a>②事件</h3><ol>
-<li> 文档或浏览器发生的一些特定的交互瞬间</li>
-<li> Js与HTML之间的交互是通过事件实现的</li>
-<li> 在时间对应的属性中设置一些Js代码，这样当事件被触发时，这些代码将会被执行</li>
-<li> 可为按钮的对应事件绑定处理函数的形式来相应事件</li>
+<h4 id="入口">㈢入口</h4>
+<p>浏览器已经为我们提供文档节点对象，这个对象是window的属性，可以在页面中直接使用，文档节点代表的是整个网页→<strong>document</strong>对象</p>
+<h4 id="获取任意对象">㈣获取任意对象</h4>
+<p>获取对象： <code>documnet.getElementById()</code>→由id获取元素 获取节点内容： <code>innerHTML</code>属性可获得/修改某节点中的HTML代码</p>
+<h3 id="事件">②事件</h3>
+<ol type="1">
+<li>文档或浏览器发生的一些特定的交互瞬间</li>
+<li>Js与HTML之间的交互是通过事件实现的</li>
+<li>在时间对应的属性中设置一些Js代码，这样当事件被触发时，这些代码将会被执行</li>
+<li>可为按钮的对应事件绑定处理函数的形式来相应事件</li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">btn.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//响应函数体</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="③文档的加载"><a href="#③文档的加载" class="headerlink" title="③文档的加载"></a>③文档的加载</h3><p>浏览器在加载一个页面时是自上而下加载的，读取一行就运行一行，若将script标签写到页面上边，在代码执行时页面还未加载，DOM对象未就绪 将script标签卸载页面下边就是为了在页面加载完毕后再执行Js代码</p>
-<h4 id="必须写在前面？"><a href="#必须写在前面？" class="headerlink" title="必须写在前面？"></a>必须写在前面？</h4><p>window由onload事件，值页面执行完毕后出发，可将代码写在其中：</p>
+<h3 id="文档的加载">③文档的加载</h3>
+<p>浏览器在加载一个页面时是自上而下加载的，读取一行就运行一行，若将script标签写到页面上边，在代码执行时页面还未加载，DOM对象未就绪 将script标签卸载页面下边就是为了在页面加载完毕后再执行Js代码</p>
+<h4 id="必须写在前面">必须写在前面？</h4>
+<p>window由onload事件，值页面执行完毕后出发，可将代码写在其中：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">/*Js代码*/</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="④DOM查询"><a href="#④DOM查询" class="headerlink" title="④DOM查询"></a>④DOM查询</h3><h4 id="通过document对象调用："><a href="#通过document对象调用：" class="headerlink" title="通过document对象调用："></a>通过document对象调用：</h4><ol>
-<li> <code>getElementById()</code> 通过ID属性获取一个元素节点对象</li>
-<li> <code>getElementsByTagName()</code> 通过标签名获取<strong>一组</strong>元素节点对象</li>
-<li> <code>getElementsByName()</code> 通过name属性获取<strong>一组</strong>元素节点对象</li>
+<h3 id="dom查询">④DOM查询</h3>
+<h4 id="通过document对象调用">通过document对象调用：</h4>
+<ol type="1">
+<li><code>getElementById()</code> 通过ID属性获取一个元素节点对象</li>
+<li><code>getElementsByTagName()</code> 通过标签名获取<strong>一组</strong>元素节点对象</li>
+<li><code>getElementsByName()</code> 通过name属性获取<strong>一组</strong>元素节点对象</li>
 </ol>
 <p><strong>读取元素节点属性：直接使用元素.属性名</strong> class不可用这种方式，读类名时使用<strong>元素.className</strong></p>
-<h4 id="通过具体的元素节点调用："><a href="#通过具体的元素节点调用：" class="headerlink" title="通过具体的元素节点调用："></a>通过具体的元素节点调用：</h4><ol>
-<li> <code>getElementsByTagName()</code> 返回当前节点的指定标签名后代节点</li>
-<li> <code>childNodes</code> 属性，表示当前节点的所有子节点（包括文档节点）</li>
-<li> <code>firstChild</code> 属性，表示当前节点的第一个子节点</li>
-<li> <code>lastChild</code> 属性，表示当前节点的最后一个字节点 根据DOM标准，标签间的换行、空格也会被当作文本标签（<strong>IE8及以下浏览器未实现该标准</strong>）</li>
-<li> <code>children</code> 属性，可获取节点中的所有子元素（不包括文本节点）</li>
-<li> <code>parentNode</code> 属性，可获取当前节点的父节点</li>
-<li> <code>firstElementChild</code> 属性，获取第一个子元素（IE9+）</li>
-<li> <code>previousSilbling</code> 属性，获取当前节点的前一个兄弟节点</li>
-<li> <code>nextSilbling</code> 属性，获取当前节点的后一个兄弟节点 这两个属性也可能得到空白文本，可使用<code>previousElementSibling</code>和<code>nextElementSibling</code>解决（IE8+）</li>
-<li> <code>InnerHTML</code> 节点的内容 <code>innerText</code> 只获取元素内部的文本内容</li>
+<h4 id="通过具体的元素节点调用">通过具体的元素节点调用：</h4>
+<ol type="1">
+<li><code>getElementsByTagName()</code> 返回当前节点的指定标签名后代节点</li>
+<li><code>childNodes</code> 属性，表示当前节点的所有子节点（包括文档节点）</li>
+<li><code>firstChild</code> 属性，表示当前节点的第一个子节点</li>
+<li><code>lastChild</code> 属性，表示当前节点的最后一个字节点 根据DOM标准，标签间的换行、空格也会被当作文本标签（<strong>IE8及以下浏览器未实现该标准</strong>）</li>
+<li><code>children</code> 属性，可获取节点中的所有子元素（不包括文本节点）</li>
+<li><code>parentNode</code> 属性，可获取当前节点的父节点</li>
+<li><code>firstElementChild</code> 属性，获取第一个子元素（IE9+）</li>
+<li><code>previousSilbling</code> 属性，获取当前节点的前一个兄弟节点</li>
+<li><code>nextSilbling</code> 属性，获取当前节点的后一个兄弟节点 这两个属性也可能得到空白文本，可使用<code>previousElementSibling</code>和<code>nextElementSibling</code>解决（IE8+）</li>
+<li><code>InnerHTML</code> 节点的内容 <code>innerText</code> 只获取元素内部的文本内容</li>
 </ol>
-<h3 id="⑤DOM查询的其他方法"><a href="#⑤DOM查询的其他方法" class="headerlink" title="⑤DOM查询的其他方法"></a>⑤DOM查询的其他方法</h3><ol>
-<li> 在document中有一个属性body，它保存的是body的引用</li>
-<li> <code>document.document</code> 保存的是HTML根标签</li>
-<li> <code>document.all</code> 代表所有元素，是个元素数组</li>
-<li> <code>document.getElementsByClass()</code> 根据class查询一组元素对象(IE9+) IE9及以下可用<code>querySelector()</code></li>
-<li> <code>document.querySelector()</code> 需要一个CSS选择器的字符串作为参数，可根据CSS选择器来查询一个元素对象，但使用该方法只会返回一个元素（第一个）（IE8+）</li>
-<li> <code>document.querySelectorAll()</code> 该方法和querySelector()用法类似，不同的是它将发符合条件的元素封装到一个数组中返回</li>
+<h3 id="dom查询的其他方法">⑤DOM查询的其他方法</h3>
+<ol type="1">
+<li>在document中有一个属性body，它保存的是body的引用</li>
+<li><code>document.document</code> 保存的是HTML根标签</li>
+<li><code>document.all</code> 代表所有元素，是个元素数组</li>
+<li><code>document.getElementsByClass()</code> 根据class查询一组元素对象(IE9+) IE9及以下可用<code>querySelector()</code></li>
+<li><code>document.querySelector()</code> 需要一个CSS选择器的字符串作为参数，可根据CSS选择器来查询一个元素对象，但使用该方法只会返回一个元素（第一个）（IE8+）</li>
+<li><code>document.querySelectorAll()</code> 该方法和querySelector()用法类似，不同的是它将发符合条件的元素封装到一个数组中返回</li>
 </ol>
-<h3 id="⑥增删改DOM"><a href="#⑥增删改DOM" class="headerlink" title="⑥增删改DOM"></a>⑥增删改DOM</h3><h4 id="㈠添加节点"><a href="#㈠添加节点" class="headerlink" title="㈠添加节点"></a>㈠添加节点</h4><h5 id="创建元素节点"><a href="#创建元素节点" class="headerlink" title="创建元素节点"></a>创建元素节点</h5><p><code>document.createElement()</code> 可用于创建一个元素节点对象 它需要一个标签名作为参数，将会根据该标签名来创建元素节点对象并将创建好的对象作为返回值返回</p>
-<h5 id="创建文本节点"><a href="#创建文本节点" class="headerlink" title="创建文本节点"></a>创建文本节点</h5><p><code>document.createTextNode()</code> 可以用来创建一个文本节点对象 需要一个文本内容作为参数，将会根据该内容创建文本节点，并将新节点返回</p>
-<h5 id="设置节点关系"><a href="#设置节点关系" class="headerlink" title="设置节点关系"></a>设置节点关系</h5><p><code>appendchild()</code> 像父节点中添加一个新的子节点 语法：<strong>父节点.appendChild(子节点);</strong></p>
-<h4 id="㈡在指定的子节点前面插入新的子节点"><a href="#㈡在指定的子节点前面插入新的子节点" class="headerlink" title="㈡在指定的子节点前面插入新的子节点"></a>㈡在指定的子节点前面插入新的子节点</h4><p><strong>父节点.insertBefore(新节点,参照节点)；</strong></p>
-<h4 id="㈢替换节点"><a href="#㈢替换节点" class="headerlink" title="㈢替换节点"></a>㈢替换节点</h4><p><strong>父节点.repaceChild(新节点,旧节点);</strong></p>
-<h4 id="㈣删除节点"><a href="#㈣删除节点" class="headerlink" title="㈣删除节点"></a>㈣删除节点</h4><p>父节点.removeChild(子节点); <strong>子节点.parentNode.removeChild(子节点)</strong></p>
-<h4 id="㈤使用innerHTML也可对DOM进行增删改"><a href="#㈤使用innerHTML也可对DOM进行增删改" class="headerlink" title="㈤使用innerHTML也可对DOM进行增删改"></a>㈤使用innerHTML也可对DOM进行增删改</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> li=<span class="built_in">document</span>.createElement(<span class="string">&quot;li&quot;</span>);</span><br><span class="line">li.innerHTML=<span class="string">&quot;广州&quot;</span>;</span><br><span class="line">city.appendChild(li);</span><br></pre></td></tr></table></figure>
-
+<h3 id="增删改dom">⑥增删改DOM</h3>
+<h4 id="添加节点">㈠添加节点</h4>
+<h5 id="创建元素节点">创建元素节点</h5>
+<p><code>document.createElement()</code> 可用于创建一个元素节点对象 它需要一个标签名作为参数，将会根据该标签名来创建元素节点对象并将创建好的对象作为返回值返回</p>
+<h5 id="创建文本节点">创建文本节点</h5>
+<p><code>document.createTextNode()</code> 可以用来创建一个文本节点对象 需要一个文本内容作为参数，将会根据该内容创建文本节点，并将新节点返回</p>
+<h5 id="设置节点关系">设置节点关系</h5>
+<p><code>appendchild()</code> 像父节点中添加一个新的子节点 语法：<strong>父节点.appendChild(子节点);</strong></p>
+<h4 id="在指定的子节点前面插入新的子节点">㈡在指定的子节点前面插入新的子节点</h4>
+<p><strong>父节点.insertBefore(新节点,参照节点)；</strong></p>
+<h4 id="替换节点">㈢替换节点</h4>
+<p><strong>父节点.repaceChild(新节点,旧节点);</strong></p>
+<h4 id="删除节点">㈣删除节点</h4>
+<p>父节点.removeChild(子节点); <strong>子节点.parentNode.removeChild(子节点)</strong></p>
+<h4 id="使用innerhtml也可对dom进行增删改">㈤使用innerHTML也可对DOM进行增删改</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> li=<span class="built_in">document</span>.createElement(<span class="string">&quot;li&quot;</span>);</span><br><span class="line">li.innerHTML=<span class="string">&quot;广州&quot;</span>;</span><br><span class="line">city.appendChild(li);</span><br></pre></td></tr></table></figure>
 <p>推荐如上的结合使用</p>
-<h2 id="27-DOM练习"><a href="#27-DOM练习" class="headerlink" title="27.DOM练习"></a>27.DOM练习</h2><p>1.点击超链接以后，超链接会跳转页面，这个是超链接的默认行为，如果不希望出现默认行为可以通过在相应蛤属的最后<strong>return false</strong>来取消默认行为 以上是取消默认行为的通用方法，对于超链接还可以在为href添加属性值：<code>href=&quot;javascript:;&quot;</code>来取消默认行文，下文代码就是使用的这种方法 1. <code>confirm()</code>用于弹出一个<strong>带有确认和取消按钮</strong>的提示框，需要一个字符串作为参数，该字符创会作为提示文字显示出来，若用户点击确认，则返回true，否则返回false 1. 获取文本框的内容可用<code>文本框对象.value</code> 1. 为元素添加属性：<code>元素.属性=&quot;属性内容&quot;</code></p>
+<h2 id="dom练习">27.DOM练习</h2>
+<p>1.点击超链接以后，超链接会跳转页面，这个是超链接的默认行为，如果不希望出现默认行为可以通过在相应蛤属的最后<strong>return false</strong>来取消默认行为 以上是取消默认行为的通用方法，对于超链接还可以在为href添加属性值：<code>href="javascript:;"</code>来取消默认行文，下文代码就是使用的这种方法 1. <code>confirm()</code>用于弹出一个<strong>带有确认和取消按钮</strong>的提示框，需要一个字符串作为参数，该字符创会作为提示文字显示出来，若用户点击确认，则返回true，否则返回false 1. 获取文本框的内容可用<code>文本框对象.value</code> 1. 为元素添加属性：<code>元素.属性="属性内容"</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #emptable tr th, #emptable tr td &#123; border:1px solid black; &#125;</span><br><span class="line">        #emptable&#123;</span><br><span class="line">            border-collapse:collapse;</span><br><span class="line">        &#125;</span><br><span class="line">        #addtable&#123;</span><br><span class="line">            border: 1px solid black;</span><br><span class="line">        &#125;</span><br><span class="line">        div&#123;</span><br><span class="line">            margin: 50px;</span><br><span class="line">        &#125;</span><br><span class="line">        h3&#123;</span><br><span class="line">            text-align: center;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F;Script Here 代码见下框</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;center&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;empdiv&quot;&gt;</span><br><span class="line">    &lt;table id&#x3D;&quot;emptable&quot;&gt;</span><br><span class="line">        &lt;thead&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;th&gt;姓名&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th&gt;职位&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th&gt;月薪&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th&gt;&lt;&#x2F;th&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;&#x2F;thead&gt;</span><br><span class="line">        &lt;tbody&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;潘总&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td&gt;首席执行官&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td&gt;50000&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td&gt;&lt;a href&#x3D;&quot;javascript:;&quot; id&#x3D;&quot;pan&quot;&gt;删除&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;张小鸟&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td&gt;职工&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td&gt;3500&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td&gt;&lt;a href&#x3D;&quot;javascript:;&quot; id&#x3D;&quot;zhang&quot;&gt;删除&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;&#x2F;tbody&gt;</span><br><span class="line">    &lt;&#x2F;table&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;adddiv&quot;&gt;</span><br><span class="line">    &lt;table id&#x3D;&quot;addtable&quot;&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td colspan&#x3D;&quot;3&quot;&gt;&lt;h3&gt;添加新员工&lt;&#x2F;h3&gt;&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;姓名：&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td colspan&#x3D;&quot;2&quot;&gt;&lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;ename&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;职位：&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td colspan&#x3D;&quot;2&quot;&gt;&lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;ejob&quot;&gt;&lt;&#x2F;td&gt;                                                                                                                                                                              d&#x3D;&quot;ejob&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;月薪：&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td colspan&#x3D;&quot;2&quot;&gt;&lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;esal&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td&gt;&lt;button&gt;提交&lt;&#x2F;button&gt;&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td&gt;&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;&#x2F;table&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;center&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//使用XPath获取超链接标签</span></span><br><span class="line">    <span class="comment">//var anodes=document.evaluate(&quot;//a&quot;, document, nullXPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);</span></span><br><span class="line">    <span class="comment">//for(i=0;i&lt;anodes.snapshotLength;i+anodes.snapshotItem(i).onclick=delEmp;</span></span><br><span class="line">    <span class="comment">//使用getElementsByTagName()获取超链接标签</span></span><br><span class="line">    <span class="keyword">var</span> nodes=<span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;nodes.length;i++)nodes[i].onclick=delEmp;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">delEmp</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> empinfo=<span class="built_in">this</span>.parentNode.parentNode;</span><br><span class="line">        <span class="keyword">var</span> isDel=<span class="built_in">window</span>.confirm(<span class="string">&quot;你确定要删除职工+empinfo.children[0].innerHTML+&quot;</span>】吗？<span class="string">&quot;);</span></span><br><span class="line"><span class="string">        if(isDel)</span></span><br><span class="line"><span class="string">            if(empinfo.children[0].innerHTML==&quot;</span>潘总<span class="string">&quot;)alert不成，潘总不能删！&quot;</span>);</span><br><span class="line">            <span class="keyword">else</span> empinfo.parentNode.removeChild(empinfo);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> button=<span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;button&quot;</span>)[<span class="number">0</span>];</span><br><span class="line">    button.onclick=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> name=<span class="built_in">document</span>.getElementById(<span class="string">&quot;ename&quot;</span>).value;</span><br><span class="line">        <span class="keyword">var</span> job=<span class="built_in">document</span>.getElementById(<span class="string">&quot;ejob&quot;</span>).value;</span><br><span class="line">        <span class="keyword">var</span> sal=<span class="built_in">document</span>.getElementById(<span class="string">&quot;esal&quot;</span>).value;</span><br><span class="line">        <span class="keyword">var</span> tr=<span class="built_in">document</span>.createElement(<span class="string">&quot;tr&quot;</span>);</span><br><span class="line">        tr.innerHTML=<span class="string">&quot;&lt;td&gt;&quot;</span>+name+<span class="string">&quot;&lt;/td&gt;&quot;</span>+</span><br><span class="line">                                    <span class="string">&quot;&lt;td&gt;&quot;</span>+job+<span class="string">&quot;&lt;/td&gt;&quot;</span>+</span><br><span class="line">                                    <span class="string">&quot;&lt;td&gt;&quot;</span>+sal+<span class="string">&quot;&lt;/td&gt;&quot;</span>+</span><br><span class="line">                                    <span class="string">&quot;&lt;td&gt;&lt;href=&#x27;javascript:;&#x27;&gt;&lt;/a&gt;&lt;/td&gt;&quot;</span></span><br><span class="line">        <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;tbody&quot;</span>)[.appendChild(tr);</span><br><span class="line">        tr.getElementsByTagName(<span class="string">&quot;a&quot;</span>)[<span class="number">0</span>].onclick=delEmp;</span><br><span class="line">        <span class="built_in">document</span>.evaluate()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
-
-<p>运行效果： <img src="https://www.z4a.net/images/2019/05/08/chrome_2019-05-08_10-59-26.png"> <img src="https://www.z4a.net/images/2019/05/08/2019-05-07_20-13-46.gif"></p>
-<h2 id="28-使用DOM操作css"><a href="#28-使用DOM操作css" class="headerlink" title="28.使用DOM操作css"></a>28.使用DOM操作css</h2><h3 id="①设置样式"><a href="#①设置样式" class="headerlink" title="①设置样式"></a>①设置样式</h3><p><strong>元素.Style.样式名=样式值</strong> 注意，若CSS样式名中含有减号“-”，在Js中视为不合法，须将这种样式名修改为Camel命名法 1. 通过Style属性设置的样式是<strong>内联样式</strong>，其具有较高的优先级，往往立即显示 1. 如果样式中写了<code>!important</code>，则此时样式会有最高优先级，即使通过Js也不能覆盖该样式，此时将会导致Js修改样式失效，所以尽量不要为样式添加<code>!important</code></p>
-<h3 id="②读取样式"><a href="#②读取样式" class="headerlink" title="②读取样式"></a>②读取样式</h3><h4 id="㈠元素-Style-样式名"><a href="#㈠元素-Style-样式名" class="headerlink" title="㈠元素.Style.样式名"></a>㈠元素.Style.样式名</h4><p>通过Style<strong>读取和设置</strong>的都是<strong>内联样式</strong>，无法读取样式表中的样式</p>
-<h4 id="㈡元素-currentStyle-样式名（仅IE）"><a href="#㈡元素-currentStyle-样式名（仅IE）" class="headerlink" title="㈡元素.currentStyle.样式名（仅IE）"></a>㈡元素.currentStyle.样式名（仅IE）</h4><p><strong>以下方法都只读，不能改</strong> 它可以用来读取当前元素<strong>正显示</strong>的样式 若当前元素未设置样式，则获得<strong>默认样式</strong></p>
-<h4 id="㈢getComputedSytle-（IE9-）"><a href="#㈢getComputedSytle-（IE9-）" class="headerlink" title="㈢getComputedSytle()（IE9+）"></a>㈢getComputedSytle()（IE9+）</h4><ol>
-<li> window的方法，可直接使用</li>
-<li>需要两个参数：<ol>
-<li> 要获取样式的元素</li>
-<li> 可传递一个伪元素 该方法会返回一个对象，其中封装了当前元素对应的样式，<strong>可通过“对象.样式名”来读取样式</strong></li>
+<p>运行效果： <img src="https://www.z4a.net/images/2019/05/08/chrome_2019-05-08_10-59-26.png" /> <img src="https://www.z4a.net/images/2019/05/08/2019-05-07_20-13-46.gif" /></p>
+<h2 id="使用dom操作css">28.使用DOM操作css</h2>
+<h3 id="设置样式">①设置样式</h3>
+<p><strong>元素.Style.样式名=样式值</strong> 注意，若CSS样式名中含有减号“-”，在Js中视为不合法，须将这种样式名修改为Camel命名法 1. 通过Style属性设置的样式是<strong>内联样式</strong>，其具有较高的优先级，往往立即显示 1. 如果样式中写了<code>!important</code>，则此时样式会有最高优先级，即使通过Js也不能覆盖该样式，此时将会导致Js修改样式失效，所以尽量不要为样式添加<code>!important</code></p>
+<h3 id="读取样式">②读取样式</h3>
+<h4 id="元素.style.样式名">㈠元素.Style.样式名</h4>
+<p>通过Style<strong>读取和设置</strong>的都是<strong>内联样式</strong>，无法读取样式表中的样式</p>
+<h4 id="元素.currentstyle.样式名仅ie">㈡元素.currentStyle.样式名（仅IE）</h4>
+<p><strong>以下方法都只读，不能改</strong> 它可以用来读取当前元素<strong>正显示</strong>的样式 若当前元素未设置样式，则获得<strong>默认样式</strong></p>
+<h4 id="getcomputedsytleie9">㈢getComputedSytle()（IE9+）</h4>
+<ol type="1">
+<li>window的方法，可直接使用</li>
+<li>需要两个参数：
+<ol type="1">
+<li>要获取样式的元素</li>
+<li>可传递一个伪元素 该方法会返回一个对象，其中封装了当前元素对应的样式，<strong>可通过“对象.样式名”来读取样式</strong></li>
+</ol></li>
+<li>如果获取的样式没有设置，则会获取到真实的值，而不是默认值。 如：未设置width，currentStyle返回auto，而getComputedStyle()返回实际对应长度</li>
 </ol>
-</li>
-<li> 如果获取的样式没有设置，则会获取到真实的值，而不是默认值。 如：未设置width，currentStyle返回auto，而getComputedStyle()返回实际对应长度</li>
+<h4 id="自己定义一个全兼容的方法">㈣自己定义一个全兼容的方法</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">obj,name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.getComputedStyle)<span class="keyword">return</span> getComputedStyle(obj,<span class="literal">null</span>)[name];</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> obj.currentStyle[name];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol type="1">
+<li>参数：
+<ol type="1">
+<li>obj→元素对象</li>
+<li>name→样式名</li>
+</ol></li>
+<li>判断语句if中判断式必须为<code>window.getComputedStyle</code>，不能只写getComputedStyle，否则若浏览器不支持getComputedStyle方法Js将会把JsgetComputedStyle是为变量，结果是抛出异常，程序不能正常运行</li>
+<li>使用方括号传递样式名name，否则使用点将在返回值中寻找样式名为name的样式，进而无法返回正确值</li>
 </ol>
-<h4 id="㈣自己定义一个全兼容的方法"><a href="#㈣自己定义一个全兼容的方法" class="headerlink" title="㈣自己定义一个全兼容的方法"></a>㈣自己定义一个全兼容的方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">obj,name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.getComputedStyle)<span class="keyword">return</span> getComputedStyle(obj,<span class="literal">null</span>)[name];</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> obj.currentStyle[name];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>参数：<ol>
-<li> obj→元素对象</li>
-<li> name→样式名</li>
+<h3 id="其他样式相关属性均只读">③其他样式相关属性（均只读）</h3>
+<h4 id="元素.clientwindthclientheight">㈠元素.clientWindth/clientHeight</h4>
+<ol type="1">
+<li>这两个属性可以获取元素的可见宽度与高度</li>
+<li>这两个属性都是不带px的，返回的都是一个数字，可以直接进行计算</li>
+<li>获取元素的宽高，<strong>包括内容区和内边距</strong></li>
 </ol>
-</li>
-<li> 判断语句if中判断式必须为<code>window.getComputedStyle</code>，不能只写getComputedStyle，否则若浏览器不支持getComputedStyle方法Js将会把JsgetComputedStyle是为变量，结果是抛出异常，程序不能正常运行</li>
-<li> 使用方括号传递样式名name，否则使用点将在返回值中寻找样式名为name的样式，进而无法返回正确值</li>
+<h4 id="元素.offsetwidthoffsetheight">㈡元素.offsetWidth/offsetHeight</h4>
+<p>获取元素的整个宽高，<strong>包括内容区、内边距、边框</strong></p>
+<h4 id="元素.offsetparet">㈢元素.offsetParet</h4>
+<ol type="1">
+<li>可获取当前元素的定位父元素</li>
+<li>它会获取到距离当前元素最近的<strong>开启了定位的祖先元素</strong></li>
+<li>若所有祖先元素均为开启定位，则返回body</li>
 </ol>
-<h3 id="③其他样式相关属性（均只读）"><a href="#③其他样式相关属性（均只读）" class="headerlink" title="③其他样式相关属性（均只读）"></a>③其他样式相关属性（均只读）</h3><h4 id="㈠元素-clientWindth-clientHeight"><a href="#㈠元素-clientWindth-clientHeight" class="headerlink" title="㈠元素.clientWindth/clientHeight"></a>㈠元素.clientWindth/clientHeight</h4><ol>
-<li> 这两个属性可以获取元素的可见宽度与高度</li>
-<li> 这两个属性都是不带px的，返回的都是一个数字，可以直接进行计算</li>
-<li> 获取元素的宽高，<strong>包括内容区和内边距</strong></li>
-</ol>
-<h4 id="㈡元素-offsetWidth-offsetHeight"><a href="#㈡元素-offsetWidth-offsetHeight" class="headerlink" title="㈡元素.offsetWidth/offsetHeight"></a>㈡元素.offsetWidth/offsetHeight</h4><p>获取元素的整个宽高，<strong>包括内容区、内边距、边框</strong></p>
-<h4 id="㈢元素-offsetParet"><a href="#㈢元素-offsetParet" class="headerlink" title="㈢元素.offsetParet"></a>㈢元素.offsetParet</h4><ol>
-<li> 可获取当前元素的定位父元素</li>
-<li> 它会获取到距离当前元素最近的<strong>开启了定位的祖先元素</strong></li>
-<li> 若所有祖先元素均为开启定位，则返回body</li>
-</ol>
-<h4 id="㈣元素-offsetLeft-offsetTop"><a href="#㈣元素-offsetLeft-offsetTop" class="headerlink" title="㈣元素.offsetLeft/offsetTop"></a>㈣元素.offsetLeft/offsetTop</h4><p>当前元素相对于其定位父元素的水平/垂直偏移量</p>
-<h4 id="㈤元素-scroolLeft-scrollTop"><a href="#㈤元素-scroolLeft-scrollTop" class="headerlink" title="㈤元素.scroolLeft/scrollTop"></a>㈤元素.scroolLeft/scrollTop</h4><p>当前元素的水平/垂直滚动条<strong>滚动的距离</strong></p>
-<h4 id="㈥元素-scrollWidth-scrollHeight"><a href="#㈥元素-scrollWidth-scrollHeight" class="headerlink" title="㈥元素.scrollWidth/scrollHeight"></a>㈥元素.scrollWidth/scrollHeight</h4><p>可获取元素整个<strong>滚动区域的宽/高</strong></p>
+<h4 id="元素.offsetleftoffsettop">㈣元素.offsetLeft/offsetTop</h4>
+<p>当前元素相对于其定位父元素的水平/垂直偏移量</p>
+<h4 id="元素.scroolleftscrolltop">㈤元素.scroolLeft/scrollTop</h4>
+<p>当前元素的水平/垂直滚动条<strong>滚动的距离</strong></p>
+<h4 id="元素.scrollwidthscrollheight">㈥元素.scrollWidth/scrollHeight</h4>
+<p>可获取元素整个<strong>滚动区域的宽/高</strong></p>
 <blockquote>
 <p>当满足scrollHeight-scrollTop==clientHeight时，代表垂直滚动条滚动到底 同理,水平滚动条移动到最右端为scrollWidth-scrollLeft==clientWidth</p>
 </blockquote>
@@ -443,7 +476,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#26-DOM"><span class="nav-number">1.</span> <span class="nav-text">26.DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A0%E8%8A%82%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">①节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A0Node"><span class="nav-number">1.1.1.</span> <span class="nav-text">㈠Node</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A1%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%E5%8F%8A%E5%85%B6%E5%B1%9E%E6%80%A7"><span class="nav-number">1.1.2.</span> <span class="nav-text">㈡常用节点及其属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A2%E5%85%A5%E5%8F%A3"><span class="nav-number">1.1.3.</span> <span class="nav-text">㈢入口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A3%E8%8E%B7%E5%8F%96%E4%BB%BB%E6%84%8F%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.4.</span> <span class="nav-text">㈣获取任意对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A1%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">②事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A2%E6%96%87%E6%A1%A3%E7%9A%84%E5%8A%A0%E8%BD%BD"><span class="nav-number">1.3.</span> <span class="nav-text">③文档的加载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%85%E9%A1%BB%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2%EF%BC%9F"><span class="nav-number">1.3.1.</span> <span class="nav-text">必须写在前面？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A3DOM%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.4.</span> <span class="nav-text">④DOM查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87document%E5%AF%B9%E8%B1%A1%E8%B0%83%E7%94%A8%EF%BC%9A"><span class="nav-number">1.4.1.</span> <span class="nav-text">通过document对象调用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%85%B7%E4%BD%93%E7%9A%84%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9%E8%B0%83%E7%94%A8%EF%BC%9A"><span class="nav-number">1.4.2.</span> <span class="nav-text">通过具体的元素节点调用：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A4DOM%E6%9F%A5%E8%AF%A2%E7%9A%84%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text">⑤DOM查询的其他方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A5%E5%A2%9E%E5%88%A0%E6%94%B9DOM"><span class="nav-number">1.6.</span> <span class="nav-text">⑥增删改DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A0%E6%B7%BB%E5%8A%A0%E8%8A%82%E7%82%B9"><span class="nav-number">1.6.1.</span> <span class="nav-text">㈠添加节点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">创建元素节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E6%9C%AC%E8%8A%82%E7%82%B9"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">创建文本节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%8A%82%E7%82%B9%E5%85%B3%E7%B3%BB"><span class="nav-number">1.6.1.3.</span> <span class="nav-text">设置节点关系</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A1%E5%9C%A8%E6%8C%87%E5%AE%9A%E7%9A%84%E5%AD%90%E8%8A%82%E7%82%B9%E5%89%8D%E9%9D%A2%E6%8F%92%E5%85%A5%E6%96%B0%E7%9A%84%E5%AD%90%E8%8A%82%E7%82%B9"><span class="nav-number">1.6.2.</span> <span class="nav-text">㈡在指定的子节点前面插入新的子节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A2%E6%9B%BF%E6%8D%A2%E8%8A%82%E7%82%B9"><span class="nav-number">1.6.3.</span> <span class="nav-text">㈢替换节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A3%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9"><span class="nav-number">1.6.4.</span> <span class="nav-text">㈣删除节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A4%E4%BD%BF%E7%94%A8innerHTML%E4%B9%9F%E5%8F%AF%E5%AF%B9DOM%E8%BF%9B%E8%A1%8C%E5%A2%9E%E5%88%A0%E6%94%B9"><span class="nav-number">1.6.5.</span> <span class="nav-text">㈤使用innerHTML也可对DOM进行增删改</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27-DOM%E7%BB%83%E4%B9%A0"><span class="nav-number">2.</span> <span class="nav-text">27.DOM练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#28-%E4%BD%BF%E7%94%A8DOM%E6%93%8D%E4%BD%9Ccss"><span class="nav-number">3.</span> <span class="nav-text">28.使用DOM操作css</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A0%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">①设置样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A1%E8%AF%BB%E5%8F%96%E6%A0%B7%E5%BC%8F"><span class="nav-number">3.2.</span> <span class="nav-text">②读取样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A0%E5%85%83%E7%B4%A0-Style-%E6%A0%B7%E5%BC%8F%E5%90%8D"><span class="nav-number">3.2.1.</span> <span class="nav-text">㈠元素.Style.样式名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A1%E5%85%83%E7%B4%A0-currentStyle-%E6%A0%B7%E5%BC%8F%E5%90%8D%EF%BC%88%E4%BB%85IE%EF%BC%89"><span class="nav-number">3.2.2.</span> <span class="nav-text">㈡元素.currentStyle.样式名（仅IE）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A2getComputedSytle-%EF%BC%88IE9-%EF%BC%89"><span class="nav-number">3.2.3.</span> <span class="nav-text">㈢getComputedSytle()（IE9+）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A3%E8%87%AA%E5%B7%B1%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E5%85%A8%E5%85%BC%E5%AE%B9%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.4.</span> <span class="nav-text">㈣自己定义一个全兼容的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A2%E5%85%B6%E4%BB%96%E6%A0%B7%E5%BC%8F%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7%EF%BC%88%E5%9D%87%E5%8F%AA%E8%AF%BB%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">③其他样式相关属性（均只读）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A0%E5%85%83%E7%B4%A0-clientWindth-clientHeight"><span class="nav-number">3.3.1.</span> <span class="nav-text">㈠元素.clientWindth&#x2F;clientHeight</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A1%E5%85%83%E7%B4%A0-offsetWidth-offsetHeight"><span class="nav-number">3.3.2.</span> <span class="nav-text">㈡元素.offsetWidth&#x2F;offsetHeight</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A2%E5%85%83%E7%B4%A0-offsetParet"><span class="nav-number">3.3.3.</span> <span class="nav-text">㈢元素.offsetParet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A3%E5%85%83%E7%B4%A0-offsetLeft-offsetTop"><span class="nav-number">3.3.4.</span> <span class="nav-text">㈣元素.offsetLeft&#x2F;offsetTop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A4%E5%85%83%E7%B4%A0-scroolLeft-scrollTop"><span class="nav-number">3.3.5.</span> <span class="nav-text">㈤元素.scroolLeft&#x2F;scrollTop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A5%E5%85%83%E7%B4%A0-scrollWidth-scrollHeight"><span class="nav-number">3.3.6.</span> <span class="nav-text">㈥元素.scrollWidth&#x2F;scrollHeight</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%82%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">①节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#node"><span class="nav-number">1.1.</span> <span class="nav-text">㈠Node</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%E5%8F%8A%E5%85%B6%E5%B1%9E%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">㈡常用节点及其属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A5%E5%8F%A3"><span class="nav-number">1.3.</span> <span class="nav-text">㈢入口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%BB%BB%E6%84%8F%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.4.</span> <span class="nav-text">㈣获取任意对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">②事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E7%9A%84%E5%8A%A0%E8%BD%BD"><span class="nav-number">3.</span> <span class="nav-text">③文档的加载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%85%E9%A1%BB%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">3.1.</span> <span class="nav-text">必须写在前面？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dom%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.</span> <span class="nav-text">④DOM查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87document%E5%AF%B9%E8%B1%A1%E8%B0%83%E7%94%A8"><span class="nav-number">4.1.</span> <span class="nav-text">通过document对象调用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%85%B7%E4%BD%93%E7%9A%84%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9%E8%B0%83%E7%94%A8"><span class="nav-number">4.2.</span> <span class="nav-text">通过具体的元素节点调用：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dom%E6%9F%A5%E8%AF%A2%E7%9A%84%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">⑤DOM查询的其他方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%9E%E5%88%A0%E6%94%B9dom"><span class="nav-number">6.</span> <span class="nav-text">⑥增删改DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%8A%82%E7%82%B9"><span class="nav-number">6.1.</span> <span class="nav-text">㈠添加节点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9"><span class="nav-number">6.1.1.</span> <span class="nav-text">创建元素节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E6%9C%AC%E8%8A%82%E7%82%B9"><span class="nav-number">6.1.2.</span> <span class="nav-text">创建文本节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%8A%82%E7%82%B9%E5%85%B3%E7%B3%BB"><span class="nav-number">6.1.3.</span> <span class="nav-text">设置节点关系</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E6%8C%87%E5%AE%9A%E7%9A%84%E5%AD%90%E8%8A%82%E7%82%B9%E5%89%8D%E9%9D%A2%E6%8F%92%E5%85%A5%E6%96%B0%E7%9A%84%E5%AD%90%E8%8A%82%E7%82%B9"><span class="nav-number">6.2.</span> <span class="nav-text">㈡在指定的子节点前面插入新的子节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2%E8%8A%82%E7%82%B9"><span class="nav-number">6.3.</span> <span class="nav-text">㈢替换节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9"><span class="nav-number">6.4.</span> <span class="nav-text">㈣删除节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8innerhtml%E4%B9%9F%E5%8F%AF%E5%AF%B9dom%E8%BF%9B%E8%A1%8C%E5%A2%9E%E5%88%A0%E6%94%B9"><span class="nav-number">6.5.</span> <span class="nav-text">㈤使用innerHTML也可对DOM进行增删改</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dom%E7%BB%83%E4%B9%A0"><span class="nav-number"></span> <span class="nav-text">27.DOM练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8dom%E6%93%8D%E4%BD%9Ccss"><span class="nav-number"></span> <span class="nav-text">28.使用DOM操作css</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">①设置样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E6%A0%B7%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">②读取样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%B4%A0.style.%E6%A0%B7%E5%BC%8F%E5%90%8D"><span class="nav-number">2.1.</span> <span class="nav-text">㈠元素.Style.样式名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%B4%A0.currentstyle.%E6%A0%B7%E5%BC%8F%E5%90%8D%E4%BB%85ie"><span class="nav-number">2.2.</span> <span class="nav-text">㈡元素.currentStyle.样式名（仅IE）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getcomputedsytleie9"><span class="nav-number">2.3.</span> <span class="nav-text">㈢getComputedSytle()（IE9+）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%B7%B1%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E5%85%A8%E5%85%BC%E5%AE%B9%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.4.</span> <span class="nav-text">㈣自己定义一个全兼容的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%A0%B7%E5%BC%8F%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7%E5%9D%87%E5%8F%AA%E8%AF%BB"><span class="nav-number">3.</span> <span class="nav-text">③其他样式相关属性（均只读）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%B4%A0.clientwindthclientheight"><span class="nav-number">3.1.</span> <span class="nav-text">㈠元素.clientWindth&#x2F;clientHeight</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%B4%A0.offsetwidthoffsetheight"><span class="nav-number">3.2.</span> <span class="nav-text">㈡元素.offsetWidth&#x2F;offsetHeight</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%B4%A0.offsetparet"><span class="nav-number">3.3.</span> <span class="nav-text">㈢元素.offsetParet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%B4%A0.offsetleftoffsettop"><span class="nav-number">3.4.</span> <span class="nav-text">㈣元素.offsetLeft&#x2F;offsetTop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%B4%A0.scroolleftscrolltop"><span class="nav-number">3.5.</span> <span class="nav-text">㈤元素.scroolLeft&#x2F;scrollTop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%B4%A0.scrollwidthscrollheight"><span class="nav-number">3.6.</span> <span class="nav-text">㈥元素.scrollWidth&#x2F;scrollHeight</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -457,7 +490,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -466,7 +499,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -548,6 +581,8 @@
 
 
 
+
+  
 
   
 

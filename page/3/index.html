@@ -72,7 +72,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -145,379 +149,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/22/%E3%80%90c%E3%80%91%E5%88%9D%E6%8E%A2lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8Elinq/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/12/22/%E3%80%90c%E3%80%91%E5%88%9D%E6%8E%A2lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8Elinq/" class="post-title-link" itemprop="url">【C#】初探Lambda表达式与LinQ</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-12-22 12:25:04" itemprop="dateCreated datePublished" datetime="2018-12-22T12:25:04+08:00">2018-12-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-27 14:59:17" itemprop="dateModified" datetime="2020-10-27T14:59:17+08:00">2020-10-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/12/LinQ.html">&gt;无扰阅读模式</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/12/22/%E3%80%90c%E3%80%91%E5%88%9D%E6%8E%A2lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8Elinq/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/20/%E3%80%90%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/12/20/%E3%80%90%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">【数据结构】快速排序</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-12-20 15:35:52" itemprop="dateCreated datePublished" datetime="2018-12-20T15:35:52+08:00">2018-12-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-27 14:59:17" itemprop="dateModified" datetime="2020-10-27T14:59:17+08:00">2020-10-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%90%8E%E9%99%A2/" itemprop="url" rel="index"><span itemprop="name">后院</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-90-8e-e9-99-a2/" itemprop="url" rel="index"><span itemprop="name">%e5%90%8e%e9%99%a2</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-90-8e-e9-99-a2/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这个实验其实在课本上写得蛮详细的，稍微看看就能理解。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/12/20/%E3%80%90%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/08/%E3%80%90java%E3%80%91%E8%AE%A1%E7%AE%97%E5%99%A8%E7%95%8C%E9%9D%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/12/08/%E3%80%90java%E3%80%91%E8%AE%A1%E7%AE%97%E5%99%A8%E7%95%8C%E9%9D%A2/" class="post-title-link" itemprop="url">【Java】可连续计算的整数计算器</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-12-08 09:44:56" itemprop="dateCreated datePublished" datetime="2018-12-08T09:44:56+08:00">2018-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-27 14:59:17" itemprop="dateModified" datetime="2020-10-27T14:59:17+08:00">2020-10-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>先说思路：在主页面里添加两个控件：顶部的文本框和下方承载按钮的面板控件，然后在下方的面板控件中依次填入按钮。</strong> 但是这里还有一个问题就是如何填入大量的按钮。16个按钮一个一个实例化再填入将会造成较大的工作量，但是像课本中那样写个名字数组再一股脑地实例化又会破坏语义性，在后期我们绑定事件时造成非常大的麻烦。为了在其中找到一个折中点，<strong>我们选用数字按钮使用数组实例化，而功能按钮（加减乘除等）单独实例化。</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/12/08/%E3%80%90java%E3%80%91%E8%AE%A1%E7%AE%97%E5%99%A8%E7%95%8C%E9%9D%A2/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/05/%E3%80%90java%E3%80%91io%E6%B5%81%E4%BD%9C%E4%B8%9A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/12/05/%E3%80%90java%E3%80%91io%E6%B5%81%E4%BD%9C%E4%B8%9A/" class="post-title-link" itemprop="url">【Java】IO流作业</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-12-05 12:11:34" itemprop="dateCreated datePublished" datetime="2018-12-05T12:11:34+08:00">2018-12-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-27 14:59:17" itemprop="dateModified" datetime="2020-10-27T14:59:17+08:00">2020-10-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> IOExperiment;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Program</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String fileName = <span class="string">&quot;test.txt&quot;</span>;<span class="comment">//创建一个常量，用于保存文件名</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> CreatFile(<span class="string">&quot;D:\\&quot;</span>+fileName,<span class="string">&quot;Hello Java&quot;</span>);<span class="comment">//调用CreatFile类的构造方法创建D盘的文件</span></span><br><span class="line">        ReadFile read=<span class="keyword">new</span> ReadFile(<span class="string">&quot;D:\\&quot;</span>+fileName);<span class="comment">//创建读取类</span></span><br><span class="line">        <span class="keyword">new</span> CreatFile(<span class="string">&quot;E:\\&quot;</span>+fileName,read.BeginRead());<span class="comment">//使用读取类读取文件内容，并以此创建新的文件</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建文件类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreatFile</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String filePath;<span class="comment">//文件的位置</span></span><br><span class="line">    <span class="keyword">private</span> String fileContent;<span class="comment">//文件的内容</span></span><br><span class="line">    <span class="keyword">private</span> BufferedWriter outputstream;<span class="comment">//输出数据流</span></span><br><span class="line">    <span class="comment">//构造函数，需要分别传入文件位置和文件内容</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CreatFile</span><span class="params">(String filePath,String content)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.filePath=filePath;</span><br><span class="line">        <span class="keyword">this</span>.fileContent=content;<span class="comment">//赋值</span></span><br><span class="line">        BeginCreate();<span class="comment">//调用方法构建文件</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//构造文件的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">BeginCreate</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">try</span></span><br><span class="line">        &#123;</span><br><span class="line">            outputstream=<span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> FileWriter(filePath));<span class="comment">//实例化输出流，这里可能抛出异常，所以使用catch捕获之</span></span><br><span class="line">            outputstream.write(fileContent);<span class="comment">//把文件内容写入文件</span></span><br><span class="line">            outputstream.flush();<span class="comment">//刷新并清空流数据</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (Exception e)<span class="comment">//捕获创建文件的异常</span></span><br><span class="line">        &#123;</span><br><span class="line">            e.printStackTrace();<span class="comment">//打印异常原因</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">finally</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(outputstream!=<span class="keyword">null</span>)outputstream.close();<span class="comment">//不管异常是否存在，终需要关闭流</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (Exception ex)<span class="comment">//捕获关闭流时的异常</span></span><br><span class="line">            &#123;</span><br><span class="line">                ex.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//读取文件的类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReadFile</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String filePath;<span class="comment">//文件的位置</span></span><br><span class="line">    BufferedReader inputstream;<span class="comment">//输入流</span></span><br><span class="line">    <span class="comment">//读取文件类的构造方法，只需要传入文件位置</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ReadFile</span><span class="params">(String filePath)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.filePath=filePath;<span class="comment">//赋值</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取文件的方法，因为需要返回文件的内容，所以设为公共方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">BeginRead</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        String result=<span class="keyword">null</span>;<span class="comment">//要返回字符串，考虑到读取失败的情况，遂在此声明并初始化返回值，以杜绝无值返回的问题</span></span><br><span class="line">        <span class="keyword">try</span></span><br><span class="line">        &#123;</span><br><span class="line">            inputstream = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(filePath));<span class="comment">//创建输入流</span></span><br><span class="line">            result=inputstream.readLine();<span class="comment">//读取文件的第一行，将读取结果传给result</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(Exception e)<span class="comment">//考虑到读取失败的问题，需捕获读取时的异常</span></span><br><span class="line">        &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">finally</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(inputstream!=<span class="keyword">null</span>)inputstream.close();<span class="comment">//不管读取成功与否，终需要关闭输入流</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (Exception ex)<span class="comment">//捕获输入流关闭失败的异常</span></span><br><span class="line">            &#123;</span><br><span class="line">                ex.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;<span class="comment">//返回读取结果</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/01/%E3%80%90wpf%E3%80%91%E5%BE%97%E5%88%B0listviewitem/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -584,7 +215,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>由于绑定了数据的原因，得到数据当然方便了许多，直接遍历就可以了，但是要是对其中一项的外观进行改变就麻烦了，找了很长时间依旧无果。后来偶然找到了一种方法就是使用<code>ItemContainerGenerator</code>得到ListViewItem，但是又一直返回空值，又翻了翻，终于找到了解决方法：就是使用<code>UpdateLayout()</code>和<code>ScrollIntoView(data)</code>定位数据！</p>
+          <p>由于绑定了数据的原因，得到数据当然方便了许多，直接遍历就可以了，但是要是对其中一项的外观进行改变就麻烦了，找了很长时间依旧无果。后来偶然找到了一种方法就是使用<code>ItemContainerGenerator</code>得到ListViewItem，但是又一直返回空值，又翻了翻，终于找到了解决方法：就是使用<code>UpdateLayout()</code>和<code>ScrollIntoView(data)</code>定位数据！
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/12/01/%E3%80%90wpf%E3%80%91%E5%BE%97%E5%88%B0listviewitem/#more" rel="contents">
@@ -673,7 +304,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>前几天安装了Elementor插件，但是不知为何总是无法预览，再加上主题也一直无法预览，就抽空研究了一下，以下是解决方案：</p>
+          <p>前几天安装了Elementor插件，但是不知为何总是无法预览，再加上主题也一直无法预览，就抽空研究了一下，以下是解决方案：
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/11/29/%E3%80%90%E6%95%99%E7%A8%8B%E3%80%91wordpress%E4%B8%BB%E9%A2%98%E3%80%81elementor%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E9%A2%84%E8%A7%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more" rel="contents">
@@ -762,7 +393,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>仅供参考，请勿抄袭</p>
+          <p>仅供参考，请勿抄袭
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/11/27/%E3%80%90%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91%E5%9B%BE%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E9%81%8D%E5%8E%86/#more" rel="contents">
@@ -859,7 +490,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a target="_blank" rel="noopener" href="http://47.94.231.166/wp-content/uploads/2018/11/Event.html">&gt;无扰阅读模式(测试)</a></p>
+          <p><a target="_blank" rel="noopener" href="http://47.94.231.166/wp-content/uploads/2018/11/Event.html">&gt;无扰阅读模式(测试)</a>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/11/27/%E3%80%90c%E3%80%91%E4%BA%8B%E4%BB%B6%E8%AF%A6%E8%A7%A3/#more" rel="contents">
@@ -956,7 +587,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>代码来自刘铁猛老师的视频课程,之后会更新C#事件的笔记，目前有些东西还没有搞明白，权且放一放，待时间充裕时再做研究。</p>
+          <p>代码来自刘铁猛老师的视频课程,之后会更新C#事件的笔记，目前有些东西还没有搞明白，权且放一放，待时间充裕时再做研究。
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/11/19/%E3%80%90c%E3%80%91%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BC%A0%E7%BB%9F%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95/#more" rel="contents">
@@ -1047,6 +678,362 @@
       
           <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line"></span><br><span class="line">net session &gt;nul 2&gt;&amp;1</span><br><span class="line">if not &quot;%errorLevel%&quot; &#x3D;&#x3D; &quot;0&quot; (</span><br><span class="line">  echo Set UAC &#x3D; CreateObject^(&quot;Shell.Application&quot;^) &gt; &quot;%temp%\getadmin.vbs&quot;</span><br><span class="line">  echo UAC.ShellExecute &quot;%~s0&quot;, &quot;%*&quot;, &quot;&quot;, &quot;runas&quot;, 1 &gt;&gt; &quot;%temp%\getadmin.vbs&quot;</span><br><span class="line">  &quot;%temp%\getadmin.vbs&quot;</span><br><span class="line">  exit &#x2F;b 2</span><br><span class="line">)</span><br><span class="line">rem 提升权限为管理员</span><br><span class="line"></span><br><span class="line">echo 您确定要修复环境变量吗？重复修复可能导致错误！</span><br><span class="line">echo 任意键继续，若需退出，请直接关闭窗口。  </span><br><span class="line">pause&gt;nul</span><br><span class="line">for &#x2F;f &quot;tokens&#x3D;2*&quot; %%a in (&#39;reg query &quot;HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\JDK&quot; &#x2F;v CurrentVersion 2^&gt;nul&#39;) do set &quot;a&#x3D;%%b&quot;</span><br><span class="line">for &#x2F;f &quot;tokens&#x3D;2*&quot; %%a in (&#39;reg query &quot;HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\JDK\%a%&quot; &#x2F;v JavaHome 2^&gt;nul&#39;) do set &quot;javapath&#x3D;%%b&quot; </span><br><span class="line"></span><br><span class="line">echo 读取到的java环境地址为：%javapath%</span><br><span class="line"></span><br><span class="line">set path_&#x3D;%path%</span><br><span class="line"></span><br><span class="line">echo 备份注册表中...</span><br><span class="line">echo WindowsRegistryEditorVer-sion5.00&gt;backup.reg</span><br><span class="line">echo [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\Control\Session Manager\Environment]&gt;&gt;backup.reg</span><br><span class="line">echo &quot;Path&quot;&#x3D;dword:%path%&gt;&gt;backup.reg</span><br><span class="line"></span><br><span class="line">echo 正在修改环境变量...</span><br><span class="line">echo 写入环境变量&quot;JAVA_HOME&quot;...</span><br><span class="line">setx &#x2F;m &quot;JAVA_HOME&quot; &quot;%javapath%</span><br><span class="line">echo 写入环境变量&quot;CLASSPATH&quot;...</span><br><span class="line">setx &#x2F;m &quot;CLASSPATH&quot; &quot;.;%%JAVA_HOME%%\lib\dt\jar;%%JAVA_HOME%%\lib.tools.jar&quot;</span><br><span class="line">echo 写入环境变量&quot;Path&quot;...</span><br><span class="line">setx &#x2F;m &quot;Path&quot; &quot;%_path%;%%JAVA_HOME%%\bin&quot;</span><br><span class="line"></span><br><span class="line">echo 程序结束！</span><br><span class="line">pause&gt;nul</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/11/16/%E3%80%90java%E3%80%91%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%BD%9C%E4%B8%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/11/16/%E3%80%90java%E3%80%91%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%BD%9C%E4%B8%9A/" class="post-title-link" itemprop="url">【Java】抽象类作业</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-11-16 09:45:49" itemprop="dateCreated datePublished" datetime="2018-11-16T09:45:49+08:00">2018-11-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Program</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Scanner scanner=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;Square:\nPlease enter the dim of Square:&quot;</span>);</span><br><span class="line">        Square square=<span class="keyword">new</span> Square(scanner.nextDouble());<span class="comment">//实例化正方形对象</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Area:&quot;</span>+square.callArea()+<span class="string">&quot;,Perimeter:&quot;</span>+square.callPerimeter());<span class="comment">//打印数据</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Rectangle:\nPlease enter the Width of Rectangle:&quot;</span>);</span><br><span class="line">        <span class="keyword">double</span> width=scanner.nextDouble();</span><br><span class="line">        System.out.println(<span class="string">&quot;Please enter the Length of Rectangle:&quot;</span>);</span><br><span class="line">        <span class="keyword">double</span> length=scanner.nextDouble();<span class="comment">//实例化长方形对象</span></span><br><span class="line">        Rectangle rectangle=<span class="keyword">new</span> Rectangle(length,width);</span><br><span class="line">        System.out.println(<span class="string">&quot;Area:&quot;</span>+rectangle.callArea()+<span class="string">&quot;,Perimeter:&quot;</span>+rectangle.callPerimeter());<span class="comment">//打印数据</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Shape</span>//建立抽象类<span class="title">Shape</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> dim;<span class="comment">//一个边长度</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Shape</span><span class="params">(<span class="keyword">double</span> dim)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.dim=dim;</span><br><span class="line">    &#125;<span class="comment">//使用构造函数初始化这条边</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">double</span> <span class="title">callArea</span><span class="params">()</span></span>;<span class="comment">//建立抽象函数“求面积”</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">double</span> <span class="title">callPerimeter</span><span class="params">()</span></span>;<span class="comment">//建立抽象函数“求周长”</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">extends</span> <span class="title">Shape</span>//建立正方形类</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Square</span><span class="params">(<span class="keyword">double</span> dim)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(dim);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">callArea</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dim*dim;</span><br><span class="line">    &#125;<span class="comment">//实现求面积方法</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">callPerimeter</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dim*<span class="number">4</span>;</span><br><span class="line">    &#125;<span class="comment">//实现求周长方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">Shape</span>//建立矩形类</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> dim2;<span class="comment">//矩形有两条不一样长的边，故再建立一个字段存放第二条边的长度</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">double</span> length,<span class="keyword">double</span> width)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(length);<span class="comment">//一条边由父类Shape的构造函数初始化</span></span><br><span class="line">        dim2=width;<span class="comment">//另一条边在此初始化</span></span><br><span class="line">    &#125;<span class="comment">//将两条边初始化</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">callArea</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dim*dim2;</span><br><span class="line">    &#125;<span class="comment">//实现求面积的方法</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">callPerimeter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (dim+dim2)*<span class="number">2</span>;</span><br><span class="line">    &#125;<span class="comment">//实现求周长的方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/11/11/%E3%80%90html%E3%80%91%E4%BA%A4%E4%BA%92%E6%8E%A7%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/11/11/%E3%80%90html%E3%80%91%E4%BA%A4%E4%BA%92%E6%8E%A7%E4%BB%B6/" class="post-title-link" itemprop="url">【HTML】交互控件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-11-11 14:36:56" itemprop="dateCreated datePublished" datetime="2018-11-11T14:36:56+08:00">2018-11-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="http://47.94.231.166/wp-content/uploads/2018/11/Interactive_contols.html">&gt;无扰阅读模式（测试）</a>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/11/11/%E3%80%90html%E3%80%91%E4%BA%A4%E4%BA%92%E6%8E%A7%E4%BB%B6/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/11/10/%E3%80%90%E9%80%9A%E7%9F%A5%E3%80%91%E6%96%87%E7%AB%A0%E9%87%8D%E6%9E%84%E6%8F%90%E9%86%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/11/10/%E3%80%90%E9%80%9A%E7%9F%A5%E3%80%91%E6%96%87%E7%AB%A0%E9%87%8D%E6%9E%84%E6%8F%90%E9%86%92/" class="post-title-link" itemprop="url">【通知】文章重构提醒</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-11-10 22:19:36" itemprop="dateCreated datePublished" datetime="2018-11-10T22:19:36+08:00">2018-11-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天对网站的文章进行了重构，取消使用过时的代码标签标记，今后所有文章改用<strong>MarkDown</strong>书写，所以旧文章的代码页面会失去格式。并非不想全部重写，而是使用新的代码可能会对旧文章的标签产生新释义从而导致文章不可读。为保证旧文章的可读性，如发现下面的代码： <code>[cc="csharp"] ...... [/cc]</code> 则代表该段代码为C#语言，同理，如代码形式为 <code>[cc="python"] ...... [/cc]</code> 则代表该段代码为Python语言。 为了今后的功能扩展，不得不放弃一些东西，望谅解。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/11/10/%E3%80%90java%E3%80%91%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E5%AE%9E%E9%AA%8C%EF%BC%9Astudent%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/11/10/%E3%80%90java%E3%80%91%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E5%AE%9E%E9%AA%8C%EF%BC%9Astudent%E7%B1%BB/" class="post-title-link" itemprop="url">【Java】类的继承实验：Student类</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-11-10 09:27:41" itemprop="dateCreated datePublished" datetime="2018-11-10T09:27:41+08:00">2018-11-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<p>11.24新增抛出异常练习</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Exception;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Program</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Student student=<span class="keyword">new</span> Student();<span class="comment">//实例化一个学生对象</span></span><br><span class="line">        String name,dep;</span><br><span class="line">        <span class="keyword">int</span> age;<span class="comment">//声明三个必要变量，为传入函数值做准备</span></span><br><span class="line">        Scanner scanner=<span class="keyword">new</span> Scanner(System.in);<span class="comment">//声明一个得到用户输入文字的功能对象</span></span><br><span class="line">        System.out.println(<span class="string">&quot;请输入学生姓名：&quot;</span>);<span class="comment">//提示语</span></span><br><span class="line">        name=scanner.next();<span class="comment">//得到用户输入的一段字符串，并将其赋给name</span></span><br><span class="line">        System.out.println(<span class="string">&quot;请输入学生年龄：&quot;</span>);</span><br><span class="line">        age=scanner.nextInt();<span class="comment">//得到用户输入的一段整形数字，并将其赋给age</span></span><br><span class="line">        System.out.println(<span class="string">&quot;请输入学生院系：&quot;</span>);</span><br><span class="line">        dep=scanner.next();</span><br><span class="line"></span><br><span class="line">        student.setNameAgeDep(name,age,dep);<span class="comment">//调用函数设置学生的信息</span></span><br><span class="line">        student.show();<span class="comment">//调用函数显示学生信息</span></span><br><span class="line">        System.out.println(student);<span class="comment">//直接打印出学生对象（隐式调用toString函数）</span></span><br><span class="line">        Student student2=<span class="keyword">new</span> Student();<span class="comment">//设置第二个学生对象用户比对学生姓名</span></span><br><span class="line">        student2.setNameAgeDep(<span class="string">&quot;AAA&quot;</span>,<span class="number">20</span>,<span class="string">&quot;Information&quot;</span>);<span class="comment">//设置第二个学生的信息</span></span><br><span class="line">        <span class="keyword">if</span>(student.equals(student2))System.out.println(<span class="string">&quot;学生重名&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> System.out.println(<span class="string">&quot;学生不重名&quot;</span>);<span class="comment">//比较学生是否重名</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//人“类”</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//包含字段姓名与年龄</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置姓名与年龄的访问器，如不需要重写toString与equals函数则不需要设置</span></span><br><span class="line">    <span class="comment">//应尽量避免对父类的改动</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//显示目前类的调用情况</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;调用了个人构造方法Person()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置人“类”的姓名与年龄</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetNameAge</span><span class="params">(String name,<span class="keyword">int</span> age)</span><span class="keyword">throws</span> AgeException</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">if</span>(age&lt;=<span class="number">0</span>age&gt;=<span class="number">25</span>)<span class="keyword">throw</span> <span class="keyword">new</span> AgeException();</span><br><span class="line">        <span class="comment">//设置学生年龄不得小于0，或大于25。若超过此值，则抛出异常。以下赋值语句将失效。</span></span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//显示人“类”的姓名与年龄</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;姓名：&quot;</span>+name+<span class="string">&quot;，年龄：&quot;</span>+age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//学生类，继承自人“类”</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//派生类新字段：院系</span></span><br><span class="line">    <span class="keyword">private</span> String dep;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置学生的名字、年龄、所在院系</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNameAgeDep</span><span class="params">(String name,<span class="keyword">int</span> age,String dep)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">try</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">super</span>.SetNameAge(name,age);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (AgeException e) </span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;\nYou type a worng age info.\n&quot;</span>);</span><br><span class="line">        &#125;<span class="comment">//捕获异常AgeException，并提示用户输入错误。</span></span><br><span class="line">        <span class="keyword">this</span>.dep=dep;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//提示调用类的情况</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;也调用了学生构造方法Student()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//显示学生信息</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.show();</span><br><span class="line">        System.out.println(<span class="string">&quot;院系：&quot;</span> + dep);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//重写toString函数，使对象可被直接输出为字符串</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;学生姓名为&quot;</span>+getName()+<span class="string">&quot;，年龄为&quot;</span>+getAge()+<span class="string">&quot;，院系为&quot;</span>+dep+<span class="string">&quot;。&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//重写equals函数，使之能比较学生姓名是否相等（即检测学生重名情况）</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Student student)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(getName().equals(student.getName()))<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Exception;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AgeException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AgeException</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AgeException</span><span class="params">(String msg)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(msg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AgeException</span><span class="params">(Throwable cause)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(cause);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AgeException</span><span class="params">(String msg,Throwable cause)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span> (msg,cause);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -1064,7 +1051,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1130,7 +1117,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1139,7 +1126,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -1221,6 +1208,8 @@
 
 
 
+
+  
 
   
 

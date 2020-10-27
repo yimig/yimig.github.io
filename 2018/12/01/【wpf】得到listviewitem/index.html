@@ -77,7 +77,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -216,13 +220,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>由于绑定了数据的原因，得到数据当然方便了许多，直接遍历就可以了，但是要是对其中一项的外观进行改变就麻烦了，找了很长时间依旧无果。后来偶然找到了一种方法就是使用<code>ItemContainerGenerator</code>得到ListViewItem，但是又一直返回空值，又翻了翻，终于找到了解决方法：就是使用<code>UpdateLayout()</code>和<code>ScrollIntoView(data)</code>定位数据！</p>
-<a id="more"></a>
-<p><strong>这个方法好像对ListBox无效，因为其没有ScrollIntoView()方法，Ummm，一概使用ListView替代吧。</strong></p>
-<h4 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h4><p>ListView的<code>ItemContainerGenerator.ContainerFromItem()</code>方法无法直接获得ListViewItem，它需要定位数据的位置。<strong>如果需要获得的项目在当前页面，也就是在不需要滚动就能找到的位置，那么需要在之前使用ListView的<code>UpdateLayout()</code>方法刷新当前页面，如果需要获得的项目不在当前页面，也就是在需要滚动才能找到的位置，那么需要使用ListView的<code>ScrollIntoView(data)</code>方法滚动到那里</strong>。 综合来说，如果是需要查询数据的位置，即不知道数据出现在哪，就先刷新当前页面看看项目是不是在当前页面，如果依然返回null，就滚动到那里获得。</p>
-<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><p><strong>下面是对于任意类型（用泛型TData代替）数据从ListView中提取出ListViewItem的方法</strong>：</p>
+        <p>由于绑定了数据的原因，得到数据当然方便了许多，直接遍历就可以了，但是要是对其中一项的外观进行改变就麻烦了，找了很长时间依旧无果。后来偶然找到了一种方法就是使用<code>ItemContainerGenerator</code>得到ListViewItem，但是又一直返回空值，又翻了翻，终于找到了解决方法：就是使用<code>UpdateLayout()</code>和<code>ScrollIntoView(data)</code>定位数据！ <a id="more"></a> <strong>这个方法好像对ListBox无效，因为其没有ScrollIntoView()方法，Ummm，一概使用ListView替代吧。</strong></p>
+<h4 id="原理">原理：</h4>
+<p>ListView的<code>ItemContainerGenerator.ContainerFromItem()</code>方法无法直接获得ListViewItem，它需要定位数据的位置。<strong>如果需要获得的项目在当前页面，也就是在不需要滚动就能找到的位置，那么需要在之前使用ListView的<code>UpdateLayout()</code>方法刷新当前页面，如果需要获得的项目不在当前页面，也就是在需要滚动才能找到的位置，那么需要使用ListView的<code>ScrollIntoView(data)</code>方法滚动到那里</strong>。 综合来说，如果是需要查询数据的位置，即不知道数据出现在哪，就先刷新当前页面看看项目是不是在当前页面，如果依然返回null，就滚动到那里获得。</p>
+<h4 id="示例">示例：</h4>
+<p><strong>下面是对于任意类型（用泛型TData代替）数据从ListView中提取出ListViewItem的方法</strong>：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListViewItem <span class="title">GetItem</span>&lt;<span class="title">TData</span>&gt;(<span class="params">ListView lv,TData data</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    lv.UpdateLayout();</span><br><span class="line">    ListViewItem item = lv.ItemContainerGenerator.ContainerFromItem(data) <span class="keyword">as</span> ListViewItem;</span><br><span class="line">    <span class="keyword">if</span> (item == <span class="literal">null</span>）</span><br><span class="line">    &#123;</span><br><span class="line">        lv.ScrollIntoView(data);</span><br><span class="line">        item = lv.ItemContainerGenerator.ContainerFromItem(data) <span class="keyword">as</span> ListViewItem;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> item;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>Aha，这样就可以跳过数据了！ CSDN的各路大神说了半天都没说到点上，导致无端耗费了很多时间。</p>
 
     </div>
@@ -307,7 +310,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">原理：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">示例：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">原理：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">示例：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -321,7 +324,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -330,7 +333,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -412,6 +415,8 @@
 
 
 
+
+  
 
   
 

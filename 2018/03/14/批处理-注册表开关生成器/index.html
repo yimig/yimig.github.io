@@ -84,7 +84,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -216,11 +220,10 @@
 
       
         <blockquote>
-<p>日常是否频繁更改一些隐藏的很深的系统设置？如果是，这个小脚本就是为你设计的</p>
+<p>日常是否频繁更改一些隐藏的很深的系统设置？如果是，这个小脚本就是为你设计的 <a id="more"></a> 近期想要练习双拼，但是因为技术还不到家所以真正打字时还得回到全拼，每次这样改来改去感觉很麻烦，所以就做了这个注册表开关生成器，只要知道控制该功能的注册表地址+键值和开关分别代表的数值就可以生成对应的开关了。 生成的开关效果如图： 隐藏文件 开 ↓ <a target="_blank" rel="noopener" href="http://47.94.231.166/archives/112/2018-03-14_22-36-14"><img src="http://47.94.231.166/wp-content/uploads/2018/03/2018-03-14_22-36-14.png" /></a> 隐藏文件 关 ↓ <a target="_blank" rel="noopener" href="http://47.94.231.166/archives/112/2018-03-14_22-42-08"><img src="http://47.94.231.166/wp-content/uploads/2018/03/2018-03-14_22-42-08.png" /></a> 该工具完全傻瓜级，可以放心使用。运行截图： <a target="_blank" rel="noopener" href="http://47.94.231.166/archives/112/cmd_2018-03-14_22-44-19"><img src="http://47.94.231.166/wp-content/uploads/2018/03/cmd_2018-03-14_22-44-19-300x191.png" /></a> 下载：<a target="_blank" rel="noopener" href="http://47.94.231.166/archives/112/reg-action-creator-ver-1-0">Reg Action Creator Ver 1.0</a></p>
 </blockquote>
-<a id="more"></a>
-<p>近期想要练习双拼，但是因为技术还不到家所以真正打字时还得回到全拼，每次这样改来改去感觉很麻烦，所以就做了这个注册表开关生成器，只要知道控制该功能的注册表地址+键值和开关分别代表的数值就可以生成对应的开关了。 生成的开关效果如图： 隐藏文件 开 ↓ <a target="_blank" rel="noopener" href="http://47.94.231.166/archives/112/2018-03-14_22-36-14"><img src="http://47.94.231.166/wp-content/uploads/2018/03/2018-03-14_22-36-14.png"></a> 隐藏文件 关 ↓ <a target="_blank" rel="noopener" href="http://47.94.231.166/archives/112/2018-03-14_22-42-08"><img src="http://47.94.231.166/wp-content/uploads/2018/03/2018-03-14_22-42-08.png"></a> 该工具完全傻瓜级，可以放心使用。运行截图： <a target="_blank" rel="noopener" href="http://47.94.231.166/archives/112/cmd_2018-03-14_22-44-19"><img src="http://47.94.231.166/wp-content/uploads/2018/03/cmd_2018-03-14_22-44-19-300x191.png"></a> 下载：<a target="_blank" rel="noopener" href="http://47.94.231.166/archives/112/reg-action-creator-ver-1-0">Reg Action Creator Ver 1.0</a> </p>
-<h2 id="那么问题来了，如何得到需要控制的功能对应的注册表键值呢？"><a href="#那么问题来了，如何得到需要控制的功能对应的注册表键值呢？" class="headerlink" title="那么问题来了，如何得到需要控制的功能对应的注册表键值呢？"></a>那么问题来了，如何得到需要控制的功能对应的注册表键值呢？</h2><p>下面就要介绍一个叫RegShot的小应用，这款应用可以给注册表截图并分析，通过对开关功能的两张截图分析就可以确定期间被更改了的注册表从而筛选出所需的键值。<a target="_blank" rel="noopener" href="http://47.94.231.166/archives/112/regshot_2018-03-14_22-51-15"><img src="http://47.94.231.166/wp-content/uploads/2018/03/Regshot_2018-03-14_22-51-15-300x263.png"></a> 版权原因就不放下载链接了网上各大下载站都能搞到。  附送一个清空文件夹的脚本：<a target="_blank" rel="noopener" href="http://47.94.231.166/archives/112/%e6%b8%85%e7%a9%ba%e6%96%87%e4%bb%b6%e5%a4%b9%e5%bc%80%e5%85%b3">清空文件夹开关</a> 假如你想快速清空某些经常需要清空的文件夹的话（比如截图文件夹），可以试试这个。</p>
+<h2 id="那么问题来了如何得到需要控制的功能对应的注册表键值呢">那么问题来了，如何得到需要控制的功能对应的注册表键值呢？</h2>
+<p>下面就要介绍一个叫RegShot的小应用，这款应用可以给注册表截图并分析，通过对开关功能的两张截图分析就可以确定期间被更改了的注册表从而筛选出所需的键值。<a target="_blank" rel="noopener" href="http://47.94.231.166/archives/112/regshot_2018-03-14_22-51-15"><img src="http://47.94.231.166/wp-content/uploads/2018/03/Regshot_2018-03-14_22-51-15-300x263.png" /></a> 版权原因就不放下载链接了网上各大下载站都能搞到。 附送一个清空文件夹的脚本：<a target="_blank" rel="noopener" href="http://47.94.231.166/archives/112/%e6%b8%85%e7%a9%ba%e6%96%87%e4%bb%b6%e5%a4%b9%e5%bc%80%e5%85%b3">清空文件夹开关</a> 假如你想快速清空某些经常需要清空的文件夹的话（比如截图文件夹），可以试试这个。</p>
 
     </div>
 
@@ -306,7 +309,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%82%A3%E4%B9%88%E9%97%AE%E9%A2%98%E6%9D%A5%E4%BA%86%EF%BC%8C%E5%A6%82%E4%BD%95%E5%BE%97%E5%88%B0%E9%9C%80%E8%A6%81%E6%8E%A7%E5%88%B6%E7%9A%84%E5%8A%9F%E8%83%BD%E5%AF%B9%E5%BA%94%E7%9A%84%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%94%AE%E5%80%BC%E5%91%A2%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">那么问题来了，如何得到需要控制的功能对应的注册表键值呢？</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%82%A3%E4%B9%88%E9%97%AE%E9%A2%98%E6%9D%A5%E4%BA%86%E5%A6%82%E4%BD%95%E5%BE%97%E5%88%B0%E9%9C%80%E8%A6%81%E6%8E%A7%E5%88%B6%E7%9A%84%E5%8A%9F%E8%83%BD%E5%AF%B9%E5%BA%94%E7%9A%84%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%94%AE%E5%80%BC%E5%91%A2"><span class="nav-number">1.</span> <span class="nav-text">那么问题来了，如何得到需要控制的功能对应的注册表键值呢？</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -320,7 +323,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -329,7 +332,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -411,6 +414,8 @@
 
 
 
+
+  
 
   
 

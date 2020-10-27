@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="①基础知识1.参数sender一般我们新建事件后vs都会自动帮我们创建事件引发的方法，比如 1private void button1_Click(object sender,RoutedEventArgs e)&amp;#123;...&amp;#125;  sender代表发生事件的控件，被封装为了object类型，所以如果我们想要引用之，需要显示转换。如鼠标单击按钮的事件中，若我们想获得被单击的按钮控件，">
+  <meta name="description" content="①基础知识 1.参数sender 一般我们新建事件后vs都会自动帮我们创建事件引发的方法，比如 1private void button1_Click(object sender,RoutedEventArgs e)&amp;#123;...&amp;#125; sender代表发生事件的控件，被封装为了object类型，所以如果我们想要引用之，需要显示转换。如鼠标单击按钮的事件中，若我们想获得被单击">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【C#】WPF基础：基本控件篇">
 <meta property="og:url" content="http://example.com/2018/10/07/%E3%80%90c%E3%80%91wpf%E5%9F%BA%E7%A1%80%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%8E%A7%E4%BB%B6/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="①基础知识1.参数sender一般我们新建事件后vs都会自动帮我们创建事件引发的方法，比如 1private void button1_Click(object sender,RoutedEventArgs e)&amp;#123;...&amp;#125;  sender代表发生事件的控件，被封装为了object类型，所以如果我们想要引用之，需要显示转换。如鼠标单击按钮的事件中，若我们想获得被单击的按钮控件，">
+<meta property="og:description" content="①基础知识 1.参数sender 一般我们新建事件后vs都会自动帮我们创建事件引发的方法，比如 1private void button1_Click(object sender,RoutedEventArgs e)&amp;#123;...&amp;#125; sender代表发生事件的控件，被封装为了object类型，所以如果我们想要引用之，需要显示转换。如鼠标单击按钮的事件中，若我们想获得被单击">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/10/devenv_2018-10-03_21-34-06.png">
 <meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/10/devenv_2018-10-10_16-15-15-217x300.png">
@@ -84,7 +84,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -228,71 +232,82 @@
 
       
         <a id="more"></a>
-<h1 id="①基础知识"><a href="#①基础知识" class="headerlink" title="①基础知识"></a>①基础知识</h1><h2 id="1-参数sender"><a href="#1-参数sender" class="headerlink" title="1.参数sender"></a>1.参数sender</h2><p>一般我们新建事件后vs都会自动帮我们创建事件引发的方法，比如</p>
+<h1 id="基础知识">①基础知识</h1>
+<h2 id="参数sender">1.参数sender</h2>
+<p>一般我们新建事件后vs都会自动帮我们创建事件引发的方法，比如</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">button1_Click</span>(<span class="params"><span class="built_in">object</span> sender,RoutedEventArgs e</span>)</span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
-
 <p>sender代表发生事件的控件，被封装为了object类型，所以如果我们想要引用之，需要<strong>显示转换</strong>。如鼠标单击按钮的事件中，若我们想获得被单击的按钮控件，可以写为</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Button button =(Button)sender;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-参数e"><a href="#2-参数e" class="headerlink" title="2.参数e"></a>2.参数e</h2><p>参数e一般为EventArgs和RoutedEventArgs类型，RoutedEventArgs类型是路由事件，是一种特殊的EventArgs类型，我们将在以后学习，现在我们主要来讨论EventArgs类型： 如果object sender看作事件的主体，那么EventArgs e就可以看作<strong>事件的参数</strong>，形象一点说，如果把用户看作农夫，要完成“锄地”的动作，就要使用“锄头”这个sender，如此“锄地”事件发生时，系统就会把锄头落地的坐标、锄地的频率等等与锄地事件有关的<strong>信息</strong>打包成事件参数e发送给我们。 那么怎样使用这些数据呢？ 与参数object相同，EventArgs类型也是事件参数的一个“大类型”，要想使用之<strong>必须经过显示转换</strong>，在这之前我们需要知道这是由鼠标触发的事件（<strong>MouseEventArgs</strong>）还是键盘触发的事件（<strong>KeyPressEventArgs</strong>）抑或是其他东西触发的事件，如果转换为了错误的事件参数就会导致程序出错。</p>
-<h3 id="鼠标事件（MouseEventArgs）"><a href="#鼠标事件（MouseEventArgs）" class="headerlink" title="鼠标事件（MouseEventArgs）"></a>鼠标事件（MouseEventArgs）</h3><p>鼠标事件常用的字段有： Button：表示用户按下鼠标哪个键触发了动作（左键Left、右键Right，在枚举类型MouseButtons中） Delta：表示用户触发事件的滚轮方向，这个值是方向（上滚为1，下滚为-1）乘以一个叫WHEEL_DELTA的常数（我这里测试为120，总之跟据符号就可以得到滚轮方向，值的大小不重要） Click：触发事件所按下键的次数 Location/X/Y：触发事件时鼠标的方位</p>
-<h3 id="键盘事件（KeyPressEventArgs）"><a href="#键盘事件（KeyPressEventArgs）" class="headerlink" title="键盘事件（KeyPressEventArgs）"></a>键盘事件（KeyPressEventArgs）</h3><p>键盘事件常用的字段有： KeyChar：触发事件时按下的键，注意是char类型不是keys类型。   例判断用户是否为向上滚出发的事件：</p>
+<h2 id="参数e">2.参数e</h2>
+<p>参数e一般为EventArgs和RoutedEventArgs类型，RoutedEventArgs类型是路由事件，是一种特殊的EventArgs类型，我们将在以后学习，现在我们主要来讨论EventArgs类型： 如果object sender看作事件的主体，那么EventArgs e就可以看作<strong>事件的参数</strong>，形象一点说，如果把用户看作农夫，要完成“锄地”的动作，就要使用“锄头”这个sender，如此“锄地”事件发生时，系统就会把锄头落地的坐标、锄地的频率等等与锄地事件有关的<strong>信息</strong>打包成事件参数e发送给我们。 那么怎样使用这些数据呢？ 与参数object相同，EventArgs类型也是事件参数的一个“大类型”，要想使用之<strong>必须经过显示转换</strong>，在这之前我们需要知道这是由鼠标触发的事件（<strong>MouseEventArgs</strong>）还是键盘触发的事件（<strong>KeyPressEventArgs</strong>）抑或是其他东西触发的事件，如果转换为了错误的事件参数就会导致程序出错。</p>
+<h3 id="鼠标事件mouseeventargs">鼠标事件（MouseEventArgs）</h3>
+<p>鼠标事件常用的字段有： Button：表示用户按下鼠标哪个键触发了动作（左键Left、右键Right，在枚举类型MouseButtons中） Delta：表示用户触发事件的滚轮方向，这个值是方向（上滚为1，下滚为-1）乘以一个叫WHEEL_DELTA的常数（我这里测试为120，总之跟据符号就可以得到滚轮方向，值的大小不重要） Click：触发事件所按下键的次数 Location/X/Y：触发事件时鼠标的方位</p>
+<h3 id="键盘事件keypresseventargs">键盘事件（KeyPressEventArgs）</h3>
+<p>键盘事件常用的字段有： KeyChar：触发事件时按下的键，注意是char类型不是keys类型。   例判断用户是否为向上滚出发的事件：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Button3_MouseWheel</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">MouseEventArgs args = (MouseEventArgs) e;</span><br><span class="line"><span class="keyword">if</span> (args.Delta &gt; <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">MessageBox.Show(<span class="string">&quot;上滚&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="可空类型"><a href="#可空类型" class="headerlink" title="可空类型"></a>可空类型</h2><p>可以为Null的类型称可空类型，有些类型（如int）默认初始化为0，所以无论如何也不会为空，故称不可空类型。 可空数据类型：<strong>引用类型</strong>（自定义类、string等等） 不可空数据类型：<strong>值类型</strong>（int、boolean、decimal、DateTime等等） 注意string s=””不等于string s=null。 第一个意义为长度为零的字符串，第二个意义为<strong>没有指向</strong>任何对象的字符串。 <strong>如果需要一个可空的值类型怎么办呢？</strong> 在类型后加一个问号，如</p>
+<h2 id="可空类型">可空类型</h2>
+<p>可以为Null的类型称可空类型，有些类型（如int）默认初始化为0，所以无论如何也不会为空，故称不可空类型。 可空数据类型：<strong>引用类型</strong>（自定义类、string等等） 不可空数据类型：<strong>值类型</strong>（int、boolean、decimal、DateTime等等） 注意string s=""不等于string s=null。 第一个意义为长度为零的字符串，第二个意义为<strong>没有指向</strong>任何对象的字符串。 <strong>如果需要一个可空的值类型怎么办呢？</strong> 在类型后加一个问号，如</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int? i&#x3D;null;</span><br></pre></td></tr></table></figure>
-
 <p><strong>实际上，就是把值类型转换为了引用类型</strong> int类型可以隐式转换为int？类型，反之则不能。就像float可以隐式转换为double类型反之也不能一样，<strong>谨记，范围小的转换为范围大的可以隐式转换，反之只能显示转换！</strong> 如果int？ i=null转换为int类型就算显示转换也会报错。</p>
-<h1 id="②WPF入门"><a href="#②WPF入门" class="headerlink" title="②WPF入门"></a>②WPF入门</h1><p>WPF使用xaml文件来设计<strong>窗口</strong>、控件等可视化交互，当然也可以在其中创建winform的类<strong>窗体</strong>（class）。它与winform最大的不同就是xaml设计的窗口、控件与主窗口功能代码在<strong>一个类</strong>中，所以WPF设计出的多窗口<strong>只需实例化</strong>无需设置访问性。</p>
-<h2 id="初识xaml"><a href="#初识xaml" class="headerlink" title="初识xaml"></a>初识xaml</h2><p>xaml语法上类似于html，标题尖括号打头，反斜杠标题尖括号结尾。 这与winform相比开发起来更加直观。 如 <a target="_blank" rel="noopener" href="http://upane.cn/archives/786/devenv_2018-10-03_21-34-06"><img src="http://47.94.231.166/wp-content/uploads/2018/10/devenv_2018-10-03_21-34-06.png"></a> 可在其中为控件添加各种属性，写法也有两种，常见的为：</p>
+<h1 id="wpf入门">②WPF入门</h1>
+<p>WPF使用xaml文件来设计<strong>窗口</strong>、控件等可视化交互，当然也可以在其中创建winform的类<strong>窗体</strong>（class）。它与winform最大的不同就是xaml设计的窗口、控件与主窗口功能代码在<strong>一个类</strong>中，所以WPF设计出的多窗口<strong>只需实例化</strong>无需设置访问性。</p>
+<h2 id="初识xaml">初识xaml</h2>
+<p>xaml语法上类似于html，标题尖括号打头，反斜杠标题尖括号结尾。 这与winform相比开发起来更加直观。 如 <a target="_blank" rel="noopener" href="http://upane.cn/archives/786/devenv_2018-10-03_21-34-06"><img src="http://47.94.231.166/wp-content/uploads/2018/10/devenv_2018-10-03_21-34-06.png" /></a> 可在其中为控件添加各种属性，写法也有两种，常见的为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button Name&#x3D;&quot;subButton&quot; Click&#x3D;&quot;subButton_Click&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
 <p>这种写法的优点是字少，写起来比较方便，但是当添加属性过多时就会显得长而冗杂，于是又有这种写法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button Click&#x3D;&quot;subButton_Click&quot;&gt;</span><br><span class="line">&lt;Name&gt;&quot;subButton&quot;&lt;&#x2F;Name&gt;</span><br><span class="line">&lt;&#x2F;Button&gt;</span><br></pre></td></tr></table></figure>
-
 <p>这种写法在控件属性较多时便显得一目了然，便于控制了。</p>
-<h3 id="注意！xaml的注释方法为"><a href="#注意！xaml的注释方法为" class="headerlink" title="注意！xaml的注释方法为"></a>注意！xaml的注释方法为</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--&lt;&#x2F;span&gt;&lt;&#x2F;strong&gt;被注释的语句，可跨行&lt;strong&gt;&lt;span style&#x3D;&quot;color: #339966;&quot;&gt;--&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="控件的通用属性"><a href="#控件的通用属性" class="headerlink" title="控件的通用属性"></a>控件的通用属性</h2><p>Name：空间名，唯一，用于区分控件 Content：空间上的文本，不唯一 Visbility：控件的可见性（<strong>值是枚举类型，不是bool类型！</strong>在System.Windows.Visbility下，Collapsed为隐藏，Visible为可见） IsEnabled：空间是否可用，bool类型 Background：背景色，在等于号后按下Ctrl+J即可调出颜色提示栏 FontSize：字体大小 在控件中添加控件：</p>
+<h3 id="注意xaml的注释方法为">注意！xaml的注释方法为</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--&lt;&#x2F;span&gt;&lt;&#x2F;strong&gt;被注释的语句，可跨行&lt;strong&gt;&lt;span style&#x3D;&quot;color: #339966;&quot;&gt;--&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="控件的通用属性">控件的通用属性</h2>
+<p>Name：空间名，唯一，用于区分控件 Content：空间上的文本，不唯一 Visbility：控件的可见性（<strong>值是枚举类型，不是bool类型！</strong>在System.Windows.Visbility下，Collapsed为隐藏，Visible为可见） IsEnabled：空间是否可用，bool类型 Background：背景色，在等于号后按下Ctrl+J即可调出颜色提示栏 FontSize：字体大小 在控件中添加控件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;控件&gt;</span><br><span class="line">&lt;控件.Content&gt;</span><br><span class="line">  （...其他控件)</span><br><span class="line">&lt;&#x2F;控件.Content&gt;</span><br><span class="line">&lt;&#x2F;控件&gt;</span><br></pre></td></tr></table></figure>
-
 <p>有的控件中只允许添加一个控件，可以添加一个布局（StackPanel、Grid）来容纳多个控件。</p>
-<h1 id="③WPF控件常用属性简介"><a href="#③WPF控件常用属性简介" class="headerlink" title="③WPF控件常用属性简介"></a>③WPF控件常用属性简介</h1><blockquote>
+<h1 id="wpf控件常用属性简介">③WPF控件常用属性简介</h1>
+<blockquote>
 <p>未特殊声明的情况下，以下用法仅可在XAML中使用，不可在Class中使用。</p>
 </blockquote>
-<h2 id="0-Button按钮"><a href="#0-Button按钮" class="headerlink" title="0.Button按钮"></a>0.Button按钮</h2><h3 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h3><p>插入文字：</p>
+<h2 id="button按钮">0.Button按钮</h2>
+<h3 id="用法">用法：</h3>
+<p>插入文字：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">XAML:</span><br><span class="line">&lt;Button Content&#x3D;&quot;TextHere&quot; &#x2F;&gt;</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">&lt;Button&gt;&quot;TextHere&quot;&lt;&#x2F;Button&gt;</span><br></pre></td></tr></table></figure>
-
 <p>以上这俩效果相同 插入图片：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">XAML:</span><br><span class="line">&lt;Button&gt;</span><br><span class="line">  &lt;Button.Content&gt;</span><br><span class="line">    &lt;Image Source&#x3D;&quot;图片的相对地址&quot;&gt;&lt;&#x2F;Image&gt;</span><br><span class="line">  &lt;&#x2F;Button.Content&gt;</span><br><span class="line">&lt;&#x2F;Button&gt;</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;可省略为&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">&lt;Button&gt;</span><br><span class="line">  &lt;Image Source&#x3D;&quot;图片的相对地址&quot;&gt;&lt;&#x2F;Image&gt;</span><br><span class="line">&lt;&#x2F;Button&gt;</span><br></pre></td></tr></table></figure>
-
 <p>这里只有Button可省略.Content。</p>
-<h2 id="⒈TextBox文本输入框"><a href="#⒈TextBox文本输入框" class="headerlink" title="⒈TextBox文本输入框"></a>⒈TextBox文本输入框</h2><blockquote>
+<h2 id="textbox文本输入框">⒈TextBox文本输入框</h2>
+<blockquote>
 <p>可见、可输入文本的控件，若只需要可见文本可使用TextBlock控件。</p>
 </blockquote>
 <p>Text：内容文本 IsReadOnly：设置是否只读，bool类型，设置为true后无法对文本进行修改（可以复制） TextWrapping：枚举类型，设置为Wrap可自动折行 MaxLength：文本框内可输入字符的最大数量，整形</p>
-<h2 id="⒉PasswordBox密码框"><a href="#⒉PasswordBox密码框" class="headerlink" title="⒉PasswordBox密码框"></a>⒉PasswordBox密码框</h2><blockquote>
+<h2 id="passwordbox密码框">⒉PasswordBox密码框</h2>
+<blockquote>
 <p>自动掩盖输入文本的控件</p>
 </blockquote>
 <p>Password：输入的文本，注意不是Text了。</p>
-<h2 id="⒊CheckBox复选框"><a href="#⒊CheckBox复选框" class="headerlink" title="⒊CheckBox复选框"></a>⒊CheckBox复选框</h2><p>IsChecked：表示复选框是否已被选中，bool？类型，所以不能直接用if判断</p>
-<h2 id="⒋RadioButton单选按钮"><a href="#⒋RadioButton单选按钮" class="headerlink" title="⒋RadioButton单选按钮"></a>⒋RadioButton单选按钮</h2><blockquote>
+<h2 id="checkbox复选框">⒊CheckBox复选框</h2>
+<p>IsChecked：表示复选框是否已被选中，bool？类型，所以不能直接用if判断</p>
+<h2 id="radiobutton单选按钮">⒋RadioButton单选按钮</h2>
+<blockquote>
 <p>要求用户对一个组进行单选的控件</p>
 </blockquote>
 <p>IsChecked：表示单选按钮是否已被选中，bool？类型。 GroupName：组名，一组单选按钮只能选择一个。</p>
-<h2 id="⒌DatePicker日期选择器"><a href="#⒌DatePicker日期选择器" class="headerlink" title="⒌DatePicker日期选择器"></a>⒌DatePicker日期选择器</h2><p>SelectedDate：选择的日期，DateTime？类型，包含日期和时间。可为null，意义为未选择。（DateTime.Now为当前时间）</p>
-<h2 id="6-Image图片控件"><a href="#6-Image图片控件" class="headerlink" title="6.Image图片控件"></a>6.Image图片控件</h2><p>Source：图片路径，路径为<strong>相对路径</strong>，即以程序视图的路径，若直接把图片资源放入程序文件夹内，则可以直接输入文件名。在Class中写法如下：</p>
+<h2 id="datepicker日期选择器">⒌DatePicker日期选择器</h2>
+<p>SelectedDate：选择的日期，DateTime？类型，包含日期和时间。可为null，意义为未选择。（DateTime.Now为当前时间）</p>
+<h2 id="image图片控件">6.Image图片控件</h2>
+<p>Source：图片路径，路径为<strong>相对路径</strong>，即以程序视图的路径，若直接把图片资源放入程序文件夹内，则可以直接输入文件名。在Class中写法如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Image img &#x3D; new Image();&#x2F;&#x2F;创建一个图片控件</span><br><span class="line">img.Source&#x3D;new BitmapImage(new Uri(&quot;图片的相对路径&quot;,UriKind.Relative));</span><br></pre></td></tr></table></figure>
-
-<h2 id="⒎ProgressBar进度条"><a href="#⒎ProgressBar进度条" class="headerlink" title="⒎ProgressBar进度条"></a>⒎ProgressBar进度条</h2><p>IsIndeterminate：不确定模式，进度条内的进度一条一条滚动前行，表示程序正在运行。bool类型，true启用。 Maximum：最大值 Minimum：最小值 Value：当前值</p>
-<h2 id="⒏Menu菜单"><a href="#⒏Menu菜单" class="headerlink" title="⒏Menu菜单"></a>⒏Menu菜单</h2><p>菜单分为普通菜单（Menu）和上下文菜单（ContextMenu，俗称右键菜单）。 WPF中的Menu可以显示在任意位置，但是一般是用布局显示到页面顶部。 Menu下面可以放多个MenuItem（其实是放到Items属性中）。MenuItem下还可以放MenuItem（还是Items属性中），属性Header显示内容。</p>
-<h3 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Menu&gt;</span><br><span class="line">  &lt;MenuItem Header&#x3D;&quot;标题名1&quot; &#x2F;&gt; 子菜单标题</span><br><span class="line">  &lt;MenuItem Header&#x3D;&quot;标题名2&quot; &gt;</span><br><span class="line">    &lt;MenuItem Header&#x3D;&quot;标题名2.1&quot; &#x2F;&gt; 孙菜单标题</span><br><span class="line">    &lt;MenuItem Header&#x3D;&quot;标题名2.2&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;MenuItem&gt;</span><br><span class="line">&lt;&#x2F;Menu&gt;</span><br></pre></td></tr></table></figure>
-
-<p>把Menu “拼”到窗口顶部详见布局篇 示例： <a target="_blank" rel="noopener" href="http://upane.cn/archives/786/devenv_2018-10-10_16-15-15"><img src="http://47.94.231.166/wp-content/uploads/2018/10/devenv_2018-10-10_16-15-15-217x300.png"></a> 效果： <a target="_blank" rel="noopener" href="http://upane.cn/archives/786/devenv_2018-10-10_11-36-47"><img src="http://47.94.231.166/wp-content/uploads/2018/10/devenv_2018-10-10_11-36-47-300x151.png"></a></p>
-<h2 id="⒐ToolBar工具栏"><a href="#⒐ToolBar工具栏" class="headerlink" title="⒐ToolBar工具栏"></a>⒐ToolBar工具栏</h2><p>工具栏就是一般在菜单栏下面的用作快速打开菜单栏内项目的工具，像：<a target="_blank" rel="noopener" href="http://upane.cn/archives/786/devenv_2018-10-10_16-55-09"><img src="http://47.94.231.166/wp-content/uploads/2018/10/devenv_2018-10-10_16-55-09.png"></a> 就是工具栏。</p>
-<h3 id="使用方法：-1"><a href="#使用方法：-1" class="headerlink" title="使用方法："></a>使用方法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ToolBar&gt;</span><br><span class="line">  (...控件)</span><br><span class="line">&lt;\ToolBar&gt;</span><br></pre></td></tr></table></figure>
-
-<p>示例： <a target="_blank" rel="noopener" href="http://upane.cn/archives/786/devenv_2018-10-10_17-25-33"><img src="http://47.94.231.166/wp-content/uploads/2018/10/devenv_2018-10-10_17-25-33-300x194.png"></a> 效果： <a target="_blank" rel="noopener" href="http://upane.cn/archives/786/wpfapp1_2018-10-10_17-25-43"><img src="http://47.94.231.166/wp-content/uploads/2018/10/WpfApp1_2018-10-10_17-25-43-300x169.png"></a> 由上图可以看出，某些控件包含入工具栏后外观会有变化。比如RadioButton、CheckBox等。</p>
+<h2 id="progressbar进度条">⒎ProgressBar进度条</h2>
+<p>IsIndeterminate：不确定模式，进度条内的进度一条一条滚动前行，表示程序正在运行。bool类型，true启用。 Maximum：最大值 Minimum：最小值 Value：当前值</p>
+<h2 id="menu菜单">⒏Menu菜单</h2>
+<p>菜单分为普通菜单（Menu）和上下文菜单（ContextMenu，俗称右键菜单）。 WPF中的Menu可以显示在任意位置，但是一般是用布局显示到页面顶部。 Menu下面可以放多个MenuItem（其实是放到Items属性中）。MenuItem下还可以放MenuItem（还是Items属性中），属性Header显示内容。</p>
+<h3 id="使用方法">使用方法：</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Menu&gt;</span><br><span class="line">  &lt;MenuItem Header&#x3D;&quot;标题名1&quot; &#x2F;&gt; 子菜单标题</span><br><span class="line">  &lt;MenuItem Header&#x3D;&quot;标题名2&quot; &gt;</span><br><span class="line">    &lt;MenuItem Header&#x3D;&quot;标题名2.1&quot; &#x2F;&gt; 孙菜单标题</span><br><span class="line">    &lt;MenuItem Header&#x3D;&quot;标题名2.2&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;MenuItem&gt;</span><br><span class="line">&lt;&#x2F;Menu&gt;</span><br></pre></td></tr></table></figure>
+<p>把Menu “拼”到窗口顶部详见布局篇 示例： <a target="_blank" rel="noopener" href="http://upane.cn/archives/786/devenv_2018-10-10_16-15-15"><img src="http://47.94.231.166/wp-content/uploads/2018/10/devenv_2018-10-10_16-15-15-217x300.png" /></a> 效果： <a target="_blank" rel="noopener" href="http://upane.cn/archives/786/devenv_2018-10-10_11-36-47"><img src="http://47.94.231.166/wp-content/uploads/2018/10/devenv_2018-10-10_11-36-47-300x151.png" /></a></p>
+<h2 id="toolbar工具栏">⒐ToolBar工具栏</h2>
+<p>工具栏就是一般在菜单栏下面的用作快速打开菜单栏内项目的工具，像：<a target="_blank" rel="noopener" href="http://upane.cn/archives/786/devenv_2018-10-10_16-55-09"><img src="http://47.94.231.166/wp-content/uploads/2018/10/devenv_2018-10-10_16-55-09.png" /></a> 就是工具栏。</p>
+<h3 id="使用方法-1">使用方法：</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ToolBar&gt;</span><br><span class="line">  (...控件)</span><br><span class="line">&lt;\ToolBar&gt;</span><br></pre></td></tr></table></figure>
+<p>示例： <a target="_blank" rel="noopener" href="http://upane.cn/archives/786/devenv_2018-10-10_17-25-33"><img src="http://47.94.231.166/wp-content/uploads/2018/10/devenv_2018-10-10_17-25-33-300x194.png" /></a> 效果： <a target="_blank" rel="noopener" href="http://upane.cn/archives/786/wpfapp1_2018-10-10_17-25-43"><img src="http://47.94.231.166/wp-content/uploads/2018/10/WpfApp1_2018-10-10_17-25-43-300x169.png" /></a> 由上图可以看出，某些控件包含入工具栏后外观会有变化。比如RadioButton、CheckBox等。</p>
 
     </div>
 
@@ -376,7 +391,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">①基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%82%E6%95%B0sender"><span class="nav-number">1.1.</span> <span class="nav-text">1.参数sender</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%8F%82%E6%95%B0e"><span class="nav-number">1.2.</span> <span class="nav-text">2.参数e</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%EF%BC%88MouseEventArgs%EF%BC%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">鼠标事件（MouseEventArgs）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%EF%BC%88KeyPressEventArgs%EF%BC%89"><span class="nav-number">1.2.2.</span> <span class="nav-text">键盘事件（KeyPressEventArgs）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E7%A9%BA%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">可空类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A1WPF%E5%85%A5%E9%97%A8"><span class="nav-number">2.</span> <span class="nav-text">②WPF入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E8%AF%86xaml"><span class="nav-number">2.1.</span> <span class="nav-text">初识xaml</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%81xaml%E7%9A%84%E6%B3%A8%E9%87%8A%E6%96%B9%E6%B3%95%E4%B8%BA"><span class="nav-number">2.1.1.</span> <span class="nav-text">注意！xaml的注释方法为</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E4%BB%B6%E7%9A%84%E9%80%9A%E7%94%A8%E5%B1%9E%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">控件的通用属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A2WPF%E6%8E%A7%E4%BB%B6%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7%E7%AE%80%E4%BB%8B"><span class="nav-number">3.</span> <span class="nav-text">③WPF控件常用属性简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-Button%E6%8C%89%E9%92%AE"><span class="nav-number">3.1.</span> <span class="nav-text">0.Button按钮</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="nav-number">3.1.1.</span> <span class="nav-text">用法：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%92%88TextBox%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%E6%A1%86"><span class="nav-number">3.2.</span> <span class="nav-text">⒈TextBox文本输入框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%92%89PasswordBox%E5%AF%86%E7%A0%81%E6%A1%86"><span class="nav-number">3.3.</span> <span class="nav-text">⒉PasswordBox密码框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%92%8ACheckBox%E5%A4%8D%E9%80%89%E6%A1%86"><span class="nav-number">3.4.</span> <span class="nav-text">⒊CheckBox复选框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%92%8BRadioButton%E5%8D%95%E9%80%89%E6%8C%89%E9%92%AE"><span class="nav-number">3.5.</span> <span class="nav-text">⒋RadioButton单选按钮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%92%8CDatePicker%E6%97%A5%E6%9C%9F%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">3.6.</span> <span class="nav-text">⒌DatePicker日期选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Image%E5%9B%BE%E7%89%87%E6%8E%A7%E4%BB%B6"><span class="nav-number">3.7.</span> <span class="nav-text">6.Image图片控件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%92%8EProgressBar%E8%BF%9B%E5%BA%A6%E6%9D%A1"><span class="nav-number">3.8.</span> <span class="nav-text">⒎ProgressBar进度条</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%92%8FMenu%E8%8F%9C%E5%8D%95"><span class="nav-number">3.9.</span> <span class="nav-text">⒏Menu菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-number">3.9.1.</span> <span class="nav-text">使用方法：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%92%90ToolBar%E5%B7%A5%E5%85%B7%E6%A0%8F"><span class="nav-number">3.10.</span> <span class="nav-text">⒐ToolBar工具栏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9A-1"><span class="nav-number">3.10.1.</span> <span class="nav-text">使用方法：</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">①基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0sender"><span class="nav-number">1.1.</span> <span class="nav-text">1.参数sender</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0e"><span class="nav-number">1.2.</span> <span class="nav-text">2.参数e</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6mouseeventargs"><span class="nav-number">1.2.1.</span> <span class="nav-text">鼠标事件（MouseEventArgs）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6keypresseventargs"><span class="nav-number">1.2.2.</span> <span class="nav-text">键盘事件（KeyPressEventArgs）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E7%A9%BA%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">可空类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#wpf%E5%85%A5%E9%97%A8"><span class="nav-number">2.</span> <span class="nav-text">②WPF入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E8%AF%86xaml"><span class="nav-number">2.1.</span> <span class="nav-text">初识xaml</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8Fxaml%E7%9A%84%E6%B3%A8%E9%87%8A%E6%96%B9%E6%B3%95%E4%B8%BA"><span class="nav-number">2.1.1.</span> <span class="nav-text">注意！xaml的注释方法为</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E4%BB%B6%E7%9A%84%E9%80%9A%E7%94%A8%E5%B1%9E%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">控件的通用属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#wpf%E6%8E%A7%E4%BB%B6%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7%E7%AE%80%E4%BB%8B"><span class="nav-number">3.</span> <span class="nav-text">③WPF控件常用属性简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#button%E6%8C%89%E9%92%AE"><span class="nav-number">3.1.</span> <span class="nav-text">0.Button按钮</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%B3%95"><span class="nav-number">3.1.1.</span> <span class="nav-text">用法：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#textbox%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5%E6%A1%86"><span class="nav-number">3.2.</span> <span class="nav-text">⒈TextBox文本输入框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#passwordbox%E5%AF%86%E7%A0%81%E6%A1%86"><span class="nav-number">3.3.</span> <span class="nav-text">⒉PasswordBox密码框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#checkbox%E5%A4%8D%E9%80%89%E6%A1%86"><span class="nav-number">3.4.</span> <span class="nav-text">⒊CheckBox复选框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#radiobutton%E5%8D%95%E9%80%89%E6%8C%89%E9%92%AE"><span class="nav-number">3.5.</span> <span class="nav-text">⒋RadioButton单选按钮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#datepicker%E6%97%A5%E6%9C%9F%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">3.6.</span> <span class="nav-text">⒌DatePicker日期选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#image%E5%9B%BE%E7%89%87%E6%8E%A7%E4%BB%B6"><span class="nav-number">3.7.</span> <span class="nav-text">6.Image图片控件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#progressbar%E8%BF%9B%E5%BA%A6%E6%9D%A1"><span class="nav-number">3.8.</span> <span class="nav-text">⒎ProgressBar进度条</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#menu%E8%8F%9C%E5%8D%95"><span class="nav-number">3.9.</span> <span class="nav-text">⒏Menu菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">3.9.1.</span> <span class="nav-text">使用方法：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toolbar%E5%B7%A5%E5%85%B7%E6%A0%8F"><span class="nav-number">3.10.</span> <span class="nav-text">⒐ToolBar工具栏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-1"><span class="nav-number">3.10.1.</span> <span class="nav-text">使用方法：</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -390,7 +405,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -399,7 +414,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -481,6 +496,8 @@
 
 
 
+
+  
 
   
 

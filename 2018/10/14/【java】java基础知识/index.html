@@ -79,7 +79,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -222,24 +226,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这一系列的笔记都是针对像我一样从C#转到Java的同学准备的，由于Java与C#关联性较高，很多代码都有重合，所以主要写一些两者的不同，以便日后翻阅。算是站在C#基础上的提升吧。</p>
-<a id="more"></a>
-<p>与C#依赖于.Net框架一样，Java依赖于JVM（Java Runtime Environment，Java运行环境），但是这个环境不在Windows里预装，所以在编程之前，需要先下好JDK（Java Development Kit，Java开发套件）。使用的IDE是JetBrain公司开发的<strong>IntelliJ IDEA</strong>，现在也在更新其教程，有兴趣的同学可以去看看。</p>
-<h1 id="①注释"><a href="#①注释" class="headerlink" title="①注释"></a>①注释</h1><p>注释一行和注释一段与C#相同，<strong>都是//与/<em>…..</em>/</strong> Java中<strong>注释文档</strong>的书写格式为</p>
-<p>/**<br>*</p>
-<h1 id="这里写方法的用途"><a href="#这里写方法的用途" class="headerlink" title="这里写方法的用途"></a>这里写方法的用途</h1><p>*@param args 形参args的含义<br>*@return 返回值的含义<br>*/</p>
+        <p>这一系列的笔记都是针对像我一样从C#转到Java的同学准备的，由于Java与C#关联性较高，很多代码都有重合，所以主要写一些两者的不同，以便日后翻阅。算是站在C#基础上的提升吧。 <a id="more"></a> 与C#依赖于.Net框架一样，Java依赖于JVM（Java Runtime Environment，Java运行环境），但是这个环境不在Windows里预装，所以在编程之前，需要先下好JDK（Java Development Kit，Java开发套件）。使用的IDE是JetBrain公司开发的<strong>IntelliJ IDEA</strong>，现在也在更新其教程，有兴趣的同学可以去看看。</p>
+<h1 id="注释">①注释</h1>
+<p>注释一行和注释一段与C#相同，<strong>都是//与/<em>.....</em>/</strong> Java中<strong>注释文档</strong>的书写格式为</p>
+<p>/** *</p>
+<h1 id="这里写方法的用途">这里写方法的用途</h1>
+<p>*<span class="citation" data-cites="param">@param</span> args 形参args的含义 *<span class="citation" data-cites="return">@return</span> 返回值的含义 */</p>
 <p>这个写了倒是不会在编译时给出提醒，但是编译后可以选择同时生成一个HTML文件，打开后即是界面非常人性化的注释文档了。不过在开发过程中用途并不大，没有C#的文档注释实用，就暂时不展开讲了。</p>
-<h1 id="②常量与变量"><a href="#②常量与变量" class="headerlink" title="②常量与变量"></a>②常量与变量</h1><h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>常量的定义方法与C#不同：</p>
-<p>C#：<br>const int TEXT_NUM;<br>Java:<br><strong>final</strong> int TEXT_NUM;</p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>常用变量中大部分与C#相同，只是bool变量改名为<strong>boolean</strong>，声明string类型首字母必须大写<strong>String</strong> 还有需要注意的就是Java中<strong>不存在</strong>C#中<strong>var</strong>那样的模糊定义类型</p>
-<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><p>转义字符还是用 <strong>/</strong></p>
-<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>隐式转换规则与C#相同。 显式转换写法也与C#相同，但是Java没有Convert类，所以对于某些只用括号不能转换的类型时（String→int）需要<strong>调用要转换为的类型所在的类</strong>进行转换，如</p>
-<p>新类型.parse新类型（变量名）;<br>Int.parseInt(x);<br>Double.parseDouble(x);</p>
+<h1 id="常量与变量">②常量与变量</h1>
+<h2 id="常量">常量</h2>
+<p>常量的定义方法与C#不同：</p>
+<p>C#： const int TEXT_NUM; Java: <strong>final</strong> int TEXT_NUM;</p>
+<h2 id="变量">变量</h2>
+<p>常用变量中大部分与C#相同，只是bool变量改名为<strong>boolean</strong>，声明string类型首字母必须大写<strong>String</strong> 还有需要注意的就是Java中<strong>不存在</strong>C#中<strong>var</strong>那样的模糊定义类型</p>
+<h2 id="转义字符">转义字符</h2>
+<p>转义字符还是用 <strong>/</strong></p>
+<h2 id="类型转换">类型转换</h2>
+<p>隐式转换规则与C#相同。 显式转换写法也与C#相同，但是Java没有Convert类，所以对于某些只用括号不能转换的类型时（String→int）需要<strong>调用要转换为的类型所在的类</strong>进行转换，如</p>
+<p>新类型.parse新类型（变量名）; Int.parseInt(x); Double.parseDouble(x);</p>
 <p>注意这里类型<strong>首字母要大写</strong></p>
-<h1 id="③运算符"><a href="#③运算符" class="headerlink" title="③运算符"></a>③运算符</h1><p>运算符和C#都一样，但是需要特别注意的是，不管是Java、C、C#、Python还是C++，<strong>浮点类型都不可判断相等！</strong> 像这样：</p>
-<p>float a=1.5;<br>float b=0.7+0.8;<br>if(<strong>b==a</strong>)<br>{<br>  System.out.println(“A and B is Equal”);<br>}<br>else<br>{<br>  System.out.println(“A and B is Different”);<br>}</p>
-<p>这可万万使不得！<a target="_blank" rel="noopener" href="http://upane.cn/archives/220/attachment/28"><img src="http://47.94.231.166/wp-content/uploads/2018/04/28.png"></a> 因为转换丢失，精度会有误差，相等的俩数也会显式不相等！ 要想比较两个浮点数可以<strong>让它们相减求精度</strong>。   逻辑运算符相同不讲。</p>
-<h2 id="位运算符："><a href="#位运算符：" class="headerlink" title="位运算符："></a>位运算符：</h2><p>位运算符虽然和C#相同，但是在学C#的时候就没怎么认真学过，在这里再复习一下吧： 位运算符是对<strong>位（bit）</strong>进行运算的符号，就是二进制数。在使用位运算符之后程序会先将两边的值转换为二进制，然后进行运算。</p>
+<h1 id="运算符">③运算符</h1>
+<p>运算符和C#都一样，但是需要特别注意的是，不管是Java、C、C#、Python还是C++，<strong>浮点类型都不可判断相等！</strong> 像这样：</p>
+<p>float a=1.5; float b=0.7+0.8; if(<strong>b==a</strong>) { System.out.println("A and B is Equal"); } else { System.out.println("A and B is Different"); }</p>
+<p>这可万万使不得！<a target="_blank" rel="noopener" href="http://upane.cn/archives/220/attachment/28"><img src="http://47.94.231.166/wp-content/uploads/2018/04/28.png" /></a> 因为转换丢失，精度会有误差，相等的俩数也会显式不相等！ 要想比较两个浮点数可以<strong>让它们相减求精度</strong>。   逻辑运算符相同不讲。</p>
+<h2 id="位运算符">位运算符：</h2>
+<p>位运算符虽然和C#相同，但是在学C#的时候就没怎么认真学过，在这里再复习一下吧： 位运算符是对<strong>位（bit）</strong>进行运算的符号，就是二进制数。在使用位运算符之后程序会先将两边的值转换为二进制，然后进行运算。</p>
 <p>运算符</p>
 <p>含义</p>
 <p>示例</p>
@@ -267,9 +278,10 @@
 <p>&lt;&lt;</p>
 <p>左移x位（位数不变，整体左移，高位丢弃，最低位用0补充）</p>
 <p>a&lt;</p>
-<h1 id="④数组"><a href="#④数组" class="headerlink" title="④数组"></a>④数组</h1><h2 id="数组的定义"><a href="#数组的定义" class="headerlink" title="数组的定义"></a>数组的定义</h2><p>数组的定义都是一样的，就是注意定义二维数组的时候还可以利用<strong>分别实例化</strong>定义<strong>不规则的二维数组</strong>，如下</p>
+<h1 id="数组">④数组</h1>
+<h2 id="数组的定义">数组的定义</h2>
+<p>数组的定义都是一样的，就是注意定义二维数组的时候还可以利用<strong>分别实例化</strong>定义<strong>不规则的二维数组</strong>，如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> [][]x;</span><br><span class="line">x=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][];</span><br><span class="line">x[<span class="number">0</span>]=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>]&#123;<span class="number">1.1</span>,<span class="number">1.2</span>&#125;;</span><br><span class="line">x[<span class="number">1</span>]=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>]&#123;<span class="number">2.1</span>,<span class="number">2.2</span>;<span class="number">2.3</span>,<span class="number">2.4</span>&#125;;</span><br><span class="line">x[<span class="number">2</span>]=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>]&#123;<span class="number">3.1</span>,<span class="number">3.2</span>,<span class="number">3.3</span>&#125;;</span><br></pre></td></tr></table></figure>
-
 <p>图例如下：</p>
 <p>1.1</p>
 <p>1.2</p>
@@ -281,12 +293,18 @@
 <p>3.2</p>
 <p>3.3</p>
 <p>这里<strong>x.length=3</strong>,<strong>x[0].length=2</strong>。</p>
-<h2 id="数组的复制"><a href="#数组的复制" class="headerlink" title="数组的复制"></a>数组的复制</h2><p>我们先定义一种说法，即<strong>虚复制</strong>和<strong>实复制</strong>，虚复制是指仅复制引用变量的内存地址，当一个发生改变另一个也会改变，实复制是指复制了引用变量其中的值，一个发生改变后另一个不变。 目前有四种方法可以对数组进行复制：</p>
-<h3 id="1-直接相等"><a href="#1-直接相等" class="headerlink" title="1.直接相等"></a>1.直接相等</h3><p>也就是array2=array1，这是一种<strong>虚复制</strong>。</p>
-<h3 id="2-使用循环语句依次赋值"><a href="#2-使用循环语句依次赋值" class="headerlink" title="2.使用循环语句依次赋值"></a>2.使用循环语句依次赋值</h3><p>就是for(int i=0;i&lt;array1.length;i++)array2[i]=array1[i]; 这是一种<strong>实复制</strong>。</p>
-<h3 id="3-使用clone-方法"><a href="#3-使用clone-方法" class="headerlink" title="3.使用clone()方法"></a>3.使用clone()方法</h3><p>即int array2=array1.clone(); 这是一种<strong>实复制</strong>。</p>
-<h3 id="4-使用System-arraycopy-方法"><a href="#4-使用System-arraycopy-方法" class="headerlink" title="4.使用System.arraycopy()方法"></a>4.使用System.arraycopy()方法</h3><p>其用法为 System.arraycopy(&lt;数据类型&gt; 被复制的数组名,复制起始索引,&lt;数据类型&gt; 复制到的数组名,复制元素的数量); 如，从整型一维数组array1中的第3个元素开始复制5个元素到整型一维数组array2中，可写为：</p>
+<h2 id="数组的复制">数组的复制</h2>
+<p>我们先定义一种说法，即<strong>虚复制</strong>和<strong>实复制</strong>，虚复制是指仅复制引用变量的内存地址，当一个发生改变另一个也会改变，实复制是指复制了引用变量其中的值，一个发生改变后另一个不变。 目前有四种方法可以对数组进行复制：</p>
+<h3 id="直接相等">1.直接相等</h3>
+<p>也就是array2=array1，这是一种<strong>虚复制</strong>。</p>
+<h3 id="使用循环语句依次赋值">2.使用循环语句依次赋值</h3>
+<p>就是for(int i=0;i&lt;array1.length;i++)array2[i]=array1[i]; 这是一种<strong>实复制</strong>。</p>
+<h3 id="使用clone方法">3.使用clone()方法</h3>
+<p>即int array2=array1.clone(); 这是一种<strong>实复制</strong>。</p>
+<h3 id="使用system.arraycopy方法">4.使用System.arraycopy()方法</h3>
+<p>其用法为 System.arraycopy(<数据类型> 被复制的数组名,复制起始索引,<数据类型> 复制到的数组名,复制元素的数量); 如，从整型一维数组array1中的第3个元素开始复制5个元素到整型一维数组array2中，可写为：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.arraycopy(<span class="keyword">int</span> array1,<span class="number">2</span>,<span class="keyword">int</span> array2,<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -308,8 +326,8 @@
       <i class="fa fa-chevron-left"></i> 【C#】WPF基础：多窗口应用篇
     </a></div>
       <div class="post-nav-item">
-    <a href="/2018/10/14/828/" rel="next" title="Untitled Post - 24">
-      Untitled Post - 24 <i class="fa fa-chevron-right"></i>
+    <a href="/2018/10/15/%E3%80%90html%E3%80%91%E5%88%9D%E8%AF%86html/" rel="next" title="【HTML】初识HTML">
+      【HTML】初识HTML <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -369,7 +387,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A0%E6%B3%A8%E9%87%8A"><span class="nav-number">1.</span> <span class="nav-text">①注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E5%86%99%E6%96%B9%E6%B3%95%E7%9A%84%E7%94%A8%E9%80%94"><span class="nav-number">2.</span> <span class="nav-text">这里写方法的用途</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A1%E5%B8%B8%E9%87%8F%E4%B8%8E%E5%8F%98%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text">②常量与变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F"><span class="nav-number">3.1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">3.2.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="nav-number">3.3.</span> <span class="nav-text">转义字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.4.</span> <span class="nav-text">类型转换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A2%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.</span> <span class="nav-text">③运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A"><span class="nav-number">4.1.</span> <span class="nav-text">位运算符：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A3%E6%95%B0%E7%BB%84"><span class="nav-number">5.</span> <span class="nav-text">④数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">5.1.</span> <span class="nav-text">数组的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%A4%8D%E5%88%B6"><span class="nav-number">5.2.</span> <span class="nav-text">数组的复制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%9B%B4%E6%8E%A5%E7%9B%B8%E7%AD%89"><span class="nav-number">5.2.1.</span> <span class="nav-text">1.直接相等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5%E4%BE%9D%E6%AC%A1%E8%B5%8B%E5%80%BC"><span class="nav-number">5.2.2.</span> <span class="nav-text">2.使用循环语句依次赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8clone-%E6%96%B9%E6%B3%95"><span class="nav-number">5.2.3.</span> <span class="nav-text">3.使用clone()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BD%BF%E7%94%A8System-arraycopy-%E6%96%B9%E6%B3%95"><span class="nav-number">5.2.4.</span> <span class="nav-text">4.使用System.arraycopy()方法</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">1.</span> <span class="nav-text">①注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E5%86%99%E6%96%B9%E6%B3%95%E7%9A%84%E7%94%A8%E9%80%94"><span class="nav-number">2.</span> <span class="nav-text">这里写方法的用途</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F%E4%B8%8E%E5%8F%98%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text">②常量与变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F"><span class="nav-number">3.1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">3.2.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="nav-number">3.3.</span> <span class="nav-text">转义字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.4.</span> <span class="nav-text">类型转换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.</span> <span class="nav-text">③运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.1.</span> <span class="nav-text">位运算符：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">5.</span> <span class="nav-text">④数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">5.1.</span> <span class="nav-text">数组的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%A4%8D%E5%88%B6"><span class="nav-number">5.2.</span> <span class="nav-text">数组的复制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E7%9B%B8%E7%AD%89"><span class="nav-number">5.2.1.</span> <span class="nav-text">1.直接相等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5%E4%BE%9D%E6%AC%A1%E8%B5%8B%E5%80%BC"><span class="nav-number">5.2.2.</span> <span class="nav-text">2.使用循环语句依次赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8clone%E6%96%B9%E6%B3%95"><span class="nav-number">5.2.3.</span> <span class="nav-text">3.使用clone()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8system.arraycopy%E6%96%B9%E6%B3%95"><span class="nav-number">5.2.4.</span> <span class="nav-text">4.使用System.arraycopy()方法</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -383,7 +401,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -392,7 +410,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -474,6 +492,8 @@
 
 
 
+
+  
 
   
 

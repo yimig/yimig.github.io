@@ -78,7 +78,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -209,11 +213,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这是一个可以自动判断网络连接故障所在的脚本，通过依次测试ping localhost，自身ip，网关ip，指定广域网ip（默认百度），host文件，任意域名来确定网络故障（手动输入还可以指定局域网内的一台设备来确认局域网的工作）。</p>
-<a id="more"></a>
-<p>自动获取ip的提示： 首先找到ipconfig出来的文件，如果第一次运行获取的ip不正确它应该在 C:\CIAdata\ipconfig.$$$ 数行数，不包括空行，一直数到ip地址所在的行（包括）。 把这个数字覆盖</p>
+        <p>这是一个可以自动判断网络连接故障所在的脚本，通过依次测试ping localhost，自身ip，网关ip，指定广域网ip（默认百度），host文件，任意域名来确定网络故障（手动输入还可以指定局域网内的一台设备来确认局域网的工作）。 <a id="more"></a> 自动获取ip的提示： 首先找到ipconfig出来的文件，如果第一次运行获取的ip不正确它应该在 C:\CIAdata\ipconfig.$$$ 数行数，不包括空行，一直数到ip地址所在的行（包括）。 把这个数字覆盖</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for &#x2F;f &quot;delims&#x3D;&quot; %%a in (C:\CIAdata\ipconfig.$$$) do set &#x2F;a m+&#x3D;1&amp;set &quot;_!m!&#x3D;%%a&quot;</span><br><span class="line">set &#x2F;a m&#x3D;8</span><br><span class="line">set ip&#x3D;!_%m%:~37,52!</span><br><span class="line">set &#x2F;a m&#x3D;10</span><br><span class="line">set dg&#x3D;!_%m%:~35,52!</span><br></pre></td></tr></table></figure>
-
 <p>这里m=后面的数字，第二个m=之前数的行数加二。 如果嫌麻烦可以直接找到ip和网关然后重启脚本选择用手动输入，但是自动输入一旦设定完毕就可以一劳永逸了。 下载：<a target="_blank" rel="noopener" href="http://47.94.231.166/archives/79/%e7%bd%91%e7%bb%9c%e6%b5%8b%e8%af%95">网络测试</a></p>
 
     </div>
@@ -233,10 +234,7 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2018/03/11/74/" rel="prev" title="Untitled Post - 8">
-      <i class="fa fa-chevron-left"></i> Untitled Post - 8
-    </a></div>
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
     <a href="/2018/03/11/wordpress-%E7%9B%AE%E5%89%8D%E9%81%87%E5%88%B0%E8%BF%87%E7%9A%84%E5%B0%8F%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="next" title="#WordPress#  目前遇到过的小问题及解决方法">
       #WordPress#  目前遇到过的小问题及解决方法 <i class="fa fa-chevron-right"></i>
@@ -312,7 +310,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -321,7 +319,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -403,6 +401,8 @@
 
 
 
+
+  
 
   
 
