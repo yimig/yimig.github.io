@@ -28,7 +28,7 @@
 <meta property="og:description" content="你捡起了道具：遗失的纸片2# 一张普通的纸片，隐隐约约能够看到目录：“强制类型转换、运算符、语句、对象、函数、作用域”。边角还有被撕扯的痕迹，它们应该属于一个笔记本，但不知为什么被主人撕下来丢掉了。 提示：集齐所有纸片应该可以得到一本技能书。 👇点击下方按钮调查">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-04-22T09:45:02.000Z">
-<meta property="article:modified_time" content="2020-10-27T06:59:17.048Z">
+<meta property="article:modified_time" content="2020-10-27T13:03:38.618Z">
 <meta property="article:author" content="Tim">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content="js学习笔记">
@@ -187,7 +187,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-27 14:59:17" itemprop="dateModified" datetime="2020-10-27T14:59:17+08:00">2020-10-27</time>
+                <time title="修改时间：2020-10-27 21:03:38" itemprop="dateModified" datetime="2020-10-27T21:03:38+08:00">2020-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -199,19 +199,15 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/web/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                  <a href="/categories/web/JavaScript/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
+                  <a href="/categories/web/JavaScript/Web/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
                 </span>
             </span>
 
@@ -226,14 +222,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>你捡起了道具：<strong>遗失的纸片2#</strong> 一张普通的纸片，隐隐约约能够看到目录：“<strong>强制类型转换、运算符、语句、对象、函数、作用域</strong>”。边角还有被撕扯的痕迹，它们应该属于一个笔记本，但不知为什么被主人撕下来丢掉了。 提示：集齐所有纸片应该可以得到一本技能书。 👇点击下方按钮调查 <a id="more"></a> ## 7.强制类型转换</p>
-<h3 id="转string">转<code>string</code>:</h3>
-<ol type="1">
+        <p>你捡起了道具：<strong>遗失的纸片2#</strong> 一张普通的纸片，隐隐约约能够看到目录：“<strong>强制类型转换、运算符、语句、对象、函数、作用域</strong>”。边角还有被撕扯的痕迹，它们应该属于一个笔记本，但不知为什么被主人撕下来丢掉了。 提示：集齐所有纸片应该可以得到一本技能书。 👇点击下方按钮调查<br><a id="more"></a></p>
+<h2 id="7-强制类型转换"><a href="#7-强制类型转换" class="headerlink" title="7.强制类型转换"></a>7.强制类型转换</h2><h3 id="转string"><a href="#转string" class="headerlink" title="转string:"></a>转<code>string</code>:</h3><ol>
 <li><strong>直接调用被转换对象的<code>toString()</code>方法</strong>，该方法不会影响原值，会将转换后的结果返回。<strong><code>null</code>与<code>undefined</code>无<code>toString()</code>方法。</strong></li>
-<li><strong>调用<code>String()</code>函数</strong>，并将被转换的变量作为参数传入，<strong>使用<code>String()</code>函数转换时，<code>null</code>→"null",<code>undefined</code>→"undefined"。</strong></li>
+<li><strong>调用<code>String()</code>函数</strong>，并将被转换的变量作为参数传入，<strong>使用<code>String()</code>函数转换时，<code>null</code>→”null”,<code>undefined</code>→”undefined”。</strong></li>
 </ol>
-<h3 id="转number">转<code>Number</code>:</h3>
-<ol type="1">
+<h3 id="转Number"><a href="#转Number" class="headerlink" title="转Number:"></a>转<code>Number</code>:</h3><ol>
 <li>使用<code>Number()</code>函数</li>
 </ol>
 <p>？→数值</p>
@@ -248,11 +242,11 @@
 <p><code>NaN</code></p>
 <p>2.使用<code>parseInt()</code>/<code>parseFloat()</code>将字符串转换为整型/浮点型 <strong>该方法可去除字符串中非数字部分</strong> <strong>原理：读到第一个非数字位，往后都忽略</strong></p>
 <blockquote>
-<p>"123px"→123 "123px456"→123"123.5"→123</p>
+<p>“123px”→123 “123px456”→123”123.5”→123</p>
 </blockquote>
 <p><strong>如果对非String使用<code>parseInt()</code>/<code>parseFloat()</code>，会先转为<code>String</code>，再转为<code>Number</code>，如</strong></p>
 <blockquote>
-<p>true→"true"→NaN 123.5→"123.5"→123 所以<code>parseInt()</code>也有取整的作用</p>
+<p>true→”true”→NaN 123.5→”123.5”→123 所以<code>parseInt()</code>也有取整的作用</p>
 </blockquote>
 <p>3.其他进制数字</p>
 <p>进制</p>
@@ -267,8 +261,7 @@
 <blockquote>
 <p>明确制定进制：parseInt(a,10)可向<code>parseInt()</code>传两个参数，第二个参数表示进制。</p>
 </blockquote>
-<h3 id="转boolean">转<code>Boolean</code>:</h3>
-<p>使用<code>Boolean()</code>参数：</p>
+<h3 id="转Boolean"><a href="#转Boolean" class="headerlink" title="转Boolean:"></a>转<code>Boolean</code>:</h3><p>使用<code>Boolean()</code>参数：</p>
 <p>？→Boolean</p>
 <p>转换结果</p>
 <p>数字</p>
@@ -279,21 +272,17 @@
 <p>true</p>
 <p>null/undefined</p>
 <p>false</p>
-<h3 id="unicode转换">unicode转换：</h3>
-<ol type="1">
-<li>JS：<strong>\u+unicode(四位16进制编码)</strong></li>
+<h3 id="unicode转换："><a href="#unicode转换：" class="headerlink" title="unicode转换："></a>unicode转换：</h3><ol>
+<li>JS：<strong>\\u+unicode(四位16进制编码)</strong></li>
 <li>HTML：<strong>&amp;#+unicode(十进制编码)</strong></li>
 </ol>
-<h2 id="运算符">8.运算符</h2>
-<p>运算符</p>
+<h2 id="8-运算符"><a href="#8-运算符" class="headerlink" title="8.运算符"></a>8.运算符</h2><p>运算符</p>
 <p>运算法则</p>
 <p>隐式转换</p>
-<ul>
-<li></li>
-</ul>
+<p>+</p>
 <p>①NaN与任何数运算都得NaN②亦可字符串合并③任何值与字符串相加都转为字符串合并</p>
 <p>是</p>
-<p>-、*、/......</p>
+<p>-、*、/……</p>
 <p>任何值都转换为Number参与运算</p>
 <p>是</p>
 <p>+(正)、-(负)</p>
@@ -306,104 +295,81 @@
 <p>与：第一个为true，则必然返回第二个；第一个为false，则必然返回第一个（找false）</p>
 <p>-</p>
 <p>或：第一个为true，则必然返回第一个，第一个为false，则必然返回第二个（找true）</p>
-<p>&gt;/\&lt;</p>
+<p>>/\\&lt;</p>
 <p>①非数值比较时将其转换为数值②任何值与NaN比较都是false③如果富豪两侧都是字符串，则不会转成数字而是转成相应的字符，使用unicode编码（一位一位比，两位一样就比下一位，直至比出结果）→比较字符串时一定要转型</p>
 <p>是</p>
-<p>==/!=</p>
+<p>\==/!=</p>
 <p>①undefined衍生自null，所以相等②NaN不与任何值相等，包括它本身③判断是否为NaN：<code>isNaN()</code>函数</p>
 <p>是</p>
-<p>===</p>
+<p>\===</p>
 <p>全等→不做类型转换，类型不同的直接返回false</p>
 <p>否</p>
 <p>!==</p>
 <p>不全等→不做类型转换，类型相同直接返回false</p>
 <p>否</p>
-<h2 id="语句">9.语句</h2>
-<p>自上向下执行，可用{}对其分组。 同一个{}称一组语句，要么都执行要么都不执行，一个{}称代码块，{}只有分组作用，不能隔离语句</p>
-<h3 id="流程控制">流程控制</h3>
-<p>语句</p>
+<h2 id="9-语句"><a href="#9-语句" class="headerlink" title="9.语句"></a>9.语句</h2><p>自上向下执行，可用{}对其分组。 同一个{}称一组语句，要么都执行要么都不执行，一个{}称代码块，{}只有分组作用，不能隔离语句</p>
+<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><p>语句</p>
 <p>语法</p>
 <p>注释</p>
 <p>条件</p>
 <p>if(?){A}else{B}</p>
 <p>-</p>
 <p>条件分支</p>
-<p>switch(?){case 表达式：语句 break;........default:语句}</p>
+<p>switch(?){case 表达式：语句 break;……..default:语句}</p>
 <p>case后是<strong>全等判断</strong></p>
 <p>循环</p>
 <p>while(条件表达式){语句}/for(初始化表达式;条件表达式;更新表达式){}</p>
 <p>每次循环前先对条件表达式进行判断，<strong>若为true</strong>则进入循环体</p>
-<h2 id="对象">10.对象</h2>
-<h3 id="分类">分类</h3>
-<ul>
+<h2 id="10-对象"><a href="#10-对象" class="headerlink" title="10.对象"></a>10.对象</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
 <li>内建对象：<strong>由ES标准中定义的对象</strong>，在任何ES实现中都可使用（Math、String等）</li>
 <li>宿主对象：<strong>由JS运行环境提供的对象</strong>，目前来讲指浏览器提供的对象，如BOM、DOM</li>
 <li>自定义对象：<strong>开发者自己创建的对象</strong></li>
 </ul>
-<h3 id="创建对象">创建对象</h3>
-<h4 id="方法一声明后设置属性">方法一：声明后设置属性</h4>
-<p>step1.实例化对象：</p>
+<h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><h4 id="方法一：声明后设置属性"><a href="#方法一：声明后设置属性" class="headerlink" title="方法一：声明后设置属性"></a>方法一：声明后设置属性</h4><p>step1.实例化对象：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br></pre></td></tr></table></figure>
 <p>step2.在对象中添加属性&amp;方法：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">obj.name=<span class="string">&quot;张三&quot;</span>;</span><br><span class="line">obj.gender=<span class="string">&quot;男&quot;</span>;</span><br><span class="line">obj.age=<span class="number">18</span>;</span><br><span class="line">obj.fun=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
 <p>step3.读取属性：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(obj.name);</span><br></pre></td></tr></table></figure>
 <p><strong>如果读取对象中未定义的属性，不会报错，返回undefined</strong></p>
-<h4 id="方法二声明时设置属性">方法二：声明时设置属性</h4>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">    name:<span class="string">&quot;张三&quot;</span>,</span><br><span class="line">    gender:<span class="string">&quot;男&quot;</span>,</span><br><span class="line">    age:<span class="number">18</span>,</span><br><span class="line">    fun:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="方法二：声明时设置属性"><a href="#方法二：声明时设置属性" class="headerlink" title="方法二：声明时设置属性"></a>方法二：声明时设置属性</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">    name:<span class="string">&quot;张三&quot;</span>,</span><br><span class="line">    gender:<span class="string">&quot;男&quot;</span>,</span><br><span class="line">    age:<span class="number">18</span>,</span><br><span class="line">    fun:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>使用该方法声明对象时<strong>属性名</strong>的引号可加可不加，但使用特殊名时必须加。 属性与值之间使用“:”链接，各属性用“,”连接，结尾属性不加“,”。</p>
-<h3 id="属性名值">属性名/值</h3>
-<p>属性名：对象的属性名不强制使用命名规范，但若使用不符合命名规范的名称，调用属性时应使用<code>对象[属性名]</code>的方法，此处obj[name]=obj.name,但特殊命名无法使用点调用。<strong>中括号里也可以传入变量</strong> 属性值:可以是任意值，包括对象。</p>
-<h3 id="in运算符">in运算符</h3>
-<p>检查一个对象中有无规定属性，如：</p>
+<h3 id="属性名-值"><a href="#属性名-值" class="headerlink" title="属性名/值"></a>属性名/值</h3><p>属性名：对象的属性名不强制使用命名规范，但若使用不符合命名规范的名称，调用属性时应使用<code>对象[属性名]</code>的方法，此处obj[name]=obj.name,但特殊命名无法使用点调用。<strong>中括号里也可以传入变量</strong> 属性值:可以是任意值，包括对象。</p>
+<h3 id="in运算符"><a href="#in运算符" class="headerlink" title="in运算符"></a>in运算符</h3><p>检查一个对象中有无规定属性，如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">&quot;test&quot;</span> <span class="keyword">in</span> obj)</span><br></pre></td></tr></table></figure>
 <p>→检查obj对象中有无“test”属性</p>
-<h2 id="函数">11.函数</h2>
-<blockquote>
+<h2 id="11-函数"><a href="#11-函数" class="headerlink" title="11.函数"></a>11.函数</h2><blockquote>
 <p>函数也是一个对象</p>
 </blockquote>
-<h3 id="创建">创建</h3>
-<h4 id="方法一声明函数对象不常用">方法一：声明函数对象（不常用）</h4>
-<p>step1.创建一个函数对象，可以将要封装的代码以字符串的形式传递给构造函数</p>
+<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><h4 id="方法一：声明函数对象（不常用）"><a href="#方法一：声明函数对象（不常用）" class="headerlink" title="方法一：声明函数对象（不常用）"></a>方法一：声明函数对象（不常用）</h4><p>step1.创建一个函数对象，可以将要封装的代码以字符串的形式传递给构造函数</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fun=<span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">&quot;console.log(&#x27;Hello&#x27;);&quot;</span>);</span><br></pre></td></tr></table></figure>
 <p>step2.调用</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun();</span><br></pre></td></tr></table></figure>
-<h4 id="方法二使用函数声明创建函数">方法二：使用函数声明创建函数</h4>
-<blockquote>
-<p>function 函数名([形参1,形参2....]) { 语句... }</p>
+<h4 id="方法二：使用函数声明创建函数"><a href="#方法二：使用函数声明创建函数" class="headerlink" title="方法二：使用函数声明创建函数"></a>方法二：使用函数声明创建函数</h4><blockquote>
+<p>function 函数名([形参1,形参2….]) { 语句… }</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Hello&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="方法三使用函数表达式创建函数">方法三：使用函数表达式创建函数</h4>
-<blockquote>
-<p>var 函数名=function([形参1,形参2....]) { 语句... }</p>
+<h4 id="方法三：使用函数表达式创建函数"><a href="#方法三：使用函数表达式创建函数" class="headerlink" title="方法三：使用函数表达式创建函数"></a>方法三：使用函数表达式创建函数</h4><blockquote>
+<p>var 函数名=function([形参1,形参2….]) { 语句… }</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fun=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Hello&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="参数">参数</h3>
-<p>函数不会检查参数的数量，<strong>未赋值的形参将初始化为undefined</strong></p>
-<h3 id="返回值">返回值</h3>
-<p>使用<code>return</code>设置返回值，return后的语句不会执行。 <strong><code>return</code>后不接任何值，或者没有<code>return</code>语句函数将返回undefined</strong></p>
-<h3 id="执行匿名函数立即执行">执行匿名函数（立即执行）</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">&quot;我是匿名函数&quot;</span>);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>函数不会检查参数的数量，<strong>未赋值的形参将初始化为undefined</strong></p>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>使用<code>return</code>设置返回值，return后的语句不会执行。 <strong><code>return</code>后不接任何值，或者没有<code>return</code>语句函数将返回undefined</strong></p>
+<h3 id="执行匿名函数（立即执行）"><a href="#执行匿名函数（立即执行）" class="headerlink" title="执行匿名函数（立即执行）"></a>执行匿名函数（立即执行）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">&quot;我是匿名函数&quot;</span>);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 <p>第一个括号代表函数是一整个对象，后面括号将其执行→<strong>对象()</strong></p>
-<h3 id="for...in语句">for...in语句</h3>
-<p>与for联用，与C#相似。 打印obj对象中所有的属性名与属性值：</p>
+<h3 id="for…in语句"><a href="#for…in语句" class="headerlink" title="for…in语句"></a>for…in语句</h3><p>与for联用，与C#相似。 打印obj对象中所有的属性名与属性值：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printObject</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> n <span class="keyword">in</span> obj)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(n+<span class="string">&quot;:&quot;</span>+obj[n]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="作用域">12.作用域</h2>
-<blockquote>
+<h2 id="12-作用域"><a href="#12-作用域" class="headerlink" title="12.作用域"></a>12.作用域</h2><blockquote>
 <p>指一个变量的作用范围</p>
 </blockquote>
 <p>在JS中，有两种作用域：<strong>①全局作用域②函数作用域</strong></p>
-<h3 id="全局作用域">①全局作用域</h3>
-<p>创建方法：<strong>直接写在<code>script</code>标签下</strong> 生命周期：在页面打开时创建，页面关闭时销毁 调用方法：全局作用域中有个全局对象<code>window</code>可使用，其由浏览器创建。在全局作用域中创建的变量都会作为<code>window</code>的属性保存，创建的函数都会作为<code>window</code>的方法保存。</p>
-<h4 id="变量的声明提前">变量的声明提前：</h4>
-<p><code>var</code>声明的变量会在所有代码执行之前被声明，<strong>但不会被赋值</strong></p>
-<h4 id="函数的声明提前">函数的声明提前：</h4>
-<ul>
+<h3 id="①全局作用域"><a href="#①全局作用域" class="headerlink" title="①全局作用域"></a>①全局作用域</h3><p>创建方法：<strong>直接写在<code>script</code>标签下</strong> 生命周期：在页面打开时创建，页面关闭时销毁 调用方法：全局作用域中有个全局对象<code>window</code>可使用，其由浏览器创建。在全局作用域中创建的变量都会作为<code>window</code>的属性保存，创建的函数都会作为<code>window</code>的方法保存。</p>
+<h4 id="变量的声明提前："><a href="#变量的声明提前：" class="headerlink" title="变量的声明提前："></a>变量的声明提前：</h4><p><code>var</code>声明的变量会在所有代码执行之前被声明，<strong>但不会被赋值</strong></p>
+<h4 id="函数的声明提前："><a href="#函数的声明提前：" class="headerlink" title="函数的声明提前："></a>函数的声明提前：</h4><ul>
 <li>使用函数声明形式创建的函数（<code>function 函数() &#123;&#125;</code>）<strong>会在所有代码执行之前就被创建，所以我们可以在创建声明前来调用</strong></li>
 <li>使用函数表达式（<code>var fun=function()&#123;&#125;</code>）创建的函数不会被提前创建，<strong>不能提前调用</strong></li>
 </ul>
-<h3 id="函数作用域">②函数作用域</h3>
-<p>生命周期：调用函数时创建函数作用域，函数执行完毕后作用域销毁 <strong>多函数作用域相互独立，函数作用域可访问全局作用域</strong> 函数操作变量时，先在自己作用域中找，找不到再去上一级作用域中找。<strong>若要直接使用全局作用域可以通过window对象的属性调用</strong></p>
+<h3 id="②函数作用域"><a href="#②函数作用域" class="headerlink" title="②函数作用域"></a>②函数作用域</h3><p>生命周期：调用函数时创建函数作用域，函数执行完毕后作用域销毁 <strong>多函数作用域相互独立，函数作用域可访问全局作用域</strong> 函数操作变量时，先在自己作用域中找，找不到再去上一级作用域中找。<strong>若要直接使用全局作用域可以通过window对象的属性调用</strong></p>
 
     </div>
 
@@ -488,7 +454,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%ACstring"><span class="nav-number">1.</span> <span class="nav-text">转string:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%ACnumber"><span class="nav-number">2.</span> <span class="nav-text">转Number:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%ACboolean"><span class="nav-number">3.</span> <span class="nav-text">转Boolean:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unicode%E8%BD%AC%E6%8D%A2"><span class="nav-number">4.</span> <span class="nav-text">unicode转换：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number"></span> <span class="nav-text">8.运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E5%8F%A5"><span class="nav-number"></span> <span class="nav-text">9.语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">流程控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1"><span class="nav-number"></span> <span class="nav-text">10.对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%E5%A3%B0%E6%98%8E%E5%90%8E%E8%AE%BE%E7%BD%AE%E5%B1%9E%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：声明后设置属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%E5%A3%B0%E6%98%8E%E6%97%B6%E8%AE%BE%E7%BD%AE%E5%B1%9E%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">方法二：声明时设置属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%90%8D%E5%80%BC"><span class="nav-number">3.</span> <span class="nav-text">属性名&#x2F;值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#in%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.</span> <span class="nav-text">in运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number"></span> <span class="nav-text">11.函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">创建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%E5%A3%B0%E6%98%8E%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E4%B8%8D%E5%B8%B8%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">方法一：声明函数对象（不常用）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">方法二：使用函数声明创建函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">方法三：使用函数表达式创建函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-number">3.</span> <span class="nav-text">返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C"><span class="nav-number">4.</span> <span class="nav-text">执行匿名函数（立即执行）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for...in%E8%AF%AD%E5%8F%A5"><span class="nav-number">5.</span> <span class="nav-text">for...in语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number"></span> <span class="nav-text">12.作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.</span> <span class="nav-text">①全局作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E%E6%8F%90%E5%89%8D"><span class="nav-number">1.1.</span> <span class="nav-text">变量的声明提前：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%A3%B0%E6%98%8E%E6%8F%90%E5%89%8D"><span class="nav-number">1.2.</span> <span class="nav-text">函数的声明提前：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">2.</span> <span class="nav-text">②函数作用域</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">7.强制类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%ACstring"><span class="nav-number">1.1.</span> <span class="nav-text">转string:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%ACNumber"><span class="nav-number">1.2.</span> <span class="nav-text">转Number:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%ACBoolean"><span class="nav-number">1.3.</span> <span class="nav-text">转Boolean:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unicode%E8%BD%AC%E6%8D%A2%EF%BC%9A"><span class="nav-number">1.4.</span> <span class="nav-text">unicode转换：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.</span> <span class="nav-text">8.运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.</span> <span class="nav-text">9.语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">3.1.</span> <span class="nav-text">流程控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E5%AF%B9%E8%B1%A1"><span class="nav-number">4.</span> <span class="nav-text">10.对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">4.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="nav-number">4.2.</span> <span class="nav-text">创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E5%A3%B0%E6%98%8E%E5%90%8E%E8%AE%BE%E7%BD%AE%E5%B1%9E%E6%80%A7"><span class="nav-number">4.2.1.</span> <span class="nav-text">方法一：声明后设置属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E5%A3%B0%E6%98%8E%E6%97%B6%E8%AE%BE%E7%BD%AE%E5%B1%9E%E6%80%A7"><span class="nav-number">4.2.2.</span> <span class="nav-text">方法二：声明时设置属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%90%8D-%E5%80%BC"><span class="nav-number">4.3.</span> <span class="nav-text">属性名&#x2F;值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#in%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.4.</span> <span class="nav-text">in运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">11.函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA"><span class="nav-number">5.1.</span> <span class="nav-text">创建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E5%A3%B0%E6%98%8E%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%8D%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="nav-number">5.1.1.</span> <span class="nav-text">方法一：声明函数对象（不常用）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="nav-number">5.1.2.</span> <span class="nav-text">方法二：使用函数声明创建函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="nav-number">5.1.3.</span> <span class="nav-text">方法三：使用函数表达式创建函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0"><span class="nav-number">5.2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-number">5.3.</span> <span class="nav-text">返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%EF%BC%88%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%EF%BC%89"><span class="nav-number">5.4.</span> <span class="nav-text">执行匿名函数（立即执行）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for%E2%80%A6in%E8%AF%AD%E5%8F%A5"><span class="nav-number">5.5.</span> <span class="nav-text">for…in语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">6.</span> <span class="nav-text">12.作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A0%E5%85%A8%E5%B1%80%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">6.1.</span> <span class="nav-text">①全局作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E%E6%8F%90%E5%89%8D%EF%BC%9A"><span class="nav-number">6.1.1.</span> <span class="nav-text">变量的声明提前：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%A3%B0%E6%98%8E%E6%8F%90%E5%89%8D%EF%BC%9A"><span class="nav-number">6.1.2.</span> <span class="nav-text">函数的声明提前：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A1%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">6.2.</span> <span class="nav-text">②函数作用域</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -507,7 +473,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">

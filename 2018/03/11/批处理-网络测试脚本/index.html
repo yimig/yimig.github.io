@@ -28,7 +28,7 @@
 <meta property="og:description" content="这是一个可以自动判断网络连接故障所在的脚本，通过依次测试ping localhost，自身ip，网关ip，指定广域网ip（默认百度），host文件，任意域名来确定网络故障（手动输入还可以指定局域网内的一台设备来确认局域网的工作）。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-03-11T06:50:41.000Z">
-<meta property="article:modified_time" content="2020-10-27T06:59:16.778Z">
+<meta property="article:modified_time" content="2020-10-27T13:03:38.656Z">
 <meta property="article:author" content="Tim">
 <meta property="article:tag" content="批处理">
 <meta property="article:tag" content="网络">
@@ -187,7 +187,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
+                <time title="修改时间：2020-10-27 21:03:38" itemprop="dateModified" datetime="2020-10-27T21:03:38+08:00">2020-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -195,11 +195,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-89-8d-e5-a0-82/Batch/" itemprop="url" rel="index"><span itemprop="name">Batch</span></a>
+                  <a href="/categories/Batch/" itemprop="url" rel="index"><span itemprop="name">Batch</span></a>
                 </span>
             </span>
 
@@ -214,7 +210,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这是一个可以自动判断网络连接故障所在的脚本，通过依次测试ping localhost，自身ip，网关ip，指定广域网ip（默认百度），host文件，任意域名来确定网络故障（手动输入还可以指定局域网内的一台设备来确认局域网的工作）。 <a id="more"></a> 自动获取ip的提示： 首先找到ipconfig出来的文件，如果第一次运行获取的ip不正确它应该在 C:\CIAdata\ipconfig.$$$ 数行数，不包括空行，一直数到ip地址所在的行（包括）。 把这个数字覆盖</p>
+        <p>这是一个可以自动判断网络连接故障所在的脚本，通过依次测试ping localhost，自身ip，网关ip，指定广域网ip（默认百度），host文件，任意域名来确定网络故障（手动输入还可以指定局域网内的一台设备来确认局域网的工作）。<br><a id="more"></a><br>自动获取ip的提示： 首先找到ipconfig出来的文件，如果第一次运行获取的ip不正确它应该在 C:\\CIAdata\\ipconfig.$$$ 数行数，不包括空行，一直数到ip地址所在的行（包括）。 把这个数字覆盖</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for &#x2F;f &quot;delims&#x3D;&quot; %%a in (C:\CIAdata\ipconfig.$$$) do set &#x2F;a m+&#x3D;1&amp;set &quot;_!m!&#x3D;%%a&quot;</span><br><span class="line">set &#x2F;a m&#x3D;8</span><br><span class="line">set ip&#x3D;!_%m%:~37,52!</span><br><span class="line">set &#x2F;a m&#x3D;10</span><br><span class="line">set dg&#x3D;!_%m%:~35,52!</span><br></pre></td></tr></table></figure>
 <p>这里m=后面的数字，第二个m=之前数的行数加二。 如果嫌麻烦可以直接找到ip和网关然后重启脚本选择用手动输入，但是自动输入一旦设定完毕就可以一劳永逸了。 下载：<a target="_blank" rel="noopener" href="http://47.94.231.166/archives/79/%e7%bd%91%e7%bb%9c%e6%b5%8b%e8%af%95">网络测试</a></p>
 
@@ -316,7 +312,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">

@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-39-36-1024x344.png">
 <meta property="og:image" content="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-41-18.png">
 <meta property="article:published_time" content="2018-11-29T09:33:18.000Z">
-<meta property="article:modified_time" content="2020-10-27T06:59:17.007Z">
+<meta property="article:modified_time" content="2020-10-27T13:03:38.640Z">
 <meta property="article:author" content="Tim">
 <meta property="article:tag" content="教程">
 <meta property="article:tag" content="WordPress">
@@ -195,7 +195,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-27 14:59:17" itemprop="dateModified" datetime="2020-10-27T14:59:17+08:00">2020-10-27</time>
+                <time title="修改时间：2020-10-27 21:03:38" itemprop="dateModified" datetime="2020-10-27T21:03:38+08:00">2020-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -207,11 +207,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-90-8e-e9-99-a2/" itemprop="url" rel="index"><span itemprop="name">%e5%90%8e%e9%99%a2</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-90-8e-e9-99-a2/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                  <a href="/categories/%E5%90%8E%E9%99%A2/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
                 </span>
             </span>
 
@@ -226,10 +222,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>前几天安装了Elementor插件，但是不知为何总是无法预览，再加上主题也一直无法预览，就抽空研究了一下，以下是解决方案： <a id="more"></a> ## WordPress主题预览失败：</p>
-<p>我的是一预览就这样： <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-36-32.png"><img src="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-36-32-1024x517.png" /></a> 去百度了很长时间也试了很多方法，甚至最后把页脚备案信息和百度统计的脚本也删了，又重置了一遍还是没用，最后翻到一个帖子说是设置里面的WordPress地址没加“WWW”,然后就看了看那个设置,原来之前我都是直接填ip，这次<strong>换成把URL填上</strong>了（没加WWW），再试试就可以了。 如图： 在“Setting→常规”中，改动之前是这样： <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-36-55.png"><img src="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-36-55.png" /></a> 然后我<strong>把ip换成了URL</strong>： <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-37-30.png"><img src="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-37-30.png" /></a> 这样再预览就没事了 <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-38-34.png"><img src="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-38-34-1024x517.png" /></a> 至于有没有必要加“WWW”，这里看来是没必要的。但是如果你试过之后仍然无法预览可以把“WWW”加上试试。</p>
-<h2 id="elementor模板无法预览">Elementor模板无法预览</h2>
-<p>我的是这种情况: <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_17-00-15.png"><img src="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_17-00-15-1024x517.png" /></a> 就一直卡在这里或者连这个界面也没有，直接添加模板会报“服务器没有响应”的错误。 查了一下问题应该是<strong>给PHP分配的内存不够</strong>导致的 可以看“Elementor→系统信息”这里确认一下： <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-39-36.png"><img src="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-39-36-1024x344.png" /></a> <strong>根据提示给出的网站，可以找到增加内存分配的方法：</strong> <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-41-18.png"><img src="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-41-18.png" /></a> <strong>翻译过来就是找到WordPress的安装地址（我这边是Linux，在“/home/www/htdocs/”这里），找到"wp-config.php",打开文件并在最后为其添加这一条语句：</strong></p>
+        <p>前几天安装了Elementor插件，但是不知为何总是无法预览，再加上主题也一直无法预览，就抽空研究了一下，以下是解决方案：<br><a id="more"></a></p>
+<h2 id="WordPress主题预览失败："><a href="#WordPress主题预览失败：" class="headerlink" title="WordPress主题预览失败："></a>WordPress主题预览失败：</h2><p>我的是一预览就这样： <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-36-32.png"><img src="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-36-32-1024x517.png" alt=""></a> 去百度了很长时间也试了很多方法，甚至最后把页脚备案信息和百度统计的脚本也删了，又重置了一遍还是没用，最后翻到一个帖子说是设置里面的WordPress地址没加“WWW”,然后就看了看那个设置,原来之前我都是直接填ip，这次<strong>换成把URL填上</strong>了（没加WWW），再试试就可以了。 如图： 在“Setting→常规”中，改动之前是这样： <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-36-55.png"><img src="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-36-55.png" alt=""></a> 然后我<strong>把ip换成了URL</strong>： <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-37-30.png"><img src="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-37-30.png" alt=""></a> 这样再预览就没事了 <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-38-34.png"><img src="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-38-34-1024x517.png" alt=""></a> 至于有没有必要加“WWW”，这里看来是没必要的。但是如果你试过之后仍然无法预览可以把“WWW”加上试试。</p>
+<h2 id="Elementor模板无法预览"><a href="#Elementor模板无法预览" class="headerlink" title="Elementor模板无法预览"></a>Elementor模板无法预览</h2><p>我的是这种情况: <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_17-00-15.png"><img src="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_17-00-15-1024x517.png" alt=""></a> 就一直卡在这里或者连这个界面也没有，直接添加模板会报“服务器没有响应”的错误。 查了一下问题应该是<strong>给PHP分配的内存不够</strong>导致的 可以看“Elementor→系统信息”这里确认一下： <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-39-36.png"><img src="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-39-36-1024x344.png" alt=""></a> <strong>根据提示给出的网站，可以找到增加内存分配的方法：</strong> <a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-41-18.png"><img src="http://upane.cn/wp-content/uploads/2018/11/chrome_2018-11-29_16-41-18.png" alt=""></a> <strong>翻译过来就是找到WordPress的安装地址（我这边是Linux，在“/home/www/htdocs/”这里），找到”wp-config.php”,打开文件并在最后为其添加这一条语句：</strong></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">&#x27;WP_MEMORY_LIMIT&#x27;</span>,<span class="string">&#x27;64M&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <p><strong>然后保存即可。</strong> 没这条语句的话默认应该是8M，这个是根据32M的基础上向上追加的内存，所以之前的系统信息界面上显示一共分配了40M。上面的语句就是追加64M内存，也就是说一共分配了32+64=96M内存。 Windows Service用户请注意这个网站说不要使用Windows自带的记事本等文本编辑工具进行编辑，具体原因我也不知道，估计是会改变编码格式吧。 还有一点就是我改完之后系统信息还是显示40M，不知是bug还是怎样，不过模板可以使用了。</p>
 
@@ -316,7 +311,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#elementor%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E9%A2%84%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">Elementor模板无法预览</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WordPress%E4%B8%BB%E9%A2%98%E9%A2%84%E8%A7%88%E5%A4%B1%E8%B4%A5%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">WordPress主题预览失败：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elementor%E6%A8%A1%E6%9D%BF%E6%97%A0%E6%B3%95%E9%A2%84%E8%A7%88"><span class="nav-number">2.</span> <span class="nav-text">Elementor模板无法预览</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -335,7 +330,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">

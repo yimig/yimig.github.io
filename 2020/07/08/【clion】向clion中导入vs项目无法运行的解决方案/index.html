@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://www.z4a.net/images/2020/07/08/2020-07-08_08-53-26.png">
 <meta property="og:image" content="https://www.z4a.net/images/2020/07/08/_2020-07-08_08-54-06.png">
 <meta property="article:published_time" content="2020-07-08T01:26:11.000Z">
-<meta property="article:modified_time" content="2020-10-27T06:59:17.100Z">
+<meta property="article:modified_time" content="2020-10-27T13:03:38.577Z">
 <meta property="article:author" content="Tim">
 <meta property="article:tag" content="Clion">
 <meta property="article:tag" content="VS">
@@ -194,7 +194,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-27 14:59:17" itemprop="dateModified" datetime="2020-10-27T14:59:17+08:00">2020-10-27</time>
+                <time title="修改时间：2020-10-27 21:03:38" itemprop="dateModified" datetime="2020-10-27T21:03:38+08:00">2020-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -206,11 +206,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-90-8e-e9-99-a2/" itemprop="url" rel="index"><span itemprop="name">%e5%90%8e%e9%99%a2</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/e5-90-8e-e9-99-a2/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                  <a href="/categories/%E5%90%8E%E9%99%A2/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
                 </span>
             </span>
 
@@ -225,9 +221,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这几天刚刚上手CLion，准备从github导入自己的C++库，虽然导入成功，但是运行按钮是灰色的，而且显示需要手动指定CMakelists.txt，到网上搜索无果，最后自己摸索出来了，希望能帮到有同样问题的朋友。 <a id="more"></a> 刚刚导入的时候是这样的： <img src="https://www.z4a.net/images/2020/07/08/_2020-07-08_08-51-03.png" /> <strong>先说结论： 这是由于VS默认是不在项目中创建CMake结构的，但是CLion必须要这个才能编译运行项目。</strong> 解决方法也很简单，为项目创建CMake结构即可：</p>
-<h2 id="创建cmake结构">创建CMake结构</h2>
-<p>①在导航栏的<strong>"File"</strong>中有个<strong>"New CMake project from Sources..."</strong>，点击即可开始创建CMake结构。 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-51-39.png" /> ②在弹出的窗口中选择当前项目，即为当前项目添加结构 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-52-13.png" /> ③点击OK后，在之后的窗口选择要导入CMake的文件 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-52-58.png" /> ④再次点击OK后，CMake结构已经添加，需要重载项目，等待CMake加载完成即可 <img src="https://www.z4a.net/images/2020/07/08/2020-07-08_08-53-26.png" /> ⑤加载完成后，运行面板就可以使用了，此时直接编译运行项目即可。 <img src="https://www.z4a.net/images/2020/07/08/_2020-07-08_08-54-06.png" /></p>
+        <p>这几天刚刚上手CLion，准备从github导入自己的C++库，虽然导入成功，但是运行按钮是灰色的，而且显示需要手动指定CMakelists.txt，到网上搜索无果，最后自己摸索出来了，希望能帮到有同样问题的朋友。<br><a id="more"></a><br>刚刚导入的时候是这样的： <img src="https://www.z4a.net/images/2020/07/08/_2020-07-08_08-51-03.png" alt=""> <strong>先说结论： 这是由于VS默认是不在项目中创建CMake结构的，但是CLion必须要这个才能编译运行项目。</strong> 解决方法也很简单，为项目创建CMake结构即可：</p>
+<h2 id="创建CMake结构"><a href="#创建CMake结构" class="headerlink" title="创建CMake结构"></a>创建CMake结构</h2><p>①在导航栏的<strong>“File”</strong>中有个<strong>“New CMake project from Sources…”</strong>，点击即可开始创建CMake结构。 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-51-39.png" alt=""> ②在弹出的窗口中选择当前项目，即为当前项目添加结构 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-52-13.png" alt=""> ③点击OK后，在之后的窗口选择要导入CMake的文件 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-52-58.png" alt=""> ④再次点击OK后，CMake结构已经添加，需要重载项目，等待CMake加载完成即可 <img src="https://www.z4a.net/images/2020/07/08/2020-07-08_08-53-26.png" alt=""> ⑤加载完成后，运行面板就可以使用了，此时直接编译运行项目即可。 <img src="https://www.z4a.net/images/2020/07/08/_2020-07-08_08-54-06.png" alt=""></p>
 
     </div>
 
@@ -312,7 +307,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAcmake%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">创建CMake结构</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BACMake%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">创建CMake结构</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -331,7 +326,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
