@@ -252,6 +252,21 @@
       </tags>
   </entry>
   <entry>
+    <title>【CLion】向CLion中导入VS项目无法运行的解决方案</title>
+    <url>/2020/07/08/%E3%80%90clion%E3%80%91%E5%90%91clion%E4%B8%AD%E5%AF%BC%E5%85%A5vs%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E8%BF%90%E8%A1%8C%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p>这几天刚刚上手CLion，准备从github导入自己的C++库，虽然导入成功，但是运行按钮是灰色的，而且显示需要手动指定CMakelists.txt，到网上搜索无果，最后自己摸索出来了，希望能帮到有同样问题的朋友。<br><a id="more"></a><br>刚刚导入的时候是这样的： <img src="https://www.z4a.net/images/2020/07/08/_2020-07-08_08-51-03.png" alt=""> <strong>先说结论： 这是由于VS默认是不在项目中创建CMake结构的，但是CLion必须要这个才能编译运行项目。</strong> 解决方法也很简单，为项目创建CMake结构即可：</p>
+<h2 id="创建CMake结构"><a href="#创建CMake结构" class="headerlink" title="创建CMake结构"></a>创建CMake结构</h2><p>①在导航栏的<strong>“File”</strong>中有个<strong>“New CMake project from Sources…”</strong>，点击即可开始创建CMake结构。 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-51-39.png" alt=""> ②在弹出的窗口中选择当前项目，即为当前项目添加结构 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-52-13.png" alt=""> ③点击OK后，在之后的窗口选择要导入CMake的文件 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-52-58.png" alt=""> ④再次点击OK后，CMake结构已经添加，需要重载项目，等待CMake加载完成即可 <img src="https://www.z4a.net/images/2020/07/08/2020-07-08_08-53-26.png" alt=""> ⑤加载完成后，运行面板就可以使用了，此时直接编译运行项目即可。 <img src="https://www.z4a.net/images/2020/07/08/_2020-07-08_08-54-06.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>后院</category>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Clion</tag>
+        <tag>VS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Coding！】Reverse Integer</title>
     <url>/2019/06/26/%E3%80%90coding%EF%BC%81%E3%80%91reverse-integer/</url>
     <content><![CDATA[<h3 id="原题："><a href="#原题：" class="headerlink" title="原题："></a><a href="https://leetcode.com/problems/reverse-integer/solution/">原题：</a></h3><p>Given a 32-bit signed integer, reverse digits of an integer.<br><a id="more"></a><br>Example 1:</p>
@@ -273,21 +288,6 @@
       </categories>
       <tags>
         <tag>吃饭，睡觉，刷Leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【CLion】向CLion中导入VS项目无法运行的解决方案</title>
-    <url>/2020/07/08/%E3%80%90clion%E3%80%91%E5%90%91clion%E4%B8%AD%E5%AF%BC%E5%85%A5vs%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E8%BF%90%E8%A1%8C%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<p>这几天刚刚上手CLion，准备从github导入自己的C++库，虽然导入成功，但是运行按钮是灰色的，而且显示需要手动指定CMakelists.txt，到网上搜索无果，最后自己摸索出来了，希望能帮到有同样问题的朋友。<br><a id="more"></a><br>刚刚导入的时候是这样的： <img src="https://www.z4a.net/images/2020/07/08/_2020-07-08_08-51-03.png" alt=""> <strong>先说结论： 这是由于VS默认是不在项目中创建CMake结构的，但是CLion必须要这个才能编译运行项目。</strong> 解决方法也很简单，为项目创建CMake结构即可：</p>
-<h2 id="创建CMake结构"><a href="#创建CMake结构" class="headerlink" title="创建CMake结构"></a>创建CMake结构</h2><p>①在导航栏的<strong>“File”</strong>中有个<strong>“New CMake project from Sources…”</strong>，点击即可开始创建CMake结构。 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-51-39.png" alt=""> ②在弹出的窗口中选择当前项目，即为当前项目添加结构 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-52-13.png" alt=""> ③点击OK后，在之后的窗口选择要导入CMake的文件 <img src="https://www.z4a.net/images/2020/07/08/clion64_2020-07-08_08-52-58.png" alt=""> ④再次点击OK后，CMake结构已经添加，需要重载项目，等待CMake加载完成即可 <img src="https://www.z4a.net/images/2020/07/08/2020-07-08_08-53-26.png" alt=""> ⑤加载完成后，运行面板就可以使用了，此时直接编译运行项目即可。 <img src="https://www.z4a.net/images/2020/07/08/_2020-07-08_08-54-06.png" alt=""></p>
-]]></content>
-      <categories>
-        <category>后院</category>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>Clion</tag>
-        <tag>VS</tag>
       </tags>
   </entry>
   <entry>
@@ -813,19 +813,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【C#】”声明“与”实例化“的区别</title>
-    <url>/2018/08/09/%E3%80%90c%E3%80%91%E5%A3%B0%E6%98%8E%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8C%96%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<p>实例化必先声明，声明是实例化的第一步<br><a id="more"></a><br>例如，创建一个数组可写为 <strong>数组类型[ ]  数组名=new  数组类型[长度]   int [ ] array =new int [5];</strong> 但这其实是一个组合式，可拆分为： ①<strong>声明：</strong>数组类型 [] 数组名                         int [ ] array; ②<strong>实例化：</strong>数组名 = new 数组类型[长度]    array = new int [5];</p>
-]]></content>
-      <categories>
-        <category>C#</category>
-        <category>从零开始的代码学习计划</category>
-      </categories>
-      <tags>
-        <tag>C#学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【C#】区别对象关键字“this”</title>
     <url>/2018/08/12/%E3%80%90c%E3%80%91%E5%8C%BA%E5%88%AB%E5%AF%B9%E8%B1%A1%E5%85%B3%E9%94%AE%E5%AD%97this/</url>
     <content><![CDATA[<p>如果有一个类中存在字段a，又存在方法b，而方法b又有形参a，在将字段a与形参a互相赋值的过程中常会引起混淆，为了区别之引入关键字“this”。用“this.a”可以表示类中的字段a。同样的，this还可以用于方法、属性。<br><a id="more"></a><br>使用this关键字，可以对相同名字的字段与方法中的形参进行区分，也可以减少由类名较长带来的麻烦，在后期检查时也更简单明了，建议在同类中的调用尽量使用this。</p>
@@ -834,6 +821,19 @@
         <category>C#</category>
         <category>从零开始的代码学习计划</category>
         <category>前堂</category>
+      </categories>
+      <tags>
+        <tag>C#学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【C#】”声明“与”实例化“的区别</title>
+    <url>/2018/08/09/%E3%80%90c%E3%80%91%E5%A3%B0%E6%98%8E%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8C%96%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p>实例化必先声明，声明是实例化的第一步<br><a id="more"></a><br>例如，创建一个数组可写为 <strong>数组类型[ ]  数组名=new  数组类型[长度]   int [ ] array =new int [5];</strong> 但这其实是一个组合式，可拆分为： ①<strong>声明：</strong>数组类型 [] 数组名                         int [ ] array; ②<strong>实例化：</strong>数组名 = new 数组类型[长度]    array = new int [5];</p>
+]]></content>
+      <categories>
+        <category>C#</category>
+        <category>从零开始的代码学习计划</category>
       </categories>
       <tags>
         <tag>C#学习笔记</tag>
@@ -872,27 +872,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【C#】对象初始化器</title>
-    <url>/2018/08/12/%E3%80%90c%E3%80%91%E5%AF%B9%E8%B1%A1%E5%88%9D%E5%A7%8B%E5%8C%96%E5%99%A8/</url>
-    <content><![CDATA[<p>目前为止，我们知道两种在调用对象时初始化的方法，即<br><a id="more"></a></p>
-<h4 id="①分步："><a href="#①分步：" class="headerlink" title="①分步："></a>①分步：</h4><blockquote>
-<p>[cc lang=”csharp”]Child child1=new Child（） child1.Name=”小明”; child1.Age=12[/cc]</p>
-</blockquote>
-<h4 id="②利用构造方法："><a href="#②利用构造方法：" class="headerlink" title="②利用构造方法："></a>②利用构造方法：</h4><blockquote>
-<p>[cc lang=”csharp”]class Child { 。。。。。。。 public Child(string name,int age){ Name=name; Age=age; }} class Program { static void main(string args[]){ Child child1=new Child(“小明”,”12”); 。。。。。。。 }}[/cc]</p>
-</blockquote>
-<h4 id="可以看出，分步法虽然在类Child中书写简易，但在类Program中书写繁琐，利用构造方法相反。现在，介绍第三种方法，即利用对象初始化器的方法，则可以在两者之前找到平衡点。"><a href="#可以看出，分步法虽然在类Child中书写简易，但在类Program中书写繁琐，利用构造方法相反。现在，介绍第三种方法，即利用对象初始化器的方法，则可以在两者之前找到平衡点。" class="headerlink" title="可以看出，分步法虽然在类Child中书写简易，但在类Program中书写繁琐，利用构造方法相反。现在，介绍第三种方法，即利用对象初始化器的方法，则可以在两者之前找到平衡点。"></a>可以看出，分步法虽然在类Child中书写简易，但在类Program中书写繁琐，利用构造方法相反。现在，介绍第三种方法，即利用对象初始化器的方法，则可以在两者之前找到平衡点。</h4><p><strong>_Child child1=new Child（）{Name=“小明”，Age=“12”}；_</strong> 其中圆括号也可省略，进而简写为 <strong>_Child child1=new Child{Name=“小明”，Age=“12”}；_</strong> <strong>注意：使用对象初始化器只能是构造方法无参数时才能使用</strong></p>
-]]></content>
-      <categories>
-        <category>C#</category>
-        <category>从零开始的代码学习计划</category>
-        <category>前堂</category>
-      </categories>
-      <tags>
-        <tag>C#学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【C#】定义多泛型、泛型约束与接口并用</title>
     <url>/2020/05/04/%E3%80%90c%E3%80%91%E5%AE%9A%E4%B9%89%E5%A4%9A%E6%B3%9B%E5%9E%8B%E3%80%81%E6%B3%9B%E5%9E%8B%E7%BA%A6%E6%9D%9F%E4%B8%8E%E6%8E%A5%E5%8F%A3%E5%B9%B6%E7%94%A8/</url>
     <content><![CDATA[<p>说起来挺智障的，今天有个需求就是实现多个泛型，但是忘了怎么写了，搜了一圈竟然没搜着，偶然看见有人提起Dictionary，心想那不就是多泛型吗，赶紧试了试发现能用，如下：<br><a id="more"></a><br><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//泛型TA中需要实现的接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IAFunc</span></span><br><span class="line">&#123;</span><br><span class="line">    A()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//泛型TB中需要实现的接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IBFunc</span></span><br><span class="line">&#123;</span><br><span class="line">    B()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在Tag类中给两泛型TA、TB同时添加约束</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Tag</span>&lt;<span class="title">TA</span>,<span class="title">TB</span>&gt; </span><br><span class="line">    <span class="keyword">where</span> <span class="title">TA</span>:<span class="title">IAFunc</span></span><br><span class="line">    <span class="keyword">where</span> <span class="title">TB</span>:<span class="title">IBFunc</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//做点什么...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -911,6 +890,27 @@
         <tag>接口</tag>
         <tag>泛型</tag>
         <tag>泛型约束</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【C#】对象初始化器</title>
+    <url>/2018/08/12/%E3%80%90c%E3%80%91%E5%AF%B9%E8%B1%A1%E5%88%9D%E5%A7%8B%E5%8C%96%E5%99%A8/</url>
+    <content><![CDATA[<p>目前为止，我们知道两种在调用对象时初始化的方法，即<br><a id="more"></a></p>
+<h4 id="①分步："><a href="#①分步：" class="headerlink" title="①分步："></a>①分步：</h4><blockquote>
+<p>[cc lang=”csharp”]Child child1=new Child（） child1.Name=”小明”; child1.Age=12[/cc]</p>
+</blockquote>
+<h4 id="②利用构造方法："><a href="#②利用构造方法：" class="headerlink" title="②利用构造方法："></a>②利用构造方法：</h4><blockquote>
+<p>[cc lang=”csharp”]class Child { 。。。。。。。 public Child(string name,int age){ Name=name; Age=age; }} class Program { static void main(string args[]){ Child child1=new Child(“小明”,”12”); 。。。。。。。 }}[/cc]</p>
+</blockquote>
+<h4 id="可以看出，分步法虽然在类Child中书写简易，但在类Program中书写繁琐，利用构造方法相反。现在，介绍第三种方法，即利用对象初始化器的方法，则可以在两者之前找到平衡点。"><a href="#可以看出，分步法虽然在类Child中书写简易，但在类Program中书写繁琐，利用构造方法相反。现在，介绍第三种方法，即利用对象初始化器的方法，则可以在两者之前找到平衡点。" class="headerlink" title="可以看出，分步法虽然在类Child中书写简易，但在类Program中书写繁琐，利用构造方法相反。现在，介绍第三种方法，即利用对象初始化器的方法，则可以在两者之前找到平衡点。"></a>可以看出，分步法虽然在类Child中书写简易，但在类Program中书写繁琐，利用构造方法相反。现在，介绍第三种方法，即利用对象初始化器的方法，则可以在两者之前找到平衡点。</h4><p><strong>_Child child1=new Child（）{Name=“小明”，Age=“12”}；_</strong> 其中圆括号也可省略，进而简写为 <strong>_Child child1=new Child{Name=“小明”，Age=“12”}；_</strong> <strong>注意：使用对象初始化器只能是构造方法无参数时才能使用</strong></p>
+]]></content>
+      <categories>
+        <category>C#</category>
+        <category>从零开始的代码学习计划</category>
+        <category>前堂</category>
+      </categories>
+      <tags>
+        <tag>C#学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1155,6 +1155,26 @@
       </tags>
   </entry>
   <entry>
+    <title>【C#】隐式转换与显式转换，装箱与拆箱</title>
+    <url>/2018/09/27/%E3%80%90c%E3%80%91%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2%E4%B8%8E%E6%98%BE%E5%BC%8F%E8%BD%AC%E6%8D%A2%EF%BC%8C%E8%A3%85%E7%AE%B1%E4%B8%8E%E6%8B%86%E7%AE%B1/</url>
+    <content><![CDATA[<p>隐式转换（Implicit）：<strong>系统默认</strong>的、<strong>不需要加以声明</strong>就可以进行的转换。如 float转换为double类型。 显式转换（Explicit）：利用<strong>强制类型转换</strong>运算符进行转换。如(int)a,a.ToString(),Convert.ToInt32(a)等等。<br><a id="more"></a></p>
+<h4 id="栈：存放值类型的内存"><a href="#栈：存放值类型的内存" class="headerlink" title="栈：存放值类型的内存"></a><strong>栈</strong>：存放<strong>值类型</strong>的内存</h4><h4 id="堆：存放引用类型的内存"><a href="#堆：存放引用类型的内存" class="headerlink" title="堆：存放引用类型的内存"></a><strong>堆</strong>：存放<strong>引用类型</strong>的内存</h4><h1 id="装箱"><a href="#装箱" class="headerlink" title="装箱"></a>装箱</h1><p><strong>装箱</strong>：跟据<strong>值类型</strong>的值，在<strong>堆</strong>上创建一个完整的<strong>引用类型</strong>对象，并返回对象的<strong>引用</strong>，是一种<strong>隐式转换</strong>。 <strong>装箱的意义</strong>：将值类型<strong>转化为引用类型(如object)</strong>来进行统一的操作(如作为函数的参数)与统一的存储(object[])。 装箱示例：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">int</span> i=<span class="number">3</span>;</span><br><span class="line"><span class="built_in">object</span> oi=<span class="literal">null</span>;</span><br><span class="line">oi=i;<span class="comment">//装箱</span></span><br></pre></td></tr></table></figure>
+<p><strong>装箱本质</strong>：装箱的本质就是在堆上创建了<strong>引用类型的副本</strong>，新创建的引用类型和原来的值类型<strong>相互独立</strong>。</p>
+<h1 id="拆箱"><a href="#拆箱" class="headerlink" title="拆箱"></a>拆箱</h1><p>拆箱：将装箱后的对象<strong>转换回值类型</strong>的过程，是一种<strong>显式转换</strong>。 如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">int</span> i=<span class="number">3</span>;</span><br><span class="line"><span class="built_in">object</span> oi=i;<span class="comment">//装箱</span></span><br><span class="line"><span class="built_in">int</span> j=(<span class="built_in">int</span>)oi;<span class="comment">//拆箱</span></span><br></pre></td></tr></table></figure>
+<h1 id="装箱与拆箱的应用举例"><a href="#装箱与拆箱的应用举例" class="headerlink" title="装箱与拆箱的应用举例"></a>装箱与拆箱的应用举例</h1><p>将各种类型的元素装箱为Object类型，然后创建一个Object数组一并包括之：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">Object[] array=<span class="keyword">new</span> Object[<span class="number">3</span>];<span class="comment">//创建包括三个元素的Object数组array</span></span><br><span class="line">array[<span class="number">0</span>]=<span class="keyword">new</span> <span class="built_in">string</span>[<span class="number">3</span>];<span class="comment">//第一个元素赋值为一个包含三个元素的字符串型数组</span></span><br><span class="line">array[<span class="number">1</span>]=<span class="number">3</span>;<span class="comment">//第二个元素赋值为一个整形数据“3”</span></span><br><span class="line">array[<span class="number">2</span>]=<span class="keyword">new</span> Dog();<span class="comment">//第三个元素赋值为Dog类的新对象</span></span><br><span class="line"><span class="comment">//导入数据，注意这里是隐式转换</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span>[] a=(<span class="built_in">string</span>[])array[<span class="number">0</span>];</span><br><span class="line"><span class="built_in">int</span> b=(<span class="built_in">int</span>)array[<span class="number">1</span>];</span><br><span class="line">Dog dog=(Dog)array[<span class="number">2</span>];</span><br><span class="line"><span class="comment">//导出数据，注意这里是显式转换</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>C#</category>
+        <category>从零开始的代码学习计划</category>
+        <category>前堂</category>
+      </categories>
+      <tags>
+        <tag>C#学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【C#】遍历数组关键字“foreach”</title>
     <url>/2018/08/09/%E3%80%90c%E3%80%91%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%E5%85%B3%E9%94%AE%E5%AD%97foreach/</url>
     <content><![CDATA[<p>正则表达式：</p>
@@ -1181,26 +1201,6 @@
       </categories>
       <tags>
         <tag>阶段性练习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【C#】隐式转换与显式转换，装箱与拆箱</title>
-    <url>/2018/09/27/%E3%80%90c%E3%80%91%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2%E4%B8%8E%E6%98%BE%E5%BC%8F%E8%BD%AC%E6%8D%A2%EF%BC%8C%E8%A3%85%E7%AE%B1%E4%B8%8E%E6%8B%86%E7%AE%B1/</url>
-    <content><![CDATA[<p>隐式转换（Implicit）：<strong>系统默认</strong>的、<strong>不需要加以声明</strong>就可以进行的转换。如 float转换为double类型。 显式转换（Explicit）：利用<strong>强制类型转换</strong>运算符进行转换。如(int)a,a.ToString(),Convert.ToInt32(a)等等。<br><a id="more"></a></p>
-<h4 id="栈：存放值类型的内存"><a href="#栈：存放值类型的内存" class="headerlink" title="栈：存放值类型的内存"></a><strong>栈</strong>：存放<strong>值类型</strong>的内存</h4><h4 id="堆：存放引用类型的内存"><a href="#堆：存放引用类型的内存" class="headerlink" title="堆：存放引用类型的内存"></a><strong>堆</strong>：存放<strong>引用类型</strong>的内存</h4><h1 id="装箱"><a href="#装箱" class="headerlink" title="装箱"></a>装箱</h1><p><strong>装箱</strong>：跟据<strong>值类型</strong>的值，在<strong>堆</strong>上创建一个完整的<strong>引用类型</strong>对象，并返回对象的<strong>引用</strong>，是一种<strong>隐式转换</strong>。 <strong>装箱的意义</strong>：将值类型<strong>转化为引用类型(如object)</strong>来进行统一的操作(如作为函数的参数)与统一的存储(object[])。 装箱示例：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">int</span> i=<span class="number">3</span>;</span><br><span class="line"><span class="built_in">object</span> oi=<span class="literal">null</span>;</span><br><span class="line">oi=i;<span class="comment">//装箱</span></span><br></pre></td></tr></table></figure>
-<p><strong>装箱本质</strong>：装箱的本质就是在堆上创建了<strong>引用类型的副本</strong>，新创建的引用类型和原来的值类型<strong>相互独立</strong>。</p>
-<h1 id="拆箱"><a href="#拆箱" class="headerlink" title="拆箱"></a>拆箱</h1><p>拆箱：将装箱后的对象<strong>转换回值类型</strong>的过程，是一种<strong>显式转换</strong>。 如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">int</span> i=<span class="number">3</span>;</span><br><span class="line"><span class="built_in">object</span> oi=i;<span class="comment">//装箱</span></span><br><span class="line"><span class="built_in">int</span> j=(<span class="built_in">int</span>)oi;<span class="comment">//拆箱</span></span><br></pre></td></tr></table></figure>
-<h1 id="装箱与拆箱的应用举例"><a href="#装箱与拆箱的应用举例" class="headerlink" title="装箱与拆箱的应用举例"></a>装箱与拆箱的应用举例</h1><p>将各种类型的元素装箱为Object类型，然后创建一个Object数组一并包括之：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">Object[] array=<span class="keyword">new</span> Object[<span class="number">3</span>];<span class="comment">//创建包括三个元素的Object数组array</span></span><br><span class="line">array[<span class="number">0</span>]=<span class="keyword">new</span> <span class="built_in">string</span>[<span class="number">3</span>];<span class="comment">//第一个元素赋值为一个包含三个元素的字符串型数组</span></span><br><span class="line">array[<span class="number">1</span>]=<span class="number">3</span>;<span class="comment">//第二个元素赋值为一个整形数据“3”</span></span><br><span class="line">array[<span class="number">2</span>]=<span class="keyword">new</span> Dog();<span class="comment">//第三个元素赋值为Dog类的新对象</span></span><br><span class="line"><span class="comment">//导入数据，注意这里是隐式转换</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span>[] a=(<span class="built_in">string</span>[])array[<span class="number">0</span>];</span><br><span class="line"><span class="built_in">int</span> b=(<span class="built_in">int</span>)array[<span class="number">1</span>];</span><br><span class="line">Dog dog=(Dog)array[<span class="number">2</span>];</span><br><span class="line"><span class="comment">//导出数据，注意这里是显式转换</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>C#</category>
-        <category>从零开始的代码学习计划</category>
-        <category>前堂</category>
-      </categories>
-      <tags>
-        <tag>C#学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1250,26 +1250,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【C#】静态成员与静态类</title>
-    <url>/2018/09/26/%E3%80%90c%E3%80%91%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E4%B8%8E%E9%9D%99%E6%80%81%E7%B1%BB/</url>
-    <content><![CDATA[<a id="more"></a>
-<h1 id="①静态成员"><a href="#①静态成员" class="headerlink" title="①静态成员"></a>①静态成员</h1><p>标识为static的字段、方法、属性、构造函数、事件，就是静态成员。 <strong>静态成员将被类的所有实例共享，所有实例都访问同一内存位置。静态成员和实例成员在内存中被分开保存。</strong> 静态成员可直接通过类名访问，没有实例也可以访问。 <strong>静态函数不能访问实例成员，仅能访问其他静态成员。</strong></p>
-<h2 id="静态构造函数："><a href="#静态构造函数：" class="headerlink" title="静态构造函数："></a>静态构造函数：</h2><p>静态构造函数用于<strong>初始化静态字段</strong>。 在引用任何静态成员之前，和创建任何实例之前调用。 与类同名，使用static，无参数，<strong>无访问修饰符</strong>。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Dog</span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">Dog</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">num=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="②静态类"><a href="#②静态类" class="headerlink" title="②静态类"></a>②静态类</h1><p>如果类<strong>只包含</strong>静态的方法和属性，并标识为static 静态类<strong>不能创建实例</strong>，<strong>不能被继承</strong> 可以为静态类定义一个静态构造函数 静态类的作用： 1.作为基础类库，储存很多信息 2.作为<strong>扩展方法：</strong> 在不知晓源代码、密闭类不能派生时，就可以使用静态类作为拓展方法。 但是拓展方法需要<strong>指明对象</strong>（可在未实例化之前）。   如：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">class</span> <span class="title">Write</span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Writepaper</span>(<span class="params"><span class="keyword">this</span> Pen pencil</span>)</span>&#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Pen</span>&#123;...&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">Pen pencil=<span class="keyword">new</span> Pen();</span><br><span class="line">pencil.Writepaper()<span class="comment">//就像Pen类中包含Writepaper方法一样，可直接被调用</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><p>扩展方法所属的类必须是static类 拓展方法本身必须是static方法 拓展方法的第一个参数类型，必须是<strong>this+类名</strong></p>
-]]></content>
-      <categories>
-        <category>C#</category>
-        <category>从零开始的代码学习计划</category>
-        <category>前堂</category>
-      </categories>
-      <tags>
-        <tag>C#学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【C#】面向对象的编程</title>
     <url>/2018/08/12/%E3%80%90c%E3%80%91%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BC%96%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h1><h2 id="①-面向对象的三种技术手段："><a href="#①-面向对象的三种技术手段：" class="headerlink" title="① 面向对象的三种技术手段："></a>① 面向对象的三种技术手段：</h2><p><img src="http://47.94.231.166/wp-content/uploads/2018/08/面向对象.jpg" alt=""><br><a id="more"></a></p>
@@ -1284,6 +1264,26 @@
 <p>return；</p>
 </blockquote>
 <p>时，结束该方法，继续下一条语句 2.使用return 为方法返回一个值 注意方法内return的变量是函数内部变量，函数内外有隔离性，外部定义相同名称的变量承接该值。</p>
+]]></content>
+      <categories>
+        <category>C#</category>
+        <category>从零开始的代码学习计划</category>
+        <category>前堂</category>
+      </categories>
+      <tags>
+        <tag>C#学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【C#】静态成员与静态类</title>
+    <url>/2018/09/26/%E3%80%90c%E3%80%91%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E4%B8%8E%E9%9D%99%E6%80%81%E7%B1%BB/</url>
+    <content><![CDATA[<a id="more"></a>
+<h1 id="①静态成员"><a href="#①静态成员" class="headerlink" title="①静态成员"></a>①静态成员</h1><p>标识为static的字段、方法、属性、构造函数、事件，就是静态成员。 <strong>静态成员将被类的所有实例共享，所有实例都访问同一内存位置。静态成员和实例成员在内存中被分开保存。</strong> 静态成员可直接通过类名访问，没有实例也可以访问。 <strong>静态函数不能访问实例成员，仅能访问其他静态成员。</strong></p>
+<h2 id="静态构造函数："><a href="#静态构造函数：" class="headerlink" title="静态构造函数："></a>静态构造函数：</h2><p>静态构造函数用于<strong>初始化静态字段</strong>。 在引用任何静态成员之前，和创建任何实例之前调用。 与类同名，使用static，无参数，<strong>无访问修饰符</strong>。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Dog</span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">Dog</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">num=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="②静态类"><a href="#②静态类" class="headerlink" title="②静态类"></a>②静态类</h1><p>如果类<strong>只包含</strong>静态的方法和属性，并标识为static 静态类<strong>不能创建实例</strong>，<strong>不能被继承</strong> 可以为静态类定义一个静态构造函数 静态类的作用： 1.作为基础类库，储存很多信息 2.作为<strong>扩展方法：</strong> 在不知晓源代码、密闭类不能派生时，就可以使用静态类作为拓展方法。 但是拓展方法需要<strong>指明对象</strong>（可在未实例化之前）。   如：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">class</span> <span class="title">Write</span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Writepaper</span>(<span class="params"><span class="keyword">this</span> Pen pencil</span>)</span>&#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Pen</span>&#123;...&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">Pen pencil=<span class="keyword">new</span> Pen();</span><br><span class="line">pencil.Writepaper()<span class="comment">//就像Pen类中包含Writepaper方法一样，可直接被调用</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><p>扩展方法所属的类必须是static类 拓展方法本身必须是static方法 拓展方法的第一个参数类型，必须是<strong>this+类名</strong></p>
 ]]></content>
       <categories>
         <category>C#</category>
@@ -2085,38 +2085,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Part.2】IntelliJ IDEA小教程：代码操作篇</title>
-    <url>/2018/10/01/%E3%80%90part-2%E3%80%91intellij-idea%E5%B0%8F%E6%95%99%E7%A8%8B%EF%BC%9A%E4%BB%A3%E7%A0%81%E6%93%8D%E4%BD%9C%E7%AF%87/</url>
-    <content><![CDATA[<a id="more"></a>
-<h1 id="①列操作"><a href="#①列操作" class="headerlink" title="①列操作"></a>①列操作</h1><p>假如我们想要将左图修改为右图的枚举形式，该如何快速操作呢？ <a href="http://upane.cn/archives/744/idea64_2018-10-01_16-34-32"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_16-34-32.png" alt=""></a><a href="http://upane.cn/archives/744/idea64_2018-10-01_16-49-47"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_16-49-47.png" alt=""></a> 首先，说明一下<strong>选中文本</strong>的规则： 我们都知道当按下←/→时可以移动光标，如果我们想在移动时<strong>选中</strong>多个文本，就可以按下<strong>Shift+←</strong>或<strong>Shift+→</strong>，这样编译器就会选择光标移动范围的文本。 如果我们想将光标移动<strong>跳过一个词</strong>（单词、中文词等）时，可以按下<strong>Ctrl+←</strong>或<strong>Ctrl+→</strong>。另外，如果我们想让光标跳至行首，可以按下<strong>HOME</strong>键，如果我们想让光标跳至行尾，可以按下<strong>END</strong>键。 综上所述，我们可以拓展一下思维，如果我们想选中一个词，光标又在该词之前，我们就可以按下<strong>Ctrl+Shift+→</strong>来选中该词，如果我们想选中一行，光标又在一行的行尾，我们就可以按下Shift+HOME来选中这一行。 注意，这个规则是<strong>普适于所有文本编辑工具的</strong>，不仅限于IntelliJ IDEA。 那么我们继续IntelliJ IDEA教程： 通过对比两图我们不难发现前后的变化为： ①单词全部大写了，并且移动到了数字之前 ②数字添加了括号，除了最后一行结尾为分号外，每行结尾为逗号 ③文本被预格式化了，排版更加整洁 然后我们一一解决上面的问题： 首先我们将单词选中（Ctrl+Shift+→） <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-10-37"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-10-37.png" alt=""></a> 然后使用使用Toggle case<strong>大小写转换（Ctrl+Shift+U）</strong> <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-10-37-2"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-10-37-1.png" alt=""></a>，其对应Edit选项卡中的Toggle case： <a href="http://upane.cn/archives/744/2018-10-01_17-11-40"><img src="http://47.94.231.166/wp-content/uploads/2018/10/2018-10-01_17-11-40-300x195.png" alt=""></a> 然后将其剪切（Ctrl+X），将光标移到行首（HOME），粘贴到行首（Ctrl+V），并手动为数字添加括号，注意数字也可以看为一个单词，所以按下Ctrl+→即可跳过一个数字 <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-18-48"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-18-48.png" alt=""></a> 之后将光标跳到最后（END）删除多余的部分，添加逗号，这样一行就编辑完了。 <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-20-02"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-20-02.png" alt=""></a> 然后我们介绍一下<strong>多列批量操作</strong>： 我们发现需要操作的每行都有个冒号作为分割点，这是个很好的提示信息，代表了我们需要更改文本的特性，可以与<strong>下面其他代码</strong>相分别的地方。将其选中。 <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-22-56"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-22-56.png" alt=""></a> 然后按下<strong>Ctrl+Alt+Shift+J</strong>，即可选中所有冒号，这是我们惊喜地发现：光标分身了！ <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-27-51"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-27-51.png" alt=""></a> 这样，我们就可以做到列批量操作了，再重复上面的工作即可。 这个功能在Edit&gt;Find&gt;Select All Occurrence： <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-22-26"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-22-26-298x300.png" alt=""></a> 如果我们需要批量更改的文本下面还有带冒号的代码怎么办？使用Ctrl+Alt+Shift+J不就一次都选中了？面对这种情况我们可以使用<strong>Alt+J</strong>，这样光标可以一次只“分身”一个，不会一次全部选中。</p>
-<h1 id="②Live-Templates"><a href="#②Live-Templates" class="headerlink" title="②Live Templates"></a>②Live Templates</h1><p>Live Templates是一个<strong>模板定义工具</strong>，利用它定义模板即可快速输入代码，大大增加开发效率。 下面演示添加一个Main方法的模板： 按下Ctrl+Shift+A打开搜索工具，搜索Live Templates，打开即可得到以下窗口 <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-49-48"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-49-48-300x209.png" alt=""></a> 点击右侧的“+”，选择<strong>“Template Group”</strong>，为我们的模板新定义一个分组存储 <a href="http://upane.cn/archives/744/chrome_2018-10-01_17-50-30"><img src="http://47.94.231.166/wp-content/uploads/2018/10/chrome_2018-10-01_17-50-30.png" alt=""></a> 这里我们定义一个名为“常用方法”的分组： <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-51-38"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-51-38-300x118.png" alt=""></a> 再点击右侧的“+”，这次选择<strong>“Live Template”</strong>为分组添加一个模板 <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-54-54"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-54-54-300x160.png" alt=""></a> 在Abbreviation（缩写）中填入将模板唤起的文本，这里我们写入“main”，在Description（描述）中输入模板的描述，这是在我们输入缩写文字时提示的内容，这里我们写入“public static void main(String[] args)” <a href="http://upane.cn/archives/744/idea64_2018-10-01_18-00-39"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_18-00-39-300x81.png" alt=""></a> 然后直接在Template text内输入函数体即可，注意这里有几种表达式(大小写随意，记得加美元$符号框起来就行）： ①<strong>\$VARx\$</strong>：x代表一个大于零的整数，<strong>表示这里将会有一个值</strong>，生成模板后会自动<strong>把光标移到这里</strong>，开发人员输入一个值后按下<strong>Enter</strong>即可跳到下一个值 ②<strong>\$END\$</strong>：表示这里将会有一个代码块，如函数体，生成模板后会自动<strong>把光标移到这里（如果有$VARx$先移动到$VARx$）</strong>，开发人员在这里可以自由换行，按下Enter也不会有跳转，所以如果后面有<strong>$VARx$</strong>编译器也不会引导开发人员，可以认为<strong>模板引导止步于此</strong> 跟据我们的需要，我们在这里填入</p>
-<p>public static void main(String[] args)<br>{<br>  $END$<br>}</p>
-<p>最后，在输入框下单击Define，为该模板定义一种适用类型，这里我们选择JAVA： <a href="http://upane.cn/archives/744/idea64_2018-10-01_18-15-09"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_18-15-09-247x300.png" alt=""></a> 至此模板已经定义完成，回到代码页面输入“main”就出现了我们定义的内容： <a href="http://upane.cn/archives/744/%e5%b0%8f%e6%97%b6%e9%92%9f_2018-10-01_18-15-34"><img src="http://47.94.231.166/wp-content/uploads/2018/10/小时钟_2018-10-01_18-15-34-300x40.png" alt=""></a> 再按下<strong>Enter</strong>即可调用模板： <a href="http://upane.cn/archives/744/%e5%b0%8f%e6%97%b6%e9%92%9f_2018-10-01_18-15-52"><img src="http://47.94.231.166/wp-content/uploads/2018/10/小时钟_2018-10-01_18-15-52.png" alt=""></a></p>
-<h1 id="④postfix"><a href="#④postfix" class="headerlink" title="④postfix"></a>④postfix</h1><p>postfix也是一种Live Templates模板，不过这种模板由编译器设定，是归类了几种最常用的操作的模板集合。它比自定义的Live Templates更灵活方便。</p>
-<h2 id="开启"><a href="#开启" class="headerlink" title="开启"></a>开启</h2><p>postfix默认状态下是开启的，如果不下心关闭，我们可以手动打开：按下Ctrl+Shift+A打开搜索器，输入postfix，打开相关设置界面，勾选“Enable postfix Conpletion”。 <a href="http://upane.cn/archives/744/idea64_2018-10-01_19-21-45"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_19-21-45-300x183.png" alt=""></a></p>
-<h2 id="常用模板"><a href="#常用模板" class="headerlink" title="常用模板"></a>常用模板</h2><h3 id="①fori"><a href="#①fori" class="headerlink" title="①fori"></a>①fori</h3><p><a href="http://upane.cn/archives/744/idea64_2018-10-01_19-32-14"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_19-32-14-300x234.png" alt=""></a></p>
-<h3 id="②return"><a href="#②return" class="headerlink" title="②return"></a>②return</h3><p><a href="http://upane.cn/archives/744/idea64_2018-10-01_19-31-59"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_19-31-59-300x235.png" alt=""></a></p>
-<h3 id="③field"><a href="#③field" class="headerlink" title="③field"></a>③field</h3><p><a href="http://upane.cn/archives/744/idea64_2018-10-01_19-30-06"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_19-30-06-300x237.png" alt=""></a></p>
-<h3 id="④sout"><a href="#④sout" class="headerlink" title="④sout"></a>④sout</h3><p><a href="http://upane.cn/archives/744/idea64_2018-10-01_19-29-45"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_19-29-45-300x237.png" alt=""></a></p>
-<h3 id="⑤nn"><a href="#⑤nn" class="headerlink" title="⑤nn"></a>⑤nn</h3><p><a href="http://upane.cn/archives/744/idea64_2018-10-01_19-29-04"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_19-29-04-300x235.png" alt=""></a> 除了这些还有很多模板，可以自己学习一下找到最适合自己的。</p>
-<h1 id="⑤Alt-Enter"><a href="#⑤Alt-Enter" class="headerlink" title="⑤Alt + Enter"></a>⑤Alt + Enter</h1><p>Alt+Enter快捷键实际上对应的是一个叫“Show Intent”的工具，类似于IntelliJ IDEA的一个小助手，它可以完成很多实用小功能。</p>
-<h2 id="1-自动创建函数"><a href="#1-自动创建函数" class="headerlink" title="1.自动创建函数"></a>1.自动创建函数</h2><p>如果我们调用了一个赞为创建的方法，如下图的uuu()，编译器当然会报错，但是如果我们按下Alt+Enter，就会提示创建一个名为uuu的函数： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-24-35"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-24-35-300x133.png" alt=""></a> 再次按下Enter即可创建该函数： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-25-57"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-25-57.png" alt=""></a> 另外，如果在暂未定义的函数中传入变量，该工具还可以为新创建的函数填写形参，参数名即为传入的参数名。</p>
-<h2 id="2-优化函数"><a href="#2-优化函数" class="headerlink" title="2.优化函数"></a>2.优化函数</h2><p>当使用for循环与使用foreach等效时，可使用Alt+Enter进行优化替换，与此相同的还有for、while互换等。 <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-35-20"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-35-20-300x179.png" alt=""></a></p>
-<h2 id="3-字符串format"><a href="#3-字符串format" class="headerlink" title="3.字符串format"></a>3.字符串format</h2><p>将断开的字符串写法改成整体的字符串写法： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-39-46"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-39-46-300x81.png" alt=""></a> 效果： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-39-59"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-39-59-300x43.png" alt=""></a> 这种方式更方便我们的读写。</p>
-<h2 id="4-实现接口"><a href="#4-实现接口" class="headerlink" title="4.实现接口"></a>4.实现接口</h2><p>我们定义接口后可以使用Alt+Enter自动创建一个承接该接口的类文件： 比如我们创建了test接口，里面有个test函数，我们对接口名使用Alt+Enter，选择”Implement interface” <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-47-22"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-47-22-300x132.png" alt=""></a> 选择创建的类名以及所在的包（package）： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-47-35"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-47-35-300x100.png" alt=""></a> 确认重写的函数： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-47-41"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-47-41-195x300.png" alt=""></a> 然后就完成了： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-47-57"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-47-57-300x114.png" alt=""></a></p>
-<h2 id="5-英语纠错"><a href="#5-英语纠错" class="headerlink" title="5.英语纠错"></a>5.英语纠错</h2><p>当我们的拼写出错时，编译器会在出错的词下添加绿色波浪线，在这上面使用Alt+Enter，选择”Typo：Change to…” <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-55-19"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-55-19-300x62.png" alt=""></a> 即可出现建议的词语列表： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-55-28"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-55-28.png" alt=""></a> 选择正确的词语即可。</p>
-<h2 id="6-导包"><a href="#6-导包" class="headerlink" title="6.导包"></a>6.导包</h2><p>当我们使用了未导入的库的函数、类时，编译器就会报错。如图中的List： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-58-20"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-58-20.png" alt=""></a> 这时我们按下Alt+Enter，IntelliJ IDEA就可以自动导入库： <a href="http://upane.cn/archives/744/idea64_2018-10-01_21-01-09"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_21-01-09.png" alt=""></a> 综上所述，当我们在编程时遇到问题就可以尽情使用Alt+Enter的提示去修复了。</p>
-]]></content>
-      <categories>
-        <category>后院</category>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>IntelliJ IDEA</tag>
-        <tag>教程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Python】Dict与Set</title>
     <url>/2018/09/22/%E3%80%90python%E3%80%91dict%E4%B8%8Eset/</url>
     <content><![CDATA[<p>Dict、Set、List都可以分组存放数据，但是Dict、Set与List不同的是，它们的数据是<strong>无序存放</strong>的，也就是说，对他们遍历打印，每次将得到顺序不同的结果。<br><a id="more"></a></p>
@@ -2168,6 +2136,38 @@
       </categories>
       <tags>
         <tag>Python学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Part.2】IntelliJ IDEA小教程：代码操作篇</title>
+    <url>/2018/10/01/%E3%80%90part-2%E3%80%91intellij-idea%E5%B0%8F%E6%95%99%E7%A8%8B%EF%BC%9A%E4%BB%A3%E7%A0%81%E6%93%8D%E4%BD%9C%E7%AF%87/</url>
+    <content><![CDATA[<a id="more"></a>
+<h1 id="①列操作"><a href="#①列操作" class="headerlink" title="①列操作"></a>①列操作</h1><p>假如我们想要将左图修改为右图的枚举形式，该如何快速操作呢？ <a href="http://upane.cn/archives/744/idea64_2018-10-01_16-34-32"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_16-34-32.png" alt=""></a><a href="http://upane.cn/archives/744/idea64_2018-10-01_16-49-47"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_16-49-47.png" alt=""></a> 首先，说明一下<strong>选中文本</strong>的规则： 我们都知道当按下←/→时可以移动光标，如果我们想在移动时<strong>选中</strong>多个文本，就可以按下<strong>Shift+←</strong>或<strong>Shift+→</strong>，这样编译器就会选择光标移动范围的文本。 如果我们想将光标移动<strong>跳过一个词</strong>（单词、中文词等）时，可以按下<strong>Ctrl+←</strong>或<strong>Ctrl+→</strong>。另外，如果我们想让光标跳至行首，可以按下<strong>HOME</strong>键，如果我们想让光标跳至行尾，可以按下<strong>END</strong>键。 综上所述，我们可以拓展一下思维，如果我们想选中一个词，光标又在该词之前，我们就可以按下<strong>Ctrl+Shift+→</strong>来选中该词，如果我们想选中一行，光标又在一行的行尾，我们就可以按下Shift+HOME来选中这一行。 注意，这个规则是<strong>普适于所有文本编辑工具的</strong>，不仅限于IntelliJ IDEA。 那么我们继续IntelliJ IDEA教程： 通过对比两图我们不难发现前后的变化为： ①单词全部大写了，并且移动到了数字之前 ②数字添加了括号，除了最后一行结尾为分号外，每行结尾为逗号 ③文本被预格式化了，排版更加整洁 然后我们一一解决上面的问题： 首先我们将单词选中（Ctrl+Shift+→） <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-10-37"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-10-37.png" alt=""></a> 然后使用使用Toggle case<strong>大小写转换（Ctrl+Shift+U）</strong> <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-10-37-2"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-10-37-1.png" alt=""></a>，其对应Edit选项卡中的Toggle case： <a href="http://upane.cn/archives/744/2018-10-01_17-11-40"><img src="http://47.94.231.166/wp-content/uploads/2018/10/2018-10-01_17-11-40-300x195.png" alt=""></a> 然后将其剪切（Ctrl+X），将光标移到行首（HOME），粘贴到行首（Ctrl+V），并手动为数字添加括号，注意数字也可以看为一个单词，所以按下Ctrl+→即可跳过一个数字 <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-18-48"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-18-48.png" alt=""></a> 之后将光标跳到最后（END）删除多余的部分，添加逗号，这样一行就编辑完了。 <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-20-02"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-20-02.png" alt=""></a> 然后我们介绍一下<strong>多列批量操作</strong>： 我们发现需要操作的每行都有个冒号作为分割点，这是个很好的提示信息，代表了我们需要更改文本的特性，可以与<strong>下面其他代码</strong>相分别的地方。将其选中。 <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-22-56"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-22-56.png" alt=""></a> 然后按下<strong>Ctrl+Alt+Shift+J</strong>，即可选中所有冒号，这是我们惊喜地发现：光标分身了！ <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-27-51"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-27-51.png" alt=""></a> 这样，我们就可以做到列批量操作了，再重复上面的工作即可。 这个功能在Edit&gt;Find&gt;Select All Occurrence： <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-22-26"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-22-26-298x300.png" alt=""></a> 如果我们需要批量更改的文本下面还有带冒号的代码怎么办？使用Ctrl+Alt+Shift+J不就一次都选中了？面对这种情况我们可以使用<strong>Alt+J</strong>，这样光标可以一次只“分身”一个，不会一次全部选中。</p>
+<h1 id="②Live-Templates"><a href="#②Live-Templates" class="headerlink" title="②Live Templates"></a>②Live Templates</h1><p>Live Templates是一个<strong>模板定义工具</strong>，利用它定义模板即可快速输入代码，大大增加开发效率。 下面演示添加一个Main方法的模板： 按下Ctrl+Shift+A打开搜索工具，搜索Live Templates，打开即可得到以下窗口 <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-49-48"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-49-48-300x209.png" alt=""></a> 点击右侧的“+”，选择<strong>“Template Group”</strong>，为我们的模板新定义一个分组存储 <a href="http://upane.cn/archives/744/chrome_2018-10-01_17-50-30"><img src="http://47.94.231.166/wp-content/uploads/2018/10/chrome_2018-10-01_17-50-30.png" alt=""></a> 这里我们定义一个名为“常用方法”的分组： <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-51-38"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-51-38-300x118.png" alt=""></a> 再点击右侧的“+”，这次选择<strong>“Live Template”</strong>为分组添加一个模板 <a href="http://upane.cn/archives/744/idea64_2018-10-01_17-54-54"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_17-54-54-300x160.png" alt=""></a> 在Abbreviation（缩写）中填入将模板唤起的文本，这里我们写入“main”，在Description（描述）中输入模板的描述，这是在我们输入缩写文字时提示的内容，这里我们写入“public static void main(String[] args)” <a href="http://upane.cn/archives/744/idea64_2018-10-01_18-00-39"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_18-00-39-300x81.png" alt=""></a> 然后直接在Template text内输入函数体即可，注意这里有几种表达式(大小写随意，记得加美元$符号框起来就行）： ①<strong>\$VARx\$</strong>：x代表一个大于零的整数，<strong>表示这里将会有一个值</strong>，生成模板后会自动<strong>把光标移到这里</strong>，开发人员输入一个值后按下<strong>Enter</strong>即可跳到下一个值 ②<strong>\$END\$</strong>：表示这里将会有一个代码块，如函数体，生成模板后会自动<strong>把光标移到这里（如果有$VARx$先移动到$VARx$）</strong>，开发人员在这里可以自由换行，按下Enter也不会有跳转，所以如果后面有<strong>$VARx$</strong>编译器也不会引导开发人员，可以认为<strong>模板引导止步于此</strong> 跟据我们的需要，我们在这里填入</p>
+<p>public static void main(String[] args)<br>{<br>  $END$<br>}</p>
+<p>最后，在输入框下单击Define，为该模板定义一种适用类型，这里我们选择JAVA： <a href="http://upane.cn/archives/744/idea64_2018-10-01_18-15-09"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_18-15-09-247x300.png" alt=""></a> 至此模板已经定义完成，回到代码页面输入“main”就出现了我们定义的内容： <a href="http://upane.cn/archives/744/%e5%b0%8f%e6%97%b6%e9%92%9f_2018-10-01_18-15-34"><img src="http://47.94.231.166/wp-content/uploads/2018/10/小时钟_2018-10-01_18-15-34-300x40.png" alt=""></a> 再按下<strong>Enter</strong>即可调用模板： <a href="http://upane.cn/archives/744/%e5%b0%8f%e6%97%b6%e9%92%9f_2018-10-01_18-15-52"><img src="http://47.94.231.166/wp-content/uploads/2018/10/小时钟_2018-10-01_18-15-52.png" alt=""></a></p>
+<h1 id="④postfix"><a href="#④postfix" class="headerlink" title="④postfix"></a>④postfix</h1><p>postfix也是一种Live Templates模板，不过这种模板由编译器设定，是归类了几种最常用的操作的模板集合。它比自定义的Live Templates更灵活方便。</p>
+<h2 id="开启"><a href="#开启" class="headerlink" title="开启"></a>开启</h2><p>postfix默认状态下是开启的，如果不下心关闭，我们可以手动打开：按下Ctrl+Shift+A打开搜索器，输入postfix，打开相关设置界面，勾选“Enable postfix Conpletion”。 <a href="http://upane.cn/archives/744/idea64_2018-10-01_19-21-45"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_19-21-45-300x183.png" alt=""></a></p>
+<h2 id="常用模板"><a href="#常用模板" class="headerlink" title="常用模板"></a>常用模板</h2><h3 id="①fori"><a href="#①fori" class="headerlink" title="①fori"></a>①fori</h3><p><a href="http://upane.cn/archives/744/idea64_2018-10-01_19-32-14"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_19-32-14-300x234.png" alt=""></a></p>
+<h3 id="②return"><a href="#②return" class="headerlink" title="②return"></a>②return</h3><p><a href="http://upane.cn/archives/744/idea64_2018-10-01_19-31-59"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_19-31-59-300x235.png" alt=""></a></p>
+<h3 id="③field"><a href="#③field" class="headerlink" title="③field"></a>③field</h3><p><a href="http://upane.cn/archives/744/idea64_2018-10-01_19-30-06"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_19-30-06-300x237.png" alt=""></a></p>
+<h3 id="④sout"><a href="#④sout" class="headerlink" title="④sout"></a>④sout</h3><p><a href="http://upane.cn/archives/744/idea64_2018-10-01_19-29-45"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_19-29-45-300x237.png" alt=""></a></p>
+<h3 id="⑤nn"><a href="#⑤nn" class="headerlink" title="⑤nn"></a>⑤nn</h3><p><a href="http://upane.cn/archives/744/idea64_2018-10-01_19-29-04"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_19-29-04-300x235.png" alt=""></a> 除了这些还有很多模板，可以自己学习一下找到最适合自己的。</p>
+<h1 id="⑤Alt-Enter"><a href="#⑤Alt-Enter" class="headerlink" title="⑤Alt + Enter"></a>⑤Alt + Enter</h1><p>Alt+Enter快捷键实际上对应的是一个叫“Show Intent”的工具，类似于IntelliJ IDEA的一个小助手，它可以完成很多实用小功能。</p>
+<h2 id="1-自动创建函数"><a href="#1-自动创建函数" class="headerlink" title="1.自动创建函数"></a>1.自动创建函数</h2><p>如果我们调用了一个赞为创建的方法，如下图的uuu()，编译器当然会报错，但是如果我们按下Alt+Enter，就会提示创建一个名为uuu的函数： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-24-35"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-24-35-300x133.png" alt=""></a> 再次按下Enter即可创建该函数： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-25-57"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-25-57.png" alt=""></a> 另外，如果在暂未定义的函数中传入变量，该工具还可以为新创建的函数填写形参，参数名即为传入的参数名。</p>
+<h2 id="2-优化函数"><a href="#2-优化函数" class="headerlink" title="2.优化函数"></a>2.优化函数</h2><p>当使用for循环与使用foreach等效时，可使用Alt+Enter进行优化替换，与此相同的还有for、while互换等。 <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-35-20"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-35-20-300x179.png" alt=""></a></p>
+<h2 id="3-字符串format"><a href="#3-字符串format" class="headerlink" title="3.字符串format"></a>3.字符串format</h2><p>将断开的字符串写法改成整体的字符串写法： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-39-46"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-39-46-300x81.png" alt=""></a> 效果： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-39-59"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-39-59-300x43.png" alt=""></a> 这种方式更方便我们的读写。</p>
+<h2 id="4-实现接口"><a href="#4-实现接口" class="headerlink" title="4.实现接口"></a>4.实现接口</h2><p>我们定义接口后可以使用Alt+Enter自动创建一个承接该接口的类文件： 比如我们创建了test接口，里面有个test函数，我们对接口名使用Alt+Enter，选择”Implement interface” <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-47-22"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-47-22-300x132.png" alt=""></a> 选择创建的类名以及所在的包（package）： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-47-35"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-47-35-300x100.png" alt=""></a> 确认重写的函数： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-47-41"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-47-41-195x300.png" alt=""></a> 然后就完成了： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-47-57"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-47-57-300x114.png" alt=""></a></p>
+<h2 id="5-英语纠错"><a href="#5-英语纠错" class="headerlink" title="5.英语纠错"></a>5.英语纠错</h2><p>当我们的拼写出错时，编译器会在出错的词下添加绿色波浪线，在这上面使用Alt+Enter，选择”Typo：Change to…” <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-55-19"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-55-19-300x62.png" alt=""></a> 即可出现建议的词语列表： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-55-28"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-55-28.png" alt=""></a> 选择正确的词语即可。</p>
+<h2 id="6-导包"><a href="#6-导包" class="headerlink" title="6.导包"></a>6.导包</h2><p>当我们使用了未导入的库的函数、类时，编译器就会报错。如图中的List： <a href="http://upane.cn/archives/744/idea64_2018-10-01_20-58-20"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_20-58-20.png" alt=""></a> 这时我们按下Alt+Enter，IntelliJ IDEA就可以自动导入库： <a href="http://upane.cn/archives/744/idea64_2018-10-01_21-01-09"><img src="http://47.94.231.166/wp-content/uploads/2018/10/idea64_2018-10-01_21-01-09.png" alt=""></a> 综上所述，当我们在编程时遇到问题就可以尽情使用Alt+Enter的提示去修复了。</p>
+]]></content>
+      <categories>
+        <category>后院</category>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>IntelliJ IDEA</tag>
+        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
@@ -2399,6 +2399,35 @@
       </tags>
   </entry>
   <entry>
+    <title>【Python】逻辑语句</title>
+    <url>/2018/09/22/%E3%80%90python%E3%80%91%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/</url>
+    <content><![CDATA[<a id="more"></a>
+<h1 id="①if选择语句"><a href="#①if选择语句" class="headerlink" title="①if选择语句"></a>①if选择语句</h1><p>选择语句在C#使用以下格式：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">int</span> age=<span class="number">20</span>;</span><br><span class="line"><span class="keyword">if</span>(age&gt;=<span class="number">18</span>)</span><br><span class="line">&#123;</span><br><span class="line">Console.WriteLine(<span class="string">&quot;Your age is &quot;</span>+age);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;adult&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">Console.WriteLine(<span class="string">&quot;child&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">Console.WriteLine(<span class="string">&quot;End&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>而在Python中，if语句如此实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="number">20</span></span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;your age is&#x27;</span>, age</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;adult&#x27;</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;child&#x27;</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;END&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>通过以上对比可以看出， 1.相比C#的大括号{}，Python<strong>使用缩进来分辨代码块</strong>。 2.相比C#的括号()，Python<strong>使用：区分辨条件与代码块</strong>。 另外需要注意的是，Python使用<strong>4个空格</strong>来缩进代码块。 如果在Python交互环境下敲代码，还要特别留意缩进，并且退出缩进需要多敲一行回车：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>age = <span class="number">20</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span> <span class="string">&#x27;your age is&#x27;</span>, age</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span> <span class="string">&#x27;adult&#x27;</span></span><br><span class="line">...</span><br><span class="line">your age <span class="keyword">is</span> <span class="number">20</span></span><br><span class="line">adult</span><br></pre></td></tr></table></figure>
+<p>那么现在又有了一个问题，就是如果出现嵌套选择语句，即else if语句，靠缩进区分代码块的Python的代码就会看起来很冗余，但是Python就是为了简单而特化的语言，肯定不会允许这种事情发生，所以else if可以并起来写成<strong>elif</strong>，如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;adult&#x27;</span></span><br><span class="line"><span class="keyword">elif</span> age &gt;= <span class="number">6</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;teenager&#x27;</span></span><br><span class="line"><span class="keyword">elif</span> age &gt;= <span class="number">3</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;kid&#x27;</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;baby&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>switch呢？没了！<img src="http://47.94.231.166/wp-content/uploads/2018/04/36.png" alt=""></p>
+<h1 id="②循环语句"><a href="#②循环语句" class="headerlink" title="②循环语句"></a>②循环语句</h1><p>C#中的for、while、do…while三大循环语句在Python中会以怎样的形式出现呢？</p>
+<h2 id="1-for"><a href="#1-for" class="headerlink" title="1.for"></a>1.for</h2><p>for语句在Python中<strong>相当于C#的foreach</strong>而不是for，如</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">L = [<span class="string">&#x27;Adam&#x27;</span>, <span class="string">&#x27;Lisa&#x27;</span>, <span class="string">&#x27;Bart&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> L:</span><br><span class="line">    <span class="built_in">print</span> name</span><br></pre></td></tr></table></figure>
+<h2 id="2-while"><a href="#2-while" class="headerlink" title="2.while"></a>2.while</h2><p>while语句倒还是老样子，当条件式<strong>满足</strong>时就进行循环：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N = <span class="number">10</span></span><br><span class="line">x = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> x &lt; N:</span><br><span class="line">    <span class="built_in">print</span> x</span><br><span class="line">    x = x + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>do…while呢？没了！<img src="http://47.94.231.166/wp-content/uploads/2018/04/36.png" alt=""> break、continue还是老样子，这个就不多讲了，循环语句多重嵌套注意缩进。</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>从零开始的代码学习计划</category>
+        <category>前堂</category>
+      </categories>
+      <tags>
+        <tag>Python学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Python】详谈迭代</title>
     <url>/2018/09/23/%E3%80%90python%E3%80%91%E8%AF%A6%E8%B0%88%E8%BF%AD%E4%BB%A3/</url>
     <content><![CDATA[<p>Python迭代方法for可以说是与C#的foreach惊人的相似，在这一章无疑对C#程序员更容易理解，但是这里还是小谈几点<br><a id="more"></a></p>
@@ -2445,35 +2474,6 @@
 <p>可以看到，items() 方法把dict对象转换成了包含tuple的list，我们对这个list进行迭代，可以同时获得key和value：</p>
 <p>>&gt;&gt; for key, value in d.items():<br>…     print key, ‘:’, value<br>…<br>Lisa : 85<br>Adam : 95<br>Bart : 59</p>
 <p>和 values() 有一个 itervalues() 类似， <strong>items()</strong> 也有一个对应的 <strong>iteritems()</strong>，iteritems() 不把dict转换成list，而是在迭代过程中不断给出 tuple，所以， iteritems() 不占用额外的内存。</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>从零开始的代码学习计划</category>
-        <category>前堂</category>
-      </categories>
-      <tags>
-        <tag>Python学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Python】逻辑语句</title>
-    <url>/2018/09/22/%E3%80%90python%E3%80%91%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5/</url>
-    <content><![CDATA[<a id="more"></a>
-<h1 id="①if选择语句"><a href="#①if选择语句" class="headerlink" title="①if选择语句"></a>①if选择语句</h1><p>选择语句在C#使用以下格式：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">int</span> age=<span class="number">20</span>;</span><br><span class="line"><span class="keyword">if</span>(age&gt;=<span class="number">18</span>)</span><br><span class="line">&#123;</span><br><span class="line">Console.WriteLine(<span class="string">&quot;Your age is &quot;</span>+age);</span><br><span class="line">Console.WriteLine(<span class="string">&quot;adult&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">Console.WriteLine(<span class="string">&quot;child&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">Console.WriteLine(<span class="string">&quot;End&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p>而在Python中，if语句如此实现：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="number">20</span></span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;your age is&#x27;</span>, age</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;adult&#x27;</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;child&#x27;</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;END&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>通过以上对比可以看出， 1.相比C#的大括号{}，Python<strong>使用缩进来分辨代码块</strong>。 2.相比C#的括号()，Python<strong>使用：区分辨条件与代码块</strong>。 另外需要注意的是，Python使用<strong>4个空格</strong>来缩进代码块。 如果在Python交互环境下敲代码，还要特别留意缩进，并且退出缩进需要多敲一行回车：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>age = <span class="number">20</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span> <span class="string">&#x27;your age is&#x27;</span>, age</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span> <span class="string">&#x27;adult&#x27;</span></span><br><span class="line">...</span><br><span class="line">your age <span class="keyword">is</span> <span class="number">20</span></span><br><span class="line">adult</span><br></pre></td></tr></table></figure>
-<p>那么现在又有了一个问题，就是如果出现嵌套选择语句，即else if语句，靠缩进区分代码块的Python的代码就会看起来很冗余，但是Python就是为了简单而特化的语言，肯定不会允许这种事情发生，所以else if可以并起来写成<strong>elif</strong>，如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;adult&#x27;</span></span><br><span class="line"><span class="keyword">elif</span> age &gt;= <span class="number">6</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;teenager&#x27;</span></span><br><span class="line"><span class="keyword">elif</span> age &gt;= <span class="number">3</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;kid&#x27;</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;baby&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>switch呢？没了！<img src="http://47.94.231.166/wp-content/uploads/2018/04/36.png" alt=""></p>
-<h1 id="②循环语句"><a href="#②循环语句" class="headerlink" title="②循环语句"></a>②循环语句</h1><p>C#中的for、while、do…while三大循环语句在Python中会以怎样的形式出现呢？</p>
-<h2 id="1-for"><a href="#1-for" class="headerlink" title="1.for"></a>1.for</h2><p>for语句在Python中<strong>相当于C#的foreach</strong>而不是for，如</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">L = [<span class="string">&#x27;Adam&#x27;</span>, <span class="string">&#x27;Lisa&#x27;</span>, <span class="string">&#x27;Bart&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> L:</span><br><span class="line">    <span class="built_in">print</span> name</span><br></pre></td></tr></table></figure>
-<h2 id="2-while"><a href="#2-while" class="headerlink" title="2.while"></a>2.while</h2><p>while语句倒还是老样子，当条件式<strong>满足</strong>时就进行循环：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N = <span class="number">10</span></span><br><span class="line">x = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> x &lt; N:</span><br><span class="line">    <span class="built_in">print</span> x</span><br><span class="line">    x = x + <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>do…while呢？没了！<img src="http://47.94.231.166/wp-content/uploads/2018/04/36.png" alt=""> break、continue还是老样子，这个就不多讲了，循环语句多重嵌套注意缩进。</p>
 ]]></content>
       <categories>
         <category>Python</category>
