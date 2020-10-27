@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="&gt;无扰阅读模式（测试） 先报一下现况吧：目前正在做WPF版的Walkman Playlist Tools，增加和完善了很多功能，小小地图透一下：  具体改了什么功能，先卖个关子。 这么长时间没更真的没有在摸鱼哦！真的没有！   那么，我们步入正题吧：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【C#】再谈委托">
+<meta property="og:url" content="http://example.com/2018/11/09/%E3%80%90c%E3%80%91%E5%86%8D%E8%B0%88%E5%A7%94%E6%89%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&gt;无扰阅读模式（测试） 先报一下现况吧：目前正在做WPF版的Walkman Playlist Tools，增加和完善了很多功能，小小地图透一下：  具体改了什么功能，先卖个关子。 这么长时间没更真的没有在摸鱼哦！真的没有！   那么，我们步入正题吧：">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/11/devenv_2018-11-09_22-26-03-1024x555.png">
+<meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/04/55.png">
+<meta property="article:published_time" content="2018-11-09T15:20:24.000Z">
+<meta property="article:modified_time" content="2020-10-27T06:59:16.982Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C#学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.94.231.166/wp-content/uploads/2018/11/devenv_2018-11-09_22-26-03-1024x555.png">
+
+<link rel="canonical" href="http://example.com/2018/11/09/%E3%80%90c%E3%80%91%E5%86%8D%E8%B0%88%E5%A7%94%E6%89%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【C#】再谈委托 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/11/09/%E3%80%90c%E3%80%91%E5%86%8D%E8%B0%88%E5%A7%94%E6%89%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【C#】再谈委托
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-11-09 23:20:24" itemprop="dateCreated datePublished" datetime="2018-11-09T23:20:24+08:00">2018-11-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a target="_blank" rel="noopener" href="http://47.94.231.166/wp-content/uploads/2018/11/Delegate.html">&gt;无扰阅读模式（测试）</a> 先报一下现况吧：目前正在做WPF版的Walkman Playlist Tools，增加和完善了很多功能，小小地图透一下： <a target="_blank" rel="noopener" href="http://upane.cn/archives/874/devenv_2018-11-09_22-26-03"><img src="http://47.94.231.166/wp-content/uploads/2018/11/devenv_2018-11-09_22-26-03-1024x555.png"></a> 具体改了什么功能，先卖个关子。 这么长时间没更真的没有在摸鱼哦！真的没有！  <a target="_blank" rel="noopener" href="http://upane.cn/archives/220/attachment/55"><img src="http://47.94.231.166/wp-content/uploads/2018/04/55.png"></a> 那么，我们步入正题吧：</p>
+<a id="more"></a>
+<h1 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h1><p>[delegate]</p>
+<hr>
+<h6 id="委托？"><a href="#委托？" class="headerlink" title="委托？"></a>委托？</h6><blockquote>
+<p>简单地说，委托的实质是函数的指针。</p>
+</blockquote>
+<h6 id="实现委托？"><a href="#实现委托？" class="headerlink" title="实现委托？"></a>实现委托？</h6><blockquote>
+<p>和其他类型一样，委托在实现之前也要先定义类，这个类称为委托，而委托函数的是委托的成员（可以看作委托类的对象）。</p>
+</blockquote>
+<h2 id="①Action委托"><a href="#①Action委托" class="headerlink" title="①Action委托"></a>①Action委托</h2><p>前面说过，委托在实现之前必先定义类，这个类可以自己定义（之后会讲），也可以直接使用系统定义好的委托类，这里讲的<code>Action</code>和下面的<code>Func</code>就是这样的类。 <code>Action</code>委托是可添加<strong>无传入值，且无返回值（<code>void</code>）方法</strong>的委托类。</p>
+<h4 id="创建："><a href="#创建：" class="headerlink" title="创建："></a>创建：</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Action anyname =<span class="keyword">new</span> Action( FunctionHere );</span><br></pre></td></tr></table></figure>
+
+<h4 id="调用（以下三条代码效果相同）："><a href="#调用（以下三条代码效果相同）：" class="headerlink" title="调用（以下三条代码效果相同）："></a>调用（以下三条代码效果相同）：</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">anyname.Invoke();<span class="comment">//调用委托（完全版）</span></span><br><span class="line">anyname();<span class="comment">//调用委托（简写版）</span></span><br><span class="line">FunctionHere();<span class="comment">//原函数</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="②Func委托"><a href="#②Func委托" class="headerlink" title="②Func委托"></a>②Func委托</h2><p>Func委托是通过泛型容纳任何一种函数的委托类。</p>
+<h4 id="创建：-1"><a href="#创建：-1" class="headerlink" title="创建："></a>创建：</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Func&lt;Type1,Type2,...ReturnType&gt; anyname=<span class="keyword">new</span> Func&lt;Type1,Type2,...ReturnType&gt;( FunctionHere )</span><br></pre></td></tr></table></figure>
+
+<p>如上，泛型中可填入任意数量的数据类型，其中最后一个输入的数据类型用作规定函数的返回类型，其他（除了最后一个）数据类型可以规定函数的传入类型。需要注意的是，若只填入一个类型，那么这个类型是函数的返回类型。</p>
+<h4 id="调用："><a href="#调用：" class="headerlink" title="调用："></a>调用：</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">anyname.Invoke();<span class="comment">//调用委托（完全版）</span></span><br><span class="line">anyname();<span class="comment">//调用委托（简写版）</span></span><br><span class="line">FunctionHere();<span class="comment">//原函数</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="③委托的声明（自定义委托）"><a href="#③委托的声明（自定义委托）" class="headerlink" title="③委托的声明（自定义委托）"></a>③委托的声明（自定义委托）</h2><p>委托的声明方式与一般类不同，主要是为了照顾可读性和C、C++传统。 注意声明委托的位置，避免写错地方结果声明成嵌套类型。 委托所封装的方法必须类型兼容。</p>
+<h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="built_in">double</span> <span class="title">Calc</span>(<span class="params">doule x,<span class="built_in">double</span> y</span>)</span>;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">   Calc calc1=<span class="keyword">new</span> Calc( FunctionHere );</span><br><span class="line">   ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="调用：-1"><a href="#调用：-1" class="headerlink" title="调用："></a>调用：</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">calc1.Invoke((<span class="built_in">double</span>)<span class="keyword">var</span>,(<span class="built_in">double</span>)<span class="keyword">var</span>);<span class="comment">//调用委托（完全版）</span></span><br><span class="line">calc2((<span class="built_in">double</span>)<span class="keyword">var</span>,(<span class="built_in">double</span>)<span class="keyword">var</span>);<span class="comment">//调用委托（简写版）</span></span><br><span class="line">FunctionHere((<span class="built_in">double</span>)<span class="keyword">var</span>,(<span class="built_in">double</span>)<span class="keyword">var</span>);<span class="comment">//原函数</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="④委托的使用"><a href="#④委托的使用" class="headerlink" title="④委托的使用"></a>④委托的使用</h2><blockquote>
+<p>——当作数据传入函数</p>
+</blockquote>
+<ul>
+<li>  用作模板（常位于代码中部，有返回值）</li>
+<li>  回调方法（常位于代码尾部，无返回值，多用于执行后续操作）</li>
+</ul>
+<p>注意：难精通、易使用、功能性强的功能一旦滥用后果非常严重 1. 这是一种方法级别的紧耦合，现实工作中使用应慎之又慎 1. 可使得程序可读性下降，doubug难度增加 1. 把委托回调、异步调用和多线程纠缠在一起，会让代码变得难以阅读和维护 1. 使用不当可能造成内存泄漏和程序性能下降</p>
+<h2 id="⑤多播委托"><a href="#⑤多播委托" class="headerlink" title="⑤多播委托"></a>⑤多播委托</h2><p>刚刚演示的委托均为单播委托，即一个委托只有一个方法相应。由此推广，多播委托即为一个委托可有多个方法相应。</p>
+<h4 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h4><p>使用<code>+=</code>可在委托的成员中再添加一个方法。</p>
+<h4 id="演示："><a href="#演示：" class="headerlink" title="演示："></a>演示：</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Action action1=<span class="keyword">new</span> Action(Function1);</span><br><span class="line">Action action2=<span class="keyword">new</span> Action(Function2);</span><br><span class="line">Action action3=<span class="keyword">new</span> Action(Function3);</span><br><span class="line">action1+=action2;</span><br><span class="line">action1+=action3;</span><br><span class="line">action1.Invoke();</span><br><span class="line"><span class="comment">/*效果与分别调用相同：</span></span><br><span class="line"><span class="comment">action1.Invoke();</span></span><br><span class="line"><span class="comment">action2.Invoke();</span></span><br><span class="line"><span class="comment">action3.Invoke();*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="⑥异步调用"><a href="#⑥异步调用" class="headerlink" title="⑥异步调用"></a>⑥异步调用</h2><p>先明确几个称呼： 一个程序只有一个<strong>进程</strong>，但是可以有很多个<strong>线程</strong>。</p>
+<blockquote>
+<p>同步=串行=单线程； 异步=并行=多线程；</p>
+</blockquote>
+<ul>
+<li>  直接同步调用：使用方法名</li>
+<li>  间接同步调用：使用单播/多播委托的<code>Invoke</code>方法</li>
+<li>  隐式异步调用：使用委托的<code>BeginInvoke</code>方法，如 <code>csharp anyname.BeginInvoke(delegate,object) //第一个传入值为委托类型，标明该线程做完后做什么，什么都不做就填null //第二个传入值默认传入null</code> 需要注意的是，这是相比主线程而分离的分支线程，也就是说使用n次<code>BeginInvoke</code>就调用了 <strong>n+1</strong>个线程</li>
+<li>  显式异步调用： 1.Thread类：</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Using System.Threading;</span><br><span class="line">Thread thread1=<span class="keyword">new</span> Thread(<span class="keyword">new</span> ThreadStart(Function1));</span><br><span class="line">Thread thread2=<span class="keyword">new</span> Thread(<span class="keyword">new</span> ThreadStart(Function2));</span><br><span class="line">Thread thread3=<span class="keyword">new</span> Thread(<span class="keyword">new</span> ThreadStart(Function3));</span><br><span class="line"><span class="comment">//创建了三个线程，共四个线程。</span></span><br><span class="line">thread1.Start();</span><br><span class="line">thread2.Start();</span><br><span class="line">thread3.Start();</span><br><span class="line"><span class="comment">//分别启动线程</span></span><br></pre></td></tr></table></figure>
+
+<p>2.Task类：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Using System.Threading.Task;</span><br><span class="line">Task task1=<span class="keyword">new</span> Task(<span class="keyword">new</span> Action(Function1));</span><br><span class="line">Task task2=<span class="keyword">new</span> Task(<span class="keyword">new</span> Action(Function2));</span><br><span class="line">Task task3=<span class="keyword">new</span> Task(<span class="keyword">new</span> Action(Function3));</span><br><span class="line"><span class="comment">//注意这里给Task的构造方法传入值的其实是个委托</span></span><br><span class="line">thread1.Start(); </span><br><span class="line">thread2.Start(); </span><br><span class="line">thread3.Start(); </span><br><span class="line"><span class="comment">//分别启动线程</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="⑦用接口代替委托"><a href="#⑦用接口代替委托" class="headerlink" title="⑦用接口代替委托"></a>⑦用接口代替委托</h2><p>Java的做法，降低耦合度，提高可读性</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># C#学习笔记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/11/08/870/" rel="prev" title="Untitled Post - 28">
+      <i class="fa fa-chevron-left"></i> Untitled Post - 28
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/11/10/%E3%80%90java%E3%80%91%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E5%AE%9E%E9%AA%8C%EF%BC%9Astudent%E7%B1%BB/" rel="next" title="【Java】类的继承实验：Student类">
+      【Java】类的继承实验：Student类 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A7%94%E6%89%98"><span class="nav-number">1.</span> <span class="nav-text">委托</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A7%94%E6%89%98%EF%BC%9F"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">委托？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%A7%94%E6%89%98%EF%BC%9F"><span class="nav-number">1.0.0.0.0.2.</span> <span class="nav-text">实现委托？</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A0Action%E5%A7%94%E6%89%98"><span class="nav-number">1.1.</span> <span class="nav-text">①Action委托</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%EF%BC%9A"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">创建：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E7%94%A8%EF%BC%88%E4%BB%A5%E4%B8%8B%E4%B8%89%E6%9D%A1%E4%BB%A3%E7%A0%81%E6%95%88%E6%9E%9C%E7%9B%B8%E5%90%8C%EF%BC%89%EF%BC%9A"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">调用（以下三条代码效果相同）：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A1Func%E5%A7%94%E6%89%98"><span class="nav-number">1.2.</span> <span class="nav-text">②Func委托</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%EF%BC%9A-1"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">创建：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E7%94%A8%EF%BC%9A"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">调用：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A2%E5%A7%94%E6%89%98%E7%9A%84%E5%A3%B0%E6%98%8E%EF%BC%88%E8%87%AA%E5%AE%9A%E4%B9%89%E5%A7%94%E6%89%98%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">③委托的声明（自定义委托）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E7%94%A8%EF%BC%9A-1"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">调用：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A3%E5%A7%94%E6%89%98%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.4.</span> <span class="nav-text">④委托的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A4%E5%A4%9A%E6%92%AD%E5%A7%94%E6%89%98"><span class="nav-number">1.5.</span> <span class="nav-text">⑤多播委托</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BC%94%E7%A4%BA%EF%BC%9A"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">演示：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A5%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8"><span class="nav-number">1.6.</span> <span class="nav-text">⑥异步调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A6%E7%94%A8%E6%8E%A5%E5%8F%A3%E4%BB%A3%E6%9B%BF%E5%A7%94%E6%89%98"><span class="nav-number">1.7.</span> <span class="nav-text">⑦用接口代替委托</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

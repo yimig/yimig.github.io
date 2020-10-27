@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="①共同使用继承可以使一个类在创建时就具有另一个已知类的所有内容，大大节省了工作时间。 使用方法： 1234class Child ：Parent&amp;#123;......&amp;#125;  如上，可写为“Child继承自Parent”，或“Parent派生出Child”。 注意，Object是任何类的基类，可多辈派生，但子类只能有一个父类。 关键字base：1.在派生类中使用“base.基类方法()”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【C#】类的继承">
+<meta property="og:url" content="http://example.com/2018/08/28/%E3%80%90c%E3%80%91%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="①共同使用继承可以使一个类在创建时就具有另一个已知类的所有内容，大大节省了工作时间。 使用方法： 1234class Child ：Parent&amp;#123;......&amp;#125;  如上，可写为“Child继承自Parent”，或“Parent派生出Child”。 注意，Object是任何类的基类，可多辈派生，但子类只能有一个父类。 关键字base：1.在派生类中使用“base.基类方法()”">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-08-28T09:47:28.000Z">
+<meta property="article:modified_time" content="2020-10-27T06:59:16.872Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C#学习笔记">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2018/08/28/%E3%80%90c%E3%80%91%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【C#】类的继承 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/08/28/%E3%80%90c%E3%80%91%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【C#】类的继承
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-08-28 17:47:28" itemprop="dateCreated datePublished" datetime="2018-08-28T17:47:28+08:00">2018-08-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+<h1 id="①共同"><a href="#①共同" class="headerlink" title="①共同"></a>①共同</h1><p>使用继承可以使一个类在创建时就具有另一个已知类的所有内容，大大节省了工作时间。 使用方法：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Child ：Parent</span><br><span class="line">&#123;</span><br><span class="line">......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如上，可写为“Child继承自Parent”，或“Parent派生出Child”。 注意，Object是任何类的基类，可多辈派生，但子类只能有一个父类。</p>
+<h4 id="关键字base："><a href="#关键字base：" class="headerlink" title="关键字base："></a>关键字base：</h4><p>1.在派生类中使用<strong>“base.基类方法()”</strong>即可调用基类方法。 2.构造方法派生：在派生类的构造方法声明后接**”:base()”**即可调用基类的构造方法重写该构造方法。</p>
+<h4 id="继承构造函数"><a href="#继承构造函数" class="headerlink" title="继承构造函数"></a>继承构造函数</h4><p>在实例化派生的对象时的顺序是：</p>
+<blockquote>
+<p><strong>实例成员初始化→基类构造函数→派生类构造函数</strong></p>
+</blockquote>
+<p>所以无论是否在初始化时调用基类构造函数，其都会被调用，这是一种隐式调用，当然也可以写成显式形式，如：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Pet</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Pet</span>(<span class="params"></span>)</span>&#123;...&#125;<span class="comment">//基类构造函数</span></span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Cat</span>:<span class="title">Pet</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">Public <span class="title">Cat</span>(<span class="params"></span>):<span class="title">Pet</span>(<span class="params"></span>)</span>&#123;...&#125;<span class="comment">//使用冒号显式调用基类构造函数</span></span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，这里面构造方法Cat()与Pet()都会被执行一遍。 当然，这种冒号调用构造函数的方法更多的是用在<strong>类自身的构造函数之间互相调用</strong>。</p>
+<h1 id="②相异"><a href="#②相异" class="headerlink" title="②相异"></a>②相异</h1><p>那么，若想在子类中添加相异于父类的内容该怎么办呢？</p>
+<h4 id="1-隐藏方法"><a href="#1-隐藏方法" class="headerlink" title="1.隐藏方法"></a>1.隐藏方法</h4><p>该方法可以在子类中屏蔽父类的方法/字段，即，如果父类中存在一个方法，开发者却想在子类中添加一个与父类方法相异的重名方法，就可在子类中创建隐藏方法。 需要注意的是，隐藏方法需要与方法的重载区别，因此在隐藏“方法”时使用与原方法相同的方法名、类型、变量个数。 使用方法： 在子类型中创建类型、名字与原方法/字段相同的方法/字段，并且前面加关键字 new。  </p>
+<h4 id="2-虚方法和多态"><a href="#2-虚方法和多态" class="headerlink" title="2.虚方法和多态"></a>2.虚方法和多态</h4><p>在实际编程工作时，我们倾向于使用更基本的类作为容器，比如笔类型可能派生出各种类型的笔：中性笔、铅笔等，每只笔有与其他笔相同的地方也有不同的地方，但我们在对每只笔进行操作时，倾向于以更大的单位即笔进行操作，将每种笔实例化为数组的值，这样就可以批量对笔进行集中处理。 因为各种笔的类型不同，但是都继承自大类型笔，这时，我们就可以利用形如 Pen Pen1=new Pencil(); 或 Pen[] Pens =new Pen[]{ new Pencil(), new markPen()}; 即，声明为父类型，但使用子类型的构造方法，来构造同样使用父类型作为容器的类型使用。但是需要注意的是该方法实例化的对象不可使用子类中新增的方法和字段。但是对于父类型和子类型都有的方法，就可以使用<strong>虚方法</strong>来进行区分。 比如，父类型Pen有方法</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">public</span> <span class="title">penWrite</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Pen is Writing&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>子类型Pencil有方法</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">override</span> <span class="keyword">public</span> <span class="title">PenWrite</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Pencil is Writing&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在Main方法中执行以下代码：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Pen Pen1=<span class="keyword">new</span> Pencil();</span><br><span class="line">Pen1.PenWrite();</span><br></pre></td></tr></table></figure>
+
+<p>可输出“Pencil is Writing”，由此看来，程序执行了子类型中的函数，而非父类型中的函数，所以可用此方法使用数组分别调用每个子类型的特征。 注意： Ⅰ.重写虚方法必须具有相同的可访问性，且基类方法不能是private Ⅱ.不能重写static方法或者非虚方法 Ⅲ.方法、属性、索引器、事件，都可以声明为virtual或override。 例子：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Pet</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Name;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PrintName</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(Name + <span class="string">&quot;is speaking&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Speak</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(Name + <span class="string">&quot;Pet&#x27;s Name is &quot;</span> + Name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Dog</span> : <span class="title">Pet</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span>(<span class="params"><span class="built_in">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">new</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PrintName</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;宠物的名字是&quot;</span> + Name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">override</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Speak</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(Name + <span class="string">&quot; is speaking:&quot;</span> + <span class="string">&quot;wow&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Cat</span> : <span class="title">Pet</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span>(<span class="params"><span class="built_in">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">override</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Speak</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(Name + <span class="string">&quot; is speaking:&quot;</span> + <span class="string">&quot;meow&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Pet[] pets = <span class="keyword">new</span> Pet[] &#123; <span class="keyword">new</span> Dog(<span class="string">&quot;Jack&quot;</span>), <span class="keyword">new</span> Cat(<span class="string">&quot;Tom&quot;</span>) &#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i&lt;pets.Length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            pets[i].Speak();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p>Jack is speaking:wow<br>Tom is speaking:meow</p>
+<h1 id="③抽象成员"><a href="#③抽象成员" class="headerlink" title="③抽象成员"></a>③抽象成员</h1><h2 id="抽象方法"><a href="#抽象方法" class="headerlink" title="抽象方法"></a>抽象方法</h2><p>抽象方法(abstract)比虚方法(virtual)更“虚”，<strong>它在基类中直接不写函数体，只能在派生类中重写该方法，否则无法被调用。</strong> 如</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Pet</span></span><br><span class="line">&#123;</span><br><span class="line">....</span><br><span class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Speak</span>(<span class="params"></span>)</span>;<span class="comment">//基类中不能写函数体</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Cat</span>:<span class="title">Pet</span></span><br><span class="line">&#123;</span><br><span class="line">...</span><br><span class="line">    <span class="function"><span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Speak</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Meow&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="comment">//派生类中使用override重写抽象方法，并添加函数体</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Cat cat=<span class="keyword">new</span> Cat();</span><br><span class="line">        cat.Speak();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，<strong>不止可以抽象方法，还可以抽象属性、事件、索引。</strong></p>
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p><strong>抽象类只有一个存在目的，就是被继承！</strong> 抽象类不能实例化，用abstract修饰。 抽象类可以包含抽象成员与普通成员，以及他们的任意组合。 抽象类的抽象成员在派生类中也需要用override关键字实现。 实际上，抽象类指的就是<strong>没有普遍性的基类</strong>，比如全世界有很多种语言，没有一个统一的语言可以被世界上所有人所共用。此时用基类声明语言，我们明知不会有一个统一的语言，就使用抽象类限制之。</p>
+<h1 id="④密闭类和密闭方法"><a href="#④密闭类和密闭方法" class="headerlink" title="④密闭类和密闭方法"></a>④密闭类和密闭方法</h1><p>密闭类可以防止其他人通过<strong>继承</strong>来修改该类，密闭方法可以防止其他人<strong>重写</strong>该方法。 有同学问，不将基类方法声明为virtual不就不能被重写了？ 话是这样没错。但是，在派生类的派生类中的被重写（override）的方法<strong>默认还是可以被重写的</strong>，为了破除这个限制，我们才引用了密闭方法（sealed）。 密闭方法与密闭类的使用方法是一样的，都是在声明该方法/类之前使用<strong>sealed修饰符</strong>对其进行限制。</p>
+<h1 id="⑤接口"><a href="#⑤接口" class="headerlink" title="⑤接口"></a>⑤接口</h1><h2 id="1-定义接口："><a href="#1-定义接口：" class="headerlink" title="1.定义接口："></a>1.定义接口：</h2><p>接口是<strong>声明</strong>一组函数成员，但不具体写出的一种引用类型。可以将其看作是一种类（class)。 接口有什么作用呢？接口可以作为许多类的某种<strong>共同方法</strong>普遍存在，比如猫、狗和蛇都会抓老鼠，我们就可以把抓老鼠设置为一个接口，在声明接口时声明一个数组。这样就可以在“让会抓老鼠的动物抓老鼠”时直接遍历调用接口即可。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">CatchAnimal</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">CatchMice</span>(<span class="params"></span>)</span>;<span class="comment">//默认为public，且不能添加访问修饰符</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">CatchBrid</span>(<span class="params"></span>)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">CatchFish</span>(<span class="params"></span>)</span>;</span><br><span class="line">......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接口只能被类<strong>实现</strong>，实现时，使用”:”，与派生相像，但不是派生。 一个类可以实现多个接口，但只能派生自一个基类。 类在实现接口时，必须实现接口的所有函数成员，且所有函数成员必须添加public访问修饰符。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Cat</span>:<span class="title">Pet</span>,<span class="title">CatchAnimal</span> <span class="comment">//“猫”类继承自“宠物”类，且实现了“CatchAnimal”接口</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CatchMice</span>(<span class="params"></span>)</span>&#123;...&#125;;<span class="comment">//必须添加public</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CatchBrid</span>(<span class="params"></span>)</span>&#123;...&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CatchFish</span>(<span class="params"></span>)</span>&#123;...&#125;;</span><br><span class="line">......<span class="comment">//“猫”类的内容</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-调用接口"><a href="#2-调用接口" class="headerlink" title="2.调用接口"></a>2.调用接口</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Cat cat =<span class="keyword">new</span> Cat();</span><br><span class="line">CatchAnimal catchs= cat;<span class="comment">//声明与接口相关联的对象</span></span><br><span class="line">c.CatchMice()<span class="comment">//通过对象调用</span></span><br><span class="line">catchs.CatchMisce()<span class="comment">//通过接口调用</span></span><br></pre></td></tr></table></figure>
+
+<p>特殊情况：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Pet cat =<span class="keyword">new</span> Cat();</span><br><span class="line">CatchAnimal catchs=(CatchAnimal) cat;<span class="comment">//声明与接口相关联的对象，声明时注意强制转换</span></span><br><span class="line"><span class="comment">//c.CatchMice() //此时不可通过对象调用</span></span><br><span class="line">catchs.CatchMisce()<span class="comment">//只能通过接口调用</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># C#学习笔记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/08/27/%E3%80%90c%E3%80%91post-in-notes%E4%BE%BF%E5%88%A9%E8%B4%B4/" rel="prev" title="【C#】Post-in Notes便利贴">
+      <i class="fa fa-chevron-left"></i> 【C#】Post-in Notes便利贴
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/09/10/%E3%80%90c%E3%80%91walkman-playlist-tools/" rel="next" title="【C#】Walkman Playlist Tools">
+      【C#】Walkman Playlist Tools <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A0%E5%85%B1%E5%90%8C"><span class="nav-number">1.</span> <span class="nav-text">①共同</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97base%EF%BC%9A"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">关键字base：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">继承构造函数</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A1%E7%9B%B8%E5%BC%82"><span class="nav-number">2.</span> <span class="nav-text">②相异</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E9%9A%90%E8%97%8F%E6%96%B9%E6%B3%95"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">1.隐藏方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%99%9A%E6%96%B9%E6%B3%95%E5%92%8C%E5%A4%9A%E6%80%81"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">2.虚方法和多态</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A2%E6%8A%BD%E8%B1%A1%E6%88%90%E5%91%98"><span class="nav-number">3.</span> <span class="nav-text">③抽象成员</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">抽象方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="nav-number">3.2.</span> <span class="nav-text">抽象类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A3%E5%AF%86%E9%97%AD%E7%B1%BB%E5%92%8C%E5%AF%86%E9%97%AD%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">④密闭类和密闭方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A4%E6%8E%A5%E5%8F%A3"><span class="nav-number">5.</span> <span class="nav-text">⑤接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3%EF%BC%9A"><span class="nav-number">5.1.</span> <span class="nav-text">1.定义接口：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3"><span class="nav-number">5.2.</span> <span class="nav-text">2.调用接口</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

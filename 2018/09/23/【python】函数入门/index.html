@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="函数，对应C#中的方法，是在日常编程工作中最广泛使用的工具，如何巧妙地分割问题形成函数是一个程序员必不可少的素质，今天来学习Python的函数构成，了解其与C#等语言的差异，可为日后编程工作带来极大方便。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Python】函数入门">
+<meta property="og:url" content="http://example.com/2018/09/23/%E3%80%90python%E3%80%91%E5%87%BD%E6%95%B0%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="函数，对应C#中的方法，是在日常编程工作中最广泛使用的工具，如何巧妙地分割问题形成函数是一个程序员必不可少的素质，今天来学习Python的函数构成，了解其与C#等语言的差异，可为日后编程工作带来极大方便。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-09-23T03:57:00.000Z">
+<meta property="article:modified_time" content="2020-10-27T06:59:16.912Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Python学习笔记">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2018/09/23/%E3%80%90python%E3%80%91%E5%87%BD%E6%95%B0%E5%85%A5%E9%97%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【Python】函数入门 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/23/%E3%80%90python%E3%80%91%E5%87%BD%E6%95%B0%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Python】函数入门
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-09-23 11:57:00" itemprop="dateCreated datePublished" datetime="2018-09-23T11:57:00+08:00">2018-09-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>函数，对应C#中的方法，是在日常编程工作中最广泛使用的工具，如何巧妙地分割问题形成函数是一个程序员必不可少的素质，今天来学习Python的函数构成，了解其与C#等语言的差异，可为日后编程工作带来极大方便。</p>
+<a id="more"></a>
+<h1 id="①内建函数"><a href="#①内建函数" class="headerlink" title="①内建函数"></a>①内建函数</h1><p>内建函数是Python中自带的函数，使用时需要引入（import）函数库。 当我们知道只函数名而不知其功能时，可以在交互式命令行使用<strong>help(函数名)**查看帮助信息。 更多的情况下，当我们想要寻找满足需求的函数时，可以访问网站： <a target="_blank" rel="noopener" href="https://docs.python.org/2/library/">https://docs.python.org/2/library/</a> 查阅相关功能。 这里小提一下</strong>类型转换函数（int()、str()等等）**，它们可以转换字符类型，如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">int</span>(<span class="string">&#x27;123&#x27;</span>)</span><br><span class="line"><span class="number">123</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">int</span>(<span class="number">12.34</span>)</span><br><span class="line"><span class="number">12</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">str</span>(<span class="number">123</span>)</span><br><span class="line"><span class="string">&#x27;123&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">str</span>(<span class="number">1.23</span>)</span><br><span class="line"><span class="string">&#x27;1.23&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>与比较函数<strong>cmp(x,y),如果 x&lt;y，返回 -1，如果 x==y，返回 0，如果 x&gt;y，返回 1：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>cmp(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"><span class="number">-1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cmp(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cmp(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>更多的函数还需要在后期开发中不断学习。  </p>
+<h1 id="②自建函数"><a href="#②自建函数" class="headerlink" title="②自建函数"></a>②自建函数</h1><p>在Python中，定义一个函数要使用 <strong>def</strong> 语句，依次写出<strong>函数名、括号、</strong>括号中的<strong>参数</strong>和<strong>冒号:**，然后，在缩进块中编写函数体，函数的返回值用 **return</strong> 语句返回。 我们以自定义一个求绝对值的 my_abs 函数为例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_abs</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">if</span> x &gt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> -x</span><br></pre></td></tr></table></figure>
+
+<p>如果没有return语句，函数执行完毕后也会返回结果，只是结果为 None。 <strong>return None可以简写为return。</strong></p>
+<h2 id="返回多值"><a href="#返回多值" class="headerlink" title="返回多值"></a>返回多值</h2><p>Python的函数支持返回多值，只需在return后将值用逗号隔开即可。这样函数将<strong>返回一个Tuple链表包含多值</strong> 如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">move</span>(<span class="params">x, y, step, angle</span>):</span><span class="comment">#定义函数</span></span><br><span class="line">    nx = x + step * math.cos(angle)</span><br><span class="line">    ny = y - step * math.sin(angle)</span><br><span class="line">    <span class="keyword">return</span> nx, ny</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x, y = move(<span class="number">100</span>, <span class="number">100</span>, <span class="number">60</span>, math.pi / <span class="number">6</span>)<span class="comment">#调用函数得到x，y&lt;/strong&gt;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span> x, y  <span class="comment">#打印函数返回的值&lt;/strong&gt;</span></span><br><span class="line"><span class="number">151.961524227</span> <span class="number">70.0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = move(<span class="number">100</span>, <span class="number">100</span>, <span class="number">60</span>, math.pi / <span class="number">6</span>)<span class="comment">#调用函数得到链表r</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span> r  <span class="comment">#打印函数返回的链表</span></span><br><span class="line">(<span class="number">151.96152422706632</span>, <span class="number">70.0</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="定义默认函数"><a href="#定义默认函数" class="headerlink" title="定义默认函数"></a>定义默认函数</h2><p>python对默认函数的定义很像C#中<strong>函数的重构</strong>，即，一个函数传入值的多少可变 具体实现方法是<strong>给可不赋值的变量赋初始值</strong>，如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">power</span>(<span class="params">x, n=<span class="number">2</span></span>):</span> <span class="comment">#定义函数</span></span><br><span class="line">    s = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> n &gt; <span class="number">0</span>:</span><br><span class="line">        n = n - <span class="number">1</span></span><br><span class="line">        s = s * x</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">&gt;&gt;&gt; power(5) &lt;/strong&gt;#调用函数</span><br><span class="line"><span class="number">25</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="定义可变函数"><a href="#定义可变函数" class="headerlink" title="定义可变函数"></a>定义可变函数</h2><p>如果想让一个函数能接受任意个参数，我们就可以定义一个可变参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span>(<span class="params">*args</span>):</span></span><br><span class="line">    <span class="built_in">print</span> args</span><br></pre></td></tr></table></figure>
+
+<p>可变参数的名字前面有个 <strong>*</strong> 号，我们可以传入0个、1个或多个参数给可变参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fn()</span><br><span class="line">()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fn(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">(<span class="string">&#x27;a&#x27;</span>,)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fn(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fn(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>可变参数也不是很神秘，Python解释器会把传入的一组参数组装成一个tuple传递给可变参数，因此，在函数内部，直接把变量 args 看成一个 tuple 就好了。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># Python学习笔记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/09/22/%E3%80%90python%E3%80%91dict%E4%B8%8Eset/" rel="prev" title="【Python】Dict与Set">
+      <i class="fa fa-chevron-left"></i> 【Python】Dict与Set
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/09/23/%E3%80%90python%E3%80%91%E5%88%87%E7%89%87/" rel="next" title="【Python】切片">
+      【Python】切片 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A0%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">①内建函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A1%E8%87%AA%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">②自建函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%A4%9A%E5%80%BC"><span class="nav-number">2.1.</span> <span class="nav-text">返回多值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E9%BB%98%E8%AE%A4%E5%87%BD%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">定义默认函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%8F%AF%E5%8F%98%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.</span> <span class="nav-text">定义可变函数</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="正则表达式是我们处理文本最常用的手段，它有自己的语法，入门容易但是精通很难，下面就结合例子简单谈一下其语法，帮助大家轻松入门。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Regex】正则表达式语法">
+<meta property="og:url" content="http://example.com/2019/04/27/%E3%80%90regex%E3%80%91%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="正则表达式是我们处理文本最常用的手段，它有自己的语法，入门容易但是精通很难，下面就结合例子简单谈一下其语法，帮助大家轻松入门。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-04-27T09:26:56.000Z">
+<meta property="article:modified_time" content="2020-10-27T06:59:17.051Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="WEB">
+<meta property="article:tag" content="正则表达式">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2019/04/27/%E3%80%90regex%E3%80%91%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【Regex】正则表达式语法 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/04/27/%E3%80%90regex%E3%80%91%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%AD%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Regex】正则表达式语法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-27 17:26:56" itemprop="dateCreated datePublished" datetime="2019-04-27T17:26:56+08:00">2019-04-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:17" itemprop="dateModified" datetime="2020-10-27T14:59:17+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>正则表达式是我们处理文本最常用的手段，它有自己的语法，入门容易但是精通很难，下面就结合例子简单谈一下其语法，帮助大家轻松入门。</p>
+<a id="more"></a>
+<p><strong>语法规范：</strong></p>
+<ol>
+<li> 严格区分大小写</li>
+<li> 寻找满足表达式的字符串，找到就返回true，否则返回false</li>
+</ol>
+<p>示例</p>
+<p>含义</p>
+<p>涉及语法</p>
+<p>含义</p>
+<p>a</p>
+<p>找a</p>
+<p>直接写</p>
+<p>存在性检查</p>
+<p>a|b</p>
+<p>a或b</p>
+<p>|</p>
+<p>或</p>
+<p>[ab]</p>
+<p>a或b</p>
+<p>[]</p>
+<p>中括号内也是或关系</p>
+<p>[a-z]</p>
+<p>a到z（任意小写字母）</p>
+<p>-</p>
+<p>区间</p>
+<p>[A-z]</p>
+<p>任意字母</p>
+<p>a[bde]c</p>
+<p>以a开头，以c结尾，中间可以是c、d、e</p>
+<p>[^ab]</p>
+<p>除了a、b之外的字符</p>
+<p>^</p>
+<p>除了（非）</p>
+<p>[^0-9]</p>
+<p>除了数字</p>
+<p>a{3}</p>
+<p>a连续出现3次</p>
+<p>{n}</p>
+<p>量词，正好出现n次</p>
+<p>(ab){3}</p>
+<p>ab组合连续3次</p>
+<p>()</p>
+<p>括号内视作整体</p>
+<p>b{1,3}</p>
+<p>b连续出现1次或2次或3次</p>
+<p>{m,n}/{m,}</p>
+<p>出现m到n次/出现m次以上</p>
+<p>b+</p>
+<p>至少一个b</p>
+<p>+</p>
+<p>至少出现一次，相当于{1,}</p>
+<p>b*</p>
+<p>0个或多个</p>
+<p>*</p>
+<p>相当于{0,}</p>
+<p>b?</p>
+<p>0个或1个</p>
+<p>?</p>
+<p>要么没有，要么只出现一次，相当于{0,1}</p>
+<p>^a</p>
+<p>以a开头</p>
+<p>^_</p>
+<p>以_开头</p>
+<p>a$</p>
+<p>结尾为a</p>
+<p>_$</p>
+<p>结尾为_</p>
+<p>^a$</p>
+<p>完全匹配a</p>
+<p>^_$</p>
+<p>完全匹配字符串_</p>
+<p>.</p>
+<p>任意字符</p>
+<p>\</p>
+<p>转义字符</p>
+<p>\w</p>
+<p>任意字母、数字、下划线，相当于[A-z0-9_]</p>
+<p>\W</p>
+<p>除了字母、数字、下划线，相当于[^A-z0-9_]</p>
+<p>\d</p>
+<p>任意数字，相当于[0-9]</p>
+<p>\D</p>
+<p>除了数字，相当于[^0-9]</p>
+<p>\s</p>
+<p>空格</p>
+<p>\S</p>
+<p>除了空格</p>
+<p>\b</p>
+<p>单词边界，应用后，在”hello kids”中查找”i”将返回false，因只会匹配整个单词</p>
+<p>\B</p>
+<p>除了单词边界</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/WEB/" rel="tag"># WEB</a>
+              <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag"># 正则表达式</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/04/26/twentyfifteen/" rel="prev" title="twentyfifteen">
+      <i class="fa fa-chevron-left"></i> twentyfifteen
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/04/27/js%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%AC%94%E8%AE%B0-3/" rel="next" title="【JS】js学习小笔记 3#">
+      【JS】js学习小笔记 3# <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

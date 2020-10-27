@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Python作为一门脚本语言与C#相比具有十分简易的语法，从数据类型这里就可见一斑:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Python】变量和数据类型">
+<meta property="og:url" content="http://example.com/2018/09/18/%E3%80%90python%E3%80%91python%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Python作为一门脚本语言与C#相比具有十分简易的语法，从数据类型这里就可见一斑:">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/04/36.png">
+<meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/04/28.png">
+<meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/04/58.png">
+<meta property="article:published_time" content="2018-09-18T12:20:20.000Z">
+<meta property="article:modified_time" content="2020-10-27T06:59:16.892Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Python学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.94.231.166/wp-content/uploads/2018/04/36.png">
+
+<link rel="canonical" href="http://example.com/2018/09/18/%E3%80%90python%E3%80%91python%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【Python】变量和数据类型 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/18/%E3%80%90python%E3%80%91python%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Python】变量和数据类型
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-09-18 20:20:20" itemprop="dateCreated datePublished" datetime="2018-09-18T20:20:20+08:00">2018-09-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Python作为一门脚本语言与C#相比具有十分简易的语法，从数据类型这里就可见一斑:</p>
+<a id="more"></a>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>C#:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> a=<span class="number">5</span>;</span><br><span class="line"><span class="built_in">float</span> b=<span class="number">3.2</span>;</span><br><span class="line"><span class="built_in">string</span> c=<span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"><span class="built_in">bool</span> d=<span class="literal">true</span>;</span><br><span class="line"><span class="keyword">if</span>(d)Console.WriteLine(Convert.ToString(a+b));</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!d&amp;&amp;b&gt;a)Console.WriteLine(c);</span><br></pre></td></tr></table></figure>
+
+<p>Python:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">5</span></span><br><span class="line">b=<span class="number">3.2</span></span><br><span class="line">c=<span class="string">&quot;Hello&quot;</span></span><br><span class="line">d=<span class="literal">True</span></span><br><span class="line"><span class="keyword">if</span> d:print(a+b)</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> <span class="keyword">not</span> d <span class="keyword">and</span> (b&gt;a):<span class="built_in">print</span> c</span><br></pre></td></tr></table></figure>
+
+<p>通过对比可以看出Python<strong>声明变量时不需要声明变量类型，直接赋值即可,语句结尾甚至不用添加分号。<img src="http://47.94.231.166/wp-content/uploads/2018/04/36.png"></strong> 并且可以<strong>直接输入“0x…”代表16进制数</strong>，如0x0a28d。<strong>科学记数法可写为xey的形式</strong>，如1.6e3=1.6*10^3。 <strong>直接将变量输入False或者True即可将变量初始化为布尔类型</strong>。逻辑运算符为and(&amp;&amp;),or(),not(!)括号内代表C#的逻辑运算符。 <strong>空值用None表示。</strong></p>
+<h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(a+b)</span><br><span class="line"><span class="built_in">print</span> c</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;11+5=&quot;</span>,c</span><br></pre></td></tr></table></figure>
+
+<p>没错，有时连括号都可以省略。 <strong>用逗号连接各字符串</strong>，相当于C#的”+”，但是连接处会有一个空格 Python中的“+”连接虽无空格但<strong>只用于连接字符串</strong> <strong>另外，Python不支持自加运算符++或–，若要使用请改为x+=1</strong></p>
+<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(a+b) <span class="comment">#打印a+b的值</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>井号注释掉一行</strong>，相当于C#的双斜线</p>
+<h1 id="变量的声名"><a href="#变量的声名" class="headerlink" title="变量的声名"></a>变量的声名</h1><p>特别注意的是，Python声明的变量是动态的，也就是说变量并不固定于某一个类型，这点与C系列语言均不同，如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">5</span></span><br><span class="line">a=<span class="string">&quot;Hello&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这是可以编译通过的，其中需要注意的是： 1.字符串初始化用双引号“”或单引号’’均可 2.变量名规则，这点倒是与C系列相同</p>
+<h1 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h1><p>既然双引号用作字符串的声明，那么字符串里要用双引号怎么办？ 学过C#的同学都只知道，用反斜线呗（\），对了，<strong>这里python也可以这么用</strong>。但是，在python里你也可以用单引号声明字符串，这样字符串里就可以有双引号了！惊不惊喜?意不意外？<img src="http://47.94.231.166/wp-content/uploads/2018/04/28.png"> 但是，要是我一行代码里反斜线、单引号、双引号都有怎么办？角度刁钻，但是python也可以解决，<strong>那就是用r加一对单引号</strong>：</p>
+<h4 id="r’…’"><a href="#r’…’" class="headerlink" title="r’…’"></a>r’…’</h4><p>这里r代表raw，单反发烧友都知道，原始数据。 那我要是还想换行怎么办？你这一原始我\n也不能用了啊？别急，这还有：r加三对单引号，<strong>里面你可以任意换行</strong>！</p>
+<h4 id="r’’’…’’’"><a href="#r’’’…’’’" class="headerlink" title="r’’’…’’’"></a>r’’’…’’’</h4><p>C、C++、C#、Java跪<img src="http://47.94.231.166/wp-content/uploads/2018/04/58.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> <span class="string">&quot;Hello!\nPython is so great!&quot;</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">r&#x27;&#x27;&#x27;Hello!</span></span><br><span class="line"><span class="string">Python is so great!&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面这俩输出结果相同。 由于某些Python版本差异，个别输出中文、日文等非英语字符时无法正常显示，这时就要在字符串前加u，代表其中是Unicode码。 那么，如果像C#这样：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> time=<span class="string">&quot;10:00&quot;</span>,nexttime=<span class="string">&quot;11:00&quot;</span>;</span><br><span class="line">Console.WriteLine(<span class="string">&quot;Now time is &#123;0&#125;,Next time is &#123;1&#125;&quot;</span>,time,nexttime);</span><br></pre></td></tr></table></figure>
+
+<p>该如何实现呢？可以这样： time=10:00 nexttime=11:00 printf ‘Now time is %s,Next time is %s’ %(time,nexttime) 与C语言一样，%s代表string数据类型。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># Python学习笔记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/09/10/%E3%80%90%E6%95%99%E7%A8%8B%E3%80%91walkman-playlis-tools%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" rel="prev" title="【教程】Walkman Playlist Tools使用教程">
+      <i class="fa fa-chevron-left"></i> 【教程】Walkman Playlist Tools使用教程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/09/18/%E8%AE%BE%E5%A4%87%E8%AF%84%E6%B5%8B-2/" rel="next" title="设备&评测">
+      设备&评测 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-number">2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">3.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E5%90%8D"><span class="nav-number">4.</span> <span class="nav-text">变量的声名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="nav-number">5.</span> <span class="nav-text">转义字符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#r%E2%80%99%E2%80%A6%E2%80%99"><span class="nav-number">5.0.0.1.</span> <span class="nav-text">r’…’</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#r%E2%80%99%E2%80%99%E2%80%99%E2%80%A6%E2%80%99%E2%80%99%E2%80%99"><span class="nav-number">5.0.0.2.</span> <span class="nav-text">r’’’…’’’</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

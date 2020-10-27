@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="视频来自3Blue1Brown频道的“线性代数的本质”，不同分p之间用分隔线分开。有个人理解，并非全部照抄，可能有省略，如果发现错误及建议欢迎在文章下方留言，我会及时改正。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【数学】线性代数的本质系列笔记">
+<meta property="og:url" content="http://example.com/2020/04/01/trashed/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="视频来自3Blue1Brown频道的“线性代数的本质”，不同分p之间用分隔线分开。有个人理解，并非全部照抄，可能有省略，如果发现错误及建议欢迎在文章下方留言，我会及时改正。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.z4a.net/images/2020/04/01/chrome_2020-04-01_18-14-28.jpg">
+<meta property="og:image" content="https://www.z4a.net/images/2020/04/01/image09528e2d9c365a56.png">
+<meta property="og:image" content="https://www.z4a.net/images/2020/04/01/imageaaf489c745073942.png">
+<meta property="og:image" content="https://www.z4a.net/images/2020/04/02/0a0795da7a8a6425bcffaa64b7461ca8.gif">
+<meta property="og:image" content="https://www.z4a.net/images/2020/04/02/1a9d3a84a6241707538fd2fd9b91cdd9.gif">
+<meta property="og:image" content="https://www.z4a.net/images/2020/04/02/image.png">
+<meta property="og:image" content="https://www.z4a.net/images/2020/04/03/chrome_2020-04-03_10-05-04.jpg">
+<meta property="og:image" content="https://www.z4a.net/images/2020/04/03/2020-04-03_12-15-51_Trim-1.gif">
+<meta property="og:image" content="https://www.z4a.net/images/2020/04/03/image.png">
+<meta property="og:image" content="https://www.z4a.net/images/2020/04/03/imagef1972429ce8dd1e4.png">
+<meta property="og:image" content="https://www.z4a.net/images/2020/04/03/imagec61e09a9eaceecb6.png">
+<meta property="og:image" content="https://www.z4a.net/images/2020/04/03/image750feab4b9c94f8c.png">
+<meta property="article:published_time" content="2020-04-01T04:31:58.000Z">
+<meta property="article:modified_time" content="2020-10-27T06:59:17.072Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="线性代数">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.z4a.net/images/2020/04/01/chrome_2020-04-01_18-14-28.jpg">
+
+<link rel="canonical" href="http://example.com/2020/04/01/trashed/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【数学】线性代数的本质系列笔记 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/04/01/trashed/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【数学】线性代数的本质系列笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-01 12:31:58" itemprop="dateCreated datePublished" datetime="2020-04-01T12:31:58+08:00">2020-04-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:17" itemprop="dateModified" datetime="2020-10-27T14:59:17+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%90%8E%E9%99%A2/" itemprop="url" rel="index"><span itemprop="name">后院</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-90-8e-e9-99-a2/" itemprop="url" rel="index"><span itemprop="name">%e5%90%8e%e9%99%a2</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-90-8e-e9-99-a2/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ys411472E">视频来自3Blue1Brown频道的“线性代数的本质”</a>，不同分p之间用分隔线分开。有个人理解，并非全部照抄，可能有省略，如果发现错误及建议欢迎在文章下方留言，我会及时改正。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="什么是向量？"><a href="#什么是向量？" class="headerlink" title="什么是向量？"></a>什么是向量？</h2><ol>
+<li> 物理学：向量是空间中的箭头，决定一个向量的是它的长度和它所指的方向。但是只要以上两个特征相同，你可以自由移动一个向量而保持它不变。处在平面上的向量是二维的，而处在真实世界中的向量是三维的。</li>
+<li> 计算机学：向量是有序的数字列表。“向量”只不过是“列表”的一个花哨的说法。向量的维度取决于列表的长度。</li>
+<li> 数学：向量可以是任何东西，只要保证两个向量相加以及数字与向量相乘有意义即可。</li>
+</ol>
+<h2 id="向量的表示方法"><a href="#向量的表示方法" class="headerlink" title="向量的表示方法"></a>向量的表示方法</h2><p>一个横坐标为-2，纵坐标为3的向量可以表示为： $$ \begin{bmatrix} -2 \ 3 \end{bmatrix}\quad $$ <strong>纵向排列，第一个数是x轴坐标，第二个数是y轴坐标</strong>。 推而广之，一个三元向量的表示方法为: $$ \begin{bmatrix} 2 \ 1\ 3\end{bmatrix}\quad $$ 同样，第一个数对应x轴，第二个数对应y轴，第三个数对应z轴。</p>
+<h2 id="向量的加法"><a href="#向量的加法" class="headerlink" title="向量的加法"></a>向量的加法</h2><p>两个向量相加时，平移第二个向量，<strong>使它的起点与第一个向量的终点重合</strong>，和向量就是<strong>从第一个向量的起点出发，指向第二个向量终点</strong>的向量。 <img src="https://www.z4a.net/images/2020/04/01/chrome_2020-04-01_18-14-28.jpg"> <img src="https://www.z4a.net/images/2020/04/01/image09528e2d9c365a56.png"></p>
+<h3 id="为什么如此定义？"><a href="#为什么如此定义？" class="headerlink" title="为什么如此定义？"></a>为什么如此定义？</h3><p>如果你先沿着第一个向量运动，然后再按照第二个向量所描述的运动方式运动，<strong>总体效果与你沿着这两个向量的和运动无异</strong></p>
+<h3 id="如何计算？"><a href="#如何计算？" class="headerlink" title="如何计算？"></a>如何计算？</h3><p><strong>向量的各个维度依次相加</strong> $$ \begin{bmatrix} 1 \ 2\end{bmatrix} + \begin{bmatrix} 3 \ -1\end{bmatrix} = \begin{bmatrix} 1+3\ 2-(-1)\end{bmatrix} $$ 从上式来看，运算规则可以简单记为<strong>对应项相加</strong> $$ \begin{bmatrix} x_1 \ y_1\ \vdots\end{bmatrix} + \begin{bmatrix} x_2 \ y_2\ \vdots\end{bmatrix} = \begin{bmatrix} x_1+x_2\ y_1+y_2\ \vdots\end{bmatrix}\quad $$</p>
+<h2 id="向量的乘法"><a href="#向量的乘法" class="headerlink" title="向量的乘法"></a>向量的乘法</h2><h3 id="向量与常数（标量）的乘法"><a href="#向量与常数（标量）的乘法" class="headerlink" title="向量与常数（标量）的乘法"></a>向量与常数（标量）的乘法</h3><h4 id="图像含义"><a href="#图像含义" class="headerlink" title="图像含义"></a>图像含义</h4><p>把该向量<strong>拉长\缩短</strong>为原来的常数倍，当常数是<strong>负数</strong>时，意味着先将该向量<strong>反向</strong>，然后拉长\缩短原来的常数倍。 <img src="https://www.z4a.net/images/2020/04/01/imageaaf489c745073942.png"></p>
+<h4 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h4><p>向量与标量相乘就是<strong>将向量中的每个分量与标量相乘</strong> $$ 2\cdot \begin{bmatrix} x\ y\ \vdots\end{bmatrix} = \begin{bmatrix} 2x\ 2y\ \vdots\end{bmatrix} $$</p>
+<hr>
+<h2 id="基向量"><a href="#基向量" class="headerlink" title="基向量"></a>基向量</h2><p>对于二维空间，<strong>x方向</strong>的单位向量称为i帽，<strong>y方向</strong>的单位向量成为j帽，分别写作 $$ \hat i , \hat j $$ 它们就是xy坐标系的“基向量”。 将向量看作这两个基向量的<strong>经过放缩的和</strong> $$ \begin{bmatrix}3\ -2\end{bmatrix} = (3)\hat i+(-2)\hat j $$</p>
+<h3 id="如果我们选择不同的基向量会怎么样？"><a href="#如果我们选择不同的基向量会怎么样？" class="headerlink" title="如果我们选择不同的基向量会怎么样？"></a>如果我们选择不同的基向量会怎么样？</h3><p>会变成另一个新的坐标系 每当我们使用数字描述向量时，它都依赖于我们正在使用的基。</p>
+<h2 id="线性组合"><a href="#线性组合" class="headerlink" title="线性组合"></a>线性组合</h2><p>两个数乘向量的和被称为这两个向量的线性组合 $$ a\vec v+b\vec w $$ ↑（v与w的线性组合，a与b是常量）</p>
+<h3 id="什么是线性组合？"><a href="#什么是线性组合？" class="headerlink" title="什么是线性组合？"></a>什么是线性组合？</h3><p>如果<strong>固定</strong>其中一个标量，让另一个标量<strong>自由变化</strong>，所产生的<strong>向量终点</strong>会描出一条<strong>直线</strong>。</p>
+<blockquote>
+<p>线性关系：如果称一个数学函数L(x)是线性的，那么L(x)具有下面两条性质：</p>
+<ol>
+<li> <strong>可加性：L(x+t)=L(x)+L(t)</strong></li>
+<li> <strong>一次齐次性：L(mx)=mL(x)</strong></li>
+</ol>
+</blockquote>
+<h2 id="张成的空间"><a href="#张成的空间" class="headerlink" title="张成的空间"></a>张成的空间</h2><p>所有可以表示为给定向量<strong>线性组合</strong>的向量的<strong>集合</strong>，被称为给定向量<strong>张成的空间</strong>。 <strong>理解：仅通过向量加法与向量数乘这两种基础运算，你能获得的所有可能向量的集合是什么</strong>。</p>
+<h3 id="类型："><a href="#类型：" class="headerlink" title="类型："></a>类型：</h3><ol>
+<li> 在二维空间，当两基向量不共线时，张成的空间就是整个坐标系。</li>
+<li> 在二维空间，当两基向量共线时，张成的空间只有这条线的延长线</li>
+<li> 当基向量均为零向量时，张成的空间仅包括零向量</li>
+</ol>
+<h2 id="向量与点"><a href="#向量与点" class="headerlink" title="向量与点"></a>向量与点</h2><p>通常我们用向量的终点代表该向量 当只考虑一个向量时，就把它看作箭头，当你考虑多个向量时，就把他们看作点。</p>
+<h2 id="线性相关"><a href="#线性相关" class="headerlink" title="线性相关"></a>线性相关</h2><p>一组向量中至少有一个是多余的（<strong>两向量共线</strong>），没有对张成空间做任何贡献；有多个向量，并且可以<strong>移除其中一个而不减小张成的空间</strong>，当这种情况发生时，我们称它们是<strong>线性相关</strong>的。 另一个表述方法是<strong>其中一个向量可以表示为其他向量的线性组合，因为这个向量已经落在其它向量张成的空间中。</strong> $$ \vec u=a\vec v +b\vec w $$ ↑（三维空间的三个基向量u、v、w） 另一方面，如果所有向量都给张成空间增添了新的维度，它们就被称为是<strong>线性无关</strong>的 $$ \vec w\neq a \vec v $$ ↑（二维空间的基向量w、v）</p>
+<hr>
+<h2 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h2><p>“变换”本质上是“函数”的一种花哨的说法，它接受输入内容，并输出对应结果。特别地，在线性代数的情况下，我们考虑的是<strong>接受一个向量并且输出一个向量的变换</strong> 直观地说，如果一个变换具有以下两条性质，我们就称它是线性的：</p>
+<ol>
+<li> 直线在变换后仍然保持为直线，不能有所弯曲</li>
+<li> 原点必须保持固定</li>
+</ol>
+<h3 id="变换类型"><a href="#变换类型" class="headerlink" title="变换类型"></a>变换类型</h3><p><strong>1.旋转</strong> <img src="https://www.z4a.net/images/2020/04/02/0a0795da7a8a6425bcffaa64b7461ca8.gif"> <strong>2.剪切</strong> <img src="https://www.z4a.net/images/2020/04/02/1a9d3a84a6241707538fd2fd9b91cdd9.gif"></p>
+<h3 id="如何用数值描述线性变换"><a href="#如何用数值描述线性变换" class="headerlink" title="如何用数值描述线性变换"></a>如何用数值描述线性变换</h3><p><strong>记录两基向量的位置，其他向量也会跟着变换</strong> 变换前： $$ \vec v=-1\hat i+2\hat j $$ 变换后： $$ \vec v=-1(变换后\hat i)+2(变换后\hat j) $$ <img src="https://www.z4a.net/images/2020/04/02/image.png"></p>
+<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><p>$$ \hat i \rightarrow \begin{bmatrix}1\ -2\end{bmatrix}\quad \hat j \rightarrow \begin{bmatrix}3\ 0\end{bmatrix}\ \begin{bmatrix}x\ y\end{bmatrix}\rightarrow x\begin{bmatrix}1\ -2\end{bmatrix}+y\begin{bmatrix}3\ 0\end{bmatrix}=\begin{bmatrix}1x+3y\ -2x+0y\end{bmatrix} $$ 我们通常将变换后i与j的坐标包装在一个2*2的格子中，称它为2*2矩阵： $$ \begin{bmatrix}1&amp;3\ -2&amp;0\end{bmatrix} $$ <strong>左列是变换后的i，右列是变换后的j</strong> <strong>如果想了解线性变换对某个特定向量的作用，只需要取出向量的坐标，将他们分别与矩阵的特定列相乘，然后将结果相加即可。</strong> 我们可以将其定义为<strong>矩阵的乘法</strong>： $$ \underbrace{ \begin{bmatrix}a&amp;b\ c&amp;d\end{bmatrix} }<em>{\text{应用的变换}} \underbrace{ \begin{bmatrix}x\ y\end{bmatrix} }</em>{\text{被变换的向量}}=x \begin{bmatrix}a\ c\end{bmatrix}+y \begin{bmatrix}b\ d\end{bmatrix}= \underbrace{ \begin{bmatrix}ax+by\ cx+dy\end{bmatrix} }_{\text{变换后的向量}} $$ 这里矩阵放在左边，类似一个函数。但是我们完全可以把矩阵的列看作<strong>变换后的基向量</strong></p>
+<blockquote>
+<p>结论：以基向量变化后的坐标为列所构成的矩阵为我们提供了一种描述线性变换的语言，而矩阵向量乘法就是计算线性变换作用于给定向量的一种途径。这里重要的一点是，当你看到一个矩阵时，你都可以把它解读为对空间的一种特定变换。</p>
+</blockquote>
+<hr>
+<h2 id="复合变换"><a href="#复合变换" class="headerlink" title="复合变换"></a>复合变换</h2><p>$$ \underbrace{ \begin{bmatrix}1&amp;1\ 0&amp;1\end{bmatrix} }<em>{\text{剪切矩阵}} (\underbrace{ \begin{bmatrix}0&amp;-1\ 1&amp;0\end{bmatrix} }</em>{\text{旋转矩阵}} \begin{bmatrix}x\ y\end{bmatrix})= \underbrace{ \begin{bmatrix}1&amp;-1\ 1&amp;0\end{bmatrix} }<em>{\text{复合矩阵}} \begin{bmatrix}x\ y\end{bmatrix} \ \Longrightarrow \underbrace{ \begin{bmatrix}1&amp;1\ 0&amp;1\end{bmatrix} }</em>{\text{剪切矩阵}} \underbrace{ \begin{bmatrix}0&amp;-1\ 1&amp;0\end{bmatrix} }<em>{\text{旋转矩阵}}= \underbrace{ \begin{bmatrix}1&amp;-1\ 1&amp;0\end{bmatrix} }</em>{\text{复合矩阵}} \ \xleftarrow{从右向左读}\quad\quad\quad\quad $$ 如上式，对向量应用复合变换时，实际应用顺序应是先应用右边的矩阵，再应用左边的矩阵。</p>
+<h3 id="计算方法-1"><a href="#计算方法-1" class="headerlink" title="计算方法"></a>计算方法</h3><p>$$ \underbrace{ \begin{bmatrix}a&amp;b\ c&amp;d\end{bmatrix} }<em>{M_1} \underbrace{ \begin{bmatrix}e&amp;f\ g&amp;h\end{bmatrix} }</em>{M_2}= \begin{bmatrix}?&amp;?\ ?&amp;?\end{bmatrix} $$ 要知道i帽首先去哪，先将右边矩阵M1的第一列取出，再应用于左边矩阵M2，得出的结果就是i帽在第二个变换作用后的结果： $$ \underbrace{ \begin{bmatrix}a&amp;b\ c&amp;d\end{bmatrix} }<em>{M_1} \begin{bmatrix}e\ g\end{bmatrix}= e \begin{bmatrix}a\ c\end{bmatrix} + g\begin{bmatrix}b\ d\end{bmatrix}= \begin{bmatrix}ae+bg\ ce+dg\end{bmatrix} \ \therefore \underbrace{ \begin{bmatrix}a&amp;b\ c&amp;d\end{bmatrix} }</em>{M_1} \underbrace{ \begin{bmatrix}e&amp;f\ g&amp;h\end{bmatrix} }<em>{M_2}= \begin{bmatrix}ae+bg&amp;?\ ce+dg&amp;?\end{bmatrix} $$ 同样方法，可以求出j帽在第二个变换作用后的结果： $$ \underbrace{ \begin{bmatrix}a&amp;b\ c&amp;d\end{bmatrix} }</em>{M_1} \begin{bmatrix}f\ h\end{bmatrix}= f \begin{bmatrix}a\ c\end{bmatrix} + h\begin{bmatrix}b\ d\end{bmatrix}= \begin{bmatrix}af+bh\ cf+dh\end{bmatrix} \ \therefore \underbrace{ \begin{bmatrix}a&amp;b\ c&amp;d\end{bmatrix} }<em>{M_1} \underbrace{ \begin{bmatrix}c&amp;d\ g&amp;h\end{bmatrix} }</em>{M_2}= \begin{bmatrix}ae+bg&amp;af+bh\ ce+dg&amp;cf+dh\end{bmatrix} $$</p>
+<h3 id="性质举例"><a href="#性质举例" class="headerlink" title="性质举例"></a>性质举例</h3><p>1.先旋转后剪切与先剪切后旋转，二者总体效应显然不同，<strong>所以乘积顺序显然会有影响</strong> $$ M_1M_2\neq M_2M_1 $$ 2.结合律 $$ M_1(M_2M_3)=(M_1M_2)M_3 $$ (始终遵循<strong>从右向左</strong>的顺序，虽然运算单个矩阵的顺序有改变，<strong>但是整体顺序没有倒换</strong>)</p>
+<hr>
+<h2 id="线性变换的行列式"><a href="#线性变换的行列式" class="headerlink" title="线性变换的行列式"></a>线性变换的行列式</h2><p>线性变换前由基向量围成的面积（二维）与变换后基向量围成面积之比。 <strong>→线性变换改变面积的比例</strong> 例：一个线性变换的行列式是1/2，就是说它将一个区域的面积缩小一半。一个二位线性变换的行列式为0，说明它将整个平面压缩到<strong>一条线</strong>上，甚至是<strong>一个点</strong>上。</p>
+<h3 id="一个区域的缩放为负数倍是什么意思？"><a href="#一个区域的缩放为负数倍是什么意思？" class="headerlink" title="一个区域的缩放为负数倍是什么意思？"></a>一个区域的缩放为负数倍是什么意思？</h3><p>如果将二维空间想象为一张纸，这个变换像是将纸<strong>反转到了另一面</strong>（空间的<strong>定向发生了改变</strong>）。换成图像意义，就是j帽移动到了i帽的右侧。 行列式的绝对值仍然是缩放面积的比例。</p>
+<h3 id="三维空间的行列式"><a href="#三维空间的行列式" class="headerlink" title="三维空间的行列式"></a>三维空间的行列式</h3><p>它所表示的含义依然是变换前后的缩放比例，不过对三维空间则是<strong>体积的缩放</strong>。 当行列式为0时，则意味着整个空间被压缩为<strong>零体积</strong>的东西，也就是一个平面或者一条线，甚至是一个点。（线性相关） 当行列式为负数时，则代表<strong>变换后的空间已不符合“右手定则”</strong>。</p>
+<h3 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h3><h4 id="二维行列式："><a href="#二维行列式：" class="headerlink" title="二维行列式："></a>二维行列式：</h4><p>$$ \begin{vmatrix}a&amp;b\ c&amp;d\end{vmatrix}=ad-bc $$</p>
+<h4 id="三维行列式："><a href="#三维行列式：" class="headerlink" title="三维行列式："></a>三维行列式：</h4><p>$$ \text{要计算方法去看同济版教材啊！！！那里教得比这里好！} $$</p>
+<h3 id="性质举例-1"><a href="#性质举例-1" class="headerlink" title="性质举例"></a>性质举例</h3><p>$$ \begin{vmatrix}M_1M_2\end{vmatrix}=\begin{vmatrix}M_1\end{vmatrix}\begin{vmatrix}M_2\end{vmatrix} $$</p>
+<hr>
+<h2 id="矩阵的用途"><a href="#矩阵的用途" class="headerlink" title="矩阵的用途"></a>矩阵的用途</h2><h3 id="解线性方程组"><a href="#解线性方程组" class="headerlink" title="解线性方程组"></a>解线性方程组</h3><p>对于以下方程组： $$ \begin{cases} 2x+5y+3z=-3\ 4x+0y+8z=0\ 1x+3y+0z=2 \end{cases} $$ 即，在每个方程中，<strong>所有未知量只有常系数，这些未知量之间只进行加和</strong>。这种方程组称为<strong>线性方程组</strong>，可以交给矩阵来解。 要整理这一特定的方程组，一个典型的方法是未知量放在等号左边，剩余常数项放在等号右边，将未知量竖直对齐，必要时添加系数0。 它的样子与矩阵乘法相仿，所以可以将所有方程合并为一个向量方程： $$ \begin{cases} 2x+5y+3z=-3\ 4x+0y+8z=0\ 1x+3y+0z=2 \end{cases} \Rightarrow \underbrace{ \begin{bmatrix}2&amp;5&amp;3\ 4&amp;0&amp;8\ 1&amp;3&amp;0\end{bmatrix} }<em>{\text{系数}} \underbrace{ \begin{bmatrix}x\ y\ z\end{bmatrix} }</em>{\text{未知变量}}= \underbrace{ \begin{bmatrix}-3\ 0\ 2\end{bmatrix} }_{\text{常数}}\ 即系数矩阵A、未知变量向量\vec x、常数向量\vec v符合：\ A\vec x=\vec v $$ 矩阵A代表一种线性变换，所以求解Ax=v意味着我们去寻找一个向量x，使得它变换后与v重合。</p>
+<h2 id="逆变换"><a href="#逆变换" class="headerlink" title="逆变换"></a>逆变换</h2><p>以二维空间举例，若想寻找一个向量在变换前的位置，需要考虑施加的线性变换A<strong>是否将空间压缩为0</strong>，即它的行列式结果是否为0，若不为零，则代表<strong>有且仅有一个向量可变换到目前向量的位置</strong>，这时就需要对变换矩阵A进行<strong>逆变换</strong>。 如变换A的效果是将空间逆时针旋转90度，那么逆变换就是将空间顺时针旋转90度。 总的来说，A逆是满足以下效果的变换： <strong>首先应用A代表的变换，在应用A逆代表的变换，你会回到原始状态</strong> $$ A^{-1}A=\underbrace{ \begin{bmatrix}1&amp;0\ 0&amp;1\end{bmatrix} }_{\text{“什么都不做”的变换}} $$ 当你找到A逆，你就可以带入Ax=v式，求得x： $$ \vec x=A^{-1}\vec v $$ 只要变换A不将空间压缩到一个更低的维度上，也就是它的行列式不为零，拿他就存在逆变换，使得应用A在应用A逆变换之后，结果与恒等变换无异。而要想求解方程，只需要将A逆与向量v相乘即可。 但是当行列式为零时，与这个方程组相关的变换将空间压缩到更低的维度上，此时没有逆变换，<strong>不能将一条线“解压缩”为一个平面</strong>。 <strong>即使不存在逆变换，解仍然可能存在</strong>，比如，向量v恰好处于压缩到的直线上。</p>
+<h2 id="秩"><a href="#秩" class="headerlink" title="秩"></a>秩</h2><p>当变换的结果为一条直线时，也就是说结果是一维的，我们称这个变换的<strong>秩为1</strong>。如果变换后的向量落在某个二维平面上，我们称这个变换的秩为2。 所以说<strong>“秩”代表着变换后空间的维数</strong>。 不管是一条直线、一个平面还是三维空间等，<strong>所有可能的变换结果的集合被称为矩阵的“列空间”</strong>。 当秩达到最大时，意味着秩与列数相等，我们称为<strong>满秩</strong>。</p>
+<blockquote>
+<p>注：0向量必然存在在空间中，因为线性变换必须保持原点位置不变。</p>
+</blockquote>
+<p>变换后<strong>落在原点的向量</strong>的集合称为矩阵的<strong>“零空间”</strong>或“核”。对于Ax=v，当v恰好为零向量时，零空间给出的就是这个向量方程所有可能的解。</p>
+<hr>
+<h2 id="非方阵"><a href="#非方阵" class="headerlink" title="非方阵"></a>非方阵</h2><p>对于行与列不相等的矩阵： $$ \begin{bmatrix}3&amp;1\ 4&amp;1\ 5&amp;9\end{bmatrix} $$ 可知，其由两个变换后的基向量（3，4，5）、（1，1，9）组成，<strong>列空间为2，而每个基向量却有三个维度</strong>，所以这是一个<strong>将二维向量提升至三维向量</strong>的过程。 $$ 每个变换后的基向量用三个坐标描述 \underbrace{ \begin{cases} \begin{bmatrix}3&amp;1\ 4&amp;1\ 5&amp;9\end{bmatrix} \end{cases} }_{\text{有两个基向量}} $$ 所以，非方阵是<strong>可以将不同维度坐标系进行转换的变换</strong>。</p>
+<hr>
+<h2 id="点积"><a href="#点积" class="headerlink" title="点积"></a>点积</h2><h3 id="向量的点积"><a href="#向量的点积" class="headerlink" title="向量的点积"></a>向量的点积</h3><p>如果有两个<strong>维度相同的向量</strong>，求它们的点积，就是将对应坐标<strong>配对</strong>，求出<strong>每一对坐标的乘积</strong>，然后将结果<strong>相加</strong> $$ \begin{bmatrix}2\ 7\ 1\end{bmatrix} \cdot \begin{bmatrix}8\ 2\ 8\end{bmatrix}= 2\cdot8+7\cdot2+1\cdot8 $$</p>
+<h4 id="图像意义"><a href="#图像意义" class="headerlink" title="图像意义"></a>图像意义</h4><p>对于两向量v、w，想象将向量w朝着过原点和向量v终点的直线上<strong>投影</strong>，将<strong>投影的长度</strong>与向量v的长度<strong>相乘</strong> <img src="https://www.z4a.net/images/2020/04/03/chrome_2020-04-03_10-05-04.jpg"> $$ \vec v \cdot \vec w=(\vec w投影的长度)(\vec v的长度) $$ <strong>顺序无关，也可以是v的投影长度乘w的长度</strong> 除非w的投影与v的方向<strong>相反</strong>，这种情况下点积为<strong>负值</strong>。 当它们<strong>相互垂直</strong>时，意味着一个向量在另一个向量上的投影为零向量，它们的点积为<strong>零</strong></p>
+<h3 id="矩阵的点积（内积）"><a href="#矩阵的点积（内积）" class="headerlink" title="矩阵的点积（内积）"></a>矩阵的点积（内积）</h3><p>如果一个列矩阵乘一个行矩阵，其运算形式与两向量相乘形式类似： $$ \begin{bmatrix}1&amp;-2\end{bmatrix} \begin{bmatrix}4\ 3\end{bmatrix}=4\cdot1+3\cdot-2= \begin{bmatrix}1\ -2\end{bmatrix}\cdot \begin{bmatrix}4\ 3\end{bmatrix} $$ 那么矩阵[1 -2]与向量(1,-2)有什么关系呢？ 实际上，如果在二维坐标系中画出向量(1,-2)，那么矩阵[1 2]的含义就是<strong>将其他向量对应到向量(1,-2)所在的直线上。</strong> <img src="https://www.z4a.net/images/2020/04/03/2020-04-03_12-15-51_Trim-1.gif"> 根据对称性，将各向量投影到目标直线上时，它们的基向量的变化比<strong>恰好</strong>为直线上向量的坐标。 <img src="https://www.z4a.net/images/2020/04/03/image.png"> 像这样的巧合，称为<strong>对偶性</strong>。</p>
+<hr>
+<h2 id="叉积（外积）"><a href="#叉积（外积）" class="headerlink" title="叉积（外积）"></a>叉积（外积）</h2><h3 id="伪叉积"><a href="#伪叉积" class="headerlink" title="伪叉积"></a>伪叉积</h3><p>在二维坐标系中，如果有两个向量v和w，考虑他们所张成的平行四边形: <img src="https://www.z4a.net/images/2020/04/03/imagef1972429ce8dd1e4.png"> 而v和w的叉积，就是这个平行四边形的<strong>面积</strong>。 另外，如果v在w的右侧，那么v与w的叉积为正；如果v在w的左侧，那么v与w的叉积为负。<strong>所以叉积是顺序有关的</strong>。</p>
+<h3 id="计算方法-2"><a href="#计算方法-2" class="headerlink" title="计算方法"></a>计算方法</h3><p>因为矩阵的行列式的图像意义是变换前后面积比，而图像变化前面积为1，所以<strong>计算两向量的叉积时，可将两向量并成行列式计算</strong>。 $$ \vec v=\begin{bmatrix}3\ 1\end{bmatrix}\quad\quad \vec w=\begin{bmatrix}4\ 3\end{bmatrix}\ \therefore \vec v \times \vec w= \begin{vmatrix}3&amp;2\ 1&amp;-1\end{vmatrix} $$</p>
+<h3 id="真叉积"><a href="#真叉积" class="headerlink" title="真叉积"></a>真叉积</h3><p>实际上，叉积并不在二维坐标系中存在，<strong>它是一个向量</strong>，刚刚算出的结果其实是叉积这个向量的<strong>模长</strong>。它存在于三维或更高维度坐标系中，是<strong>与两个向量为围成的平面垂直，并满足右手定则的方向</strong>。 <img src="https://www.z4a.net/images/2020/04/03/imagec61e09a9eaceecb6.png"> <img src="https://www.z4a.net/images/2020/04/03/image750feab4b9c94f8c.png"></p>
+<h3 id="计算方法-3"><a href="#计算方法-3" class="headerlink" title="计算方法"></a>计算方法</h3><p>$$ \begin{bmatrix}v_1\ v_2\ v_3\end{bmatrix} \times \begin{bmatrix}w_1\ w_2\ w_3\end{bmatrix} = \begin{vmatrix}\hat i&amp;v_1&amp;w_2\ \hat j&amp;v_2&amp;w_2\ \hat k&amp;v_3&amp;w_3\end{vmatrix} $$</p>
+<hr>
+<h4 id="计算形式的解释"><a href="#计算形式的解释" class="headerlink" title="计算形式的解释"></a>计算形式的解释</h4><blockquote>
+<p>每当看到一个从空间到数轴的线性变换，都能找到一个向量，被称为这个变换的对偶向量，使得线性变换与对偶向量点乘等价（点积章节对偶性）</p>
+</blockquote>
+<ol>
+<li><p> 根据v和w定义一个三维到一维的线性变换</p>
+</li>
+<li><p> 找到它的对偶向量</p>
+</li>
+<li><p>说明这个对偶向量就是v*w</p>
+<p> （待续）</p>
+</li>
+</ol>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+              <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" rel="tag"># 线性代数</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/06/26/%E3%80%90coding%EF%BC%81%E3%80%91reverse-integer/" rel="prev" title="【Coding！】Reverse Integer">
+      <i class="fa fa-chevron-left"></i> 【Coding！】Reverse Integer
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/01/1341/" rel="next" title="Untitled Post - 30">
+      Untitled Post - 30 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%91%E9%87%8F%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">什么是向量？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">向量的表示方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E5%8A%A0%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">向量的加法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%A6%82%E6%AD%A4%E5%AE%9A%E4%B9%89%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">为什么如此定义？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%EF%BC%9F"><span class="nav-number">3.2.</span> <span class="nav-text">如何计算？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E4%B9%98%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">向量的乘法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E4%B8%8E%E5%B8%B8%E6%95%B0%EF%BC%88%E6%A0%87%E9%87%8F%EF%BC%89%E7%9A%84%E4%B9%98%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">向量与常数（标量）的乘法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%90%AB%E4%B9%89"><span class="nav-number">4.1.1.</span> <span class="nav-text">图像含义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="nav-number">4.1.2.</span> <span class="nav-text">计算方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E5%90%91%E9%87%8F"><span class="nav-number">5.</span> <span class="nav-text">基向量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%88%91%E4%BB%AC%E9%80%89%E6%8B%A9%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9F%BA%E5%90%91%E9%87%8F%E4%BC%9A%E6%80%8E%E4%B9%88%E6%A0%B7%EF%BC%9F"><span class="nav-number">5.1.</span> <span class="nav-text">如果我们选择不同的基向量会怎么样？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88"><span class="nav-number">6.</span> <span class="nav-text">线性组合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%EF%BC%9F"><span class="nav-number">6.1.</span> <span class="nav-text">什么是线性组合？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%A0%E6%88%90%E7%9A%84%E7%A9%BA%E9%97%B4"><span class="nav-number">7.</span> <span class="nav-text">张成的空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="nav-number">7.1.</span> <span class="nav-text">类型：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E4%B8%8E%E7%82%B9"><span class="nav-number">8.</span> <span class="nav-text">向量与点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%9B%B8%E5%85%B3"><span class="nav-number">9.</span> <span class="nav-text">线性相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2"><span class="nav-number">10.</span> <span class="nav-text">线性变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E6%8D%A2%E7%B1%BB%E5%9E%8B"><span class="nav-number">10.1.</span> <span class="nav-text">变换类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%94%A8%E6%95%B0%E5%80%BC%E6%8F%8F%E8%BF%B0%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2"><span class="nav-number">10.2.</span> <span class="nav-text">如何用数值描述线性变换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="nav-number">10.2.1.</span> <span class="nav-text">示例：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E5%8F%98%E6%8D%A2"><span class="nav-number">11.</span> <span class="nav-text">复合变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-1"><span class="nav-number">11.1.</span> <span class="nav-text">计算方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8%E4%B8%BE%E4%BE%8B"><span class="nav-number">11.2.</span> <span class="nav-text">性质举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">12.</span> <span class="nav-text">线性变换的行列式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E5%8C%BA%E5%9F%9F%E7%9A%84%E7%BC%A9%E6%94%BE%E4%B8%BA%E8%B4%9F%E6%95%B0%E5%80%8D%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D%EF%BC%9F"><span class="nav-number">12.1.</span> <span class="nav-text">一个区域的缩放为负数倍是什么意思？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">12.2.</span> <span class="nav-text">三维空间的行列式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97"><span class="nav-number">12.3.</span> <span class="nav-text">计算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E8%A1%8C%E5%88%97%E5%BC%8F%EF%BC%9A"><span class="nav-number">12.3.1.</span> <span class="nav-text">二维行列式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E7%BB%B4%E8%A1%8C%E5%88%97%E5%BC%8F%EF%BC%9A"><span class="nav-number">12.3.2.</span> <span class="nav-text">三维行列式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8%E4%B8%BE%E4%BE%8B-1"><span class="nav-number">12.4.</span> <span class="nav-text">性质举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E7%94%A8%E9%80%94"><span class="nav-number">13.</span> <span class="nav-text">矩阵的用途</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="nav-number">13.1.</span> <span class="nav-text">解线性方程组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%86%E5%8F%98%E6%8D%A2"><span class="nav-number">14.</span> <span class="nav-text">逆变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%A9"><span class="nav-number">15.</span> <span class="nav-text">秩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E6%96%B9%E9%98%B5"><span class="nav-number">16.</span> <span class="nav-text">非方阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%B9%E7%A7%AF"><span class="nav-number">17.</span> <span class="nav-text">点积</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E7%82%B9%E7%A7%AF"><span class="nav-number">17.1.</span> <span class="nav-text">向量的点积</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E6%84%8F%E4%B9%89"><span class="nav-number">17.1.1.</span> <span class="nav-text">图像意义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E7%82%B9%E7%A7%AF%EF%BC%88%E5%86%85%E7%A7%AF%EF%BC%89"><span class="nav-number">17.2.</span> <span class="nav-text">矩阵的点积（内积）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%89%E7%A7%AF%EF%BC%88%E5%A4%96%E7%A7%AF%EF%BC%89"><span class="nav-number">18.</span> <span class="nav-text">叉积（外积）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E5%8F%89%E7%A7%AF"><span class="nav-number">18.1.</span> <span class="nav-text">伪叉积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-2"><span class="nav-number">18.2.</span> <span class="nav-text">计算方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%9F%E5%8F%89%E7%A7%AF"><span class="nav-number">18.3.</span> <span class="nav-text">真叉积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-3"><span class="nav-number">18.4.</span> <span class="nav-text">计算方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%BD%A2%E5%BC%8F%E7%9A%84%E8%A7%A3%E9%87%8A"><span class="nav-number">18.4.1.</span> <span class="nav-text">计算形式的解释</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

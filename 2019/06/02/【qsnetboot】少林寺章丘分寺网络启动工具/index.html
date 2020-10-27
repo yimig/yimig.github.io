@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="【QSNetBoot】少林寺章丘分寺网络启动工具">
+<meta property="og:url" content="http://example.com/2019/06/02/%E3%80%90qsnetboot%E3%80%91%E5%B0%91%E6%9E%97%E5%AF%BA%E7%AB%A0%E4%B8%98%E5%88%86%E5%AF%BA%E7%BD%91%E7%BB%9C%E5%90%AF%E5%8A%A8%E5%B7%A5%E5%85%B7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2018/04/78.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/06/02/QSNetBoot_2019-06-02_15-16-22.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/06/02/2019-06-02_15-17-53.png">
+<meta property="og:image" content="https://www.z4a.net/images/2019/06/02/2019-06-02_15-18-33.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2018/04/36.png">
+<meta property="article:published_time" content="2019-06-02T07:32:54.000Z">
+<meta property="article:modified_time" content="2020-10-27T06:59:17.066Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C#">
+<meta property="article:tag" content="QSNetBoot">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://upane.cn/wp-content/uploads/2018/04/78.png">
+
+<link rel="canonical" href="http://example.com/2019/06/02/%E3%80%90qsnetboot%E3%80%91%E5%B0%91%E6%9E%97%E5%AF%BA%E7%AB%A0%E4%B8%98%E5%88%86%E5%AF%BA%E7%BD%91%E7%BB%9C%E5%90%AF%E5%8A%A8%E5%B7%A5%E5%85%B7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【QSNetBoot】少林寺章丘分寺网络启动工具 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/06/02/%E3%80%90qsnetboot%E3%80%91%E5%B0%91%E6%9E%97%E5%AF%BA%E7%AB%A0%E4%B8%98%E5%88%86%E5%AF%BA%E7%BD%91%E7%BB%9C%E5%90%AF%E5%8A%A8%E5%B7%A5%E5%85%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【QSNetBoot】少林寺章丘分寺网络启动工具
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-06-02 15:32:54" itemprop="dateCreated datePublished" datetime="2019-06-02T15:32:54+08:00">2019-06-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:17" itemprop="dateModified" datetime="2020-10-27T14:59:17+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project-IDEA/" itemprop="url" rel="index"><span itemprop="name">Project.IDEA</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="http://upane.cn/wp-content/uploads/2018/04/78.png"></p>
+<a id="more"></a>
+<blockquote>
+<p><strong>feature：</strong> 1. 开机自动连接校园网 2.没了</p>
+</blockquote>
+<h2 id="①可视化界面："><a href="#①可视化界面：" class="headerlink" title="①可视化界面："></a>①可视化界面：</h2><p>启动之后可见如下界面： <img src="https://www.z4a.net/images/2019/06/02/QSNetBoot_2019-06-02_15-16-22.png"> 注意启动设置第二个那个选项，勾选后将不会在连接网络后自动唤起浏览器，防止自动连接后也会弹出浏览器的尴尬情况，默认是不勾选的。如果勾选的话连接其他wifi时（比如肯德基等等需要认证的wifi）也不会自动唤起浏览器了。此时需要手动打开浏览器然后随便打开一个网页，不出意外的话对方路由器将挟持该链接到登陆页面。 登陆成功会有提示： <img src="https://www.z4a.net/images/2019/06/02/2019-06-02_15-17-53.png"> 失败也会有提示： <img src="https://www.z4a.net/images/2019/06/02/2019-06-02_15-18-33.png"> 如果啥提示都没有就是程序崩了(应该不会崩溃，如果真崩了可以与我联系)</p>
+<h2 id="②直接连接"><a href="#②直接连接" class="headerlink" title="②直接连接"></a>②直接连接</h2><p>如果需要制作直接连接脚本，可以在本程序运行时添加“-c”的参数，即</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QSNetBoot.exe -c</span><br></pre></td></tr></table></figure>
+
+<p>这样以来程序将直接运行连接逻辑，跳过可视化界面。</p>
+<h3 id="目前迭代版本"><a href="#目前迭代版本" class="headerlink" title="目前迭代版本"></a>目前迭代版本</h3><p>Ver 0.9Beta 2019/6/2</p>
+<h3 id="下载地址："><a href="#下载地址：" class="headerlink" title="下载地址："></a>下载地址：</h3><p><a target="_blank" rel="noopener" href="http://upane.cn/wp-content/uploads/2019/06/Setup.zip">setup.zip</a> github项目页：<a target="_blank" rel="noopener" href="https://github.com/yimig/QSNetBoot">https://github.com/yimig/QSNetBoot</a> (旧版本还没更新，目前还在摸索github中)</p>
+<h2 id="不多说了，下周二还要武术考试"><a href="#不多说了，下周二还要武术考试" class="headerlink" title="不多说了，下周二还要武术考试"></a>不多说了，下周二还要武术考试</h2><p><img src="http://upane.cn/wp-content/uploads/2018/04/36.png"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C#</a>
+              <a href="/tags/QSNetBoot/" rel="tag"># QSNetBoot</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/05/14/%E3%80%90js%E3%80%91js%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%AC%94%E8%AE%B0-5/" rel="prev" title="【JS】js学习小笔记 5#">
+      <i class="fa fa-chevron-left"></i> 【JS】js学习小笔记 5#
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/06/24/1295/" rel="next" title="Untitled Post - 29">
+      Untitled Post - 29 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A0%E5%8F%AF%E8%A7%86%E5%8C%96%E7%95%8C%E9%9D%A2%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">①可视化界面：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A1%E7%9B%B4%E6%8E%A5%E8%BF%9E%E6%8E%A5"><span class="nav-number">2.</span> <span class="nav-text">②直接连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E8%BF%AD%E4%BB%A3%E7%89%88%E6%9C%AC"><span class="nav-number">2.1.</span> <span class="nav-text">目前迭代版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">下载地址：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%A4%9A%E8%AF%B4%E4%BA%86%EF%BC%8C%E4%B8%8B%E5%91%A8%E4%BA%8C%E8%BF%98%E8%A6%81%E6%AD%A6%E6%9C%AF%E8%80%83%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">不多说了，下周二还要武术考试</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

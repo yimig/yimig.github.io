@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="C#中存在多种集合形式，其中主要分为偏向数据存取效率的集合与偏向数据存取方式的集合。  具体如下： 偏向数据存取效率：Arrays（数组）、ArrayList（动态数组）、List（列表）、Dictionary（字典） 偏向数据存取方式：Stack（栈）、Queue（队列）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【C#】集合">
+<meta property="og:url" content="http://example.com/2018/09/29/%E3%80%90c%E3%80%91%E9%9B%86%E5%90%88/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="C#中存在多种集合形式，其中主要分为偏向数据存取效率的集合与偏向数据存取方式的集合。  具体如下： 偏向数据存取效率：Arrays（数组）、ArrayList（动态数组）、List（列表）、Dictionary（字典） 偏向数据存取方式：Stack（栈）、Queue（队列）">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-09-29T04:28:12.000Z">
+<meta property="article:modified_time" content="2020-10-27T06:59:16.935Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C#学习笔记">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2018/09/29/%E3%80%90c%E3%80%91%E9%9B%86%E5%90%88/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【C#】集合 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/29/%E3%80%90c%E3%80%91%E9%9B%86%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【C#】集合
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-09-29 12:28:12" itemprop="dateCreated datePublished" datetime="2018-09-29T12:28:12+08:00">2018-09-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:16" itemprop="dateModified" datetime="2020-10-27T14:59:16+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/" itemprop="url" rel="index"><span itemprop="name">%e5%89%8d%e5%a0%82</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/" itemprop="url" rel="index"><span itemprop="name">%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ad%a6%e4%b9%a0%e8%ae%a1%e5%88%92</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-89-8d-e5-a0-82/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e4-bb-8e-e9-9b-b6-e5-bc-80-e5-a7-8b-e7-9a-84-e4-bb-a3-e7-a0-81-e5-ad-a6-e4-b9-a0-e8-ae-a1-e5-88-92/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>C#中存在多种集合形式，其中主要分为偏向数据<strong>存取效率</strong>的集合与偏向数据<strong>存取方式</strong>的集合。</p>
+</blockquote>
+<p>具体如下： 偏向数据存取效率：<strong>Arrays（数组）、ArrayList（动态数组）、List（列表）、Dictionary（字典）</strong> 偏向数据存取方式：<strong>Stack（栈）、Queue（队列）</strong></p>
+<a id="more"></a>
+<h1 id="①数组（Array）"><a href="#①数组（Array）" class="headerlink" title="①数组（Array）"></a>①数组（Array）</h1><p>数组我们早已熟悉，其方便之处就在于可以<strong>定义多维数组</strong>，且赋值和调用时<strong>无需装箱拆箱</strong>，效率高。缺点就是静态定义，定义时必须<strong>确定元素类型</strong>（定义成Object类型后也可以存储多种类型，但是需要装箱与拆箱）、<strong>后期无法增减元素</strong>。</p>
+<h1 id="②动态数组（ArrayList）"><a href="#②动态数组（ArrayList）" class="headerlink" title="②动态数组（ArrayList）"></a>②动态数组（ArrayList）</h1><p>动态数组与数组的优缺点正好相反：优点是后期可以增减元素、定义时无需确定元素类型，所以理论上同一个动态数组可以包括不同的类型。但缺点是<strong>不能定义多维数组</strong>、赋值和调用时<strong>必须装箱和拆箱</strong>，效率低下。 定义方法：</p>
+<p><strong>ArrayList</strong> array=new <strong>ArrayList()</strong>;</p>
+<p>添加元素时，使用Add方法：</p>
+<p>array.Add(new Dog());<br>array.Add(3);<br>array.Add(new string[3]);</p>
+<p>移除元素时，使用<strong>Remove</strong>方法，也可以使用<strong>RemoveAt</strong>方法按照索引移除元素：</p>
+<p>array.Remove(3)//移除元素3<br>array.RemoveAt(0)//移除第一个元素<br>array.Count//返回当前数组的元素数量</p>
+<p>后面的列表、字典也以这种方式添加、删除元素。</p>
+<h1 id="③列表（List）与字典（Dictionary）"><a href="#③列表（List）与字典（Dictionary）" class="headerlink" title="③列表（List）与字典（Dictionary）"></a>③列表（List）与字典（Dictionary）</h1><p>列表和字典使用<strong>泛型</strong>确定元素类型，故与动态数组相比继承了其后期<strong>可增减</strong>的优势，还有<strong>不需要装、拆箱</strong>的效率优势，<strong>所以如无特殊需要，可用List替代动态数组。</strong>字典与列表相比，其索引也可以是泛型。具体介绍见之前的文章：<a target="_blank" rel="noopener" href="http://upane.cn/archives/625">【C#】List、Dictionary以及两种筛选算法</a></p>
+<h1 id="④栈（Stack）"><a href="#④栈（Stack）" class="headerlink" title="④栈（Stack）"></a>④栈（Stack）</h1><p>栈是使用<strong>先入后出</strong>的元素读取形式。其使用<strong>泛型</strong>确定元素类型，我们不能具体调用栈中的某个元素，只可以访问栈中的首元素，也就是<strong>最后一个</strong>放进栈中的元素。（可以使用**ToArray()**将栈转为一个数组，如此即可对其中的某个元素进行操作） 定义：</p>
+<p>Stack**<T>** stack=new Stack**<T>**();</p>
+<p>向栈中添加元素（<strong>Push</strong>）：</p>
+<p>stack.Push(T t);</p>
+<p>返回栈的首元素（<strong>最后放入的</strong>）（<strong>Peek</strong>）：</p>
+<p>T t=stack.Peek();</p>
+<p>删除栈的首元素，并将其返回（<strong>Pop</strong>）：</p>
+<p>T t=stack.Pop();</p>
+<p>既可使用<strong>Count()**方法返回栈的元素数量，也可以读取</strong>Length**属性得到栈的元素数量：</p>
+<p>int num1=stack.Count();<br>int num2=stack.Length;</p>
+<h1 id="⑤队列（Queue）"><a href="#⑤队列（Queue）" class="headerlink" title="⑤队列（Queue）"></a>⑤队列（Queue）</h1><p>队列使用<strong>先进先出</strong>的元素读取形式，与栈相同：其使用<strong>泛型</strong>确定元素类型，我们不能具体调用队列中的某个元素，只可以访问队列中的首元素。但与栈不同的是，这里的首元素指的是<strong>第一个</strong>放进队列中的元素。（可以使用**ToArray()**将队列转为一个数组，如此即可对其中的某个元素进行操作） 定义：</p>
+<p>Queue**<T>** queue=new Queue**<T>**();</p>
+<p>向队列中添加元素（<strong>Enqueue</strong>）：</p>
+<p>queue.Enqueue(T t);</p>
+<p>返回队列的首元素（<strong>最先放入的</strong>）（<strong>Peek</strong>）：</p>
+<p>T t=queue.Peek();</p>
+<p>删除队列的首元素，并将其返回（<strong>Dequeue</strong>）：</p>
+<p>T t=stack.Dequeue();</p>
+<p>与栈相同，既可使用<strong>Count()**方法返回队列的元素数量，也可以读取</strong>Length**属性得到元素的元素数量：</p>
+<p>int num1=queue.Count();<br>int num2=queue.Length;</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># C#学习笔记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/09/28/%E3%80%90%E6%95%99%E7%A8%8B%E3%80%91%E7%A3%A8%E5%88%80%E4%B8%8D%E8%AF%AF%E7%A0%8D%E6%9F%B4%E5%B7%A5%EF%BC%9Aintellij-idea%E5%B0%8F%E6%95%99%E7%A8%8B/" rel="prev" title="【Part.1】IntelliJ IDEA小教程：代码定位篇">
+      <i class="fa fa-chevron-left"></i> 【Part.1】IntelliJ IDEA小教程：代码定位篇
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/09/30/%E3%80%90c%E3%80%91%E5%A7%94%E6%89%98%E5%92%8C%E4%BA%8B%E4%BB%B6/" rel="next" title="【C#】委托和事件">
+      【C#】委托和事件 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A0%E6%95%B0%E7%BB%84%EF%BC%88Array%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">①数组（Array）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A1%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84%EF%BC%88ArrayList%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">②动态数组（ArrayList）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A2%E5%88%97%E8%A1%A8%EF%BC%88List%EF%BC%89%E4%B8%8E%E5%AD%97%E5%85%B8%EF%BC%88Dictionary%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">③列表（List）与字典（Dictionary）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A3%E6%A0%88%EF%BC%88Stack%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">④栈（Stack）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A4%E9%98%9F%E5%88%97%EF%BC%88Queue%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">⑤队列（Queue）</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="软件下载页面请点击这里→【C#】Walkman Playlist Tools 因为这个版本与之前的版本相比改动较大，所以在这里重新开一个教程。 那么我们直接进入正题吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【教程】Walkman Playlist Tools使用教程（第二版）">
+<meta property="og:url" content="http://example.com/2019/02/10/%E3%80%90%E6%95%99%E7%A8%8B%E3%80%91walkman-playlist-tools%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="软件下载页面请点击这里→【C#】Walkman Playlist Tools 因为这个版本与之前的版本相比改动较大，所以在这里重新开一个教程。 那么我们直接进入正题吧。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_15-40-56.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_16-03-01.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_16-06-53.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_16-18-06.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_16-24-01.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_16-29-48.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_16-38-05.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_16-45-49.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-11-55.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-00-53.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-04-46.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-19-18.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-21-14.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-22-30.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-26-12.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/2019-02-09_17-28-53.gif">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-34-58.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-38-54.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-10_09-31-55.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-10_09-56-33.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-10_09-59-41.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-10_10-00-00.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-10_10-19-47.png">
+<meta property="og:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-10_10-26-25.png">
+<meta property="article:published_time" content="2019-02-10T02:44:05.000Z">
+<meta property="article:modified_time" content="2020-10-27T06:59:17.034Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Walkman Playlist Tools">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_15-40-56.png">
+
+<link rel="canonical" href="http://example.com/2019/02/10/%E3%80%90%E6%95%99%E7%A8%8B%E3%80%91walkman-playlist-tools%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【教程】Walkman Playlist Tools使用教程（第二版） | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/02/10/%E3%80%90%E6%95%99%E7%A8%8B%E3%80%91walkman-playlist-tools%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【教程】Walkman Playlist Tools使用教程（第二版）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-02-10 10:44:05" itemprop="dateCreated datePublished" datetime="2019-02-10T10:44:05+08:00">2019-02-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-27 14:59:17" itemprop="dateModified" datetime="2020-10-27T14:59:17+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%90%8E%E9%99%A2/" itemprop="url" rel="index"><span itemprop="name">后院</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-90-8e-e9-99-a2/" itemprop="url" rel="index"><span itemprop="name">%e5%90%8e%e9%99%a2</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project-IDEA/" itemprop="url" rel="index"><span itemprop="name">Project.IDEA</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/e5-90-8e-e9-99-a2/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>软件下载页面请点击这里→<a target="_blank" rel="noopener" href="http://upane.cn/archives/509">【C#】Walkman Playlist Tools</a></strong> 因为这个版本与之前的版本相比改动较大，所以在这里重新开一个教程。 那么我们直接进入正题吧。</p>
+<a id="more"></a>
+<hr>
+<h2 id="①准备工作"><a href="#①准备工作" class="headerlink" title="①准备工作"></a>①准备工作</h2><p>软件安装完毕后打开，您应该看到的是如下界面： <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_15-40-56.png"> 它可以分为两个区域： 左边的<strong>工作区</strong>区域和右边的<strong>播放列表</strong>区域。它们都可以存储音乐信息，但是只有播放列表能保存，工作区的内容除了第一个子区域<strong>音乐库</strong>外每次程序关闭都会被清除。音乐库中的信息就是您的Walkman中存储的所有音乐，播放列表和其他工作区的信息都是从音乐库中复制出来的。 下面我们准备向音乐库中添加音乐信息： <strong>Step 1：将您的Walkman连接上电脑，并且打开文件传输功能</strong> <strong>Step 2：选择导航栏中的”设置”选项，修改音乐的默认存放路径</strong> <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_16-03-01.png"> <strong>Step 3：关闭设置界面，点击程序左上角的”扫描默认地址”按钮</strong> <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_16-06-53.png"> <strong>Step 4：等待扫描完毕，音乐库中就会出现您设备中的音乐</strong> <strong>注意：如果您还想扫描SD卡的音乐，请将工作区或者播放列表的选项卡选择到”SDcard”位置，然后再点击一次扫描按钮。</strong></p>
+<h2 id="②制作播放列表"><a href="#②制作播放列表" class="headerlink" title="②制作播放列表"></a>②制作播放列表</h2><p>做完准备工作后就可以着手制作播放列表了，<strong>首先点击播放列表区域上方的第一个按钮”新建播放列表”按钮建立一个播放列表</strong> <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_16-18-06.png"> <strong>然后在工作区中勾选需要转移到播放列表的音乐，点击刚刚建立的播放列表将其选中，然后点击中间的”&gt;”按钮即可将音乐信息从工作区复制到播放列表。要删除音乐信息，请将其勾选并点击工具栏中的灰色小叉号将其移除</strong> <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_16-24-01.png"> <strong>此时还可以拖动播放列表中的音乐信息来改变其顺序。若要修改播放列表的标题，请点击播放列表上方工具栏中的小笔按钮”重命名该播放列表”。在弹出的对话框中输入新标题，按下回车或者对号按钮即可完成修改</strong> <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_16-29-48.png"> <strong>若要删除播放列表，请点击播放列表上方工具栏中的小垃圾桶按钮”删除播放列表”，若要保存该播放列表，请点击工具栏的小内存卡按钮”保存目前的播放列表”</strong> <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_16-38-05.png"> <strong>当编辑了多个播放列表后，可以选择刚刚说的保存按钮旁边的小设备按钮来保存所有播放列表，另外若要载入设备中的播放列表，可以选择小垃圾桶按钮右边的同步按钮来载入播放列表，当播放列表较多时可能需要一些时间载入，请耐心等待。</strong> <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_16-45-49.png"> <strong>注意：载入的播放列表信息实际上是从音乐库中复制出来的，匹配规则是文件名。所以如果音乐库中没有找到播放列表的某些音乐那么它们将不会添加到播放列表，故请保持音乐库信息为最新信息。同理，音乐库中也不要添加相同的文件名的音乐，否则会匹配失败</strong> <strong>若要使音乐信息在播放列表间移动，请勾选要复制的音乐信息，点击工具栏最后的添加按钮，选择要添加到的播放列表即可。</strong> <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-11-55.png"></p>
+<h2 id="③工作区操作"><a href="#③工作区操作" class="headerlink" title="③工作区操作"></a>③工作区操作</h2><p>工作区的目的是给用户一个自由操作的场地，您可以自由创建、删除、修改除音乐库的其他工作区，因为它们都不会被保存。另外工作区也是某些工具的“操作区”。 <strong>点击工作区上方工具栏中的加号按钮即可创建一个工作区，与创建播放列表相同，工作区也支持删除、重命名、移动等等操作，且按钮图标相同，这里不再赘述</strong> <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-00-53.png"> <strong>工作区支持试听操作，选中音乐后（不需要勾选即可），点击上方工具栏中的播放按钮即可试听，在弹出的对话框中可以暂停/继续音乐、跳转到音乐的1/4位置和快进/快退5秒。目前还不能使用拖动进度条来快进</strong> <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-04-46.png"></p>
+<h2 id="④批量操作"><a href="#④批量操作" class="headerlink" title="④批量操作"></a>④批量操作</h2><p>该类操作在本软件的各个列表中均适用。</p>
+<h4 id="1-全选按钮："><a href="#1-全选按钮：" class="headerlink" title="1.全选按钮："></a>1.全选按钮：</h4><p><img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-19-18.png"> 勾选目前列表中的所有数据</p>
+<h4 id="2-取消全选按钮："><a href="#2-取消全选按钮：" class="headerlink" title="2.取消全选按钮："></a>2.取消全选按钮：</h4><p><img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-21-14.png"> 清除本列表的所有勾选状态</p>
+<h4 id="3-选择反选按钮："><a href="#3-选择反选按钮：" class="headerlink" title="3.选择反选按钮："></a>3.选择反选按钮：</h4><p><img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-22-30.png"> 将本列表中所有的勾选状态改为不勾选，不勾选改为勾选</p>
+<h4 id="4-反转选中状态按钮："><a href="#4-反转选中状态按钮：" class="headerlink" title="4.反转选中状态按钮："></a>4.反转选中状态按钮：</h4><p><img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-26-12.png"> 将选中的数据进行反选，利用此按钮可以将选中的项目勾选，效果见动图： <img src="http://upane.cn/wp-content/uploads/2019/02/2019-02-09_17-28-53.gif"> 这里再说两个快速选中的方法： 1.按住Ctrl可以连续选择多条数据 2.选择一条数据，然后按下Shift再选择另一条数据即可快速选择这两条数据之间的所有数据 配合该按钮使用可增加您的整理效率</p>
+<h4 id="5-清空按钮"><a href="#5-清空按钮" class="headerlink" title="5.清空按钮"></a>5.清空按钮</h4><p><img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-34-58.png"> 清空该列表，即删除列表中的所有数据。如果不小心清空了音乐库，可以点击”文件”&gt;”重载数据库”来载入上一次关闭程序时保存的缓存数据</p>
+<h4 id="6-箭头按钮"><a href="#6-箭头按钮" class="headerlink" title="6.箭头按钮"></a>6.箭头按钮</h4><p><img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-09_17-38-54.png"> 将整个工作区保存为一个播放列表，或反之</p>
+<h2 id="⑤搜索音乐"><a href="#⑤搜索音乐" class="headerlink" title="⑤搜索音乐"></a>⑤搜索音乐</h2><p>工作区与播放列表上方各有一个搜索栏，它们的功能是一样的，都是为本区域<strong>目前的</strong>列表提供搜索功能。目前暂不支持全局搜索。输入搜索内容后按下回车或者放大镜按钮即可跳转并选中到相关数据，若要查看下一条数据请再次按下回车或者放大镜按钮。 <strong>注意：搜索内容仅包含歌曲标题、艺术家名称和专辑名称，搜索更多请使用“根据自定义规则生成播放列表”功能。</strong></p>
+<h2 id="⑥文件操作"><a href="#⑥文件操作" class="headerlink" title="⑥文件操作"></a>⑥文件操作</h2><p>本节教程主要针对导航栏中的“文件”菜单，如果没有特殊声明，以下功能应都在其菜单中。</p>
+<h4 id="1-打开-…"><a href="#1-打开-…" class="headerlink" title="1.打开(…)"></a>1.打开(…)</h4><p>打开音乐文件或者包含音乐的文件夹。<strong>特别注意，这个功能主要是为了让用户选择刚刚导入设备的音乐，节省全部刷新的时间，而不是导入电脑内的音乐，如果导入其他设备的音乐请选择打开并复制，否则将无法正确创建音乐列表。</strong></p>
+<h4 id="2-打开并复制-…"><a href="#2-打开并复制-…" class="headerlink" title="2.打开并复制(…)"></a>2.打开并复制(…)</h4><p>打开音乐文件或者包含音乐的文件夹，然后复制入设备的Music文件夹内。其复制规则可在设置中选择。</p>
+<h4 id="3-导入"><a href="#3-导入" class="headerlink" title="3.导入"></a>3.导入</h4><p>导入播放列表，可以导入本地播放列表和在线播放列表，其原理也是匹配音乐库中的文件，不管哪种导入方法只要音乐库中找不到对应数据都无法完整的建立列表。</p>
+<h5 id="Ⅰ-导入本地播放列表"><a href="#Ⅰ-导入本地播放列表" class="headerlink" title="Ⅰ.导入本地播放列表"></a>Ⅰ.导入本地播放列表</h5><p>将本地播放列表的路径与音乐库中的数据相对比，只有路径相同才会将项目添加到列表。</p>
+<h5 id="Ⅱ-导入在线播放列表"><a href="#Ⅱ-导入在线播放列表" class="headerlink" title="Ⅱ.导入在线播放列表"></a>Ⅱ.导入在线播放列表</h5><p>得到在线播放列表的标题，将其与音乐库中的数据相对比，只有标题相同才将项目添加到列表。 目前仅支持网易云歌单，URL格式如下：</p>
+<ul>
+<li>  <a target="_blank" rel="noopener" href="https://music.163.com/#/playlist?id=????&amp;userid=">https://music.163.com/#/playlist?id=????&amp;userid=</a>???? （标准网页版歌单）</li>
+<li>  <a target="_blank" rel="noopener" href="https://music.163.com/m/playlist?id=????&amp;userid=">https://music.163.com/m/playlist?id=????&amp;userid=</a>???? （手机版歌单）</li>
+<li>  <a target="_blank" rel="noopener" href="http://music.163.com/playlist/????/????/?userid=">http://music.163.com/playlist/????/????/?userid=</a>???? （手机app分享歌单）</li>
+<li>  <a target="_blank" rel="noopener" href="https://music.163.com/playlist?id=????&amp;userid=">https://music.163.com/playlist?id=????&amp;userid=</a>???? （电脑客户端分享歌单）</li>
+</ul>
+<h4 id="4-导出"><a href="#4-导出" class="headerlink" title="4.导出"></a>4.导出</h4><p>导出播放列表，包括Walkman播放列表（内含音乐地址为相对地址）和通用播放列表（内涵音乐地址为绝对地址，包含设置的盘符）</p>
+<h4 id="5-重载数据库"><a href="#5-重载数据库" class="headerlink" title="5.重载数据库"></a>5.重载数据库</h4><p>重新载入音乐库缓存，可以撤销某些对音乐库的不当操作，音乐库缓存只有在关闭程序时才会刷新</p>
+<h2 id="⑦自动分类"><a href="#⑦自动分类" class="headerlink" title="⑦自动分类"></a>⑦自动分类</h2><p>自动分类界面与主界面的播放列表区域相仿，但是额外提供选择分类结果的功能，您只需勾选要保存的分类结果，然后选择右下角的保存即可。 <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-10_09-31-55.png"> 自动分类支持这几种规则：</p>
+<ul>
+<li>  按存放文件夹名：检测文件路径的最后一个文件夹名称，并将其作为分类规则。</li>
+<li>  按导入时间：按音乐文件在设备中的创立时间分类，格式如：19年2月10日。</li>
+<li>  按音乐格式：检测音乐的拓展名并进行分类</li>
+<li>  按标题语言：利用J#包装的java项目<a target="_blank" rel="noopener" href="https://github.com/shuyo/language-detection">language-detection</a>。该项目可以对较多样本的环境下提供可靠的结果，但是由于只检测音乐标题，样本量较少，故识别效果较差。所以软件同时提供检测歌词的选项（如果本地有歌词的话），但是如果您的歌词中存在翻译反而会降低其精确度。该选项默认是开启的，这种情况下您可以在设置中将其关闭。</li>
+<li>  按艺术家：按艺术家名称分类，功能与walkman本身的艺术家列表相仿，但是您可以在设置中添加歌曲数量限制以筛选常听的艺术家。</li>
+<li>  按年代：识别歌曲的发行时间，每十年进行一次分类，如：90后。近十年分类为近年。</li>
+</ul>
+<h2 id="⑧更多工具"><a href="#⑧更多工具" class="headerlink" title="⑧更多工具"></a>⑧更多工具</h2><h3 id="Ⅰ-管理播放列表"><a href="#Ⅰ-管理播放列表" class="headerlink" title="Ⅰ.管理播放列表"></a>Ⅰ.管理播放列表</h3><p>提供一个批量管理播放列表的窗口，可以对播放列表批量删除、移除，以及集合操作（连续取并集、交集） <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-10_09-56-33.png"></p>
+<h3 id="Ⅱ-自动下载歌词"><a href="#Ⅱ-自动下载歌词" class="headerlink" title="Ⅱ.自动下载歌词"></a>Ⅱ.自动下载歌词</h3><p>对目前选中工作区的曲目自动补充歌词,其界面如下： <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-10_09-59-41.png"> 左边区域为待下载歌词的曲目队列，绿色曲目代表歌词自动匹配并下载成功。红色曲目代表自动匹配失败的曲目，您需要手动选择歌词下载。蓝色条目代表目前正在操作的曲目。 中间区域上方列表代表根据歌曲标题在线获取到的搜索结果，软件会根据下方提供的规则对艺术家名称进行匹配，一般无需操作，但如果匹配失败，您可以手动点击搜索结果曲目，然后再右侧歌词预览的下方点击保存按钮下载歌词。中间区域的下方有一个进度条，它是一个3秒到4秒之间的随机倒计时，在倒计时中您可以操作目前的搜索结果，当然也可以之后在左侧本地音乐队列中选择音乐再手动选取。 右侧区域提供歌词预览，该区域在在暂停时出现保存按钮，单击即可保存该歌词文件。 在程序进行中时，单击本地文件队列、在线搜索结果以及“暂停”按钮都可以暂停程序的运行状态，再次点击暂停按钮（此时应为继续按钮）即可继续自动下载歌词。 暂停后的状态如下： <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-10_10-00-00.png"></p>
+<h3 id="Ⅲ-批量转换歌词格式"><a href="#Ⅲ-批量转换歌词格式" class="headerlink" title="Ⅲ.批量转换歌词格式"></a>Ⅲ.批量转换歌词格式</h3><p>在最新版walkman固件中添加了建立播放列表的功能，并且可以为其命名。但是此举还统一了Walkman的内部文本编码，导致非UTF8格式编码的歌词会出现乱码。使用此工具后软件将自动搜索目前选中设备目录中的所有歌词，并将所有非UTF8格式的歌词转换为UTF8格式，借此消除乱码状态。</p>
+<h3 id="Ⅳ-根据自定义规则生成播放列表"><a href="#Ⅳ-根据自定义规则生成播放列表" class="headerlink" title="Ⅳ.根据自定义规则生成播放列表"></a>Ⅳ.根据自定义规则生成播放列表</h3><p>该工具的初识窗口可以根据您制定的规则对音乐标题进行分类，并自动生成播放列表。您可以使用分号包含多个关键字，或者使用正则表达式制定规则，如正则表达式：“^[\u4e00-\u9fa5]{0,}$”代表规则：只包含汉字。您可以搜索更多表达式以制定更加个性化的规则。 <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-10_10-19-47.png"> 单击“更多选项”即可对所有数据项目制定规则，开启多个规则时将得出它们的交集。 <img src="http://upane.cn/wp-content/uploads/2019/02/Walkman_Playlist_Tools_2019-02-10_10-26-25.png"></p>
+<h2 id="⑨其他小提示"><a href="#⑨其他小提示" class="headerlink" title="⑨其他小提示"></a>⑨其他小提示</h2><h4 id="Ⅰ-界面缩放"><a href="#Ⅰ-界面缩放" class="headerlink" title="Ⅰ.界面缩放"></a>Ⅰ.界面缩放</h4><p>比起之前版本，目前版本由于使用了新的用户界面框架,支持了缩放操作，窗口最大化后可以得到更大的操作区域。</p>
+<h4 id="Ⅱ-转移音乐的小窍门"><a href="#Ⅱ-转移音乐的小窍门" class="headerlink" title="Ⅱ.转移音乐的小窍门"></a>Ⅱ.转移音乐的小窍门</h4><p>由于所有播放列表的数据都是从音乐库中复制出来的，所以只要保证音乐库的数据最新，音乐列表的数据也是最新的，<strong>所以如果您对设备中的音乐进行了删除操作或者移动操作，只需刷新音乐库，再重新载入播放列表，所有播放列表的音乐地址就是最新的音乐地址，您直接保存即可</strong>。不需要对播放列表中的音乐路径在进行操作。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Walkman-Playlist-Tools/" rel="tag"># Walkman Playlist Tools</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/12/31/%E3%80%90%E6%95%99%E7%A8%8B%E3%80%91%E6%B3%9B%E8%B0%88%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="prev" title="【教程】泛谈“面向对象”">
+      <i class="fa fa-chevron-left"></i> 【教程】泛谈“面向对象”
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/03/09/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E4%BB%A3%E7%A0%81%E4%B8%8D%E6%9C%BD-%E7%BC%96%E5%86%99%E5%8F%AF%E7%BB%B4%E6%8A%A4%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8D%81%E5%A4%A7/" rel="next" title="【读书笔记】代码不朽——编写可维护软件的十大要则">
+      【读书笔记】代码不朽——编写可维护软件的十大要则 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A0%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">①准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A1%E5%88%B6%E4%BD%9C%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">②制作播放列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A2%E5%B7%A5%E4%BD%9C%E5%8C%BA%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">③工作区操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A3%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">④批量操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%85%A8%E9%80%89%E6%8C%89%E9%92%AE%EF%BC%9A"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.全选按钮：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%8F%96%E6%B6%88%E5%85%A8%E9%80%89%E6%8C%89%E9%92%AE%EF%BC%9A"><span class="nav-number">4.0.2.</span> <span class="nav-text">2.取消全选按钮：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E9%80%89%E6%8B%A9%E5%8F%8D%E9%80%89%E6%8C%89%E9%92%AE%EF%BC%9A"><span class="nav-number">4.0.3.</span> <span class="nav-text">3.选择反选按钮：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%8F%8D%E8%BD%AC%E9%80%89%E4%B8%AD%E7%8A%B6%E6%80%81%E6%8C%89%E9%92%AE%EF%BC%9A"><span class="nav-number">4.0.4.</span> <span class="nav-text">4.反转选中状态按钮：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E6%B8%85%E7%A9%BA%E6%8C%89%E9%92%AE"><span class="nav-number">4.0.5.</span> <span class="nav-text">5.清空按钮</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E7%AE%AD%E5%A4%B4%E6%8C%89%E9%92%AE"><span class="nav-number">4.0.6.</span> <span class="nav-text">6.箭头按钮</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A4%E6%90%9C%E7%B4%A2%E9%9F%B3%E4%B9%90"><span class="nav-number">5.</span> <span class="nav-text">⑤搜索音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A5%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">6.</span> <span class="nav-text">⑥文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%89%93%E5%BC%80-%E2%80%A6"><span class="nav-number">6.0.1.</span> <span class="nav-text">1.打开(…)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%89%93%E5%BC%80%E5%B9%B6%E5%A4%8D%E5%88%B6-%E2%80%A6"><span class="nav-number">6.0.2.</span> <span class="nav-text">2.打开并复制(…)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%AF%BC%E5%85%A5"><span class="nav-number">6.0.3.</span> <span class="nav-text">3.导入</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%85%A0-%E5%AF%BC%E5%85%A5%E6%9C%AC%E5%9C%B0%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8"><span class="nav-number">6.0.3.1.</span> <span class="nav-text">Ⅰ.导入本地播放列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%85%A1-%E5%AF%BC%E5%85%A5%E5%9C%A8%E7%BA%BF%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8"><span class="nav-number">6.0.3.2.</span> <span class="nav-text">Ⅱ.导入在线播放列表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%AF%BC%E5%87%BA"><span class="nav-number">6.0.4.</span> <span class="nav-text">4.导出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E9%87%8D%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">6.0.5.</span> <span class="nav-text">5.重载数据库</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A6%E8%87%AA%E5%8A%A8%E5%88%86%E7%B1%BB"><span class="nav-number">7.</span> <span class="nav-text">⑦自动分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A7%E6%9B%B4%E5%A4%9A%E5%B7%A5%E5%85%B7"><span class="nav-number">8.</span> <span class="nav-text">⑧更多工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%85%A0-%E7%AE%A1%E7%90%86%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8"><span class="nav-number">8.1.</span> <span class="nav-text">Ⅰ.管理播放列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%85%A1-%E8%87%AA%E5%8A%A8%E4%B8%8B%E8%BD%BD%E6%AD%8C%E8%AF%8D"><span class="nav-number">8.2.</span> <span class="nav-text">Ⅱ.自动下载歌词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%85%A2-%E6%89%B9%E9%87%8F%E8%BD%AC%E6%8D%A2%E6%AD%8C%E8%AF%8D%E6%A0%BC%E5%BC%8F"><span class="nav-number">8.3.</span> <span class="nav-text">Ⅲ.批量转换歌词格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%85%A3-%E6%A0%B9%E6%8D%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E7%94%9F%E6%88%90%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8"><span class="nav-number">8.4.</span> <span class="nav-text">Ⅳ.根据自定义规则生成播放列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A8%E5%85%B6%E4%BB%96%E5%B0%8F%E6%8F%90%E7%A4%BA"><span class="nav-number">9.</span> <span class="nav-text">⑨其他小提示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A0-%E7%95%8C%E9%9D%A2%E7%BC%A9%E6%94%BE"><span class="nav-number">9.0.1.</span> <span class="nav-text">Ⅰ.界面缩放</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%85%A1-%E8%BD%AC%E7%A7%BB%E9%9F%B3%E4%B9%90%E7%9A%84%E5%B0%8F%E7%AA%8D%E9%97%A8"><span class="nav-number">9.0.2.</span> <span class="nav-text">Ⅱ.转移音乐的小窍门</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
