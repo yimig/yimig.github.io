@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"yimig.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="①ListView：ListView是一种数据归类的控件，可以将数据以不同形式呈现给用户，下面将以Detail视图为例介绍ListView的使用方法。 首先需要判断数据呈现方式是否方便以Detail呈现。标准的Detail视图是这样的：  即一行有多个数据，或者说一个数据有多种属性，这样最适合使用Detail视图，但是对于这种：  即一行只有一个数据，或者数据不具有其他属性，就完全没必要使用，改">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【C#】控件知识点总结（ListView、TabControl、RichTextBox）">
-<meta property="og:url" content="http://example.com/2018/09/20/%E3%80%90c%E3%80%91%E6%8E%A7%E4%BB%B6%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88listview%E3%80%81tabcontrol%E3%80%81textbox%EF%BC%89/index.html">
+<meta property="og:url" content="http://yimig.github.io/2018/09/20/%E3%80%90c%E3%80%91%E6%8E%A7%E4%BB%B6%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88listview%E3%80%81tabcontrol%E3%80%81textbox%EF%BC%89/index.html">
 <meta property="og:site_name" content="Tim&#39;s Blog">
 <meta property="og:description" content="①ListView：ListView是一种数据归类的控件，可以将数据以不同形式呈现给用户，下面将以Detail视图为例介绍ListView的使用方法。 首先需要判断数据呈现方式是否方便以Detail呈现。标准的Detail视图是这样的：  即一行有多个数据，或者说一个数据有多种属性，这样最适合使用Detail视图，但是对于这种：  即一行只有一个数据，或者数据不具有其他属性，就完全没必要使用，改">
 <meta property="og:locale" content="zh_CN">
@@ -37,7 +37,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://47.94.231.166/wp-content/uploads/2018/09/Walkman-Playlist-Tools_2018-09-20_18-21-28-300x263.png">
 
-<link rel="canonical" href="http://example.com/2018/09/20/%E3%80%90c%E3%80%91%E6%8E%A7%E4%BB%B6%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88listview%E3%80%81tabcontrol%E3%80%81textbox%EF%BC%89/">
+<link rel="canonical" href="http://yimig.github.io/2018/09/20/%E3%80%90c%E3%80%91%E6%8E%A7%E4%BB%B6%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88listview%E3%80%81tabcontrol%E3%80%81textbox%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -199,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/09/20/%E3%80%90c%E3%80%91%E6%8E%A7%E4%BB%B6%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88listview%E3%80%81tabcontrol%E3%80%81textbox%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="http://yimig.github.io/2018/09/20/%E3%80%90c%E3%80%91%E6%8E%A7%E4%BB%B6%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88listview%E3%80%81tabcontrol%E3%80%81textbox%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
