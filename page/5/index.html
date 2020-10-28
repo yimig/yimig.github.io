@@ -242,7 +242,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-28 22:46:39" itemprop="dateModified" datetime="2020-10-28T22:46:39+08:00">2020-10-28</time>
+                <time title="修改时间：2020-10-28 23:36:51" itemprop="dateModified" datetime="2020-10-28T23:36:51+08:00">2020-10-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,26 +285,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a>
-<h1 id="①委托"><a href="#①委托" class="headerlink" title="①委托"></a>①委托</h1><p>1.委托像是一种特殊的类，这种类<strong>只能存储方法</strong>，不存储字段属性，而且它是<strong>存储别的对象的方法</strong>。（储存没有类的“野方法”用lambda表达式） 2.委托这种类还可以被直接执行，它执行起来就像一个方法，只不过实际上它是在执行别的对象的方法。</p>
-<h2 id="委托的声明"><a href="#委托的声明" class="headerlink" title="委托的声明"></a>委托的声明</h2><p>委托使用关键字<strong>delegate</strong>声明，声明时，还要包括委托包含的方法的<strong>返回类型</strong>和<strong>传入值</strong>，若声明一个委托为Act，且其无返回值（void），无传入值，如下：</p>
-<p><strong>delegate</strong> void <strong>Act()</strong>;</p>
-<h2 id="委托的定义"><a href="#委托的定义" class="headerlink" title="委托的定义"></a>委托的定义</h2><p>声明委托后即可对其进行定义，刚刚声明了委托类，下面还要具体定义该类下的“委托对象”，即“成员”。如下：</p>
-<p>Pet pet=new Pet(); <strong>Act</strong> act=Pet.Speaking;//声明成员后添加第一个方法<br>act+=Pet.Feed;//为成员添加第二个方法</p>
-<p>注意这里传入pet对象的Speaking方法时<strong>并没有带方法后常加的括号</strong>，这是因为我们在声明委托时就定义了此中包含的方法不能有传入参数。 注意同一个委托对象可以同时包含静态与非静态方法，只不过包括静态方法是”类.方法“而非静态方法是”对象.方法“。 使用<strong>“+=”</strong>添加超过一个方法，使用<strong>“-=”</strong>删去一个方法。 这样以来，成员act就可以传入多个不同对象的方法，委托也可以多次声明出不同的成员。</p>
-<h2 id="调用委托"><a href="#调用委托" class="headerlink" title="调用委托"></a>调用委托</h2><p>调用委托时，直接写出要调用的成员名加传入参数即可，如上面的例子，调用act即为</p>
-<p>act();</p>
-<p>形式与调用了一个方法很相似。</p>
-<h1 id="②Lambda表达式"><a href="#②Lambda表达式" class="headerlink" title="②Lambda表达式"></a>②Lambda表达式</h1><p>Lambda表达式由匿名方法进化而来，它允许用户往委托中存储“没有类的野方法” 语法： 以①中的act“委托对象”为例，我们使用lambda表达式为它添加一个“没有类的野方法”：</p>
-<p>act=()\=&gt;{…}</p>
-<p>这样，在运行act“委托对象”时，{…}中的内容也会被运行。</p>
-<h1 id="③事件"><a href="#③事件" class="headerlink" title="③事件"></a>③事件</h1><p>事件的通知需要有事件的“发布者”与事件的“订阅者”。 事件发生时，通知订阅者，就是调用订阅者的<strong>“注册函数”</strong>。注册，就是告诉发布者<strong>调用哪个注册函数</strong>。</p>
-<h2 id="事件的声明"><a href="#事件的声明" class="headerlink" title="事件的声明"></a>事件的声明</h2><p>事件实际上就是对一个委托进行了声明（委托→成员），既然如此必须先有被声明的委托，然后使用关键字<strong>event</strong>对其进行声明。如下例，就将Handler委托声明成了NewDog事件。</p>
-<p>delegate void Handler();<br>public <strong>event</strong> Handler NewDog;</p>
-<p>需要注意的是使用事件声明委托后其会被隐式自动初始化为null，所以之后的添加方法需要使用<strong>“+=”</strong>。 方法可以是实例方法、静态方法、Lambda表达式。</p>
-<h2 id="触发事件"><a href="#触发事件" class="headerlink" title="触发事件"></a>触发事件</h2><p>需要触发事件（广播事件）时，就可以使用</p>
-<p>if(NewDog!=null)//如果NewDog事件不为空（无方法接收）<br>{<br>  NewDog();（广播事件/调用NewDog包括的方法）<br>}</p>
-
+          <hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/09/30/csharp_delegate_and_event/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -653,7 +642,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-28 22:47:23" itemprop="dateModified" datetime="2020-10-28T22:47:23+08:00">2020-10-28</time>
+                <time title="修改时间：2020-10-28 23:37:25" itemprop="dateModified" datetime="2020-10-28T23:37:25+08:00">2020-10-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -696,30 +685,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a>
-<h1 id="①自定义转换"><a href="#①自定义转换" class="headerlink" title="①自定义转换"></a>①自定义转换</h1><blockquote>
-<p>为自己的<strong>结构</strong>或者<strong>类</strong>定义显式和隐式转换</p>
-</blockquote>
-<h2 id="对目标对象进行隐式转换："><a href="#对目标对象进行隐式转换：" class="headerlink" title="对目标对象进行隐式转换："></a>对目标对象进行<strong>隐式转换</strong>：</h2><p>public static <strong>implicit</strong> operator 转换类型(被转换类型 目标对象){…}</p>
-<h2 id="调用："><a href="#调用：" class="headerlink" title="调用："></a>调用：</h2><p>转换类型 转换类型的对象=目标对象;</p>
-<p>这行代码应当出现在对象转换为的类中，而且转换函数是没有函数名称的，如：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Dog</span>&#123;</span><br><span class="line">......</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">implicit</span> <span class="keyword">operator</span> <span class="title">Dog</span>(<span class="params">Cat cat</span>)<span class="comment">//定义隐式转换</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    ......</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Cat cat=<span class="keyword">new</span> Cart();</span><br><span class="line">        Dog dog=cat;<span class="comment">//调用隐式转换</span></span><br><span class="line">    ......</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="对目标类型进行显式转换："><a href="#对目标类型进行显式转换：" class="headerlink" title="对目标类型进行显式转换："></a>对目标类型进行<strong>显式转换</strong>：</h2><p>public static <strong>explicit</strong> operator 转换类型(被转换类型 目标类){…}</p>
-<h2 id="调用：-1"><a href="#调用：-1" class="headerlink" title="调用："></a>调用：</h2><p>转换类型 转换类型的对象=(转换类型的对象)目标对象;</p>
-<p>如：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Dog</span>&#123;</span><br><span class="line">......</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">explicit</span> <span class="keyword">operator</span> <span class="title">Dog</span>(<span class="params">Cat cat</span>)<span class="comment">//定义显式转换</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">......</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Cat cat=<span class="keyword">new</span> Cart();</span><br><span class="line">    Dog dog=(Dog)cat;<span class="comment">//调用显式转换</span></span><br><span class="line">......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="②重载运算符"><a href="#②重载运算符" class="headerlink" title="②重载运算符"></a>②重载运算符</h1><blockquote>
-<p>利用<strong>现有的</strong>某种运算符，针对<strong>自定义</strong>类（派生）或者结构，<strong>定义某种运算操作</strong>。</p>
-</blockquote>
-<p>如：父亲*母亲=儿子 语法：</p>
-<p>public static <strong>Human</strong> operator * (Human male,Human female)<br>{<br>…<br>return new Human();<br>}</p>
-<p><strong>Human</strong> 为运算返回值。 重载运算符的定义语法也是在类中使用，实例化该例后即可对其对象和派生出的类的对象使用（是对类还是对对象要看如何定义）。 如：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Human</span>&#123;</span><br><span class="line">......</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Human <span class="keyword">operator</span> + (Human male,Human female)</span><br><span class="line">    &#123;</span><br><span class="line">    ...</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Human();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Human male=<span class="keyword">new</span> Human();</span><br><span class="line">        Human female=<span class="keyword">new</span> Human();</span><br><span class="line">        Human child=(female+male);</span><br><span class="line">        ......</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>可重载的运算符：</p>
-<p>一元运算符：+,-,!,~,++,—,true,false（操作数必须是类或结构）</p>
-<p>二元运算符：+,-,*,/,%,&amp;,!,^,&lt;&lt;,&gt;&gt;,==,!=,&gt;,&lt;,&gt;=,&lt;= （两个操作数至少有一个是类或结构）</p>
-<p>以下运算符<strong>不能重载</strong>：=,&amp;&amp;,,[],()<strong>等</strong> 重载运算符<strong>不能</strong>做以下事： ⚪创造新运算符 ⚪改变运算符语法 ⚪重定义因算符如何预处理类型（int a+int b等于a-b) ⚪改变运算符的优先级和结合性</p>
-
+          <hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/09/27/csharp_operator/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -870,7 +844,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-28 22:47:40" itemprop="dateModified" datetime="2020-10-28T22:47:40+08:00">2020-10-28</time>
+                <time title="修改时间：2020-10-28 23:37:35" itemprop="dateModified" datetime="2020-10-28T23:37:35+08:00">2020-10-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -913,14 +887,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a>
-<h1 id="①静态成员"><a href="#①静态成员" class="headerlink" title="①静态成员"></a>①静态成员</h1><p>标识为static的字段、方法、属性、构造函数、事件，就是静态成员。 <strong>静态成员将被类的所有实例共享，所有实例都访问同一内存位置。静态成员和实例成员在内存中被分开保存。</strong> 静态成员可直接通过类名访问，没有实例也可以访问。 <strong>静态函数不能访问实例成员，仅能访问其他静态成员。</strong></p>
-<h2 id="静态构造函数："><a href="#静态构造函数：" class="headerlink" title="静态构造函数："></a>静态构造函数：</h2><p>静态构造函数用于<strong>初始化静态字段</strong>。 在引用任何静态成员之前，和创建任何实例之前调用。 与类同名，使用static，无参数，<strong>无访问修饰符</strong>。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Dog</span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="title">Dog</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">num=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="②静态类"><a href="#②静态类" class="headerlink" title="②静态类"></a>②静态类</h1><p>如果类<strong>只包含</strong>静态的方法和属性，并标识为static 静态类<strong>不能创建实例</strong>，<strong>不能被继承</strong> 可以为静态类定义一个静态构造函数 静态类的作用： 1.作为基础类库，储存很多信息 2.作为<strong>扩展方法：</strong> 在不知晓源代码、密闭类不能派生时，就可以使用静态类作为拓展方法。 但是拓展方法需要<strong>指明对象</strong>（可在未实例化之前）。   如：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">class</span> <span class="title">Write</span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Writepaper</span>(<span class="params"><span class="keyword">this</span> Pen pencil</span>)</span>&#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Pen</span>&#123;...&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">Pen pencil=<span class="keyword">new</span> Pen();</span><br><span class="line">pencil.Writepaper()<span class="comment">//就像Pen类中包含Writepaper方法一样，可直接被调用</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><p>扩展方法所属的类必须是static类 拓展方法本身必须是static方法 拓展方法的第一个参数类型，必须是<strong>this+类名</strong></p>
-
+          <hr>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/09/26/csharp_static/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
