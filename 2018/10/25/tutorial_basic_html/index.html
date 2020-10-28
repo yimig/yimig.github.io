@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yimig.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="上周由于有任务所以加急学了HTML+CSS基础，并且做了一个网页。就最终作品来说算是比较完整地还原了自己想象中的网站，虽然兼容性很差，但是考虑到deadline如此，也是非常满意了。 同样由于赶工所以一周的学习都没有留痕迹，为了防止遗忘特在此从头到尾完整回忆一边HTML语法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【HTML】一篇文章通遍HTML基础">
+<meta property="og:url" content="http://yimig.github.io/2018/10/25/tutorial_basic_html/index.html">
+<meta property="og:site_name" content="Tim&#39;s Blog">
+<meta property="og:description" content="上周由于有任务所以加急学了HTML+CSS基础，并且做了一个网页。就最终作品来说算是比较完整地还原了自己想象中的网站，虽然兼容性很差，但是考虑到deadline如此，也是非常满意了。 同样由于赶工所以一周的学习都没有留痕迹，为了防止遗忘特在此从头到尾完整回忆一边HTML语法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/04/23.png">
+<meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/10/chrome_2018-10-23_17-44-34-1024x122.png">
+<meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/10/chrome_2018-10-23_17-47-36.png">
+<meta property="article:published_time" content="2018-10-25T13:53:27.000Z">
+<meta property="article:modified_time" content="2020-10-27T13:03:38.609Z">
+<meta property="article:author" content="Tim">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="WEB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.94.231.166/wp-content/uploads/2018/04/23.png">
+
+<link rel="canonical" href="http://yimig.github.io/2018/10/25/tutorial_basic_html/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【HTML】一篇文章通遍HTML基础 | Tim's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?64126ab668fa908027cba9464a0afec7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Tim's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Learn Everything!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/yimig" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yimig.github.io/2018/10/25/tutorial_basic_html/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Tim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tim's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【HTML】一篇文章通遍HTML基础
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-25 21:53:27" itemprop="dateCreated datePublished" datetime="2018-10-25T21:53:27+08:00">2018-10-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-27 21:03:38" itemprop="dateModified" datetime="2020-10-27T21:03:38+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/HTML/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/HTML/Web/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>上周由于有任务所以加急学了HTML+CSS基础，并且做了一个网页。就最终作品来说算是比较完整地还原了自己想象中的网站，虽然兼容性很差，但是考虑到deadline如此，也是非常满意了。 同样由于赶工所以一周的学习都没有留痕迹，为了防止遗忘特在此从头到尾完整回忆一边HTML语法。<br><a id="more"></a></p>
+<h1 id="①先说说HTML"><a href="#①先说说HTML" class="headerlink" title="①先说说HTML"></a>①先说说HTML</h1><p>HTML全称HyperText Markup Language，很多同学学完后会问“明明所有标签都可以用div代替啊？那还用记那么多标签的拼写干什么？”注意了啊（敲黑板），它名字里可是有Markup在里面，要是全用div那你Mark什么？ <a target="_blank" rel="noopener" href="http://upane.cn/archives/220/attachment/23"><img src="http://47.94.231.166/wp-content/uploads/2018/04/23.png" alt=""></a> 编写规则（转义字符）： 有些字符在html中有特殊意义，要想让它们以文本形式显示而不是被认为是一个语句需要进行转义，就有了下面的规则：</p>
+<p>**[空格]  &nbsp;<br>&lt;      &lt;</p>
+<blockquote>
+<pre><code> &amp;gt;
+</code></pre><p>&amp;      &amp;<br>￥     &yen;<br>©      &copy;<br>®      &reg;** </p>
+</blockquote>
+<p>具体框架结构详见上一篇。</p>
+<h1 id="②再扯扯doctype"><a href="#②再扯扯doctype" class="headerlink" title="②再扯扯doctype"></a>②再扯扯doctype</h1><p><strong>&lt;!doctype html&gt;</strong></p>
+<p>很多同学都忽略了开头这个doctype，现在的很多IDE也会在创建HTML文件时自动加上这一句。但是少了它HTML就完全不能被执行了，因为它的含义是<strong>该文档使用HTML标准规范</strong>，浏览器看不到这个就按普通文档算！</p>
+<h1 id="③然后，再谈谈属性"><a href="#③然后，再谈谈属性" class="headerlink" title="③然后，再谈谈属性"></a>③然后，再谈谈属性</h1><p>标签中可以夹属性，如</p>
+<input **checked type="text"** />
+
+<p>每个属性都可以赋值，那么，上面这个checked算是个什么呢？ 这是个省略语句，展开应该是<strong>checked=”checked”</strong>。 如此，标签名赋名字相同的值时，就可以省略。 那么，有哪些属性可以省略呢？</p>
+<p><strong>可省略的属性      代表功能<br>checked         复选框选中<br>readonly        该文本框只读（不可输入）<br>defer           全部页面载入后再加载脚本（增加网页加载速度）<br>ismap           用户点击此页面后将鼠标位置发送给服务器<br>nohref          area标签中表示该区域没有相关链接<br>noshade         规定水平线的颜色呈现为纯色，而不是有阴影的颜色<br>nowrap          文本框内文字不自动换行<br>selected        下拉列表中预先选择该项<br>disabled        该按钮不可用<br>multiple        上传文件等可选择多个<br>noresize        规定用户无法调整框架的大小</strong></p>
+<h1 id="④最后，我们再分分标签"><a href="#④最后，我们再分分标签" class="headerlink" title="④最后，我们再分分标签"></a>④最后，我们再分分标签</h1><p>标签分为哪几种？按照其呈现的形式，我们可将其分为<strong>行级元素</strong>与<strong>块级元素</strong>。 我们知道，HTML网页在不使用分层、position的情况下会默认将标签从上到下排列，但是有些元素好像可以“横着排”，比如连续使用两个<span>标签的文本显示起来就在一行而不是纵向排列，这就是<strong>行级元素</strong>。而默认纵向排列，即使多个加起来不满一行也不会横向排列的标签就是<strong>块级元素</strong>。 如图，“1”使用h1标签，是块级元素，所以即使它就一个数字的内容也会占满一行 <a target="_blank" rel="noopener" href="http://upane.cn/archives/843/chrome_2018-10-23_17-44-34"><img src="http://47.94.231.166/wp-content/uploads/2018/10/chrome_2018-10-23_17-44-34-1024x122.png" alt=""></a> 而“222222222222”使用span标签，是行级元素，所以有多少字就占宽度，不会一次占满。 <a target="_blank" rel="noopener" href="http://upane.cn/archives/843/chrome_2018-10-23_17-47-36"><img src="http://47.94.231.166/wp-content/uploads/2018/10/chrome_2018-10-23_17-47-36.png" alt=""></a> got it？ 那么，哪些标签是块级元素，哪些是行级元素呢？ <strong>块级元素：</strong> <address>…&lt;/adderss&gt; <center>...</center>  地址文字 <h1>...</h1>  标题一级 <h2>…</h2>  标题二级 <h3>…</h3>  标题三级 <h4>…</h4>  标题四级 <h5>…</h5>  标题五级 <h6>…</h6>  标题六级 <hr>  水平分割线 <p>...</p>  段落 <pre>...</pre>  预格式化 <blockquote>...</blockquote>  段落缩进   前后5个字符 <marquee>…</marquee>  滚动文本 <ul>...</ul>  无序列表 <ol>...</ol>  有序列表 <dl>...</dl>  定义列表 <table>...</table>  表格 <form>...</form>  表单 <div>...</div> <strong>行级元素：</strong> <span>…</span> <a>…</a>  链接 <br>  换行 <b>…</b>  加粗 <strong>…</strong>  加粗 <img >  图片 <sup>…</sup>  上标 <sub>…</sub>  下标 <i>…</i>  斜体 <em>…</em>  斜体 <del>…</del>  删除线 <u>…</u>  下划线 <input>…</input>  文本框 <textarea>…</textarea>  多行文本 <select>…</select>  下拉列表</p>
+<h1 id="⑤剩下的，就都不难了"><a href="#⑤剩下的，就都不难了" class="headerlink" title="⑤剩下的，就都不难了"></a>⑤剩下的，就都不难了</h1><p>下面将罗列各个标签，文档中的标记代表如下： <span>hi</span>  这里的hi称为<strong>在标签里</strong> <meta name="author" content="Tim"> 这里的name和content称为标签的<strong>属性</strong> 标记形式（Note）=【Sig=Single=单标记=成单出现   Dou=Double=双标记=成双出现】 元素类型（Element）=【Blo=Block=块级元素  Row=Row=行级元素 Non=None=非显示元素】 表达式：[Note.Element] 属性:{内容枚举（小写，各例用逗号连接）/内容概括（大写）} 若有红色标记的属性则代表该属性不可忽略（不赋值），若忽略则该标签不可用 如： <strong><img></strong> <strong>[Sig.Row]</strong> src={“PATH”} position:{static,relative,absolute,fixed} 含义为：img标签为单标记的行级元素，其中有两个属性src和position，src填入内容为路径，且该属性不可被忽略，而position内容为static,relative,absolute,fixed其中的一个。</p>
+<h2 id="1-文档头部标记"><a href="#1-文档头部标记" class="headerlink" title="1.文档头部标记"></a>1.文档头部标记</h2><p><strong>⑴<meta> 定义页面信息标记</strong> <strong>[Sig.Non]</strong> 标记定义页面的原信息，信息可包括多种形式。 属性： <meta name="名称" content="值" /> 名称可被替换为多种固定类型，可在值中定义名称的内容。 可选择的名称为： keywords：搜索引擎辅助标签，为网站增加特征点，各标签之间用逗号隔开。 description：网页描述，辅助搜索引擎 author：声明网页作者 <meta http-equiv="名称" content="值" /> 指定浏览器对网页的行为，如解码方式、跳转等。 可选择的名称为： Content-Type：（对应值text/html;charset=utf-8）声明以utf-8解码 refresh：（对应值10;url=”A”）载入页面10秒后跳转至A网页 <strong>⑵<link>引用外部文件标记</strong> <strong>[Sig.Non]</strong> 该标签用于引入外部文件 常用属性： href:{URL}：引入的文件链接 rel:{stylesheet}：表示引入内容为一个外部样式表 type:{text/css,text/javascript}：表示引入文件类型为css样式表或者JavaScript脚本 <strong>⑶<title>设置页面标题标记</strong> <strong>[Dou.Non]</strong> 标签内的内容将显示在浏览器标题上 ⑷<style>内嵌样式标记 [Dou.Non] 标签中的值将作为css样式载入html标签，但为了分离css设计和html骨架所以不推荐使用该标签定义css内容，应更多地使用分离的文件承载css与html文件。</p>
+<h2 id="2-文本控制标记"><a href="#2-文本控制标记" class="headerlink" title="2.文本控制标记"></a>2.文本控制标记</h2><p><strong>⑴<hx>标题标记</strong> <strong>[Dou.Blo]</strong> 设置标题，x=1~6，其中h1只能用一次。 常用属性： align:{left,center,right}：对齐方式 <strong>⑵<p>段落标记</strong> <strong>[Dou.Blo]</strong> 表示一段文本 <strong>⑶<hr />水平线标记</strong> <strong>[Sig.Blo]</strong> 产生一个水平分割线 常用属性： align:{left,right,center}：设置水平线对齐方式 size:{Pixel}：设置水平线粗细，默认2px color:{COLOR}：设置水平线颜色 width{Pixel、%}：设置水平线高度 <strong>⑷<br />换行标记</strong> <strong>[Sig.Non]</strong> <strong>任何用<br />控制文本位置的程序猿都该被火刑</strong> _--某愤怒的编辑_</p>
+<h2 id="3-文本格式化标记"><a href="#3-文本格式化标记" class="headerlink" title="3.文本格式化标记"></a>3.文本格式化标记</h2><p><strong>⑴<b>文本粗体标记</strong> <strong>[Dou.Row]</strong> 使内含文字格式化为粗体，无其他意义。 <strong>⑵<strong>强调文本标记（粗体）</strong> <strong>[Dou.Row]</strong> 同样使文字格式化为粗体，但是具有强调意义，该意义会被搜索引擎理解。 <strong>⑶<i>文本斜体标记</strong> <strong>[Dou.Row]</strong> 使内含文字格式化为斜体，无其他意义。 <strong>⑷<em>强调文本标记（斜体）</strong> <strong>[Dou.Row]</strong> 同样使文字格式化为斜体，但是具有强调意义，该意义会被搜索引擎理解。 <strong>⑸<del>删除线标记</strong> <strong>[Dou.Row]</strong> 为内含文字添加删除线。该标记还有<s>的写法，但不推荐使用。 <strong>⑹<ins>下划线标记</strong> <strong>[Dou.Row]</strong> 为内含文字添加下划线。该标记还有<u>的写法，但不推荐使用。</p>
+<h2 id="4-功能标记"><a href="#4-功能标记" class="headerlink" title="4.功能标记"></a>4.功能标记</h2><p><strong>⑴<img>图像标记</strong> <strong>[Sig.Row]</strong> 插入一个图像，默认原图像大小，不进行缩放。 src={PATH}：图像文件路径 alt={TEXT}：图片不能正常加载时显示的文字，也是搜索引擎获取图片信息的方式。从优化网页的角度看也是不可被忽略的。 title={TEXT}：鼠标悬停时显示的内容 width/height：图像的宽/高，值设定一个值会等比例放大，否则图像将拉伸 vspace={PIXEL}：设置图像顶部和底部的留白（垂直边距） hspace={PIXEL}：设置图像左侧核右侧的留白（水平边距） align={left,right,top,middle,bottom}：图像位于文字左（left）、右侧（right），图片顶部（top）、中线（middle）、底部（bottom）与文字第一行对其，其余在图片下 <strong>⑵<a>超链接标记</strong> <strong>[Dou.Row]</strong> 标签内可为其他可见标签，用户点击时跳转至固定的目标 href={URL,PATH}：跳转目标位置 target={_blank,_self}：目标窗口弹出方式，有新窗口打开（_blank）和从原窗口（_self）打开</p>
+<h2 id="5-排版标签"><a href="#5-排版标签" class="headerlink" title="5.排版标签"></a>5.排版标签</h2><p><strong>⑴<ul>无序列表</strong> <strong>[Dou.Blo]</strong> 创建一个无序列表，列表各项用<li>分隔</p>
+<ul>
+  <li>我不是</li>
+  <li>我没有</li>
+  <li>我可没说啊</li>
+</ul>
+
+<p>使用效果如下：</p>
+<ul>
+<li>我不是</li>
+<li>我没有</li>
+<li>我可没说啊</li>
+</ul>
+<p><strong>⑵<ol>有序列表</strong> <strong>[Dou.Blo]</strong> 创建一个有序列表，列表各项用<li>分隔</p>
+<ol> 
+  <li>我不是</li> 
+  <li>我没有</li> 
+  <li>我可没说啊</li> 
+</ol>
+
+<p>效果如下：</p>
+<ol>
+<li>我不是</li>
+<li>我没有</li>
+<li>我可没说啊</li>
+</ol>
+<p><strong>⑶<dt>无符列表</strong> <strong>[Dou.Blo]</strong> 创建一个没有符号（圆圈、序号）的列表，各项用<dd>分隔</p>
+<dt> 
+   <dd>我不是</dd> 
+   <dd>我没有</dd> 
+   <dd>我可没说啊</dd> 
+</dt>
+
+<p>效果如下： 我不是 我没有 我可没说啊 <strong>⑷<nav>导航栏标签</strong> <strong>[Dou.Blo]</strong> 代表内容为一个导航栏，并不会有什么优化，只是标记这是个导航栏，通常在其中套一个列表。 常用作以下场合： 传统顶部导航条、侧边导航栏、页内导航、翻页操作 <strong>⑸<header>标题标签</strong> <strong>[Dou.Blo]</strong> 代表一个标题，但是同样不会对版式有什么优化，里面可以嵌套h1等达到标题效果。可以是页面的标题也可以是板块的标题，内容也可多可少，比如在里面套一个副标题。所以此标签在一个页面允许出现多次。 <strong>⑹<article>文章标签</strong> <strong>[Dou.Blo]</strong> 代表一篇文章或者一个评论等，也不会对版式有什么优化，只是一个标记而已。 <strong>⑺<aside>附属标签</strong> <strong>[Dou.Blo]</strong> 定义侧边栏、广告等信息，无板式优化。 <strong>⑻<section>版块标签</strong> <strong>[Dou.Blo]</strong> 定义一个版块，但不是用于排版目的，若用于排版请用div 若article、nav、aside更适合时应用此更详细的标签 无板式优化 <strong>⑼<footer>页脚标签</strong> <strong>[Dou.Blo]</strong> 定义一个页脚版块，但是该标签本身无版式优化，所以就算使用了footer还是该在哪里就在哪里，不会浮于底部。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+              <a href="/tags/WEB/" rel="tag"># WEB</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/10/15/web_entry_html/" rel="prev" title="【HTML】初识HTML">
+      <i class="fa fa-chevron-left"></i> 【HTML】初识HTML
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/11/03/coding_tree/" rel="next" title="【数据结构】二叉树的创建，遍历，求叶子数、深度。">
+      【数据结构】二叉树的创建，遍历，求叶子数、深度。 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A0%E5%85%88%E8%AF%B4%E8%AF%B4HTML"><span class="nav-number">1.</span> <span class="nav-text">①先说说HTML</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A1%E5%86%8D%E6%89%AF%E6%89%AFdoctype"><span class="nav-number">2.</span> <span class="nav-text">②再扯扯doctype</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A2%E7%84%B6%E5%90%8E%EF%BC%8C%E5%86%8D%E8%B0%88%E8%B0%88%E5%B1%9E%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">③然后，再谈谈属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A3%E6%9C%80%E5%90%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E5%86%8D%E5%88%86%E5%88%86%E6%A0%87%E7%AD%BE"><span class="nav-number">4.</span> <span class="nav-text">④最后，我们再分分标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">...</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.1.</span> <span class="nav-text">…</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">5.1.1.</span> <span class="nav-text">…</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">5.1.1.1.</span> <span class="nav-text">…</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">5.1.1.1.1.</span> <span class="nav-text">…</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">5.1.1.1.1.1.</span> <span class="nav-text">…</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A4%E5%89%A9%E4%B8%8B%E7%9A%84%EF%BC%8C%E5%B0%B1%E9%83%BD%E4%B8%8D%E9%9A%BE%E4%BA%86"><span class="nav-number">6.</span> <span class="nav-text">⑤剩下的，就都不难了</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%96%87%E6%A1%A3%E5%A4%B4%E9%83%A8%E6%A0%87%E8%AE%B0"><span class="nav-number">6.1.</span> <span class="nav-text">1.文档头部标记</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Tim"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">Tim</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yimig" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yimig" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhangyiming@programmer.net" title="E-Mail → mailto:zhangyiming@programmer.net" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.com/yimig/" title="LeeCode → https:&#x2F;&#x2F;leetcode.com&#x2F;yimig&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>LeeCode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/tim-2-96" title="zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;tim-2-96" rel="noopener" target="_blank"><i class="fa fa-fw fa-question-circle"></i>zhihu</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://upane.cn/" title="https:&#x2F;&#x2F;upane.cn" rel="noopener" target="_blank">博客旧址</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tim</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">184k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:47</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js"></script>
+    <script defer src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js"></script>
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'a876807f33858291f9d9',
+      clientSecret: '7a5c6a83611c309965d7339d7ca5f16e34a21e9f',
+      repo        : 'yimig.github.io',
+      owner       : 'yimig',
+      admin       : ['yimig'],
+      id          : '1b2b005d06e0470004abfa5a85e83306',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

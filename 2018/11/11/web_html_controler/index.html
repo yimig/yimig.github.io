@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yimig.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="&gt;无扰阅读模式（测试）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【HTML】交互控件">
+<meta property="og:url" content="http://yimig.github.io/2018/11/11/web_html_controler/index.html">
+<meta property="og:site_name" content="Tim&#39;s Blog">
+<meta property="og:description" content="&gt;无扰阅读模式（测试）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-11-11T06:36:56.000Z">
+<meta property="article:modified_time" content="2020-10-27T13:03:38.611Z">
+<meta property="article:author" content="Tim">
+<meta property="article:tag" content="HTML">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yimig.github.io/2018/11/11/web_html_controler/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【HTML】交互控件 | Tim's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?64126ab668fa908027cba9464a0afec7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Tim's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Learn Everything!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/yimig" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yimig.github.io/2018/11/11/web_html_controler/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Tim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tim's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【HTML】交互控件
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-11 14:36:56" itemprop="dateCreated datePublished" datetime="2018-11-11T14:36:56+08:00">2018-11-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-27 21:03:38" itemprop="dateModified" datetime="2020-10-27T21:03:38+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/HTML/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/HTML/Web/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a target="_blank" rel="noopener" href="http://47.94.231.166/wp-content/uploads/2018/11/Interactive_contols.html">>无扰阅读模式（测试）</a><br><a id="more"></a></p>
+<h1 id="交互控件"><a href="#交互控件" class="headerlink" title="交互控件"></a>交互控件</h1><p>[Interactive contols]</p>
+<hr>
+<h6 id="何为交互控件？"><a href="#何为交互控件？" class="headerlink" title="何为交互控件？"></a>何为交互控件？</h6><blockquote>
+<p>交互控件就是可以与用户完成<strong>交互动作</strong>（如点击、输入）的一种特殊化语义的标签</p>
+</blockquote>
+<h2 id="①交互元素"><a href="#①交互元素" class="headerlink" title="①交互元素"></a>①交互元素</h2><h3 id="Ⅰ-下拉菜单栏（Detail元素与Summary元素）"><a href="#Ⅰ-下拉菜单栏（Detail元素与Summary元素）" class="headerlink" title="Ⅰ. 下拉菜单栏（Detail元素与Summary元素）"></a>Ⅰ. 下拉菜单栏（Detail元素与Summary元素）</h3><p><code>details</code>与<code>summary</code>常常共同使用，并且常用于制作下拉菜单栏。</p>
+<h4 id="details-amp-summary元素"><a href="#details-amp-summary元素" class="headerlink" title="details&amp;summary元素"></a>details&amp;summary元素</h4><p>[Dou.Blo]</p>
+<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;details&gt;</span><br><span class="line">  &lt;summary&gt;否认三连&lt;&#x2F;summary&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li&gt;我不是&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;我没有&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;我可没说过啊&lt;&#x2F;li&gt;</span><br><span class="line"> &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;details&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h4><p>否认三连</p>
+<ul>
+<li>我不是</li>
+<li>我没有</li>
+<li>我可没说过啊</li>
+</ul>
+<p><strong>不难看出，下拉菜单的实质是一个<code>Summary</code>标签用于下拉菜单显示标题，然后使用一个列表标签表示菜单选项</strong></p>
+<h3 id="Ⅱ-进度条（progress元素和meter元素）"><a href="#Ⅱ-进度条（progress元素和meter元素）" class="headerlink" title="Ⅱ.进度条（progress元素和meter元素）"></a>Ⅱ.进度条（progress元素和meter元素）</h3><h4 id="㈠progress元素"><a href="#㈠progress元素" class="headerlink" title="㈠progress元素"></a>㈠progress元素</h4><p>[Dou.Row] <code>progress</code>元素可以定义一个普通进度条，其常用属性有：</p>
+<p>属性</p>
+<p>说明</p>
+<p>max</p>
+<p>定义进度条的最大值，默认为1元素</p>
+<p>min</p>
+<p>定义进度条的最低值，默认为0</p>
+<p>value</p>
+<p>定义进度条显示的值</p>
+<h4 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;progress value&#x3D;60 max&#x3D;100&gt;&lt;&#x2F;progress&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="效果：-1"><a href="#效果：-1" class="headerlink" title="效果："></a>效果：</h4><h4 id="㈡meter元素"><a href="#㈡meter元素" class="headerlink" title="㈡meter元素"></a>㈡meter元素</h4><p>[Dou.Row] <code>meter</code>元素凭借可以定义较高值与较低值的优势更多的是<strong>显示数据</strong></p>
+<p>属性</p>
+<p>说明</p>
+<p>high</p>
+<p>定义一个“高值范围”，若进度条的值高于此值则告诉浏览器“过高”</p>
+<p>low</p>
+<p>定义一个“低值范围”，若进度条的值低于此值则高速浏览器“过低”</p>
+<p>max</p>
+<p>定义进度条的最大值，默认为1</p>
+<p>min</p>
+<p>定义进度条的最低值，默认为0</p>
+<p>optimum</p>
+<p>定义一个“最佳值”，若该值高于high，则代表值越高越好，若低于low，则代表值越低越好</p>
+<p>value</p>
+<p>定义进度条显示的值</p>
+<h4 id="示例：-2"><a href="#示例：-2" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;h6&gt;学生成绩&lt;&#x2F;h6&gt;</span><br><span class="line">&lt;p&gt;</span><br><span class="line">学霸：&lt;meter value&#x3D;90 max&#x3D;100 high&#x3D;80 low&#x3D;60&gt;&lt;&#x2F;meter&gt;90&lt;br&#x2F;&gt;</span><br><span class="line">班长：&lt;meter value&#x3D;75 max&#x3D;100 high&#x3D;80 low&#x3D;60&gt;&lt;&#x2F;meter&gt;75&lt;br&#x2F;&gt;</span><br><span class="line">学渣：&lt;meter value&#x3D;50 max&#x3D;100 high&#x3D;80 low&#x3D;60&gt;&lt;&#x2F;meter&gt;50&lt;br&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="效果：-2"><a href="#效果：-2" class="headerlink" title="效果："></a>效果：</h4><h6 id="学生成绩"><a href="#学生成绩" class="headerlink" title="学生成绩"></a>学生成绩</h6><p>学霸：90<br>班长：75<br>学渣：50  </p>
+<h2 id="②表单"><a href="#②表单" class="headerlink" title="②表单"></a>②表单</h2><p>表单是一种要求用户输入的可视化控件集合</p>
+<h3 id="创建一个表单"><a href="#创建一个表单" class="headerlink" title="创建一个表单"></a>创建一个表单</h3><p>创建表单需要引入<code>form</code>元素，通过更改form元素的属性可以初步确定数据的发送对象、发送方式等信息。</p>
+<h4 id="form"><a href="#form" class="headerlink" title="form"></a>form</h4><p>[Dou.Blo]</p>
+<h5 id="常用属性："><a href="#常用属性：" class="headerlink" title="常用属性："></a>常用属性：</h5><p>属性</p>
+<p>说明</p>
+<p>action</p>
+<p>该属性确定发送数据的目标页面地址</p>
+<p>method</p>
+<p>该属性确定发送数据的方式，有<code>get</code>和<code>post</code>可选，默认为<code>post</code>前者为数据一次性传送，后者为分步传送。但<code>get</code>保密性差，且有数据限制，所以推荐使用<code>post</code></p>
+<p>novalidate</p>
+<p>指定是否为用户输入该form中的控件内容进行检查</p>
+<h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><p>[<strong>Sig</strong>.Blo] 需要注意的是，<code>input</code>元素需要嵌套在form元素中才可用！</p>
+<p>属性</p>
+<p>属性值</p>
+<p>说明</p>
+<p>效果</p>
+<p>type</p>
+<p>text</p>
+<p>单行为本输入框</p>
+<p>-</p>
+<p>password</p>
+<p>密码输入框</p>
+<p>-</p>
+<p>radio</p>
+<p>单选按钮</p>
+<p>-</p>
+<p>checkbox</p>
+<p>复选框</p>
+<p>-</p>
+<p>button</p>
+<p>普通按钮</p>
+<p>-</p>
+<p>submit</p>
+<p>提交按钮</p>
+<p>-</p>
+<p>reset</p>
+<p>重置按钮</p>
+<p>-</p>
+<p>image</p>
+<p>图片形式的<strong>提交按钮</strong></p>
+<p>-</p>
+<p>hidden</p>
+<p>隐藏域</p>
+<p>-</p>
+<p>file</p>
+<p>文件域</p>
+<p>-</p>
+<p>email</p>
+<p>E-mail地址输入区域</p>
+<p>-</p>
+<p>url</p>
+<p>URL地址输入区域</p>
+<p>-</p>
+<p>number</p>
+<p>数字输入区域</p>
+<p>-</p>
+<p>range</p>
+<p>一定范围的数字输入区域(轨迹条）</p>
+<p>-</p>
+<p>date、month、week、time、datetime（-local）</p>
+<p>时间选择区域（示例为<code>date</code>）</p>
+<p>-</p>
+<p>search</p>
+<p>搜索区域</p>
+<p>-</p>
+<p>color</p>
+<p>颜色输入区域</p>
+<p>-</p>
+<p>tel</p>
+<p>电话号码输入区域</p>
+<p>name</p>
+<p>开发人员任取</p>
+<p>空间名称</p>
+<p>value</p>
+<p>开发人员任取</p>
+<p>空间默认值</p>
+<p>size</p>
+<p>正整数</p>
+<p>空间在页面中显示的宽度</p>
+<p>readonly</p>
+<p>readonly</p>
+<p>控件只读（不可修改）</p>
+<p>disabled</p>
+<p>disabled</p>
+<p>控件禁用</p>
+<p>checked</p>
+<p>checked</p>
+<p>控件默认选中</p>
+<p>maxlength</p>
+<p>正整数</p>
+<p>空间允许输入的最大字符数量</p>
+<p>autocomplete</p>
+<p>on/off</p>
+<p>设定是否自动完成表单字段内容</p>
+<p>autofocus</p>
+<p>autofocus</p>
+<p>指定页面加载后是否自动将焦点移至本控件</p>
+<p>form</p>
+<p>fom的元素id</p>
+<p>设定字段隶属于哪一个或多个表单</p>
+<p>list</p>
+<p>datalist的元素id</p>
+<p>指定字段的候选数据值列表</p>
+<p>multiple</p>
+<p>multiple</p>
+<p>指定输入框是否可以选择多个值</p>
+<p>min、max和step</p>
+<p>数值</p>
+<p>指定输入框所允许的最大值、最小值及间隔</p>
+<p>pattern</p>
+<p>字符串</p>
+<p>验证输入内容是否与正则表达式匹配</p>
+<p>placeholder</p>
+<p>字符串</p>
+<p>为<code>input</code>类型的输入框提供一种提示</p>
+<p>required</p>
+<p>required</p>
+<p>规定输入框填写内容不可为空</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/11/10/info_reconstruction/" rel="prev" title="【通知】文章重构提醒">
+      <i class="fa fa-chevron-left"></i> 【通知】文章重构提醒
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/11/16/java_abstract/" rel="next" title="【Java】抽象类作业">
+      【Java】抽象类作业 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E6%8E%A7%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">交互控件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%95%E4%B8%BA%E4%BA%A4%E4%BA%92%E6%8E%A7%E4%BB%B6%EF%BC%9F"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">何为交互控件？</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A0%E4%BA%A4%E4%BA%92%E5%85%83%E7%B4%A0"><span class="nav-number">1.1.</span> <span class="nav-text">①交互元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%85%A0-%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E6%A0%8F%EF%BC%88Detail%E5%85%83%E7%B4%A0%E4%B8%8ESummary%E5%85%83%E7%B4%A0%EF%BC%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">Ⅰ. 下拉菜单栏（Detail元素与Summary元素）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#details-amp-summary%E5%85%83%E7%B4%A0"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">details&amp;summary元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%EF%BC%9A"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">效果：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%85%A1-%E8%BF%9B%E5%BA%A6%E6%9D%A1%EF%BC%88progress%E5%85%83%E7%B4%A0%E5%92%8Cmeter%E5%85%83%E7%B4%A0%EF%BC%89"><span class="nav-number">1.1.2.</span> <span class="nav-text">Ⅱ.进度条（progress元素和meter元素）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A0progress%E5%85%83%E7%B4%A0"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">㈠progress元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A-1"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%EF%BC%9A-1"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">效果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%88%A1meter%E5%85%83%E7%B4%A0"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">㈡meter元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A-2"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%EF%BC%9A-2"><span class="nav-number">1.1.2.6.</span> <span class="nav-text">效果：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9"><span class="nav-number">1.1.2.6.0.1.</span> <span class="nav-text">学生成绩</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%91%A1%E8%A1%A8%E5%8D%95"><span class="nav-number">1.2.</span> <span class="nav-text">②表单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%A1%A8%E5%8D%95"><span class="nav-number">1.2.1.</span> <span class="nav-text">创建一个表单</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#form"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">form</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7%EF%BC%9A"><span class="nav-number">1.2.1.1.1.</span> <span class="nav-text">常用属性：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#input"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">input</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Tim"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">Tim</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yimig" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yimig" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhangyiming@programmer.net" title="E-Mail → mailto:zhangyiming@programmer.net" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.com/yimig/" title="LeeCode → https:&#x2F;&#x2F;leetcode.com&#x2F;yimig&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>LeeCode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/tim-2-96" title="zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;tim-2-96" rel="noopener" target="_blank"><i class="fa fa-fw fa-question-circle"></i>zhihu</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://upane.cn/" title="https:&#x2F;&#x2F;upane.cn" rel="noopener" target="_blank">博客旧址</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tim</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">184k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:47</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js"></script>
+    <script defer src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js"></script>
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'a876807f33858291f9d9',
+      clientSecret: '7a5c6a83611c309965d7339d7ca5f16e34a21e9f',
+      repo        : 'yimig.github.io',
+      owner       : 'yimig',
+      admin       : ['yimig'],
+      id          : '64c5f237cf7706062b1bf86c25c605d8',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

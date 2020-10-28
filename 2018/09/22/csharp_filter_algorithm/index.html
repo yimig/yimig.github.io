@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yimig.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="List与Dictionary都在System.Collections.Generic中 ①ListList是C#中的一种链表，它与数组类型相似性极高，比如使用时都需要先实例化、调用时都是根据索引、能够包含所有类等等。与数组类型不同的是，如果对IList 类的类型 T 使用引用类型，则两个类的行为是完全相同的。但是，如果对类型 T 使用值类型，则需要考虑实现和装箱问题。而添加到数组中的任何引用或">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【C#】List、Dictionary以及两种筛选算法">
+<meta property="og:url" content="http://yimig.github.io/2018/09/22/csharp_filter_algorithm/index.html">
+<meta property="og:site_name" content="Tim&#39;s Blog">
+<meta property="og:description" content="List与Dictionary都在System.Collections.Generic中 ①ListList是C#中的一种链表，它与数组类型相似性极高，比如使用时都需要先实例化、调用时都是根据索引、能够包含所有类等等。与数组类型不同的是，如果对IList 类的类型 T 使用引用类型，则两个类的行为是完全相同的。但是，如果对类型 T 使用值类型，则需要考虑实现和装箱问题。而添加到数组中的任何引用或">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://47.94.231.166/wp-content/uploads/2018/09/cmd_2018-09-23_11-59-28-300x168.png">
+<meta property="article:published_time" content="2018-09-22T08:12:05.000Z">
+<meta property="article:modified_time" content="2020-10-27T13:03:38.578Z">
+<meta property="article:author" content="Tim">
+<meta property="article:tag" content="C#学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://47.94.231.166/wp-content/uploads/2018/09/cmd_2018-09-23_11-59-28-300x168.png">
+
+<link rel="canonical" href="http://yimig.github.io/2018/09/22/csharp_filter_algorithm/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【C#】List、Dictionary以及两种筛选算法 | Tim's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?64126ab668fa908027cba9464a0afec7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Tim's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Learn Everything!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/yimig" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yimig.github.io/2018/09/22/csharp_filter_algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Tim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tim's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【C#】List、Dictionary以及两种筛选算法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-22 16:12:05" itemprop="dateCreated datePublished" datetime="2018-09-22T16:12:05+08:00">2018-09-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-27 21:03:38" itemprop="dateModified" datetime="2020-10-27T21:03:38+08:00">2020-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">从零开始的代码学习计划</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/%E5%89%8D%E5%A0%82/" itemprop="url" rel="index"><span itemprop="name">前堂</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>3.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+<p>List与Dictionary都在<strong>System.Collections.Generic</strong>中</p>
+<h1 id="①List"><a href="#①List" class="headerlink" title="①List"></a>①List</h1><p>List是C#中的一种链表，<strong>它与数组类型相似性极高</strong>，比如使用时都需要先实例化、调用时都是根据索引、能够包含所有类等等。与数组类型不同的是，如果对<a target="_blank" rel="noopener" href="http://msdn.microsoft.com/zh-cn/library/5y536ey6.aspx">IList</a> 类的类型 T 使用<strong>引用类型</strong>，则两个类的行为是<strong>完全相同</strong>的。但是，如果对类型 T 使用值类型，则需要考虑实现和装箱问题。而添加到数组中的<strong>任何引用或值类型都将隐式地向上强制转换为 Object</strong>。如果项是值类型，则必须在将其添加到列表中时进行装箱操作，在检索时进行取消装箱操作。强制转换以及装箱和取消装箱操作都会降低性能；在必须对大型集合进行循环访问的情况下，装箱和取消装箱的影响非常明显。<strong>而且List在后期也可以增减元素</strong>，而不是像数组那样一旦实例化便不可增减。于是，为了性能与后期编程考虑，<strong>存储引用类型应偏向于使用List而不是数组。</strong></p>
+<h2 id="创建一个List："><a href="#创建一个List：" class="headerlink" title="创建一个List："></a>创建一个List：</h2><h6 id="1-List-lt-数据类型-gt-链表名-new-List-lt-数据类型-gt-；"><a href="#1-List-lt-数据类型-gt-链表名-new-List-lt-数据类型-gt-；" class="headerlink" title="1.List&lt;数据类型&gt; 链表名=new List&lt;数据类型&gt;；"></a>1.List&lt;数据类型&gt; 链表名=new List&lt;数据类型&gt;；</h6><p>也可以在实例化的时候赋初始值，如</p>
+<h6 id="2-List-lt-数据类型-gt-链表名-new-List-lt-数据类型-gt-数据1，数据2，……-；"><a href="#2-List-lt-数据类型-gt-链表名-new-List-lt-数据类型-gt-数据1，数据2，……-；" class="headerlink" title="2.List&lt;数据类型&gt; 链表名=new List&lt;数据类型&gt;{数据1，数据2，……}；"></a>2.List&lt;数据类型&gt; 链表名=new List&lt;数据类型&gt;{数据1，数据2，……}；</h6><h6 id="或"><a href="#或" class="headerlink" title="或"></a>或</h6><h6 id="3-List-lt-数据类型-gt-链表名-new-List-lt-数据类型-gt-声明数据量类型的数组-；"><a href="#3-List-lt-数据类型-gt-链表名-new-List-lt-数据类型-gt-声明数据量类型的数组-；" class="headerlink" title="3.List&lt;数据类型&gt; 链表名=new List&lt;数据类型&gt;(声明数据量类型的数组)；"></a>3.List&lt;数据类型&gt; 链表名=new List&lt;数据类型&gt;(声明数据量类型的数组)；</h6><p>如：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>[] temArr = &#123; <span class="string">&quot;Ha&quot;</span>, <span class="string">&quot;Hunter&quot;</span>, <span class="string">&quot;Tom&quot;</span>, <span class="string">&quot;Lily&quot;</span>, <span class="string">&quot;Jay&quot;</span>, <span class="string">&quot;Jim&quot;</span>, <span class="string">&quot;Kuku&quot;</span>, <span class="string">&quot;Locu&quot;</span> &#125;;</span><br><span class="line">List testList = <span class="keyword">new</span> List(temArr);</span><br></pre></td></tr></table></figure>
+<h2 id="为List添加值"><a href="#为List添加值" class="headerlink" title="为List添加值"></a>为List添加值</h2><h4 id="1-list-Add-值）"><a href="#1-list-Add-值）" class="headerlink" title="1.list.Add(值）"></a>1.list.Add(值）</h4><p><strong>2.创建List的2、3方法</strong> 如：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">List list=<span class="keyword">new</span> list();</span><br><span class="line">list.Add(<span class="number">1</span>);</span><br><span class="line">list.Add(<span class="number">2</span>);```</span><br><span class="line">&lt;h2&gt;显示List的值&lt;/h2&gt;</span><br><span class="line">&lt;h6&gt;<span class="number">1.</span>显示特定值：&lt;/h6&gt;</span><br><span class="line"></span><br><span class="line">```csharp</span><br><span class="line">ist list=<span class="keyword">new</span> list();</span><br><span class="line">list.Add(<span class="number">1</span>);</span><br><span class="line">list.Add(<span class="number">2</span>);</span><br><span class="line">Console.WriteLine(list[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+<h6 id="2-遍历List："><a href="#2-遍历List：" class="headerlink" title="2.遍历List："></a>2.遍历List：</h6><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ist list=<span class="keyword">new</span> list();</span><br><span class="line">list.Add(<span class="number">1</span>);</span><br><span class="line">list.Add(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">foreach</span>(<span class="built_in">int</span> x <span class="keyword">in</span> list)Console.WriteLine(x);</span><br></pre></td></tr></table></figure>
+<h2 id="删除List中的值"><a href="#删除List中的值" class="headerlink" title="删除List中的值"></a>删除List中的值</h2><p> 1.List. Remove(T item)       删除一个值</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mList.Remove(<span class="string">&quot;Hunter&quot;</span>);</span><br></pre></td></tr></table></figure>
+<ol>
+<li>List. RemoveAt(int index);   删除下标为index的元素</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mList.RemoveAt(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<ol>
+<li>List. RemoveRange(int index, int count); 从下标index开始，删除count个元素</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mList.RemoveRange(<span class="number">3</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>4.List.Clear() 清空所有元素</p>
+<h1 id="②Dictionary"><a href="#②Dictionary" class="headerlink" title="②Dictionary"></a>②Dictionary</h1><p>Dictionary与List功能相似，但是Dictionary可以同时对应<strong>任意两种变量</strong>，而不是List中的索引对变量。可以体现为从一组<strong>键（Key）</strong>到一组<strong>值（Value）</strong>的映射。 创建一个Dictionary：</p>
+<h6 id="Dictionary-lt-键类型-值类型-gt-字典名-new-Dictionary-lt-键类型-值类型-gt"><a href="#Dictionary-lt-键类型-值类型-gt-字典名-new-Dictionary-lt-键类型-值类型-gt" class="headerlink" title="Dictionary&lt;键类型,值类型&gt; 字典名=new Dictionary&lt;键类型,值类型&gt;;"></a>Dictionary&lt;键类型,值类型&gt; 字典名=new Dictionary&lt;键类型,值类型&gt;;</h6><p>具体添加、删除可以类比List。  </p>
+<h1 id="③两种筛选算法"><a href="#③两种筛选算法" class="headerlink" title="③两种筛选算法"></a>③两种筛选算法</h1><h3 id="1-分类筛选："><a href="#1-分类筛选：" class="headerlink" title="1.分类筛选："></a>1.分类筛选：</h3><p>对于这样一组数：1,2,3,4,5,6,2,3,4,5,6,7,8,9,3,4,5,6,7,8,9,9,9,9 以每个数作为分类标准，查找<strong>有几个数</strong>，以及<strong>每个数重复了几次：</strong></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> protect = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">string</span>[] a = <span class="keyword">new</span> <span class="built_in">string</span>[] &#123; <span class="string">&quot;1&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;3&quot;</span>, <span class="string">&quot;4&quot;</span>, <span class="string">&quot;5&quot;</span>, <span class="string">&quot;6&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;3&quot;</span>, <span class="string">&quot;4&quot;</span>, <span class="string">&quot;5&quot;</span>, <span class="string">&quot;6&quot;</span>, <span class="string">&quot;7&quot;</span>, <span class="string">&quot;8&quot;</span>, <span class="string">&quot;9&quot;</span>, <span class="string">&quot;3&quot;</span>, <span class="string">&quot;4&quot;</span>, <span class="string">&quot;5&quot;</span>, <span class="string">&quot;6&quot;</span>, <span class="string">&quot;7&quot;</span>, <span class="string">&quot;8&quot;</span>, <span class="string">&quot;9&quot;</span>, <span class="string">&quot;9&quot;</span>, <span class="string">&quot;9&quot;</span>, <span class="string">&quot;9&quot;</span> &#125;;</span><br><span class="line">Dictionary&lt;<span class="built_in">int</span>, <span class="built_in">string</span>&gt; dic = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">int</span>, <span class="built_in">string</span>&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; a.Length; i++)</span><br><span class="line">&#123;</span><br><span class="line">    dic.Add(i, a[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> x = <span class="number">0</span>; x &lt; a.Length; x++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (dic.ContainsKey(x))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> y = x; y &lt; a.Length; y++) </span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">if</span> (dic.ContainsKey(y)) </span><br><span class="line">            &#123; </span><br><span class="line">                <span class="keyword">if</span> (dic[x] == dic[y]) </span><br><span class="line">                &#123; </span><br><span class="line">                    num++; </span><br><span class="line">                    <span class="keyword">if</span> (x != y) dic.Remove(y); </span><br><span class="line">                &#125; </span><br><span class="line">            &#125; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span> (num &gt; protect)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.Write(dic[x] + <span class="string">&quot;:&quot;</span>);</span><br><span class="line">        Console.WriteLine(num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当数字的个数多于protect规定的值时，才显示这个数，可以作为一种可选筛选标准。 运行结果如图：<img src="http://47.94.231.166/wp-content/uploads/2018/09/cmd_2018-09-23_11-59-28-300x168.png" alt=""></p>
+<h3 id="2-随机数筛选"><a href="#2-随机数筛选" class="headerlink" title="2.随机数筛选"></a>2.随机数筛选</h3><p>一次产生多个随机数</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List <span class="title">Generate</span>(<span class="params"><span class="built_in">int</span> max,<span class="built_in">int</span> min</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List result = <span class="keyword">new</span> List();</span><br><span class="line">    <span class="built_in">int</span> temp;</span><br><span class="line">    <span class="keyword">while</span> (result.Count &lt;Settingdata.Default.num)</span><br><span class="line">    &#123;</span><br><span class="line">        temp = GetRandom(min, max);</span><br><span class="line">        <span class="keyword">if</span> (!result.Contains(temp))</span><br><span class="line">        &#123;</span><br><span class="line">            result.Add(temp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参数min为最小值（包括），max为最大值（包括） 这里的GetRandom(min, max)是一种得到随机数的方法，可以是普通的以时间为seed的方法，也可以是RNG等多种方法 下面示例较为随机的使用RNG得到随机数的方法</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span> <span class="title">GetRandom</span>(<span class="params"><span class="built_in">int</span> minVal, <span class="built_in">int</span> maxVal</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//这样产生0 ~ 100的强随机数（不含100）</span></span><br><span class="line"><span class="built_in">int</span> m = maxVal - minVal;</span><br><span class="line"><span class="built_in">int</span> rnd = <span class="built_in">int</span>.MinValue;</span><br><span class="line"><span class="built_in">decimal</span> _base = (<span class="built_in">decimal</span>)<span class="built_in">long</span>.MaxValue;</span><br><span class="line"><span class="built_in">byte</span>[] rndSeries = <span class="keyword">new</span> <span class="built_in">byte</span>[<span class="number">8</span>];</span><br><span class="line">System.Security.Cryptography.RNGCryptoServiceProvider rng= <span class="keyword">new</span> System.Security.Cryptography.RNGCryptoServiceProvider();</span><br><span class="line">rng.GetBytes(rndSeries);</span><br><span class="line"><span class="built_in">long</span> l = BitConverter.ToInt64(rndSeries, <span class="number">0</span>);</span><br><span class="line">rnd = (<span class="built_in">int</span>)(Math.Abs(l) / _base * m);</span><br><span class="line"><span class="keyword">return</span> minVal + rnd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参数minVal为最小值（包括），maxVal为最大值（包括）</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># C#学习笔记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/09/22/python_basic_logic/" rel="prev" title="【Python】逻辑语句">
+      <i class="fa fa-chevron-left"></i> 【Python】逻辑语句
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/09/22/python_dict_and_set/" rel="next" title="【Python】Dict与Set">
+      【Python】Dict与Set <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A0List"><span class="nav-number">1.</span> <span class="nav-text">①List</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAList%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">创建一个List：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-List-lt-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-gt-%E9%93%BE%E8%A1%A8%E5%90%8D-new-List-lt-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-gt-%EF%BC%9B"><span class="nav-number">1.1.0.0.0.1.</span> <span class="nav-text">1.List&lt;数据类型&gt; 链表名&#x3D;new List&lt;数据类型&gt;；</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-List-lt-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-gt-%E9%93%BE%E8%A1%A8%E5%90%8D-new-List-lt-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-gt-%E6%95%B0%E6%8D%AE1%EF%BC%8C%E6%95%B0%E6%8D%AE2%EF%BC%8C%E2%80%A6%E2%80%A6-%EF%BC%9B"><span class="nav-number">1.1.0.0.0.2.</span> <span class="nav-text">2.List&lt;数据类型&gt; 链表名&#x3D;new List&lt;数据类型&gt;{数据1，数据2，……}；</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%88%96"><span class="nav-number">1.1.0.0.0.3.</span> <span class="nav-text">或</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-List-lt-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-gt-%E9%93%BE%E8%A1%A8%E5%90%8D-new-List-lt-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-gt-%E5%A3%B0%E6%98%8E%E6%95%B0%E6%8D%AE%E9%87%8F%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E7%BB%84-%EF%BC%9B"><span class="nav-number">1.1.0.0.0.4.</span> <span class="nav-text">3.List&lt;数据类型&gt; 链表名&#x3D;new List&lt;数据类型&gt;(声明数据量类型的数组)；</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BAList%E6%B7%BB%E5%8A%A0%E5%80%BC"><span class="nav-number">1.2.</span> <span class="nav-text">为List添加值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-list-Add-%E5%80%BC%EF%BC%89"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">1.list.Add(值）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E9%81%8D%E5%8E%86List%EF%BC%9A"><span class="nav-number">1.2.0.1.0.1.</span> <span class="nav-text">2.遍历List：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4List%E4%B8%AD%E7%9A%84%E5%80%BC"><span class="nav-number">1.3.</span> <span class="nav-text">删除List中的值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A1Dictionary"><span class="nav-number">2.</span> <span class="nav-text">②Dictionary</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Dictionary-lt-%E9%94%AE%E7%B1%BB%E5%9E%8B-%E5%80%BC%E7%B1%BB%E5%9E%8B-gt-%E5%AD%97%E5%85%B8%E5%90%8D-new-Dictionary-lt-%E9%94%AE%E7%B1%BB%E5%9E%8B-%E5%80%BC%E7%B1%BB%E5%9E%8B-gt"><span class="nav-number">2.0.0.0.0.1.</span> <span class="nav-text">Dictionary&lt;键类型,值类型&gt; 字典名&#x3D;new Dictionary&lt;键类型,值类型&gt;;</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%91%A2%E4%B8%A4%E7%A7%8D%E7%AD%9B%E9%80%89%E7%AE%97%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">③两种筛选算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%88%86%E7%B1%BB%E7%AD%9B%E9%80%89%EF%BC%9A"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.分类筛选：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%AD%9B%E9%80%89"><span class="nav-number">3.0.2.</span> <span class="nav-text">2.随机数筛选</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Tim"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">Tim</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yimig" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yimig" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhangyiming@programmer.net" title="E-Mail → mailto:zhangyiming@programmer.net" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.com/yimig/" title="LeeCode → https:&#x2F;&#x2F;leetcode.com&#x2F;yimig&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>LeeCode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/tim-2-96" title="zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;tim-2-96" rel="noopener" target="_blank"><i class="fa fa-fw fa-question-circle"></i>zhihu</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://upane.cn/" title="https:&#x2F;&#x2F;upane.cn" rel="noopener" target="_blank">博客旧址</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tim</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">184k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:47</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js"></script>
+    <script defer src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js"></script>
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'a876807f33858291f9d9',
+      clientSecret: '7a5c6a83611c309965d7339d7ca5f16e34a21e9f',
+      repo        : 'yimig.github.io',
+      owner       : 'yimig',
+      admin       : ['yimig'],
+      id          : '8f9e510bf113dc981d236a6a0886efa9',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
