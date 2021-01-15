@@ -30,7 +30,7 @@
 <meta property="og:description" content="你捡起了道具：遗失的纸片2# 一张普通的纸片，隐隐约约能够看到目录：“强制类型转换、运算符、语句、对象、函数、作用域”。边角还有被撕扯的痕迹，它们应该属于一个笔记本，但不知为什么被主人撕下来丢掉了。 提示：集齐所有纸片应该可以得到一本技能书。 👇点击下方按钮调查">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-04-22T09:45:02.000Z">
-<meta property="article:modified_time" content="2020-10-28T14:50:08.825Z">
+<meta property="article:modified_time" content="2021-01-15T02:34:22.144Z">
 <meta property="article:author" content="Tim">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content="js学习笔记">
@@ -248,7 +248,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-28 22:50:08" itemprop="dateModified" datetime="2020-10-28T22:50:08+08:00">2020-10-28</time>
+                <time title="修改时间：2021-01-15 10:34:22" itemprop="dateModified" datetime="2021-01-15T10:34:22+08:00">2021-01-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -303,16 +303,34 @@
 <h3 id="转Number"><a href="#转Number" class="headerlink" title="转Number:"></a>转<code>Number</code>:</h3><ol>
 <li>使用<code>Number()</code>函数</li>
 </ol>
-<p>？→数值</p>
-<p>转换结果</p>
-<p>字符串</p>
-<p>非纯数字转换为<code>NaN</code>，空值/空格转换为0</p>
-<p>布尔</p>
-<p>true→1，false→0</p>
-<p>null</p>
-<p>0</p>
-<p>undefined</p>
-<p><code>NaN</code></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>？→数值</th>
+<th>转换结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字符串</td>
+<td>非纯数字转换为<code>NaN</code>，空值/空格转换为0</td>
+</tr>
+<tr>
+<td>布尔</td>
+<td>true→1，false→0</td>
+</tr>
+<tr>
+<td>null</td>
+<td>0</td>
+</tr>
+<tr>
+<td>undefined</td>
+<td><code>NaN</code></td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>2.使用<code>parseInt()</code>/<code>parseFloat()</code>将字符串转换为整型/浮点型 <strong>该方法可去除字符串中非数字部分</strong> <strong>原理：读到第一个非数字位，往后都忽略</strong></p>
 <blockquote>
 <p>“123px”→123 “123px456”→123”123.5”→123</p>
@@ -322,77 +340,160 @@
 <p>true→”true”→NaN 123.5→”123.5”→123 所以<code>parseInt()</code>也有取整的作用</p>
 </blockquote>
 <p>3.其他进制数字</p>
-<p>进制</p>
-<p>命名规定</p>
-<p>Hex</p>
-<p>0x??</p>
-<p>Oct</p>
-<p>0??</p>
-<p>Bin</p>
-<p>0B??</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>进制</th>
+<th>命名规定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hex</td>
+<td>0x??</td>
+</tr>
+<tr>
+<td>Oct</td>
+<td>0??</td>
+</tr>
+<tr>
+<td>Bin</td>
+<td>0B??</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>像“070”这种字符串有的浏览器会当成八进制解析</p>
 <blockquote>
 <p>明确制定进制：parseInt(a,10)可向<code>parseInt()</code>传两个参数，第二个参数表示进制。</p>
 </blockquote>
 <h3 id="转Boolean"><a href="#转Boolean" class="headerlink" title="转Boolean:"></a>转<code>Boolean</code>:</h3><p>使用<code>Boolean()</code>参数：</p>
-<p>？→Boolean</p>
-<p>转换结果</p>
-<p>数字</p>
-<p>除了0和<code>NaN</code>，其他都是true</p>
-<p>字符串</p>
-<p>除了空串，其他都是true</p>
-<p>对象</p>
-<p>true</p>
-<p>null/undefined</p>
-<p>false</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>？→Boolean</th>
+<th>转换结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数字</td>
+<td>除了0和<code>NaN</code>，其他都是true</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>除了空串，其他都是true</td>
+</tr>
+<tr>
+<td>对象</td>
+<td>true</td>
+</tr>
+<tr>
+<td>null/undefined</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h3 id="unicode转换："><a href="#unicode转换：" class="headerlink" title="unicode转换："></a>unicode转换：</h3><ol>
 <li>JS：<strong>\\u+unicode(四位16进制编码)</strong></li>
 <li>HTML：<strong>&amp;#+unicode(十进制编码)</strong></li>
 </ol>
-<h2 id="8-运算符"><a href="#8-运算符" class="headerlink" title="8.运算符"></a>8.运算符</h2><p>运算符</p>
-<p>运算法则</p>
-<p>隐式转换</p>
-<p>+</p>
-<p>①NaN与任何数运算都得NaN②亦可字符串合并③任何值与字符串相加都转为字符串合并</p>
-<p>是</p>
-<p>-、*、/……</p>
-<p>任何值都转换为Number参与运算</p>
-<p>是</p>
-<p>+(正)、-(负)</p>
-<p>非Number值先转为Number，再求正/反</p>
-<p>是</p>
-<p>!、||、&amp;&amp;</p>
-<p>先转为布尔值，再进行逻辑运算，且返回原值，而不是bool变量</p>
-<p>是</p>
-<p>-</p>
-<p>与：第一个为true，则必然返回第二个；第一个为false，则必然返回第一个（找false）</p>
-<p>-</p>
-<p>或：第一个为true，则必然返回第一个，第一个为false，则必然返回第二个（找true）</p>
-<p>>/\\&lt;</p>
-<p>①非数值比较时将其转换为数值②任何值与NaN比较都是false③如果富豪两侧都是字符串，则不会转成数字而是转成相应的字符，使用unicode编码（一位一位比，两位一样就比下一位，直至比出结果）→比较字符串时一定要转型</p>
-<p>是</p>
-<p>\==/!=</p>
-<p>①undefined衍生自null，所以相等②NaN不与任何值相等，包括它本身③判断是否为NaN：<code>isNaN()</code>函数</p>
-<p>是</p>
-<p>\===</p>
-<p>全等→不做类型转换，类型不同的直接返回false</p>
-<p>否</p>
-<p>!==</p>
-<p>不全等→不做类型转换，类型相同直接返回false</p>
-<p>否</p>
+<h2 id="8-运算符"><a href="#8-运算符" class="headerlink" title="8.运算符"></a>8.运算符</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>运算法则</th>
+<th>隐式转换</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>①NaN与任何数运算都得NaN②亦可字符串合并③任何值与字符串相加都转为字符串合并</td>
+<td>是</td>
+</tr>
+<tr>
+<td>-、*、/……</td>
+<td>任何值都转换为Number参与运算</td>
+<td>是</td>
+</tr>
+<tr>
+<td>+(正)、-(负)</td>
+<td>非Number值先转为Number，再求正/反</td>
+<td>是</td>
+</tr>
+<tr>
+<td>!、\</td>
+<td>\</td>
+<td>、&amp;&amp;</td>
+<td>先转为布尔值，再进行逻辑运算，且返回原值，而不是bool变量</td>
+<td>是</td>
+</tr>
+<tr>
+<td>-</td>
+<td>与：第一个为true，则必然返回第二个；第一个为false，则必然返回第一个（找false）</td>
+</tr>
+<tr>
+<td>-</td>
+<td>或：第一个为true，则必然返回第一个，第一个为false，则必然返回第二个（找true）</td>
+</tr>
+<tr>
+<td>>/\\&lt;</td>
+<td>①非数值比较时将其转换为数值②任何值与NaN比较都是false③如果富豪两侧都是字符串，则不会</td>
+<td>成数字而是转成相应的字符，使用unicode编码（一位一位比，两位一样就比下一位，直至比出</td>
+<td>果）→比较字符串时一定要转型</td>
+<td>是</td>
+</tr>
+<tr>
+<td>\==/!=</td>
+<td>①undefined衍生自null，所以相等②NaN不与任何值相等，包括它本身③判断是否为NaN：`isNaN(</td>
+<td>`函数</td>
+<td>是</td>
+</tr>
+<tr>
+<td>\===</td>
+<td>全等→不做类型转换，类型不同的直接返回false</td>
+<td>否</td>
+<td>!==</td>
+<td>不全等→不做类型转换，类型相同直接返回false</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h2 id="9-语句"><a href="#9-语句" class="headerlink" title="9.语句"></a>9.语句</h2><p>自上向下执行，可用{}对其分组。 同一个{}称一组语句，要么都执行要么都不执行，一个{}称代码块，{}只有分组作用，不能隔离语句</p>
-<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><p>语句</p>
-<p>语法</p>
-<p>注释</p>
-<p>条件</p>
-<p>if(?){A}else{B}</p>
-<p>-</p>
-<p>条件分支</p>
-<p>switch(?){case 表达式：语句 break;……..default:语句}</p>
-<p>case后是<strong>全等判断</strong></p>
-<p>循环</p>
-<p>while(条件表达式){语句}/for(初始化表达式;条件表达式;更新表达式){}</p>
-<p>每次循环前先对条件表达式进行判断，<strong>若为true</strong>则进入循环体</p>
+<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>语句</th>
+<th>语法</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>条件</td>
+<td>if(?){A}else{B}</td>
+<td>-</td>
+</tr>
+<tr>
+<td>条件分支</td>
+<td>switch(?){case 表达式：语句 break;……..default:语句}</td>
+<td>case后是<strong>全等判断</strong></td>
+</tr>
+<tr>
+<td>循环</td>
+<td>while(条件表达式){语句}/for(初始化表达式;条件表达式;更新表达式){}</td>
+<td>每次循环前先对条件表达式进行判断，<strong>若为true</strong>则进入循环体</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h2 id="10-对象"><a href="#10-对象" class="headerlink" title="10.对象"></a>10.对象</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
 <li>内建对象：<strong>由ES标准中定义的对象</strong>，在任何ES实现中都可使用（Math、String等）</li>
 <li>宿主对象：<strong>由JS运行环境提供的对象</strong>，目前来讲指浏览器提供的对象，如BOM、DOM</li>
@@ -609,7 +710,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
